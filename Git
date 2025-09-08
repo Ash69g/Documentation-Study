@@ -1,0 +1,26 @@
+PS C:\Users\PC\Documents\GitHub\Documentation-Study> git config --global user.name "Ash69g"
+
+PS C:\Users\PC\Documents\GitHub\Documentation-Study> git config --global user.email "busi.abd7340@gmail.com"
+PS C:\Users\PC\Documents\GitHub\Documentation-Study> ssh-keygen -t ed25519 -C "Ash69g@CA-Admin"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (C:\Users\PC/.ssh/id_ed25519):
+Created directory 'C:\\Users\\PC/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in C:\Users\PC/.ssh/id_ed25519
+Your public key has been saved in C:\Users\PC/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:rnpajFDmU4/I/q8HsZGeXteIQz8WWtF86OAvHxYmJH0 Ash69g@CA-Admin
+The key's randomart image is:
++--[ED25519 256]--+
+| . o . |
+| . = E . |
+| o .. + = . |
+| = o+o. = + |
+| . =..\*S= B . |
+| o +=.= B = |
+| o.oo.+ = . |
+| oo.. . |
+| o+++. |
++----[SHA256]-----+
+PS C:\Users\PC\Documents\GitHub\Documentation-Study>
