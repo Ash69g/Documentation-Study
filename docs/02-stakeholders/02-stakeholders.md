@@ -1,17 +1,15 @@
 
-
 # 👥 Stakeholders Analysis / تحليل أصحاب المصلحة
 
-> **Project:** CA Admin  
+> **Project:** CA Admin
 > **Version:** v0.1 — Owner: Abdullah Alshaif — Last Updated: YYYY-MM-DD
 
 ---
 
 ## 1. Introduction / المقدمة
 
-<div align="center">
-  <img src="https://img.icons8.com/color/96/000000/conference-call.png" width="80" alt="stakeholders"/>
-</div>
+<!-- Centered image workaround for Markdown linting -->
+![stakeholders](https://img.icons8.com/color/96/000000/conference-call.png)
 
 **EN:**
 Stakeholders are all individuals, groups, or entities who have an interest in the CA Admin system, whether internal (staff, finance, IT) or external (customers, vendors). Identifying and analyzing stakeholders ensures that requirements are clear and priorities are aligned.

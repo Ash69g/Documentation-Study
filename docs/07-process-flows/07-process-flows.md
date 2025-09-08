@@ -1,17 +1,30 @@
-
 # 🔄 Process Flows / تدفقات العمليات
 
-> **Project:** CA Admin  
-> **Version:** v0.1 — Owner: Abdullah Alshaif  
+> **Project:** CA Admin
+> **Version:** v0.1 — Owner: Abdullah Alshaif
 > **Last Updated:** 2025-09-08
+
+---
+
+## 🏁 Visual Summary / ملخص بصري
+
+```mermaid
+flowchart TD
+  Start([بداية العملية]) --> Order[استقبال الطلب]
+  Order --> Validate[تحقق وتخزين]
+  Validate --> Purchase[شراء وتجميع]
+  Purchase --> Shipment[شحن]
+  Shipment --> Sort[فرز وتجهيز]
+  Sort --> Delivery[تسليم]
+  Delivery --> Payment[دفع]
+  Payment --> End([نهاية العملية])
+```
 
 ---
 
 ## 1. Introduction / المقدمة
 
-<div align="center">
-  <img src="https://img.icons8.com/color/96/000000/process.png" width="80" alt="process flows"/>
-</div>
+![process flows](https://img.icons8.com/color/96/000000/process.png)
 
 **EN:**
 Process flows describe the sequence of activities in the CA Admin system. We use **BPMN (Business Process Model and Notation)** for business flows and **DFD (Data Flow Diagrams)** for data movement.
@@ -79,18 +92,26 @@ flowchart LR
 
 ---
 
-## 6. Notes / ملاحظات
+## 6. Notes, Tips & FAQ / ملاحظات ونصائح وأسئلة شائعة
 
 - **BPMN diagrams** show who does what (business roles).
 - **DFD diagrams** show how data moves between modules.
-- These flows must align with Use Cases and User Stories.
+- BPMN is best for business/approval flows, DFD for technical/data flows.
+- Always align process flows with [Use Cases](../04-use-cases/04-use-cases.md) and [User Stories](../03-stories/03-stories.md).
 - Updates in processes should be reflected here and in [Architecture](../06-architecture/06-architecture.md).
 
+### Q: متى أستخدم BPMN ومتى أستخدم DFD؟
+
+**A:**
+
+- استخدم BPMN عندما تريد توضيح الأدوار البشرية أو خطوات الموافقة.
+- استخدم DFD عندما تريد توضيح تدفق البيانات بين الأنظمة أو الوحدات.
+
+#### Q: كيف أضيف تدفق جديد؟
+
+**A:**
+
+- أضف مخطط جديد (BPMN أو DFD) مع وصف نصي مختصر.
+- اربطه بحالة استخدام أو قصة مستخدم ذات صلة.
+
 ---
-
-🔹 الآن عندك:
-- **BPMN عام** يوضح رحلة الطلب من العميل حتى الدفع.
-- **DFD Level 0 & Level 1** يوضح تدفق البيانات الأساسي وتدفق الطلبات.
-- ربط واضح مع Use Cases والـ Architecture.
-
-هل ترغب أن ننتقل الآن إلى الملف الثامن **`/docs/08-security-and-roles/08-security-and-roles.md`** لتوثيق **RBAC + Firebase Security Rules**؟

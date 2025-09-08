@@ -1,64 +1,5 @@
 # 🗄️ Data Model / نموذج البيانات
 
-> Project: **CA Admin**  
-> Version: v0.1 — Owner: Abdullah Alshaif — Last Updated: YYYY-MM-DD
-
----
-
-## 1) Introduction / المقدمة
-**EN:**  
-The Data Model defines the entities, attributes, and relationships required to support the CA Admin system. It starts with a conceptual ERD and then maps into Firebase Firestore schema.  
-
-**AR:**  
-نموذج البيانات يعرّف الكيانات والخصائص والعلاقات المطلوبة لدعم نظام CA Admin. يبدأ بمخطط ERD تصوري ثم يتم تحويله إلى مخطط Firebase Firestore.
-
----
-
-## 2) Conceptual ERD / المخطط التصوري للكيانات
-
-```mermaid
-erDiagram
-    CUSTOMERS ||--o{ CUSTOMER_ORDERS : places
-    CUSTOMER_ORDERS ||--|{ ORDER_ITEMS : contains
-    CUSTOMER_ORDERS ||--o{ SHIPMENTS : linked_to
-    SHIPMENTS ||--o{ DRIVERS : handled_by
-    FINANCIAL_LOGS ||--o{ CUSTOMER_ORDERS : reconciles
-    BANK_CARDS ||--o{ BANK_DEPOSITS : records
-    BANK_CARDS ||--o{ BANK_PAYMENTS : pays
-    BANK_CARDS ||--o{ SHEIN_GIFT_CARDS : tracks
-    IMAGES ||--o{ CUSTOMER_ORDERS : attached_to
-    CHECKOUT_LOG ||--o{ CUSTOMER_ORDERS : reconciles
-
-
-Entities:
-
-Customers: Customer info, contact details.
-
-Customer Orders: Main orders linked to customers.
-
-Order Items: Specific products (SKU, quantity, price).
-
-Shipments: Shipping records (status, date, driver).
-
-Drivers: Couriers delivering shipments.
-
-Financial Logs: Global log of all financial activities.
-
-Bank Cards: Cards used for payments/deposits.
-
-Bank Deposits / Payments: Incoming/outgoing transactions.
-
-Shein Gift Cards: Gift card usage & refunds.
-
-Images: Attachments (receipts, product images).
-
-
-createdAt (timestamp)
-cardId (string)
-giftCardDiscount (number)
-
-# 🗄️ Data Model / نموذج البيانات
-
 > **Project:** CA Admin  
 > **Version:** v0.1 — Owner: Abdullah Alshaif — Last Updated: YYYY-MM-DD
 
@@ -66,9 +7,7 @@ giftCardDiscount (number)
 
 ## 1. Introduction / المقدمة
 
-<div align="center">
-  <img src="https://img.icons8.com/color/96/000000/database.png" width="80" alt="data model"/>
-</div>
+![data model](https://img.icons8.com/color/96/000000/database.png)
 
 **EN:**
 The Data Model defines the entities, attributes, and relationships required to support the CA Admin system. It starts with a conceptual ERD and then maps into Firebase Firestore schema.
@@ -78,15 +17,15 @@ The Data Model defines the entities, attributes, and relationships required to s
 
 ---
 
-## 1.1 Data Flow Overview / نظرة تدفق البيانات
+## 1.1 Visual Data Flow / التدفق البصري للبيانات
 
 ```mermaid
 flowchart LR
-    Customer((عميل)) -->|طلب| App[تطبيق CA Admin]
-    App -->|تخزين| Firestore[(Firestore DB)]
-    App -->|تقارير| Finance[المالية]
-    App -->|إدارة| Admin[الإدارة]
-    Firestore -->|استعلامات| App
+  A([عميل]) -->|طلب| B[تطبيق CA Admin]
+  B -->|تخزين| C[(Firestore DB)]
+  B -->|تقارير| D[المالية]
+  B -->|إدارة| E[الإدارة]
+  C -->|استعلامات| B
 ```
 
 ---
@@ -123,9 +62,14 @@ erDiagram
 
 ---
 
+---
+
+---
+
 ## 3. Logical Data Model / النموذج المنطقي للبيانات
 
 ### Customers / العملاء
+
 - `customerId` (string, unique)
 - `name` (string)
 - `phone` (string)
@@ -133,18 +77,20 @@ erDiagram
 - `createdAt` (timestamp)
 
 ### Customer Orders / طلبات العملاء
+
 - `orderId` (string, unique)
 - `customerId` (ref → Customers)
 - `orderNo` (string)
 - `status` (enum: new, purchased, shipped, arrived, delivered)
 - `totalSAR` (number)
 - `exchangeRate` (number)
-- `totalYER` (calc: totalSAR * exchangeRate)
+- `totalYER` (calc: totalSAR \* exchangeRate)
 - `paid` (number)
 - `remaining` (calc: totalYER - paid - cashOffice)
 - `createdAt` (timestamp)
 
 ### Order Items / عناصر الطلب
+
 - `itemId` (string)
 - `orderId` (ref → Orders)
 - `sku` (string)
@@ -154,6 +100,7 @@ erDiagram
 - `image` (string)
 
 ### Shipments / الشحنات
+
 - `shipmentId` (string)
 - `orderId` (ref → Orders)
 - `status` (enum: in-transit, arrived-KSA, forwarded, arrived-Yemen, sorted, delivered)
@@ -162,11 +109,13 @@ erDiagram
 - `createdAt` (timestamp)
 
 ### Drivers / السائقون
+
 - `driverId` (string)
 - `name` (string)
 - `phone` (string)
 
 ### Financial Logs / السجلات المالية
+
 - `logId` (string)
 - `type` (enum: payment, deposit, deduction, refund)
 - `amountUSD` (number)
@@ -175,18 +124,21 @@ erDiagram
 - `createdAt` (timestamp)
 
 ### Bank Cards / بطاقات البنك
+
 - `cardId` (string)
 - `cardName` (string)
 - `cardHolder` (string)
 - `bankBalance` (number)
 
 ### Bank Deposits / الإيداعات البنكية
+
 - `depositId` (string)
 - `cardId` (ref → BankCards)
 - `amount` (number)
 - `createdAt` (timestamp)
 
 ### Bank Payments / المدفوعات البنكية
+
 - `paymentId` (string)
 - `cardId` (ref → BankCards)
 - `paymentSource` (string)
@@ -194,6 +146,7 @@ erDiagram
 - `createdAt` (timestamp)
 
 ### Shein Gift Cards / بطاقات هدايا شي إن
+
 - `cardId` (string)
 - `cardNumber` (string)
 - `cardBalance` (number)
@@ -201,12 +154,14 @@ erDiagram
 - `giftCardDiscount` (number)
 
 ### Images / الصور
+
 - `imageId` (string)
 - `orderId` (ref → Orders)
 - `url` (string)
 - `type` (enum: product, receipt)
 
 ### Checkout Log / سجل الإغلاق
+
 - `checkoutId` (string)
 - `totalToPay` (number)
 - `totalCash` (number)
@@ -301,13 +256,40 @@ erDiagram
 
 ---
 
-## 6. Notes / ملاحظات
+## 6. Best Practices & FAQ / أفضل الممارسات وأسئلة شائعة
 
-- This file contains:
-  - Conceptual ERD (Mermaid)
-  - Entity descriptions and main fields
-  - Firestore collections/subcollections schema
-  - Notes on indexes and relationships
 - Keep the data model updated as requirements evolve.
+- Validate changes with both business and technical stakeholders.
+- For complex queries, use denormalization and composite indexes.
+- Use [Indexes & Queries](../09-indexes-and-queries/09-indexes-and-queries.md) for advanced search scenarios.
+
+**Q: What is the difference between ERD and Firestore Schema?**
+
+**A:**
+
+- ERD shows conceptual relationships (like SQL), while Firestore schema adapts for NoSQL (denormalization, subcollections).
+- Firestore is document-based, so some relations are embedded or split into subcollections for performance.
+
+**Q: How do I add a new entity?**
+
+**A:**
+
+- Update the ERD diagram and entity list.
+- Add the new collection/subcollection in the Firestore schema section.
+- Review indexes and queries for new access patterns.
+
+---
+
+## 7. Example Scenario / سيناريو عملي
+
+**EN:**
+
+> Customer Ahmed places an order with 2 items. The system creates a new order, links items, and generates a shipment. Payment is logged, and all records are linked for easy tracking.
+
+**AR:**
+
+> يقوم العميل أحمد بإنشاء طلب يحتوي على منتجين. ينشئ النظام طلبًا جديدًا، ويربط العناصر، ويولّد شحنة. يتم تسجيل الدفعة، وترتبط جميع السجلات لتسهيل التتبع.
+
+---
 
 ---

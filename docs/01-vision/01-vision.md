@@ -1,20 +1,17 @@
 
-
 # 🎯 Vision Document / وثيقة الرؤية
 
 > **Project:** CA Admin — إدارة العملاء، الطلبات، الشحنات، والمالية
-> 
+>
 > **Stack:** Flutter + Firebase (Firestore, Auth, Storage, Functions)
-> 
+>
 > **Version:** v0.1 (Vision) — Owner: Abdullah Alshaif — Last Updated: YYYY-MM-DD
 
 ---
 
 ## 1. Introduction / المقدمة
 
-<div align="center">
-	<img src="https://img.icons8.com/color/96/000000/online-shop.png" width="80" alt="shop"/>
-</div>
+![shop icon](https://img.icons8.com/color/96/000000/online-shop.png)
 
 **EN:**
 CA Admin is a unified platform for managing online purchasing mediation, centralizing customer orders, global shopping (Shein, iHerb, Amazon, Noon…), cross-border shipping (KSA → Yemen), last-mile delivery, and all financial operations.
@@ -27,7 +24,7 @@ CA Admin is a unified platform for managing online purchasing mediation, central
 ## 1.1 Why Now? / لماذا الآن؟
 
 > **EN:** The e-commerce and cross-border shopping market is growing rapidly in the region, but most intermediaries still rely on manual, error-prone processes. A modern, automated platform is essential to compete and scale.
-> 
+>
 > **AR:** سوق التجارة الإلكترونية والشراء من الخارج ينمو بسرعة في المنطقة، لكن معظم الوسطاء ما زالوا يعتمدون على عمليات يدوية كثيرة الأخطاء. وجود منصة حديثة مؤتمتة أصبح ضرورة للمنافسة والتوسع.
 
 ---
@@ -36,14 +33,14 @@ CA Admin is a unified platform for managing online purchasing mediation, central
 
 ```mermaid
 flowchart TD
-		Customer((عميل)) -->|طلب| App[تطبيق CA Admin]
-		App -->|شراء| Vendor[متاجر عالمية]
-		Vendor -->|شحن| KSA[مكتب السعودية]
-		KSA -->|تجميع| Yemen[مكتب اليمن]
-		Yemen -->|توصيل| Customer
-		App -->|إشعارات| Customer
-		App -->|تقارير مالية| Finance[المالية]
-		App -->|إدارة| Admin[الإدارة]
+  Customer((عميل)) -->|طلب| App[تطبيق CA Admin]
+  App -->|شراء| Vendor[متاجر عالمية]
+  Vendor -->|شحن| KSA[مكتب السعودية]
+  KSA -->|تجميع| Yemen[مكتب اليمن]
+  Yemen -->|توصيل| Customer
+  App -->|إشعارات| Customer
+  App -->|تقارير مالية| Finance[المالية]
+  App -->|إدارة| Admin[الإدارة]
 ```
 
 ---
@@ -52,10 +49,10 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-		A[جداول متفرقة] --> B[طلبات عبر المحادثات]
-		B --> C[ضعف تتبع الشحنات]
-		C --> D[أخطاء مالية]
-		D --> E[تكرار العمل اليدوي]
+  A[جداول متفرقة] --> B[طلبات عبر المحادثات]
+  B --> C[ضعف تتبع الشحنات]
+  C --> D[أخطاء مالية]
+  D --> E[تكرار العمل اليدوي]
 ```
 
 **EN:**
@@ -82,14 +79,15 @@ Current operations are manual and fragmented: scattered spreadsheets, chat-based
 
 ```mermaid
 graph TD
-		A[مركزية البيانات] --> B[شفافية العمليات]
-		B --> C[أتمتة كاملة]
-		C --> D[تقارير دقيقة]
-		D --> E[تجربة عميل أفضل]
+  A[مركزية البيانات] --> B[شفافية العمليات]
+  B --> C[أتمتة كاملة]
+  C --> D[تقارير دقيقة]
+  D --> E[تجربة عميل أفضل]
 ```
 
 **EN:**
 Provide a **centralized, transparent, and automated** platform that:
+
 - Captures customer orders quickly
 - Orchestrates purchasing & consolidation
 - Tracks international & local shipments in real time
@@ -117,6 +115,7 @@ Provide a **centralized, transparent, and automated** platform that:
 ## 5. Scope / النطاق
 
 **In-Scope / ضمن النطاق:**
+
 - Customer accounts & order intake (links, SKU, qty, notes)
 - Purchase workflow & consolidation (KSA office)
 - Cross-border shipping + local delivery (drivers)
@@ -125,6 +124,7 @@ Provide a **centralized, transparent, and automated** platform that:
 - Security rules (Firestore) + RBAC via Custom Claims
 
 **Out-of-Scope (Phase-1) / خارج النطاق (المرحلة الأولى):**
+
 - Online payment gateway integration (manual first)
 - Advanced analytics/AI (recommendations/forecast)
 - Multi-country logistics beyond KSA–Yemen
@@ -147,36 +147,36 @@ Provide a **centralized, transparent, and automated** platform that:
 
 ```mermaid
 mindmap
-	root((CA Admin))
-		Orders
-			Create/Edit
-			Link Items
-			Attach Images/Notes
-		Shipments
-			Purchased
-			Shipped
-			Arrived KSA
-			Forwarded
-			Arrived Yemen
-			Sorted
-			Delivered
-		Finance
-			Balances
-			Bank Cards
-			Deposits
-			Payments
-			Gift Cards
-			Logs/Audit
-		Notifications
-			Status Changes
-			Payment Confirmations
-		Search & Filters
-			By Customer
-			By Status
-			By Date
-			By OrderNo
-		Multi-language
-		Offline-first
+ root((CA Admin))
+  Orders
+   Create/Edit
+   Link Items
+   Attach Images/Notes
+  Shipments
+   Purchased
+   Shipped
+   Arrived KSA
+   Forwarded
+   Arrived Yemen
+   Sorted
+   Delivered
+  Finance
+   Balances
+   Bank Cards
+   Deposits
+   Payments
+   Gift Cards
+   Logs/Audit
+  Notifications
+   Status Changes
+   Payment Confirmations
+  Search & Filters
+   By Customer
+   By Status
+   By Date
+   By OrderNo
+  Multi-language
+  Offline-first
 ```
 
 ---
@@ -205,10 +205,10 @@ mindmap
 
 ```mermaid
 timeline
-		title Project Release Phases
-		2024-09-01 : MVP: Orders, Shipments, Finance, AR/EN, Offline
-		2024-10-01 : Phase 2: Gift cards, dashboards, richer reports
-		2024-11-01 : Phase 3: API integrations, web portal, analytics
+  title Project Release Phases
+  2024-09-01 : MVP: Orders, Shipments, Finance, AR/EN, Offline
+  2024-10-01 : Phase 2: Gift cards, dashboards, richer reports
+  2024-11-01 : Phase 3: API integrations, web portal, analytics
 ```
 
 ---

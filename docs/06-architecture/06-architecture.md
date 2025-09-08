@@ -1,17 +1,15 @@
 
 # 🏗️ System Architecture / بنية النظام
 
-> **Project:** CA Admin  
-> **Version:** v0.1 — Owner: Abdullah Alshaif  
+> **Project:** CA Admin
+> **Version:** v0.1 — Owner: Abdullah Alshaif
 > **Last Updated:** 2025-09-08
 
 ---
 
 ## 1. Introduction / المقدمة
 
-<div align="center">
-  <img src="https://img.icons8.com/color/96/000000/architecture.png" width="80" alt="architecture"/>
-</div>
+![architecture](https://img.icons8.com/color/96/000000/architecture.png)
 
 **EN:**
 The CA Admin application is built using **Clean Architecture** for scalability, testability, and maintainability. It integrates **Flutter** (client) with **Firebase** (Firestore, Auth, Storage, Cloud Functions) and is designed as **offline-first**: users can work without internet, and data syncs automatically when online.
@@ -60,11 +58,13 @@ flowchart TD
 ## 4. Offline-First Sync Strategy / إستراتيجية المزامنة دون إنترنت
 
 **EN:**
+
 - Local cache stores user actions (orders, payments, updates) when offline.
 - A Sync Service pushes queued actions to Firestore once online.
 - Conflict resolution: last-write-wins + audit log for traceability.
 
 **AR:**
+
 - التخزين المحلي يحفظ عمليات المستخدم (طلبات، دفعات، تحديثات) عند انقطاع الإنترنت.
 - خدمة المزامنة ترسل العمليات إلى Firestore عند عودة الاتصال.
 - معالجة التعارض: آخر تعديل هو الفائز + سجل تدقيق للتتبع.
@@ -117,11 +117,3 @@ flowchart LR
 - Offline-first sync is critical for regions with unreliable internet.
 
 ---
-
-🔹 بهذا الملف أصبح عندك:
-- وصف كامل للمعمارية.
-- مخططات Mermaid توضح Clean Architecture والـ Firebase Integration.
-- إستراتيجية المزامنة دون إنترنت.
-- **ADRs** توثق قرارات التصميم.
-
-هل ترغب أن أتابع الآن إلى الملف السابع **`/docs/07-process-flows/07-process-flows.md`** لنوثق **BPMN + DFD** لتدفقات العمل (طلب → شراء → شحن → تسليم → دفع)؟

@@ -1,4 +1,3 @@
-
 # ⚙️ Non-Functional Requirements & Quality / المتطلبات غير الوظيفية والجودة
 
 > **Project:** CA Admin  
@@ -9,9 +8,7 @@
 
 ## 1. Introduction / المقدمة
 
-<div align="center">
-	<img src="https://img.icons8.com/color/96/000000/checked-2--v2.png" width="80" alt="quality"/>
-</div>
+![quality](https://img.icons8.com/color/96/000000/checked-2--v2.png)
 
 **EN:**
 Non-functional requirements (NFRs) define the **quality attributes** of the CA Admin system, including performance, reliability, usability, security, and maintainability. These ensure the system is practical, stable, and user-friendly.
@@ -21,35 +18,76 @@ Non-functional requirements (NFRs) define the **quality attributes** of the CA A
 
 ---
 
-## 2. NFR Mindmap / خريطة ذهنية للمتطلبات غير الوظيفية
+## 2. Visual Quality Map / خريطة جودة بصرية
 
 ```mermaid
-mindmap
-	root((NFRs))
-		Performance
-			Response Time < 2s
-			500+ Concurrent Users
-		Reliability
-			Uptime 99.5%
-			Auto Sync
-		Usability
-			Bilingual (AR/EN)
-			Mobile-first
-		Security
-			RBAC
-			Encryption
-			Audit Logs
-		Maintainability
-			Clean Architecture
-			70%+ Test Coverage
-		Scalability
-			5000+ Customers
-			Auto-scaling
+graph TD
+  NFRs((NFRs))
+  NFRs --> Performance
+  NFRs --> Reliability
+  NFRs --> Usability
+  NFRs --> Security
+  NFRs --> Maintainability
+  NFRs --> Scalability
+  NFRs --> Compatibility
+  NFRs --> Portability
 ```
 
 ---
 
-## 3. Performance / الأداء
+## 3. NFR Mindmap / خريطة ذهنية للمتطلبات غير الوظيفية
+
+```mermaid
+mindmap
+  root((NFRs))
+    Performance
+      Response Time < 2s
+      500+ Concurrent Users
+    Reliability
+      Uptime 99.5%
+      Auto Sync
+    Usability
+      Bilingual (AR/EN)
+      Mobile-first
+    Security
+      RBAC
+      Encryption
+      Audit Logs
+    Maintainability
+      Clean Architecture
+      70%+ Test Coverage
+    Scalability
+      5000+ Customers
+      Auto-scaling
+```
+
+---
+
+## 4. NFRs vs Functional Requirements / الفرق بين المتطلبات غير الوظيفية والمتطلبات الوظيفية
+
+| Aspect     | Functional Requirements (FRs) / المتطلبات الوظيفية | Non-Functional Requirements (NFRs) / المتطلبات غير الوظيفية |
+| ---------- | -------------------------------------------------- | ----------------------------------------------------------- |
+| Definition | What the system does (features, use cases)         | How the system should be (quality, performance, security)   |
+| Example    | Place order, generate report                       | Response < 2s, 99.5% uptime, bilingual UI                   |
+| Validation | User acceptance tests, feature demos               | Performance tests, monitoring, user feedback                |
+
+---
+
+## 5. Quality Review Cycle / دورة مراجعة الجودة
+
+```mermaid
+flowchart LR
+  Start([Start]) --> Define[Define NFRs]
+  Define --> Implement[Implement]
+  Implement --> Test[Test & Monitor]
+  Test --> Review[Quarterly Review]
+  Review --> Update[Update NFRs]
+  Update --> Implement
+```
+
+---
+
+## 6. Performance / الأداء
 
 - **EN:** System must handle at least **500 concurrent users** with < 2s response time.
 - **AR:** يجب أن يدعم النظام **500 مستخدم متزامن** بزمن استجابة أقل من ثانيتين.
@@ -58,7 +96,7 @@ mindmap
 
 ---
 
-## 4. Reliability & Availability / الموثوقية والتوافر
+## 7. Reliability & Availability / الموثوقية والتوافر
 
 - **EN:** System uptime target: **99.5%**.
 - **AR:** الهدف أن يكون النظام متاحًا بنسبة **99.5%**.
@@ -67,7 +105,7 @@ mindmap
 
 ---
 
-## 5. Usability / سهولة الاستخدام
+## 8. Usability / سهولة الاستخدام
 
 - **EN:** Support **Arabic & English** with automatic **RTL/LTR** switching.
 - **AR:** دعم **العربية والإنجليزية** مع التبديل التلقائي بين **RTL/LTR**.
@@ -78,7 +116,7 @@ mindmap
 
 ---
 
-## 6. Security / الأمان
+## 9. Security / الأمان
 
 - **EN:** Role-Based Access Control (RBAC) with Firebase Custom Claims.
 - **AR:** تحكم في الصلاحيات عبر **RBAC** باستخدام Firebase Custom Claims.
@@ -89,7 +127,7 @@ mindmap
 
 ---
 
-## 7. Maintainability / قابلية الصيانة
+## 10. Maintainability / قابلية الصيانة
 
 - **EN:** Codebase follows **Clean Architecture** with layered separation.
 - **AR:** يعتمد الكود على **Clean Architecture** مع فصل الطبقات.
@@ -100,7 +138,7 @@ mindmap
 
 ---
 
-## 8. Scalability / القابلية للتوسع
+## 11. Scalability / القابلية للتوسع
 
 - **EN:** System should support scaling to **5000+ active customers** without redesign.
 - **AR:** يجب أن يدعم النظام **5000+ عميل نشط** دون الحاجة لإعادة تصميم.
@@ -109,25 +147,61 @@ mindmap
 
 ---
 
-## 9. ISO/IEC 25010 Quality Attributes / سمات الجودة (ISO/IEC 25010)
+## 12. ISO/IEC 25010 Quality Attributes / سمات الجودة (ISO/IEC 25010)
 
-| Attribute (EN)         | الصفة (AR)         | Target / الهدف                         |
-|------------------------|--------------------|----------------------------------------|
-| Functional Suitability | الملاءمة الوظيفية   | Cover 100% of documented use cases     |
-| Performance Efficiency | كفاءة الأداء        | < 2s response time                     |
-| Compatibility          | التوافقية           | Android/iOS, future Web/Desktop        |
-| Usability              | سهولة الاستخدام     | Bilingual UI, intuitive design         |
-| Reliability            | الموثوقية           | 99.5% uptime                           |
-| Security               | الأمان              | RBAC + encryption                      |
-| Maintainability        | قابلية الصيانة       | Clean Architecture + 70% test coverage |
-| Portability            | قابلية النقل        | Flutter cross-platform                 |
+| Attribute (EN)         | الصفة (AR)        | Target / الهدف                         |
+| ---------------------- | ----------------- | -------------------------------------- |
+| Functional Suitability | الملاءمة الوظيفية | Cover 100% of documented use cases     |
+| Performance Efficiency | كفاءة الأداء      | < 2s response time                     |
+| Compatibility          | التوافقية         | Android/iOS, future Web/Desktop        |
+| Usability              | سهولة الاستخدام   | Bilingual UI, intuitive design         |
+| Reliability            | الموثوقية         | 99.5% uptime                           |
+| Security               | الأمان            | RBAC + encryption                      |
+| Maintainability        | قابلية الصيانة    | Clean Architecture + 70% test coverage |
+| Portability            | قابلية النقل      | Flutter cross-platform                 |
 
 ---
 
-## 10. Notes / ملاحظات
+## 13. Best Practices & FAQ / أفضل الممارسات وأسئلة شائعة
 
-- NFRs must be validated during testing ([Test Plan](../11-test-plan/11-test-plan.md)).
-- Any update in [Architecture](../06-architecture/06-architecture.md) may affect NFR targets.
-- These requirements must be reviewed quarterly.
+- Document NFRs early and review them with all stakeholders.
+- Validate NFRs during [Test Plan](../11-test-plan/11-test-plan.md) execution.
+- Monitor system metrics (performance, uptime, errors) continuously.
+- Update NFRs if [Architecture](../06-architecture/06-architecture.md) changes.
+- Review NFRs and quality targets quarterly.
+
+### Q: ما الفرق بين المتطلبات الوظيفية وغير الوظيفية؟
+
+**A:**
+
+- المتطلبات الوظيفية تصف ماذا يفعل النظام (features, use cases).
+- المتطلبات غير الوظيفية تصف كيف يجب أن يعمل النظام (جودة، أداء، أمان).
+
+### Q: كيف أتحقق من تحقيق NFRs؟
+
+**A:**
+
+- عبر اختبارات الأداء، مراجعة السجلات، واستبيانات المستخدمين.
+
+---
+
+## 14. Example Scenario / سيناريو عملي
+
+**EN:**
+
+> During UAT, the team tests the app with 500 simulated users. All main workflows complete in <2s, and the system remains stable. The NFRs for performance and reliability are validated.
+
+**AR:**
+
+> أثناء اختبار القبول، يتم اختبار التطبيق مع 500 مستخدم افتراضي. جميع العمليات الأساسية تكتمل في أقل من ثانيتين ويبقى النظام مستقرًا، ما يؤكد تحقق متطلبات الأداء والموثوقية.
+
+---
+
+## 15. Advanced Quality Tips / نصائح جودة متقدمة
+
+- استخدم أدوات مراقبة الأداء (Performance Monitoring) من Firebase أو Google Cloud.
+- أنشئ تقارير جودة دورية وشاركها مع فريق العمل.
+- اربط كل NFR بمؤشر أداء (KPI) واضح.
+- راجع نتائج اختبارات الأداء بعد كل تحديث رئيسي.
 
 ---

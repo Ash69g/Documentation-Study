@@ -1,32 +1,67 @@
 # 🔐 Security & Roles / الأمان والأدوار
 
-> Project: **CA Admin**  
-> Version: v0.1 — Owner: Abdullah Alshaif  
-> Last Updated: YYYY-MM-DD
+> **Project:** CA Admin
+> **Version:** v0.1 — Owner: Abdullah Alshaif
+> **Last Updated:** 2025-09-08
 
 ---
 
-## 1) Introduction / المقدمة
-**EN:**  
-Security in CA Admin is managed via **Role-Based Access Control (RBAC)**.  
-Roles are assigned using **Firebase Authentication** and **Custom Claims**, while access rules are enforced with **Firestore Security Rules**.
+## 8. RBAC vs Other Access Control Models / مقارنة RBAC مع نماذج التحكم الأخرى
 
-      allow read, write: if request.auth.token.role == 'finance' || request.auth.token.role == 'admin';
-6) Security Considerations / اعتبارات الأمان
+**RBAC (Role-Based Access Control):**
 
-# 🔐 Security & Roles / الأمان والأدوار
+- Access is based on user roles (recommended for most business apps).
 
-> **Project:** CA Admin  
-> **Version:** v0.1 — Owner: Abdullah Alshaif  
-> **Last Updated:** 2025-09-08
+**ABAC (Attribute-Based Access Control):**
+
+- Access is based on user, resource, and environment attributes (more flexible, more complex).
+
+**MAC (Mandatory Access Control):**
+
+- Access is based on strict policies set by the system (used in high-security environments).
+
+**DAC (Discretionary Access Control):**
+
+- Access is controlled by resource owners (less common in business apps).
+
+---
+
+## 9. Advanced Security Tips / نصائح متقدمة للأمان
+
+- راجع الأدوار والصلاحيات كل 3 أشهر على الأقل.
+- استخدم مراجعة الأمان التلقائية (Security Review Automation) إن أمكن.
+- اربط كل دور بمتطلبات العمل الفعلية، وتجنب الأدوار العامة غير المحددة.
+
+---
+
+## 10. Example Scenario / سيناريو عملي
+
+**EN:**
+
+> The Admin creates a new user for the Finance team. The Admin assigns the `finance` role using a Cloud Function. The user logs in, receives a token with the `finance` claim, and can now access financial logs and reports, but not admin settings.
+
+**AR:**
+
+> يقوم المدير بإنشاء مستخدم جديد لفريق المالية. يعيّن المدير دور `finance` باستخدام Cloud Function. عند تسجيل دخول المستخدم، يحصل على رمز دخول يحمل صلاحية `finance` ويمكنه الوصول لسجلات المالية والتقارير فقط، ولا يمكنه الوصول لإعدادات المدير.
+
+---
+
+## 🛡️ Visual Security Overview / ملخص بصري للأمان
+
+```mermaid
+flowchart LR
+  U([User]) -->|Login| APP[CA Admin App]
+  APP -->|Auth| AUTH[Firebase Auth]
+  AUTH -->|Token+Role| APP
+  APP -->|Request| DB[Firestore]
+  DB -->|Allow/Deny| APP
+```
 
 ---
 
 ## 1. Introduction / المقدمة
 
-<div align="center">
-  <img src="https://img.icons8.com/color/96/000000/security-checked.png" width="80" alt="security"/>
-</div>
+![security](https://img.icons8.com/color/96/000000/security-checked.png)
 
 **EN:**
 Security in CA Admin is managed via **Role-Based Access Control (RBAC)**. Roles are assigned using **Firebase Authentication** and **Custom Claims**, while access rules are enforced with **Firestore Security Rules**.
@@ -38,32 +73,26 @@ Security in CA Admin is managed via **Role-Based Access Control (RBAC)**. Roles 
 
 ## 2. User Roles & RBAC Matrix / أدوار المستخدمين ومصفوفة الصلاحيات
 
-| Role (EN)      | الدور (AR)     | Description / الوصف | Permissions / الصلاحيات |
-|---------------|----------------|---------------------|------------------------|
-| **Admin**     | المدير         | Full system access, manage roles, audit logs | CRUD on all modules, manage users, configure system |
-| **Finance**   | المالي         | Handle invoices, payments, reports | Create/update financial logs, view orders, generate reports |
-| **Staff (KSA)**| موظف السعودية | Process purchases, register shipments | Create/update orders, shipments, attach images |
-| **Staff (Yemen)** | موظف اليمن  | Handle local deliveries | Update delivery status, assign to drivers |
-| **Driver**    | السائق         | Transport shipments, update status | Update shipment status only |
-| **Customer**  | العميل         | Submit and track orders | Create orders, view their own orders & balances |
+| Role (EN)         | الدور (AR)    | Description / الوصف                          | Permissions / الصلاحيات                                     |
+| ----------------- | ------------- | -------------------------------------------- | ----------------------------------------------------------- |
+| **Admin**         | المدير        | Full system access, manage roles, audit logs | CRUD on all modules, manage users, configure system         |
+| **Finance**       | المالي        | Handle invoices, payments, reports           | Create/update financial logs, view orders, generate reports |
+| **Staff (KSA)**   | موظف السعودية | Process purchases, register shipments        | Create/update orders, shipments, attach images              |
+| **Staff (Yemen)** | موظف اليمن    | Handle local deliveries                      | Update delivery status, assign to drivers                   |
+| **Driver**        | السائق        | Transport shipments, update status           | Update shipment status only                                 |
+| **Customer**      | العميل        | Submit and track orders                      | Create orders, view their own orders & balances             |
 
 ---
 
-## 3. Authentication & Authorization Flow / تدفق المصادقة والصلاحيات
+## 3. Authentication vs Authorization / الفرق بين المصادقة والصلاحيات
 
-```mermaid
-sequenceDiagram
-  participant U as User
-  participant APP as CA Admin App
-  participant AUTH as Firebase Auth
-  participant DB as Firestore
+**Authentication (المصادقة):**
 
-  U->>APP: Login with email/phone
-  APP->>AUTH: Authenticate user
-  AUTH-->>APP: Token with Custom Claims
-  APP->>DB: Request data
-  DB-->>APP: Allow/deny based on role claims
-```
+- Verifies user identity (login via Firebase Auth).
+
+**Authorization (الصلاحيات):**
+
+- Determines what the user can access (based on role claims & security rules).
 
 ---
 
@@ -101,8 +130,8 @@ Admin assigns roles via Cloud Function:
 const admin = require("firebase-admin");
 
 exports.setUserRole = functions.https.onCall((data, context) => {
-  if (context.auth.token.role !== 'admin') {
-    throw new functions.https.HttpsError('permission-denied');
+  if (context.auth.token.role !== "admin") {
+    throw new functions.https.HttpsError("permission-denied");
   }
   return admin.auth().setCustomUserClaims(data.uid, { role: data.role });
 });
@@ -112,15 +141,17 @@ exports.setUserRole = functions.https.onCall((data, context) => {
 
 ---
 
-## 6. Security Considerations / اعتبارات الأمان
+## 6. Security Tips & Best Practices / نصائح وممارسات الأمان
 
 **EN:**
+
 - Enforce least privilege principle (give minimum required permissions).
 - Use Firestore Security Rules Simulator before production.
 - Enable Firestore logging for auditing.
 - Use audit logs to track changes.
 
 **AR:**
+
 - تطبيق مبدأ أقل صلاحية (إعطاء الحد الأدنى من الصلاحيات).
 - اختبار القواعد عبر المحاكي قبل الإطلاق.
 - تفعيل سجلات Firestore للمراجعة.
@@ -128,11 +159,25 @@ exports.setUserRole = functions.https.onCall((data, context) => {
 
 ---
 
-## 7. Notes / ملاحظات
+---
+
+## 7. FAQ & Notes / أسئلة شائعة وملاحظات
 
 - Roles defined here must stay synchronized with [Stakeholders](../02-stakeholders/02-stakeholders.md) and [User Stories](../03-stories/03-stories.md).
 - Changes in business roles must be updated in Security Rules immediately.
 - Admin role is powerful; access should be tightly controlled.
 
----
+**Q: How do I add a new role?**
 
+**A:**
+
+- Add the role to the RBAC matrix and update security rules.
+- Update Cloud Functions for role assignment if needed.
+
+**Q: What if a user needs multiple roles?**
+
+**A:**
+
+- Use an array of roles in custom claims and check with `request.auth.token.roles` in rules.
+
+---

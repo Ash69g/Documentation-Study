@@ -1,4 +1,3 @@
-
 # 🧪 Test Plan / خطة الاختبار
 
 > **Project:** CA Admin  
@@ -9,9 +8,9 @@
 
 ## 1. Introduction / المقدمة
 
-<div align="center">
-  <img src="https://img.icons8.com/color/96/000000/test-passed.png" width="80" alt="test plan"/>
-</div>
+<!-- Centered image using Markdown syntax -->
+
+![test plan](https://img.icons8.com/color/96/000000/test-passed.png)
 
 **EN:**
 The Test Plan ensures that CA Admin meets both **functional requirements (Use Cases)** and **non-functional requirements (NFRs)**. It defines the scope, strategy, test types, environments, and acceptance criteria.
@@ -21,7 +20,37 @@ The Test Plan ensures that CA Admin meets both **functional requirements (Use Ca
 
 ---
 
-## 2. Test Pyramid / هرم الاختبار
+## 2. Visual Test Strategy / استراتيجية الاختبار (رسم توضيحي)
+
+```mermaid
+mindmap
+  root((Test Strategy))
+    Pyramid
+      Unit Tests
+      Integration Tests
+      UI/UX Tests
+      Performance & Security
+      Acceptance Tests
+    Environments
+      Development
+      Staging
+      Production
+    Data
+      Dummy Customers
+      Dummy Orders
+      Dummy Shipments
+      Dummy Finance
+    Tools
+      Flutter Test
+      Mockito
+      Firebase Emulator
+      Postman
+      GitHub Actions
+```
+
+---
+
+## 3. Test Pyramid / هرم الاختبار
 
 ```mermaid
 flowchart TD
@@ -33,16 +62,17 @@ flowchart TD
 
 ---
 
-## 3. Test Objectives / أهداف الاختبار
+## 4. Test Objectives / أهداف الاختبار
 
 - **EN:** Verify functionality, performance, security, and usability.
 - **AR:** التحقق من الوظائف، الأداء، الأمان، وسهولة الاستخدام.
 
 ---
 
-## 4. Scope / نطاق الاختبار
+## 5. Scope / نطاق الاختبار
 
 **In-Scope / ضمن النطاق:**
+
 - Orders: creation, update, status tracking
 - Shipments: status updates, driver assignments
 - Finance: payments, deposits, deductions, reports
@@ -50,25 +80,26 @@ flowchart TD
 - Offline Sync & Conflict resolution
 
 **Out-of-Scope / خارج النطاق:**
+
 - Payment Gateway integrations (future phases)
 - AI/Analytics modules
 
 ---
 
-## 5. Test Types / أنواع الاختبارات
+## 6. Test Types / أنواع الاختبارات
 
-| Test Type (EN)      | النوع (AR)         | Purpose / الهدف |
-|---------------------|--------------------|-----------------|
-| Unit Tests          | اختبارات الوحدة    | Validate individual functions (e.g., calculations) |
-| Integration Tests   | اختبارات التكامل   | Validate modules working together (Orders ↔ Finance ↔ Shipments) |
-| UI/UX Tests         | اختبارات الواجهة   | Ensure user-friendly experience (multi-language, RTL/LTR) |
-| Performance Tests   | اختبارات الأداء    | Validate response time, load handling |
-| Security Tests      | اختبارات الأمان    | Validate RBAC, Security Rules |
-| Acceptance Tests    | اختبارات القبول    | Validate against Use Cases & User Stories |
+| Test Type (EN)    | النوع (AR)       | Purpose / الهدف                                                  |
+| ----------------- | ---------------- | ---------------------------------------------------------------- |
+| Unit Tests        | اختبارات الوحدة  | Validate individual functions (e.g., calculations)               |
+| Integration Tests | اختبارات التكامل | Validate modules working together (Orders ↔ Finance ↔ Shipments) |
+| UI/UX Tests       | اختبارات الواجهة | Ensure user-friendly experience (multi-language, RTL/LTR)        |
+| Performance Tests | اختبارات الأداء  | Validate response time, load handling                            |
+| Security Tests    | اختبارات الأمان  | Validate RBAC, Security Rules                                    |
+| Acceptance Tests  | اختبارات القبول  | Validate against Use Cases & User Stories                        |
 
 ---
 
-## 6. Test Environments / بيئات الاختبار
+## 7. Test Environments / بيئات الاختبار
 
 - **Development Environment:** Firebase Emulator Suite + Local DB (Hive/SQLite)
 - **Staging Environment:** Firebase test project with sample data
@@ -76,7 +107,7 @@ flowchart TD
 
 ---
 
-## 7. Test Data / بيانات الاختبار
+## 8. Test Data / بيانات الاختبار
 
 **EN:**
 Test data includes dummy customers, orders, shipments, and financial records. Sensitive data must not be used in testing.
@@ -86,7 +117,7 @@ Test data includes dummy customers, orders, shipments, and financial records. Se
 
 ---
 
-## 8. Acceptance Criteria / معايير القبول
+## 9. Acceptance Criteria / معايير القبول
 
 - **Orders:** Must be created in ≤ 60s, status updated correctly.
 - **Shipments:** Driver updates must reflect to customers in ≤ 2 min.
@@ -98,7 +129,7 @@ Test data includes dummy customers, orders, shipments, and financial records. Se
 
 ---
 
-## 9. Test Schedule / جدول الاختبار
+## 10. Test Schedule / جدول الاختبار
 
 - **Unit Testing:** Continuous during development
 - **Integration Testing:** End of each sprint
@@ -107,21 +138,21 @@ Test data includes dummy customers, orders, shipments, and financial records. Se
 
 ---
 
-## 10. RACI Matrix / مصفوفة المسؤوليات
+## 11. RACI Matrix / مصفوفة المسؤوليات
 
 | Task / المهمة                | Developers | QA/Test Engineer | IT Manager | Finance Officer | Saudi/Yemen Staff |
-|-----------------------------|:----------:|:---------------:|:----------:|:--------------:|:----------------:|
-| Write unit/integration tests |     R      |        C        |     I      |       I        |        I         |
-| Execute test plan            |     C      |        R        |     A      |       C        |        C         |
-| Oversee testing strategy     |     I      |        C        |     R      |       I        |        I         |
-| Validate financial cases     |     I      |        C        |     I      |       R        |        I         |
-| Validate order/shipment      |     I      |        C        |     I      |       I        |        R         |
+| ---------------------------- | :--------: | :--------------: | :--------: | :-------------: | :---------------: |
+| Write unit/integration tests |     R      |        C         |     I      |        I        |         I         |
+| Execute test plan            |     C      |        R         |     A      |        C        |         C         |
+| Oversee testing strategy     |     I      |        C         |     R      |        I        |         I         |
+| Validate financial cases     |     I      |        C         |     I      |        R        |         I         |
+| Validate order/shipment      |     I      |        C         |     I      |        I        |         R         |
 
 Legend: R = Responsible, A = Accountable, C = Consulted, I = Informed
 
 ---
 
-## 11. Tools / الأدوات
+## 12. Tools / الأدوات
 
 - **Flutter Test** → Unit & integration testing
 - **Mockito** → Mock dependencies
@@ -131,7 +162,7 @@ Legend: R = Responsible, A = Accountable, C = Consulted, I = Informed
 
 ---
 
-## 12. Risk & Mitigation / المخاطر والمعالجات
+## 13. Risk & Mitigation / المخاطر والمعالجات
 
 - **Data conflicts in offline sync** → Use audit logs + conflict resolution
 - **Uncovered edge cases** → Expand regression testing
@@ -139,10 +170,67 @@ Legend: R = Responsible, A = Accountable, C = Consulted, I = Informed
 
 ---
 
-## 13. Notes / ملاحظات
+## 14. Advanced Testing Tips / نصائح اختبار متقدمة
 
-- Test results must be documented and linked with [Use Cases](../04-use-cases/04-use-cases.md) & [NFRs](../10-nfr-and-quality/10-nfr-and-quality.md)
-- Bugs must be logged with severity level (Critical, High, Medium, Low)
-- Test coverage target: **≥ 70% business logic**
+- Automate regression and smoke tests for every release.
+- Use code coverage tools to monitor test completeness.
+- Link test cases directly to [Use Cases](../04-use-cases/04-use-cases.md) and [NFRs](../10-nfr-and-quality/10-nfr-and-quality.md).
+- Review test results with all stakeholders after each sprint.
+
+---
+
+## 15. FAQ / أسئلة شائعة
+
+### Q: ما الفرق بين اختبار الوحدة واختبار التكامل؟
+
+**A:**
+
+- اختبار الوحدة يركز على وظيفة واحدة أو وحدة برمجية منفردة.
+- اختبار التكامل يختبر تفاعل أكثر من وحدة معًا.
+
+### Q: كيف أضمن تغطية كافية للاختبارات؟
+
+**A:**
+
+- استخدم أدوات قياس التغطية البرمجية (Coverage Tools) واستهدف ≥ 70% من منطق الأعمال.
+
+### Q: متى يتم اختبار الأداء والأمان؟
+
+**A:**
+
+- يتم اختبار الأداء والأمان في نهاية كل دورة تطوير رئيسية وقبل الإطلاق النهائي.
+
+---
+
+## 16. Test Traceability Matrix / مصفوفة تتبع الاختبارات
+
+**EN:**
+The traceability matrix links each requirement (functional and non-functional) to its corresponding test cases, ensuring full coverage and easy gap analysis.
+
+**AR:**
+مصفوفة التتبع تربط كل متطلب (وظيفي أو غير وظيفي) بحالات الاختبار الخاصة به لضمان التغطية الكاملة وسهولة اكتشاف أي نقص.
+
+| Requirement / المتطلب    | Test Case(s) / حالات الاختبار | Status / الحالة |
+| ------------------------ | ----------------------------- | --------------- |
+| Place Order (FR)         | TC-01, TC-02, TC-03           | Covered         |
+| Update Order Status (FR) | TC-04, TC-05                  | Covered         |
+| RBAC (NFR)               | TC-10, TC-11                  | Covered         |
+| Response Time < 2s (NFR) | TC-20                         | Covered         |
+| Multi-language UI (NFR)  | TC-21, TC-22                  | Covered         |
+
+---
+
+## 17. Test Process Flow / سير عمل الاختبار (رسم توضيحي)
+
+```mermaid
+flowchart LR
+  Req["Requirements<br>المتطلبات"] --> Design["Test Design<br>تصميم الاختبار"]
+  Design --> Impl["Test Implementation<br>تنفيذ الاختبار"]
+  Impl --> Exec["Test Execution<br>تشغيل الاختبار"]
+  Exec --> Report["Reporting<br>التقارير"]
+  Report --> Review["Review & Feedback<br>مراجعة وتغذية راجعة"]
+  Review --> Update["Update Plan<br>تحديث الخطة"]
+  Update --> Design
+```
 
 ---
