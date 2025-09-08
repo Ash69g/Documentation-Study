@@ -1,108 +1,225 @@
-# 📌 Vision Document / وثيقة الرؤية
+
+
+# 🎯 Vision Document / وثيقة الرؤية
+
+> **Project:** CA Admin — إدارة العملاء، الطلبات، الشحنات، والمالية
+> 
+> **Stack:** Flutter + Firebase (Firestore, Auth, Storage, Functions)
+> 
+> **Version:** v0.1 (Vision) — Owner: Abdullah Alshaif — Last Updated: YYYY-MM-DD
 
 ---
 
 ## 1. Introduction / المقدمة
-**English:**  
-This project aims to build an integrated **Admin & Customer Management App** using **Flutter & Firebase**.  
-It will support managing customers, orders, shipments, and financial operations for an online purchasing intermediary.
 
-**العربية:**  
-يهدف هذا المشروع إلى بناء تطبيق **إداري وإدارة عملاء متكامل** باستخدام **Flutter & Firebase**.  
-سيدعم التطبيق إدارة العملاء، الطلبات، الشحنات، والعمليات المالية لمشروع الوساطة في المشتريات أونلاين.
+<div align="center">
+	<img src="https://img.icons8.com/color/96/000000/online-shop.png" width="80" alt="shop"/>
+</div>
 
----
+**EN:**
+CA Admin is a unified platform for managing online purchasing mediation, centralizing customer orders, global shopping (Shein, iHerb, Amazon, Noon…), cross-border shipping (KSA → Yemen), last-mile delivery, and all financial operations.
 
-## 2. Problem Statement / وصف المشكلة
-**English:**  
-Customers in Yemen and other regions face difficulties in ordering products from international platforms (Shein, iHerb, Amazon, Noon, etc.) due to lack of local payment options and shipment tracking.  
-Currently, the process is manual, fragmented, and error-prone, especially in financial reconciliation and shipment management.
-
-**العربية:**  
-يواجه العملاء في اليمن ومناطق أخرى صعوبة في طلب المنتجات من المنصات العالمية (Shein، iHerb، Amazon، Noon …) بسبب نقص وسائل الدفع المحلية وصعوبة تتبع الشحنات.  
-العملية الحالية يدوية ومجزأة وتكثر فيها الأخطاء، خصوصًا في المطابقة المالية وإدارة الشحنات.
+**AR:**
+يهدف CA Admin إلى توحيد عمليات الوساطة الشرائية عبر منصة مركزية لإدارة طلبات العملاء، الشراء من المتاجر العالمية، الشحن من السعودية إلى اليمن، التسليم المحلي، وجميع العمليات المالية.
 
 ---
 
-## 3. Vision / الرؤية
-**English:**  
-To provide a **centralized, user-friendly, and automated system** that simplifies:  
-- Collecting customer orders  
-- Purchasing from international websites  
-- Tracking shipments from Saudi Arabia to Yemen  
-- Managing financial logs (sales, purchases, payments, deductions, deposits)  
-- Delivering consolidated orders to each customer efficiently  
+## 1.1 Why Now? / لماذا الآن؟
 
-**العربية:**  
-تقديم نظام **مركزي، سهل الاستخدام، ومؤتمت** لتبسيط:  
-- جمع طلبات العملاء  
-- الشراء من المواقع العالمية  
-- تتبع الشحنات من السعودية إلى اليمن  
-- إدارة السجلات المالية (المبيعات، المشتريات، المدفوعات، الخصومات، الإيداعات)  
-- تسليم الطلبات المجمعة لكل عميل بكفاءة  
+> **EN:** The e-commerce and cross-border shopping market is growing rapidly in the region, but most intermediaries still rely on manual, error-prone processes. A modern, automated platform is essential to compete and scale.
+> 
+> **AR:** سوق التجارة الإلكترونية والشراء من الخارج ينمو بسرعة في المنطقة، لكن معظم الوسطاء ما زالوا يعتمدون على عمليات يدوية كثيرة الأخطاء. وجود منصة حديثة مؤتمتة أصبح ضرورة للمنافسة والتوسع.
+
+---
+
+## 1.2 System Overview / نظرة عامة على النظام
+
+```mermaid
+flowchart TD
+		Customer((عميل)) -->|طلب| App[تطبيق CA Admin]
+		App -->|شراء| Vendor[متاجر عالمية]
+		Vendor -->|شحن| KSA[مكتب السعودية]
+		KSA -->|تجميع| Yemen[مكتب اليمن]
+		Yemen -->|توصيل| Customer
+		App -->|إشعارات| Customer
+		App -->|تقارير مالية| Finance[المالية]
+		App -->|إدارة| Admin[الإدارة]
+```
+
+---
+
+## 2. Problem Statement / المشكلة
+
+```mermaid
+flowchart LR
+		A[جداول متفرقة] --> B[طلبات عبر المحادثات]
+		B --> C[ضعف تتبع الشحنات]
+		C --> D[أخطاء مالية]
+		D --> E[تكرار العمل اليدوي]
+```
+
+**EN:**
+Current operations are manual and fragmented: scattered spreadsheets, chat-based order intake, weak shipment visibility, and error-prone financial reconciliation.
+
+**AR:**
+العمليات الحالية يدوية ومجزأة (جداول متفرقة، استقبال الطلبات عبر المحادثات، ضعف شفافية التتبع، وأخطاء في المطابقة المالية).
+
+---
+
+## 2.1 Current vs. Target State / مقارنة الوضع الحالي والمستهدف
+
+| Aspect | Current (الوضع الحالي) | Target (المستهدف) |
+|--------|------------------------|-------------------|
+| Order Intake | Manual, via chat | Digital, via app |
+| Shipment Tracking | Weak, delayed | Real-time, transparent |
+| Financial Logs | Scattered, error-prone | Centralized, automated |
+| Reporting | Manual, slow | Automated, instant |
+| Scalability | Limited | Ready for growth |
+
+---
+
+## 3. Vision & Value / الرؤية والقيمة
+
+```mermaid
+graph TD
+		A[مركزية البيانات] --> B[شفافية العمليات]
+		B --> C[أتمتة كاملة]
+		C --> D[تقارير دقيقة]
+		D --> E[تجربة عميل أفضل]
+```
+
+**EN:**
+Provide a **centralized, transparent, and automated** platform that:
+- Captures customer orders quickly
+- Orchestrates purchasing & consolidation
+- Tracks international & local shipments in real time
+- Maintains accurate financial logs and reports
+- Scales with multi-language (AR/EN) and offline-first usage
+
+**AR:**
+تقديم منصة **مركزية وشفافة ومؤتمتة** لالتقاط الطلبات، تنظيم الشراء والتجميع، تتبع الشحنات لحظيًا، حفظ السجلات المالية الدقيقة، ودعم تعدد اللغات والعمل دون إنترنت.
 
 ---
 
 ## 4. Objectives / الأهداف
-**English:**  
-1. Centralize all customer and order data in one system.  
-2. Automate synchronization between **local storage** and **Firebase Cloud**.  
-3. Provide **real-time shipment tracking** and status updates.  
-4. Maintain accurate **financial logs** with detailed reports.  
-5. Enhance customer experience through transparency and notifications.  
-6. Support **multi-language (Arabic & English)** interface.  
 
-**العربية:**  
-1. مركزية جميع بيانات العملاء والطلبات في نظام واحد.  
-2. أتمتة المزامنة بين **التخزين المحلي** و **قاعدة بيانات Firebase**.  
-3. توفير **تتبع لحظي للشحنات** وتحديثات الحالة.  
-4. الحفاظ على **سجلات مالية دقيقة** مع تقارير تفصيلية.  
-5. تحسين تجربة العملاء من خلال الشفافية والإشعارات.  
-6. دعم **تعدد اللغات (العربية والإنجليزية)** في واجهة التطبيق.  
+| # | EN Objective | الهدف بالعربية |
+|---|--------------|----------------|
+| 1 | Single source of truth for customers, orders, shipments, finance | مصدر بيانات موحد للعملاء والطلبات والشحن والمالية |
+| 2 | Real-time status & notifications | تتبع لحظي وإشعارات للحالات |
+| 3 | Offline-first, safe two-way sync | عمل دون إنترنت مع مزامنة ثنائية |
+| 4 | Role-based access control | صلاحيات مبنية على الأدوار |
+| 5 | Weekly auto-reports | تقارير أسبوعية تلقائية |
+| 6 | AR/EN UI, RTL/LTR | واجهة عربية/إنجليزية مع تبديل الاتجاه |
 
 ---
 
-## 5. Scope / نطاق المشروع
-**In-Scope / ضمن النطاق:**  
-- Customer Management  
-- Order & Shipment Tracking  
-- Financial Management (Invoices, Payments, Deductions, Deposits)  
-- Employee roles and permissions (RBAC)  
-- Reporting & dashboards  
-- Mobile-first (Android & iOS), with option for Web/Desktop in the future  
+## 5. Scope / النطاق
 
-**Out-of-Scope / خارج النطاق:**  
-- Direct integration with payment gateways (initially handled manually)  
-- Advanced AI features (recommendations, predictions) – may be added later  
-- Large-scale multi-country logistics (focus is Yemen–Saudi corridor)  
+**In-Scope / ضمن النطاق:**
+- Customer accounts & order intake (links, SKU, qty, notes)
+- Purchase workflow & consolidation (KSA office)
+- Cross-border shipping + local delivery (drivers)
+- Finance: invoices, payments, deductions, deposits, card logs, gift cards
+- Dashboards & reports
+- Security rules (Firestore) + RBAC via Custom Claims
 
-**العربية:**  
-**ضمن النطاق:**  
-- إدارة العملاء  
-- تتبع الطلبات والشحنات  
-- الإدارة المالية (الفواتير، المدفوعات، الخصومات، الإيداعات)  
-- الأدوار والصلاحيات للموظفين  
-- التقارير ولوحات التحكم  
-- الأولوية لتطبيق الهاتف (Android & iOS) مع إمكانية دعم الويب/سطح المكتب لاحقًا  
-
-**خارج النطاق:**  
-- التكامل المباشر مع بوابات الدفع (يتم التعامل يدويًا في البداية)  
-- ميزات الذكاء الاصطناعي المتقدمة (التوصيات، التنبؤات) – قد تُضاف لاحقًا  
-- إدارة لوجستية متعددة الدول على نطاق واسع (التركيز على خط السعودية–اليمن)  
+**Out-of-Scope (Phase-1) / خارج النطاق (المرحلة الأولى):**
+- Online payment gateway integration (manual first)
+- Advanced analytics/AI (recommendations/forecast)
+- Multi-country logistics beyond KSA–Yemen
 
 ---
 
-## 6. Success Criteria / معايير النجاح
-**English:**  
-- 90% reduction in manual errors during order/financial reconciliation.  
-- Shipment tracking visible to customers in real-time.  
-- Ability to generate weekly financial & shipment reports automatically.  
-- Customer satisfaction score ≥ 85%.  
+## 6. Success Metrics (KPIs) / معايير النجاح
 
-**العربية:**  
-- تقليل الأخطاء اليدوية بنسبة 90% أثناء مطابقة الطلبات/المالية.  
-- إتاحة تتبع الشحن للعملاء بشكل لحظي.  
-- إمكانية توليد تقارير مالية وشحن أسبوعية بشكل تلقائي.  
-- وصول تقييم رضا العملاء إلى 85% أو أكثر.  
+| KPI | Target |
+|-----|--------|
+| Order intake time | ≤ 60s per order (P90) |
+| Status freshness | 95% shipments updated ≤ 2h |
+| Financial errors | ↓ 90% vs. current |
+| Report generation | ≤ 30s weekly |
+| Customer satisfaction | ≥ 85% |
+
+---
+
+## 7. High-Level Features / الميزات عالية المستوى
+
+```mermaid
+mindmap
+	root((CA Admin))
+		Orders
+			Create/Edit
+			Link Items
+			Attach Images/Notes
+		Shipments
+			Purchased
+			Shipped
+			Arrived KSA
+			Forwarded
+			Arrived Yemen
+			Sorted
+			Delivered
+		Finance
+			Balances
+			Bank Cards
+			Deposits
+			Payments
+			Gift Cards
+			Logs/Audit
+		Notifications
+			Status Changes
+			Payment Confirmations
+		Search & Filters
+			By Customer
+			By Status
+			By Date
+			By OrderNo
+		Multi-language
+		Offline-first
+```
+
+---
+
+## 8. Constraints & Assumptions / القيود والافتراضات
+
+- **Connectivity:** intermittent; offline cache mandatory
+- **Primary DB:** Firestore; local cache on device
+- **Devices:** Android/iOS mid-range; Web/Desktop later
+- **Security:** Firestore Security Rules + Custom Claims; GDPR-like hygiene
+
+---
+
+## 9. Risks & Mitigations / المخاطر والمعالجات
+
+| Risk | Impact | Mitigation |
+|------|--------|------------|
+| Data conflicts during sync | Incorrect balances/status | Upsert strategy + conflict resolution + audit log |
+| Index limits / hot spots | Slow queries | Composite indexes, sharding, pagination |
+| Role misconfiguration | Data exposure | RBAC matrix + tests + rule simulator |
+| Human data entry errors | Financial mismatches | Validation, required fields, guided flows |
+
+---
+
+## 10. Release Plan (Phases) / خطة الإصدارات
+
+```mermaid
+timeline
+		title Project Release Phases
+		2024-09-01 : MVP: Orders, Shipments, Finance, AR/EN, Offline
+		2024-10-01 : Phase 2: Gift cards, dashboards, richer reports
+		2024-11-01 : Phase 3: API integrations, web portal, analytics
+```
+
+---
+
+## 11. Glossary / القاموس المختصر
+
+| Term | المصطلح | Definition |
+|------|---------|-----------|
+| OrderNo | رقم الطلب | Unique order number |
+| Consolidation | تجميع | تجميع طرود العملاء في شحنة واحدة |
+| RBAC | صلاحيات حسب الدور | Role-Based Access Control |
+| Reconciliation | مطابقة | مطابقة قيود المالية مع الواقع |
 
 ---

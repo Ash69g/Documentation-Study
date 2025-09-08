@@ -1,82 +1,146 @@
+
+
 # 👥 Stakeholders Analysis / تحليل أصحاب المصلحة
+
+> **Project:** CA Admin  
+> **Version:** v0.1 — Owner: Abdullah Alshaif — Last Updated: YYYY-MM-DD
 
 ---
 
 ## 1. Introduction / المقدمة
-**English:**  
-Stakeholders are individuals, groups, or entities who influence or are affected by the CA Admin system.  
-Identifying them is critical to ensure the system meets both business and user needs.
 
-**العربية:**  
-أصحاب المصلحة هم الأفراد أو المجموعات أو الجهات التي تؤثر أو تتأثر بنظام CA Admin.  
-تحديدهم بدقة أمر أساسي لضمان أن النظام يلبي احتياجات العمل والمستخدمين معًا.
+<div align="center">
+  <img src="https://img.icons8.com/color/96/000000/conference-call.png" width="80" alt="stakeholders"/>
+</div>
+
+**EN:**
+Stakeholders are all individuals, groups, or entities who have an interest in the CA Admin system, whether internal (staff, finance, IT) or external (customers, vendors). Identifying and analyzing stakeholders ensures that requirements are clear and priorities are aligned.
+
+**AR:**
+أصحاب المصلحة هم جميع الأفراد أو المجموعات أو الجهات التي لها علاقة بنظام CA Admin، سواء داخليًا (الموظفون، المالية، التقنية) أو خارجيًا (العملاء، المتاجر). تحديدهم وتحليلهم يساعد على وضوح المتطلبات وتوافق الأولويات.
+
+---
+
+## 1.1 Stakeholder Interaction Map / خريطة تفاعل أصحاب المصلحة
+
+```mermaid
+flowchart LR
+    Customer((عميل)) -- "طلب/تتبع/دفع" --> App[تطبيق CA Admin]
+    App -- "إشعارات/تقارير" --> Customer
+    App -- "إدارة/إعدادات" --> Admin[الإدارة]
+    App -- "تقارير مالية" --> Finance[المالية]
+    App -- "تسليم/تحديث حالة" --> Staff[الموظفون]
+    App -- "تكامل API" --> Vendor[المتاجر العالمية]
+    App -- "مراجعة/تدقيق" --> Auditor[المدقق]
+```
 
 ---
 
 ## 2. Stakeholder List / قائمة أصحاب المصلحة
 
-| Stakeholder | Description (English) | الوصف (العربية) | Interest/Role |
-|-------------|------------------------|-----------------|---------------|
-| **Customer** | End users who request products from international websites (Shein, iHerb, Amazon, Noon, etc.) | العملاء الذين يطلبون المنتجات من المواقع العالمية | Track orders, receive notifications, pay invoices |
-| **Saudi Office Staff** | Employees who receive shipments in Saudi Arabia and consolidate them | موظفو المكتب السعودي الذين يستقبلون الشحنات ويجمعونها | Verify products, prepare for Yemen shipping |
-| **Yemen Office Staff** | Employees handling local distribution to customers | موظفو المكتب اليمني المسؤولون عن التوزيع المحلي | Receive consolidated shipments, deliver to customers |
-| **Drivers / Couriers** | People transporting shipments from Saudi to Yemen or within Yemen | السائقون/المندوبون الذين ينقلون الشحنات | Ensure safe and timely delivery |
-| **Finance/Admin** | Staff responsible for payments, invoices, reconciliations, and financial reports | موظفو المالية/الإدارة للمسؤولية عن المدفوعات والتقارير | Maintain accurate logs, manage financial flows |
-| **IT Manager** | Oversees the system development, deployment, and operations | مدير تقنية المعلومات المسؤول عن تطوير وتشغيل النظام | Ensure system stability, plan upgrades |
-| **System Developers** | Flutter & Firebase developers | مطورو النظام (Flutter & Firebase) | Build, maintain, and improve the system |
-| **External Vendors** | Online stores (Shein, iHerb, Amazon, Noon) | المتاجر الخارجية (شي إن، آيهيرب، أمازون، نون) | Provide order APIs, handle payments, ship products |
-| **Auditor / Reviewer** | Internal or external auditor | المراجع أو المدقق الداخلي/الخارجي | Verify financial logs and system compliance |
+| Stakeholder (EN) | Stakeholder (AR) | Description / الوصف | Interest / الدور | Example Scenario / سيناريو عملي |
+|------------------|------------------|----------------------|------------------|-------------------------------|
+| **Customer** | العميل | End-users placing product requests via app | Wants simple order flow, payment transparency, shipment tracking | "Ali places an order, tracks his shipment, and pays online." |
+| **Saudi Office Staff** | موظفو مكتب السعودية | Receive shipments, consolidate packages | Ensure accurate consolidation & timely forwarding | "Sara receives packages, scans them, and prepares for Yemen." |
+| **Yemen Office Staff** | موظفو مكتب اليمن | Handle local delivery to customers | Deliver accurately and update system | "Ahmed delivers packages to customers in Sana'a and updates status." |
+| **Drivers / Couriers** | السائقون / المندوبون | Transport shipments (KSA → Yemen / local) | Keep shipments safe and update statuses | "Mohammed drives from KSA to Yemen, updates delivery status." |
+| **Finance Officer** | الموظف المالي | Manage invoices, payments, deductions, deposits | Maintain accurate logs & reports | "Fatima logs payments and generates weekly reports." |
+| **Admin / IT Manager** | المدير / مدير التقنية | Oversee the entire system, assign roles | System stability, security, scalability | "Omar assigns roles and monitors system health." |
+| **Developers** | المطورون | Flutter & Firebase developers | Implement requirements, ensure maintainability | "The dev team adds a new feature for order search." |
+| **Vendors (Shein, Amazon, iHerb, Noon)** | المتاجر العالمية | Provide products and order APIs | Reliable APIs, correct order fulfillment | "Shein API sends order confirmation to the system." |
+| **Auditor / Reviewer** | المدقق | Internal/external reviewer of financial logs | Ensure compliance & transparency | "External auditor reviews financial logs for compliance." |
+
+---
+
+## 2.1 Communication Channels / قنوات التواصل
+
+| Stakeholder | Channel (EN) | القناة (AR) |
+|-------------|-------------|-------------|
+| Customer | Mobile App, Email, SMS | تطبيق الجوال، بريد إلكتروني، رسائل نصية |
+| Staff | Mobile App, Web Dashboard | تطبيق الجوال، لوحة تحكم ويب |
+| Finance | Web Dashboard, Reports | لوحة تحكم ويب، تقارير |
+| Admin | Web Dashboard, Email | لوحة تحكم ويب، بريد إلكتروني |
+| Developers | GitHub, Documentation | GitHub، التوثيق |
+| Vendors | API Integration, Email | تكامل API، بريد إلكتروني |
+| Auditor | Reports, Dashboard | تقارير، لوحة تحكم |
 
 ---
 
 ## 3. Stakeholder Classification / تصنيف أصحاب المصلحة
-**English:**  
-We can classify stakeholders based on their influence and interest:
 
-- **High Influence & High Interest:** IT Manager, Finance/Admin, Saudi Office Staff  
-- **High Influence & Low Interest:** External Vendors, Auditor  
-- **Low Influence & High Interest:** Customers, Yemen Office Staff, Drivers  
-- **Low Influence & Low Interest:** Occasional partners, seasonal staff  
-
-**العربية:**  
-يمكن تصنيف أصحاب المصلحة بناءً على التأثير والاهتمام:
-
-- **تأثير عالٍ + اهتمام عالٍ:** مدير التقنية، الإدارة المالية، موظفو مكتب السعودية  
-- **تأثير عالٍ + اهتمام منخفض:** المتاجر الخارجية، المراجع  
-- **تأثير منخفض + اهتمام عالٍ:** العملاء، موظفو مكتب اليمن، السائقون  
-- **تأثير منخفض + اهتمام منخفض:** شركاء موسميون أو موظفون مؤقتون  
+```mermaid
+quadrantChart
+    title Influence vs Interest
+    x-axis Low Interest --> High Interest
+    y-axis Low Influence --> High Influence
+    "IT Manager" : [0.8, 0.9]
+    "Finance Officer" : [0.7, 0.9]
+    "Saudi Office Staff" : [0.6, 0.8]
+    "Vendors" : [0.2, 0.8]
+    "Auditor" : [0.3, 0.7]
+    "Customer" : [0.9, 0.3]
+    "Yemen Staff" : [0.8, 0.4]
+    "Drivers" : [0.7, 0.4]
+    "Temp Staff" : [0.2, 0.2]
+```
 
 ---
 
-## 4. RACI Matrix / مصفوفة المسؤوليات (RACI)
+## 4. RACI Matrix / مصفوفة المسؤوليات
 
 | Task / المهمة | Responsible (منفذ) | Accountable (مسؤول رئيسي) | Consulted (مستشار) | Informed (مطلع) |
 |---------------|----------------------|--------------------------|---------------------|-----------------|
-| Collecting customer orders | Yemen Office Staff | IT Manager | Customer | Finance/Admin |
-| Purchasing from vendors | Saudi Office Staff | IT Manager | Vendors | Finance/Admin |
-| Shipment consolidation | Saudi Office Staff | IT Manager | Drivers | Yemen Office Staff |
-| Local delivery to customers | Yemen Office Staff / Drivers | Office Manager | Customer | Finance/Admin |
-| Payment collection | Finance/Admin | IT Manager | Auditor | Customer |
-| Financial reporting | Finance/Admin | Auditor | IT Manager | Management |
-| System maintenance | Developers | IT Manager | Finance/Admin | All Staff |
+| Collect customer orders | Yemen Staff | IT Manager | Customer | Finance |
+| Purchase from vendors | Saudi Staff | IT Manager | Vendors | Finance |
+| Shipment consolidation | Saudi Staff | IT Manager | Drivers | Yemen Staff |
+| Local delivery | Yemen Staff + Drivers | Office Manager | Customer | Finance |
+| Payment collection | Finance Officer | IT Manager | Auditor | Customer |
+| Financial reporting | Finance Officer | Auditor | IT Manager | Admin |
+| System maintenance | Developers | IT Manager | Finance | All Staff |
 
 ---
 
-## 5. Stakeholder Needs & Expectations / احتياجات وتوقعات أصحاب المصلحة
-**English:**  
-- Customers: Easy ordering, transparent tracking, accurate billing.  
-- Office Staff: Simple tools to register orders and shipments.  
-- Finance: Reliable logs, error-free reconciliation.  
-- IT Manager: Scalable, secure, and maintainable system.  
-- Developers: Clear requirements and consistent documentation.  
-- Auditor: Transparent reports and compliance with standards.
+## 5. Needs & Expectations / الاحتياجات والتوقعات
 
-**العربية:**  
-- العملاء: طلب سهل، تتبع شفاف، فواتير دقيقة.  
-- موظفو المكاتب: أدوات بسيطة لتسجيل الطلبات والشحنات.  
-- المالية: سجلات دقيقة، مطابقة بلا أخطاء.  
-- مدير التقنية: نظام آمن، قابل للتوسع والصيانة.  
-- المطورون: متطلبات واضحة وتوثيق متسق.  
-- المراجع: تقارير شفافة، والالتزام بالمعايير.  
+```mermaid
+mindmap
+  root((Stakeholders))
+    Customer
+      Easy order
+      Transparent pricing
+      Reliable tracking
+    Staff
+      Simple workflows
+      Fewer manual errors
+    Finance
+      Accurate logs
+      Automated reports
+      Reconciliation
+    Admin
+      Security
+      Performance
+      Scalability
+    Developers
+      Clear requirements
+      Clean architecture
+      Documentation
+    Auditor
+      Transparent reports
+      Compliance
+```
+
+---
+
+## 6. Impact of Feedback / أثر ملاحظات أصحاب المصلحة
+
+- **EN:** Stakeholder feedback is continuously collected through the app, meetings, and support channels. It directly influences feature prioritization, bug fixes, and roadmap updates.
+- **AR:** يتم جمع ملاحظات أصحاب المصلحة باستمرار عبر التطبيق والاجتماعات وقنوات الدعم، وتؤثر مباشرة في ترتيب الأولويات، إصلاح المشاكل، وتحديث خارطة الطريق.
+
+---
+
+## 7. Notes / ملاحظات
+
+- Stakeholder expectations will guide **User Stories** and **Use Cases**.
+- Updates to roles/responsibilities must be reflected in **Security & Roles (RBAC)** documentation.
 
 ---

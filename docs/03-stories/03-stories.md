@@ -1,106 +1,219 @@
+
+
 # 📝 User Stories / قصص المستخدم
+
+> **Project:** CA Admin  
+> **Version:** v0.1 — Owner: Abdullah Alshaif — Last Updated: YYYY-MM-DD
 
 ---
 
 ## 1. Introduction / المقدمة
-**English:**  
-User Stories capture the needs of different stakeholders in a simple format.  
-Each story is written from the perspective of a user role, describing what they want and why.
 
-**العربية:**  
-قصص المستخدم هي وسيلة لتوثيق احتياجات أصحاب المصلحة بطريقة بسيطة.  
-كل قصة تُكتب من منظور دور المستخدم، وتوضح ما يريده ولماذا.
+<div align="center">
+	<img src="https://img.icons8.com/color/96/000000/storytelling.png" width="80" alt="user stories"/>
+</div>
+
+**EN:**
+User Stories describe system features from the perspective of the end-users or stakeholders. They are written in a simple structure to clarify what the user wants and why. Each story should have **Acceptance Criteria** to make it testable.
+
+**AR:**
+قصص المستخدم تصف ميزات النظام من منظور المستخدمين النهائيين أو أصحاب المصلحة. تُكتب بشكل مبسط لتوضيح ما يريده المستخدم ولماذا. يجب أن تحتوي كل قصة على **معايير قبول** لتكون قابلة للاختبار.
 
 ---
 
-## 2. Format / الصياغة
-**Template / القالب:**  
-- **As a [role]**, I want [feature] so that [benefit].  
+## 1.1 User Journey Overview / رحلة المستخدم
+
+```mermaid
+journey
+		title Typical User Journey
+		section Customer
+			Register: 5: Customer
+			Place Order: 5: Customer
+			Track Shipment: 4: Customer
+			Pay Invoice: 3: Customer
+		section Staff
+			Register Incoming Shipment: 4: Staff
+			Deliver Packages: 3: Staff
+		section Finance
+			Record Payment: 4: Finance
+			Generate Weekly Report: 3: Finance
+		section Admin/IT
+			Manage User Roles: 4: Admin
+			System Sync Offline/Online: 3: IT
+```
+
+---
+
+## 2. Epic Stories & Breakdown / القصص الكبرى والتفصيلية
+
+```mermaid
+mindmap
+	root((Epic Stories))
+		Customer
+			Place Order
+			Track Shipment
+			Pay Invoice
+		Staff
+			Register Incoming Shipment
+			Deliver Packages
+		Finance
+			Record Payment
+			Generate Weekly Report
+		Admin/IT
+			Manage User Roles
+			System Sync Offline/Online
+```
+
+---
+
+## 3. User Story Template / قالب قصة المستخدم
+
+```mermaid
+flowchart LR
+		A[As a <role>] --> B[I want <feature>]
+		B --> C[So that <benefit>]
+```
+
+- **As a [role]**, I want [feature] so that [benefit].
 - **بصفتي [الدور]**، أريد [الميزة] لكي [الفائدة].
 
-**Acceptance Criteria / معايير القبول (Given/When/Then):**  
-- **Given** (الحالة الأولية)  
-- **When** (الحدث)  
-- **Then** (النتيجة المتوقعة)  
+**Acceptance Criteria / معايير القبول:**
+- **Given** (الحالة الأولية)
+- **When** (الحدث)
+- **Then** (النتيجة المتوقعة)
 
 ---
 
-## 3. User Story Examples / أمثلة لقصص المستخدم
+## 4. User Story Examples / أمثلة قصص المستخدم
 
-### Story 1: Customer places an order
-- **English:**  
-As a **Customer**, I want to **submit product links from Shein or Amazon** so that I can **purchase items I cannot buy directly**.  
-- **العربية:**  
-بصفتي **عميل**، أريد **إرسال روابط المنتجات من شي إن أو أمازون** لكي أتمكن من **شراء المنتجات التي لا أستطيع شراؤها مباشرة**.
+### Category A: Customer Stories / قصص العملاء
 
-**Acceptance Criteria / معايير القبول:**  
-- Given the customer has product links  
-- When they submit them in the app  
-- Then the system records the order and generates a unique order number  
+**Story C1: Place an order**
+- EN: As a **Customer**, I want to **submit product links and quantities** so that I can **buy items easily**.
+- AR: بصفتي **عميل**، أريد **إرسال روابط المنتجات والكميات** لكي أتمكن من **الشراء بسهولة**.
 
----
-
-### Story 2: Finance logs a payment
-- **English:**  
-As a **Finance Officer**, I want to **log customer payments** so that I can **keep accurate financial records**.  
-- **العربية:**  
-بصفتي **موظف مالي**، أريد **تسجيل مدفوعات العملاء** لكي أتمكن من **الحفاظ على سجلات مالية دقيقة**.
-
-**Acceptance Criteria / معايير القبول:**  
-- Given a payment amount and method  
-- When the finance officer records it  
-- Then the system updates the customer’s balance  
+**Acceptance Criteria:**
+- Given product links are valid
+- When the customer submits the order
+- Then the system generates an OrderNo and stores it in Firestore
 
 ---
 
-### Story 3: Driver updates shipment status
-- **English:**  
-As a **Driver**, I want to **update the shipment status** so that customers can **track their packages in real time**.  
-- **العربية:**  
-بصفتي **سائق**، أريد **تحديث حالة الشحنة** لكي يتمكن العملاء من **تتبع طرودهم لحظيًا**.
+**Story C2: Track shipment**
+- EN: As a **Customer**, I want to **view shipment status** so that I know **when to expect delivery**.
+- AR: بصفتي **عميل**، أريد **عرض حالة الشحنة** لكي أعرف **متى ستصل**.
 
-**Acceptance Criteria / معايير القبول:**  
-- Given a shipment is in transit  
-- When the driver updates the status  
-- Then the customer sees the new status in the app  
+**Acceptance Criteria:**
+- Given the shipment is in the system
+- When the customer opens “My Orders”
+- Then the current status is displayed
 
 ---
 
-### Story 4: Admin manages user roles
-- **English:**  
-As an **Admin**, I want to **assign roles and permissions** so that staff only access what they are allowed to.  
-- **العربية:**  
-بصفتي **مدير**، أريد **تعيين الأدوار والصلاحيات** بحيث يصل كل موظف فقط إلى ما هو مصرح له به.
+**Story C3: Pay invoice**
+- EN: As a **Customer**, I want to **see my balance and pay invoices** so that I stay updated financially.
+- AR: بصفتي **عميل**، أريد **رؤية رصيدي ودفع الفواتير** لكي أبقى مطلعًا ماليًا.
 
-**Acceptance Criteria / معايير القبول:**  
-- Given a staff member account  
-- When the admin changes the role  
-- Then the system enforces new permissions immediately  
+**Acceptance Criteria:**
+- Given an invoice exists
+- When the customer pays
+- Then the system updates the balance
 
 ---
 
-## 4. Suggested Categories / تصنيفات مقترحة
-You can organize your stories under categories:  
-- **Customer Stories** (placing orders, tracking, payments)  
-- **Staff Stories** (processing orders, shipment handling)  
-- **Finance Stories** (invoices, payments, deductions)  
-- **Admin/IT Stories** (roles, reports, configurations)  
+### Category B: Staff Stories / قصص الموظفين
 
-يمكنك تنظيم قصص المستخدم تحت تصنيفات مثل:  
-- **قصص العملاء** (الطلبات، التتبع، المدفوعات)  
-- **قصص الموظفين** (معالجة الطلبات، التعامل مع الشحنات)  
-- **قصص المالية** (الفواتير، المدفوعات، الخصومات)  
-- **قصص الإدارة/التقنية** (الأدوار، التقارير، الإعدادات)  
+**Story S1: Register incoming shipment**
+- EN: As **Saudi Office Staff**, I want to **register incoming packages** so that they can be consolidated.
+- AR: بصفتي **موظف مكتب السعودية**، أريد **تسجيل الطرود الواردة** لكي يتم تجميعها.
+
+**Acceptance Criteria:**
+- Given a shipment arrives
+- When staff register it
+- Then it is linked to customer orders
 
 ---
 
-## 5. Next Steps / الخطوات التالية
-- Review stories with stakeholders.  
-- Add more **Acceptance Criteria** to make them testable.  
-- Link each story later to **Use Cases** and **Test Plan**.
+**Story S2: Deliver packages**
+- EN: As **Yemen Office Staff**, I want to **mark deliveries as complete** so that records are accurate.
+- AR: بصفتي **موظف مكتب اليمن**، أريد **تحديد الطرود كمُسلمة** لكي تكون السجلات دقيقة.
 
-- راجع القصص مع أصحاب المصلحة.  
-- أضف المزيد من **معايير القبول** لجعلها قابلة للاختبار.  
-- اربط كل قصة لاحقًا مع **حالات الاستخدام** و **خطة الاختبار**.  
+**Acceptance Criteria:**
+- Given a package is out for delivery
+- When staff mark it delivered
+- Then the system updates customer status
+
+---
+
+### Category C: Finance Stories / قصص المالية
+
+**Story F1: Record customer payment**
+- EN: As a **Finance Officer**, I want to **record customer payments** so that balances remain correct.
+- AR: بصفتي **موظف مالي**، أريد **تسجيل مدفوعات العملاء** لكي تبقى الأرصدة صحيحة.
+
+**Acceptance Criteria:**
+- Given a payment amount
+- When it is logged in the system
+- Then the customer balance decreases
+
+---
+
+**Story F2: Generate weekly report**
+- EN: As a **Finance Officer**, I want to **generate weekly reports** so that I can review trends.
+- AR: بصفتي **موظف مالي**، أريد **إنشاء تقارير أسبوعية** لكي أراجع الاتجاهات.
+
+**Acceptance Criteria:**
+- Given the system has financial logs
+- When the report is requested
+- Then the system outputs a PDF/Excel
+
+---
+
+### Category D: Admin / IT Stories / قصص الإدارة والتقنية
+
+**Story A1: Manage user roles**
+- EN: As an **Admin**, I want to **assign staff roles** so that access is controlled.
+- AR: بصفتي **مدير**، أريد **تعيين أدوار الموظفين** لكي يكون الوصول مضبوطًا.
+
+**Acceptance Criteria:**
+- Given a staff account
+- When the role is updated
+- Then permissions are applied immediately
+
+---
+
+**Story A2: System sync offline/online**
+- EN: As an **IT Manager**, I want the app to **work offline and sync later** so that staff can work without internet.
+- AR: بصفتي **مدير تقنية**، أريد أن يعمل التطبيق **بدون إنترنت ويزامن لاحقًا** لكي يتمكن الموظفون من العمل باستمرار.
+
+**Acceptance Criteria:**
+- Given no internet connection
+- When staff enter data
+- Then it is cached locally and synced on reconnect
+
+---
+
+## 5. Mapping to Use Cases & Test Plan / ربط القصص بحالات الاستخدام وخطة الاختبار
+
+- Each User Story is linked to at least one **Use Case** (see [Use Cases](../04-use-cases/04-use-cases.md)).
+- **Acceptance Criteria** are reused directly in the [Test Plan](../11-test-plan/11-test-plan.md) for validation.
+- Stories are updated as requirements evolve and feedback is received from stakeholders.
+
+---
+
+## 6. Suggested Categories / التصنيفات المقترحة
+
+- Customers / العملاء
+- Staff (Saudi & Yemen) / الموظفون (السعودية واليمن)
+- Finance / المالية
+- Admin / الإدارة
+- IT / التقنية
+
+---
+
+## 7. Notes / ملاحظات
+
+- User Stories are the foundation for system design and testing.
+- Keep stories concise, testable, and always up to date.
 
 ---

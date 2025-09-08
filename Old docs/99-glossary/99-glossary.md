@@ -1,54 +1,23 @@
-
 # 📚 Glossary / القاموس
 
-> **Project:** CA Admin  
-> **Version:** v0.1 — Owner: Abdullah Alshaif  
-> **Last Updated:** 2025-09-08
+> Project: **CA Admin**  
+> Version: v0.1 — Owner: Abdullah Alshaif  
+> Last Updated: YYYY-MM-DD
 
 ---
 
-## 1. Introduction / المقدمة
+## 1) Introduction / المقدمة
+**EN:**  
+This glossary defines key terms used in the CA Admin system documentation.  
+It ensures consistent understanding across stakeholders, developers, and auditors.  
 
-<div align="center">
-	<img src="https://img.icons8.com/color/96/000000/book-shelf.png" width="80" alt="glossary"/>
-</div>
-
-**EN:**
-This glossary defines key terms used in the CA Admin system documentation. It ensures consistent understanding across stakeholders, developers, and auditors.
-
-**AR:**
-يعرّف هذا القاموس المصطلحات الرئيسية المستخدمة في توثيق نظام CA Admin. ويساعد على ضمان فهم موحد بين أصحاب المصلحة، المطورين، والمراجعين.
+**AR:**  
+يعرّف هذا القاموس المصطلحات الرئيسية المستخدمة في توثيق نظام CA Admin.  
+ويساعد على ضمان فهم موحد بين أصحاب المصلحة، المطورين، والمراجعين.
 
 ---
 
-## 2. Glossary Mindmap / خريطة ذهنية للمصطلحات
-
-```mermaid
-mindmap
-	root((Glossary))
-		Customer
-		Order
-		Shipment
-		Driver
-		Finance Log
-		Bank Card
-		Gift Card
-		Checkout Log
-		RBAC
-		Firestore
-		Offline-First
-		Sync Service
-		Audit Log
-		UAT
-		CI/CD
-		Alpha Release
-		Beta Release
-		Production
-```
-
----
-
-## 3. Terms Table / جدول المصطلحات
+## 2) Terms / المصطلحات
 
 | Term (EN)          | المصطلح (AR)       | Definition (EN) | التعريف (AR) |
 |---------------------|-------------------|-----------------|---------------|
@@ -78,10 +47,9 @@ mindmap
 
 ---
 
-## 4. Notes / ملاحظات
-
-- This glossary should be updated whenever new business or technical terms appear.
-- It complements the [Vision](../01-vision/01-vision.md), [Stakeholders](../02-stakeholders/02-stakeholders.md), [Data Model](../05-data-model/05-data-model.md), and [Security](../08-security-and-roles/08-security-and-roles.md) documents.
-- All team members should use these terms consistently in communication and documentation.
+## 3) Notes / ملاحظات
+- This glossary should be updated whenever new business or technical terms appear.  
+- It complements the **Vision**, **Stakeholders**, **Data Model**, and **Security** documents.  
+- All team members should use these terms consistently in communication and documentation.  
 
 ---
