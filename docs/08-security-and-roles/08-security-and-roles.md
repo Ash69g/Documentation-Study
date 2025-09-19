@@ -36,6 +36,40 @@
 
 ## 10. Example Scenario / سيناريو عملي
 
+---
+
+## 11. Advanced Scenarios for Staff Roles / سيناريوهات متقدمة للموظفين
+
+**EN:**
+
+- Customer Service Staff can only access customer and order libraries, and all their actions (add/edit) are logged for audit.
+- Order Processor can view, edit, split, and link orders, create tracking states and invoices, and link invoices to gift cards. All changes are tracked in the audit log.
+- Admin can review staff activity logs and restrict access if suspicious activity is detected.
+
+**AR:**
+
+- موظف خدمة العملاء يمكنه فقط الوصول لمكتبة العملاء والطلبيات، وجميع العمليات (إضافة/تعديل) يتم تسجيلها للمراجعة.
+- منفذ الطلبات يمكنه استعراض وتعديل وربط وتقسيم الطلبيات، وإنشاء حالات تتبع وفواتير وربطها ببطاقات الهدايا، وجميع التغييرات يتم تسجيلها في سجل التدقيق.
+- المدير يمكنه مراجعة سجلات نشاط الموظفين وتقييد الصلاحيات عند اكتشاف نشاط مشبوه.
+
+---
+
+## 12. FAQ for Staff Roles / الأسئلة الشائعة حول أنواع الموظفين
+
+**Q: هل يمكن إضافة أنواع موظفين جديدة مستقبلاً؟**
+
+نعم، يمكن إضافة أنواع جديدة حسب توسع النظام، مع تحديد صلاحيات واضحة لكل نوع.
+
+**Q: كيف يتم مراقبة نشاط الموظفين؟**
+
+كل عملية يقوم بها الموظف يتم تسجيلها في سجل التدقيق ويمكن مراجعتها من قبل المدير أو المدقق.
+
+**Q: هل يمكن للموظف تنفيذ عمليات خارج صلاحياته؟**
+
+لا، يتم تطبيق قواعد Firestore الأمنية ومراجعة الصلاحيات بشكل دوري لضمان الالتزام.
+
+---
+
 **EN:**
 
 > The Admin creates a new user for the Finance team. The Admin assigns the `finance` role using a Cloud Function. The user logs in, receives a token with the `finance` claim, and can now access financial logs and reports, but not admin settings.
@@ -73,14 +107,16 @@ Security in CA Admin is managed via **Role-Based Access Control (RBAC)**. Roles 
 
 ## 2. User Roles & RBAC Matrix / أدوار المستخدمين ومصفوفة الصلاحيات
 
-| Role (EN)         | الدور (AR)    | Description / الوصف                          | Permissions / الصلاحيات                                     |
-| ----------------- | ------------- | -------------------------------------------- | ----------------------------------------------------------- |
-| **Admin**         | المدير        | Full system access, manage roles, audit logs | CRUD on all modules, manage users, configure system         |
-| **Finance**       | المالي        | Handle invoices, payments, reports           | Create/update financial logs, view orders, generate reports |
-| **Staff (KSA)**   | موظف السعودية | Process purchases, register shipments        | Create/update orders, shipments, attach images              |
-| **Staff (Yemen)** | موظف اليمن    | Handle local deliveries                      | Update delivery status, assign to drivers                   |
-| **Driver**        | السائق        | Transport shipments, update status           | Update shipment status only                                 |
-| **Customer**      | العميل        | Submit and track orders                      | Create orders, view their own orders & balances             |
+| Role (EN)                  | الدور (AR)        | Description / الوصف                                           | Permissions / الصلاحيات                                                                                                |
+| -------------------------- | ----------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| **Admin**                  | المدير            | Full system access, manage roles, audit logs                  | CRUD on all modules, manage users, configure system                                                                    |
+| **Finance**                | المالي            | Handle invoices, payments, reports                            | Create/update financial logs, view orders, generate reports                                                            |
+| **Customer Service Staff** | موظف خدمة العملاء | Enter customer names and orders                               | Add/edit customer data, add/edit customer orders                                                                       |
+| **Order Processor**        | منفذ الطلبات      | Process, edit, split, and link orders, tracking, and invoices | Create/edit orders, link/split orders, create tracking states, create invoices, link invoices to orders and gift cards |
+| **Staff (KSA)**            | موظف السعودية     | Process purchases, register shipments                         | Create/update orders, shipments, attach images                                                                         |
+| **Staff (Yemen)**          | موظف اليمن        | Handle local deliveries                                       | Update delivery status, assign to drivers                                                                              |
+| **Driver**                 | السائق            | Transport shipments, update status                            | Update shipment status only                                                                                            |
+| **Customer**               | العميل            | Submit and track orders                                       | Create orders, view their own orders & balances                                                                        |
 
 ---
 
@@ -156,6 +192,7 @@ exports.setUserRole = functions.https.onCall((data, context) => {
 - اختبار القواعد عبر المحاكي قبل الإطلاق.
 - تفعيل سجلات Firestore للمراجعة.
 - استخدام سجل تدقيق لمتابعة جميع التغييرات.
+- سيتم إضافة أنواع موظفين وصلاحيات جديدة مستقبلاً حسب توسع النظام.
 
 ---
 

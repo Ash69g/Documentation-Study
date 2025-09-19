@@ -1,4 +1,3 @@
-
 # 📝 User Stories / قصص المستخدم
 
 > **Project:** CA Admin
@@ -45,20 +44,34 @@ journey
 
 ```mermaid
 mindmap
- root((Epic Stories))
-  Customer
-   Place Order
-   Track Shipment
-   Pay Invoice
-  Staff
-   Register Incoming Shipment
-   Deliver Packages
-  Finance
-   Record Payment
-   Generate Weekly Report
-  Admin/IT
-   Manage User Roles
-   System Sync Offline/Online
+  root((Epic Stories))
+    Customer
+      Place Order
+      Track Shipment
+      Pay Invoice
+    Customer Service Staff
+      Enter Customer Data
+      Enter Customer Orders
+    Order Processor
+      Create Order Numbers
+      View & Execute Orders
+      Edit Orders
+      Add Orders
+      Link Orders
+      Split Orders
+      Create Tracking States
+      Link Tracking to Orders
+      Create Payment Invoices
+      Link Invoices to Orders & Gift Cards
+    Staff
+      Register Incoming Shipment
+      Deliver Packages
+    Finance
+      Record Payment
+      Generate Weekly Report
+    Admin/IT
+      Manage User Roles
+      System Sync Offline/Online
 ```
 
 ---
@@ -83,6 +96,87 @@ flowchart LR
 ---
 
 ## 4. User Story Examples / أمثلة قصص المستخدم
+
+### Category B: Customer Service Staff Stories / قصص موظفي خدمة العملاء
+
+#### Story CS1: Enter customer data
+
+- EN: As a **Customer Service Staff**, I want to **enter customer names and details** so that the customer library is accurate.
+- AR: بصفتي **موظف خدمة العملاء**، أريد **إدخال أسماء العملاء وبياناتهم** لكي تكون مكتبة العملاء دقيقة.
+
+**Acceptance Criteria:**
+
+- Given a new customer
+- When staff enters their data
+- Then the customer is added to the customer library
+
+#### Story CS2: Enter customer orders
+
+- EN: As a **Customer Service Staff**, I want to **enter customer orders** so that all requests are recorded.
+- AR: بصفتي **موظف خدمة العملاء**، أريد **إدخال طلبيات العملاء** لكي يتم تسجيل جميع الطلبات.
+
+**Acceptance Criteria:**
+
+- Given a valid order
+- When staff enters the order
+- Then it is added to the order library
+
+### Category C: Order Processor Stories / قصص منفذ الطلبات
+
+#### Story OP1: Create order numbers
+
+- EN: As an **Order Processor**, I want to **create order numbers** so that each order is uniquely tracked.
+- AR: بصفتي **منفذ الطلبات**، أريد **إنشاء أرقام الطلبيات** لكي يتم تتبع كل طلب بشكل فريد.
+
+**Acceptance Criteria:**
+
+- Given a new order
+- When processor creates the order
+- Then a unique order number is generated and stored
+
+#### Story OP2: View and execute orders
+
+- EN: As an **Order Processor**, I want to **view and execute customer orders** so that requests are fulfilled.
+- AR: بصفتي **منفذ الطلبات**، أريد **استعراض وتنفيذ طلبيات العملاء** لكي يتم تنفيذ الطلبات.
+
+**Acceptance Criteria:**
+
+- Given a list of orders
+- When processor selects and executes an order
+- Then the order status is updated
+
+#### Story OP3: Edit orders
+
+- EN: As an **Order Processor**, I want to **edit any order field as needed** so that corrections can be made.
+- AR: بصفتي **منفذ الطلبات**، أريد **تعديل أي حقل في الطلبيات حسب الحاجة** لكي يتم تصحيح الأخطاء.
+
+**Acceptance Criteria:**
+
+- Given an order
+- When processor edits a field
+- Then the change is saved
+
+#### Story OP4: Link and split orders
+
+- EN: As an **Order Processor**, I want to **link multiple orders and split them into parts** so that complex requests are handled.
+- AR: بصفتي **منفذ الطلبات**، أريد **ربط عدة طلبيات وتقسيمها إلى أجزاء** لكي يتم التعامل مع الطلبات المعقدة.
+
+**Acceptance Criteria:**
+
+- Given several orders
+- When processor links or splits them
+- Then tracking states and references are created for each part
+
+#### Story OP5: Create tracking states and invoices
+
+- EN: As an **Order Processor**, I want to **create tracking states and payment invoices for each part** and link invoices to orders and gift cards.
+- AR: بصفتي **منفذ الطلبات**، أريد **إنشاء حالات تتبع وفواتير مدفوعات لكل جزء وربطها بالطلبيات وبطاقات الهدايا**.
+
+**Acceptance Criteria:**
+
+- Given split orders
+- When processor creates tracking and invoices
+- Then all links and discounts are recorded
 
 ### Category A: Customer Stories / قصص العملاء
 

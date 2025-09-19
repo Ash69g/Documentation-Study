@@ -10,8 +10,10 @@
 
 ```mermaid
 flowchart TD
-  Start([بداية العملية]) --> Order[استقبال الطلب]
-  Order --> Validate[تحقق وتخزين]
+  Start([بداية العملية]) --> CS[موظف خدمة العملاء]
+  CS --> Order[إدخال بيانات العميل والطلب]
+  Order --> OP[منفذ الطلبات]
+  OP --> Validate[تحقق وتخزين]
   Validate --> Purchase[شراء وتجميع]
   Purchase --> Shipment[شحن]
   Shipment --> Sort[فرز وتجهيز]
@@ -38,9 +40,11 @@ Process flows describe the sequence of activities in the CA Admin system. We use
 
 ```mermaid
 flowchart LR
-  C[عميل / Customer] -->|إرسال الطلب / Submit order| O1[استقبال الطلب / Order Intake]
-  O1 -->|تحقق وتخزين / Validate & Store| SYS[نظام CA Admin / CA Admin System]
+  C[عميل / Customer] -->|إرسال الطلب / Submit order| CS[موظف خدمة العملاء / Customer Service Staff]
+  CS -->|إدخال بيانات الطلب / Enter order data| OP[منفذ الطلبات / Order Processor]
+  OP -->|تحقق وتخزين / Validate & Store| SYS[نظام CA Admin / CA Admin System]
   SYS -->|تأكيد الطلب / Confirm order| C
+  OP -->|إنشاء حالات تتبع وفواتير / Create tracking & invoices| SYS
   SYS -->|تحويل الطلب / Forward order| SO[موظف السعودية / Saudi Office Staff]
   SO -->|شراء وتجميع / Purchase & Consolidate| SH[شحنة / Shipment]
   SH -->|إرسال لليمن / Forward to Yemen| YO[موظف اليمن / Yemen Office Staff]
@@ -54,14 +58,16 @@ flowchart LR
 
 ## 3. Detailed BPMN Steps / خطوات BPMN بالتفصيل
 
-1. Customer submits order → System generates OrderNo.
-2. Saudi Office Staff purchase items from vendors.
-3. Packages consolidated into a Shipment.
-4. Shipment forwarded to Yemen Office Staff.
-5. Yemen staff sort packages per customer.
-6. Driver delivers to customer.
-7. Finance Officer records payments, reconciles logs.
-8. System generates reports.
+1. Customer submits order → Customer Service Staff enters customer and order data.
+2. Order Processor creates order number, links/splits orders, creates tracking states and invoices.
+3. System validates and stores order, confirms to customer.
+4. Saudi Office Staff purchase items from vendors.
+5. Packages consolidated into a Shipment.
+6. Shipment forwarded to Yemen Office Staff.
+7. Yemen staff sort packages per customer.
+8. Driver delivers to customer.
+9. Finance Officer records payments, reconciles logs.
+10. System generates reports.
 
 ---
 

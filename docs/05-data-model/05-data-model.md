@@ -190,12 +190,24 @@ erDiagram
     paid
     remaining
     createdAt
+    enteredByStaffId (ref → customerServiceStaff)
+    processedByProcessorId (ref → orderProcessor)
     /items/{itemId}
       sku
       productName
       quantity
       price
       image
+
+/customerServiceStaff/{staffId}
+  name
+  role
+  createdAt
+
+/orderProcessor/{processorId}
+  name
+  role
+  createdAt
 
 /shipments/{shipmentId}
   orderId
@@ -284,12 +296,36 @@ erDiagram
 
 **EN:**
 
-> Customer Ahmed places an order with 2 items. The system creates a new order, links items, and generates a shipment. Payment is logged, and all records are linked for easy tracking.
+> Customer Ahmed contacts Customer Service Staff Layla, who enters his order with 2 items. Order Processor Omar reviews, splits, and processes the order, creates invoices and tracking, and links all records for easy tracking. Payment is logged and all actions are auditable.
 
 **AR:**
 
-> يقوم العميل أحمد بإنشاء طلب يحتوي على منتجين. ينشئ النظام طلبًا جديدًا، ويربط العناصر، ويولّد شحنة. يتم تسجيل الدفعة، وترتبط جميع السجلات لتسهيل التتبع.
+> يتواصل العميل أحمد مع موظفة خدمة العملاء ليلى، التي تدخل طلبه المكون من منتجين. يقوم منفذ الطلبات عمر بمراجعة الطلب وتقسيمه وتنفيذه، وينشئ الفواتير وحالات التتبع ويربط جميع السجلات لتسهيل التتبع. يتم تسجيل الدفعة وجميع العمليات قابلة للمراجعة.
+
+---
+
+## 8. Future Staff Expansion / التوسع المستقبلي للموظفين
+
+**EN:**
+The data model is designed to support future staff types (e.g., Quality Assurance, Logistics Coordinator) by adding new entities and linking them to orders, shipments, or other business objects. This ensures scalability and modularity as the business grows.
+
+**AR:**
+تم تصميم نموذج البيانات لدعم أنواع موظفين جديدة مستقبلاً (مثل موظف الجودة، منسق اللوجستيات) عبر إضافة كيانات وربطها بالطلبات أو الشحنات أو عناصر العمل الأخرى، لضمان قابلية التوسع والمرونة مع نمو العمل.
 
 ---
 
 ---
+
+### Customer Service Staff / موظفو خدمة العملاء
+
+- `staffId` (string, unique)
+- `name` (string)
+- `role` (enum: customer_service)
+- `createdAt` (timestamp)
+
+### Order Processor / منفذ الطلبات
+
+- `processorId` (string, unique)
+- `name` (string)
+- `role` (enum: order_processor)
+- `createdAt` (timestamp)

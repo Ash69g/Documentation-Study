@@ -33,19 +33,105 @@ flowchart LR
 
 ## 2. Use Case Overview / نظرة عامة على حالات الاستخدام
 
-| ID    | Use Case (EN)          | Use Case (AR)              | Actor           | Priority |
-| ----- | ---------------------- | -------------------------- | --------------- | -------- |
-| UC-01 | Place Customer Order   | إنشاء طلبية عميل           | Customer        | High     |
-| UC-02 | Process Payment        | معالجة دفعة مالية          | Finance Officer | High     |
-| UC-03 | Track Shipment         | تتبع الشحنة                | Customer        | Medium   |
-| UC-04 | Update Shipment Status | تحديث حالة الشحنة          | Driver          | High     |
-| UC-05 | Manage User Roles      | إدارة صلاحيات المستخدم     | Admin           | High     |
-| UC-06 | Generate Reports       | إنشاء تقارير               | Finance/Admin   | Medium   |
-| UC-07 | Offline Data Sync      | مزامنة البيانات دون إنترنت | IT Manager      | High     |
+| ID    | Use Case (EN)              | Use Case (AR)              | Actor                  | Priority |
+| ----- | -------------------------- | -------------------------- | ---------------------- | -------- |
+| UC-01 | Place Customer Order       | إنشاء طلبية عميل           | Customer               | High     |
+| UC-02 | Process Payment            | معالجة دفعة مالية          | Finance Officer        | High     |
+| UC-03 | Track Shipment             | تتبع الشحنة                | Customer               | Medium   |
+| UC-04 | Update Shipment Status     | تحديث حالة الشحنة          | Driver                 | High     |
+| UC-05 | Manage User Roles          | إدارة صلاحيات المستخدم     | Admin                  | High     |
+| UC-06 | Generate Reports           | إنشاء تقارير               | Finance/Admin          | Medium   |
+| UC-07 | Offline Data Sync          | مزامنة البيانات دون إنترنت | IT Manager             | High     |
+| UC-08 | Enter Customer Data        | إدخال بيانات العملاء       | Customer Service Staff | High     |
+| UC-09 | Enter Customer Orders      | إدخال طلبيات العملاء       | Customer Service Staff | High     |
+| UC-10 | Create Order Numbers       | إنشاء أرقام الطلبيات       | Order Processor        | High     |
+| UC-11 | View & Execute Orders      | استعراض وتنفيذ الطلبيات    | Order Processor        | High     |
+| UC-12 | Edit Orders                | تعديل الطلبيات             | Order Processor        | High     |
+| UC-13 | Link & Split Orders        | ربط وتقسيم الطلبيات        | Order Processor        | Medium   |
+| UC-14 | Create Tracking & Invoices | إنشاء حالات تتبع وفواتير   | Order Processor        | Medium   |
 
 ---
 
 ## 3. Detailed Use Cases / تفاصيل حالات الاستخدام
+
+### UC-08: Enter Customer Data / إدخال بيانات العملاء
+
+- **Actors / الممثلون:** Customer Service Staff
+- **Preconditions / الشروط المسبقة:** New customer information available
+- **Main Flow / التدفق الرئيسي:**
+  1. Staff enters customer name and details.
+  2. System validates and saves data to customer library.
+- **Alternative Flow / التدفق البديل:** Invalid data → error message.
+
+---
+
+### UC-09: Enter Customer Orders / إدخال طلبيات العملاء
+
+- **Actors:** Customer Service Staff
+- **Preconditions:** Valid order details available
+- **Main Flow:**
+  1. Staff enters order details for a customer.
+  2. System validates and saves order to order library.
+- **Alternative Flow:** Invalid order → error message.
+
+---
+
+### UC-10: Create Order Numbers / إنشاء أرقام الطلبيات
+
+- **Actors:** Order Processor
+- **Preconditions:** New order exists
+- **Main Flow:**
+  1. Processor creates a unique order number.
+  2. System stores the order number in the order number library.
+- **Alternative Flow:** Duplicate order number → error message.
+
+---
+
+### UC-11: View & Execute Orders / استعراض وتنفيذ الطلبيات
+
+- **Actors:** Order Processor
+- **Preconditions:** Orders exist in the system
+- **Main Flow:**
+  1. Processor views list of orders.
+  2. Selects and executes orders as needed.
+  3. System updates order status.
+- **Alternative Flow:** No orders found → message displayed.
+
+---
+
+### UC-12: Edit Orders / تعديل الطلبيات
+
+- **Actors:** Order Processor
+- **Preconditions:** Order exists
+- **Main Flow:**
+  1. Processor edits any field in the order.
+  2. System saves changes.
+- **Alternative Flow:** Invalid edit → error message.
+
+---
+
+### UC-13: Link & Split Orders / ربط وتقسيم الطلبيات
+
+- **Actors:** Order Processor
+- **Preconditions:** Multiple orders exist
+- **Main Flow:**
+  1. Processor links several orders together.
+  2. Splits orders into parts as needed.
+  3. System creates tracking states for each part.
+- **Alternative Flow:** Linking/splitting fails → error message.
+
+---
+
+### UC-14: Create Tracking & Invoices / إنشاء حالات تتبع وفواتير
+
+- **Actors:** Order Processor
+- **Preconditions:** Split orders exist
+- **Main Flow:**
+  1. Processor creates tracking states for each part (part number, reference, account, quantity).
+  2. Links tracking states to orders.
+  3. Creates payment invoices for each part, records discounts.
+  4. Links invoices to orders and gift cards.
+- **Alternative Flow:** Invoice creation fails → error message.
 
 ### UC-01: Place Customer Order / إنشاء طلبية عميل
 

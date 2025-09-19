@@ -1,4 +1,3 @@
-
 # 🏗️ System Architecture / بنية النظام
 
 > **Project:** CA Admin
@@ -35,9 +34,9 @@ flowchart TD
 - **Presentation Layer (UI) / طبقة العرض:**
   - Flutter Widgets, Localization (Arabic/English, RTL/LTR), State Management (Riverpod/Bloc)
 - **Application Layer / طبقة التطبيق:**
-  - Use Cases (business workflows: Create Order, Update Shipment, Process Payment), Controllers/ViewModels
+  - Use Cases (business workflows: Create Order, Update Shipment, Process Payment, Enter Customer Data, Process Orders), Controllers/ViewModels
 - **Domain Layer / طبقة المجال:**
-  - Entities (Customer, Order, Shipment, Payment, Driver, BankCard, etc.), Business rules (independent of Flutter/Firebase)
+  - Entities (Customer, Order, Shipment, Payment, Driver, BankCard, Customer Service Staff, Order Processor, etc.), Business rules (independent of Flutter/Firebase)
 - **Data Layer / طبقة البيانات:**
   - Repositories (abstract between domain/data sources), Data Sources (Firestore, Local DB), Sync Service (offline-first two-way sync)
 
@@ -73,13 +72,13 @@ flowchart TD
 
 ## 5. Architecture Decision Records (ADRs) / قرارات التصميم
 
-| ADR ID  | Decision                                 | Rationale                        | Status    |
-|---------|------------------------------------------|-----------------------------------|-----------|
-| ADR-01  | Use Firestore as main DB                 | Real-time sync, scalability       | Accepted  |
-| ADR-02  | Implement Offline-first with local DB    | Internet is unreliable in Yemen   | Accepted  |
-| ADR-03  | Use Clean Architecture                   | Separation of concerns, testable  | Accepted  |
-| ADR-04  | State Management: Riverpod               | Simplicity, performance           | Proposed  |
-| ADR-05  | Auth with Custom Claims                  | Role-based access control         | Accepted  |
+| ADR ID | Decision                              | Rationale                        | Status   |
+| ------ | ------------------------------------- | -------------------------------- | -------- |
+| ADR-01 | Use Firestore as main DB              | Real-time sync, scalability      | Accepted |
+| ADR-02 | Implement Offline-first with local DB | Internet is unreliable in Yemen  | Accepted |
+| ADR-03 | Use Clean Architecture                | Separation of concerns, testable | Accepted |
+| ADR-04 | State Management: Riverpod            | Simplicity, performance          | Proposed |
+| ADR-05 | Auth with Custom Claims               | Role-based access control        | Accepted |
 
 ---
 
@@ -91,6 +90,8 @@ flowchart LR
     UI[UI Layer] --> APP[Application Layer]
     APP --> DOMAIN[Domain Layer]
     DOMAIN --> DATA[Repository Layer]
+    DOMAIN --> CSS[Customer Service Staff]
+    DOMAIN --> OP[Order Processor]
   end
 
   subgraph Backend[Firebase Backend]
@@ -105,6 +106,8 @@ flowchart LR
   DATA --> ST
   DATA --> CF
   DATA --> LOCAL[Local DB]
+  CSS --> DATA
+  OP --> DATA
 ```
 
 ---
@@ -115,5 +118,6 @@ flowchart LR
 - Clean separation ensures developers can work in parallel (UI vs Backend vs Finance modules).
 - ADRs must be updated whenever a major architectural decision is made.
 - Offline-first sync is critical for regions with unreliable internet.
+- Roles for Customer Service Staff and Order Processor are now explicitly modeled in the domain and data layers for clarity and future expansion.
 
 ---
