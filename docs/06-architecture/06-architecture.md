@@ -4,11 +4,11 @@ System Architecture
 
 ---
 
-> **المشروع:** CA Admin
-> **Project:** CA Admin
-> **الإصدار:** v0.1 — المالك: عبدالله الشائف
-> **Version:** v0.1 — Owner: Abdullah Alshaif
-> **آخر تحديث:** 2025-09-08
+> **المشروع:** CA Admin  
+> **Project:** CA Admin  
+> **الإصدار:** v0.1 — المالك: عبدالله الشائف  
+> **Version:** v0.1 — Owner: Abdullah Alshaif  
+> **آخر تحديث:** 2025-09-08  
 > **Last Updated:** 2025-09-08
 
 **شرح مختصر:**
@@ -43,11 +43,17 @@ The diagram shows how data flows between layers from UI to databases.
 
 ```mermaid
 flowchart TD
-  UI[🖥️ طبقة العرض\nPresentation Layer (Flutter Widgets, Providers, State Management)] --> APP[⚙️ طبقة التطبيق\nApplication Layer (Use Cases, Controllers)]
-  APP --> DOMAIN[📦 طبقة المجال\nDomain Layer (Entities, Business Rules)]
-  DOMAIN --> DATA[🗄️ طبقة البيانات\nData Layer (Repositories, Data Sources)]
-  DATA --> FIREBASE[(🔥 خدمات Firebase\nFirestore, Auth, Storage, Functions)]
-  DATA --> LOCAL[(💾 قاعدة بيانات محلية\nSQLite/Hive/SharedPreferences)]
+  UI[🖥️ طبقة العرض / Presentation Layer\nFlutter Widgets, Providers, State Management]
+  APP[⚙️ طبقة التطبيق / Application Layer\nUse Cases, Controllers]
+  DOMAIN[📦 طبقة المجال / Domain Layer\nEntities, Business Rules]
+  DATA[🗄️ طبقة البيانات / Data Layer\nRepositories, Data Sources]
+  FIREBASE[🔥 خدمات Firebase / Firebase Services\nFirestore, Auth, Storage, Functions]
+  LOCAL[💾 قاعدة بيانات محلية / Local Database\nSQLite, Hive, SharedPreferences]
+  UI --> APP
+  APP --> DOMAIN
+  DOMAIN --> DATA
+  DATA --> FIREBASE
+  DATA --> LOCAL
 ```
 
 - **طبقة العرض (UI):** عناصر Flutter، دعم اللغتين، إدارة الحالة.

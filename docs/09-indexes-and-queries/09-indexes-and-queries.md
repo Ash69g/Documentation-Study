@@ -1,88 +1,112 @@
-# 📊 الفهارس والاستعلامات
-
-Indexes & Queries
+# 📊 الفهارس والاستعلامات | Indexes & Queries
 
 ---
 
-> **المشروع:** CA Admin
-> **Project:** CA Admin
-> **الإصدار:** v0.1 — المالك: عبدالله الشائف
-> **Version:** v0.1 — Owner: Abdullah Alshaif
-> **آخر تحديث:** 2025-09-08
-> **Last Updated:** 2025-09-08
+> **المشروع:** CA Admin | **Project:** CA Admin
+> **الإصدار:** v0.1 — المالك: عبدالله الشائف | **Version:** v0.1 — Owner: Abdullah Alshaif
+> **آخر تحديث:** 2025-09-08 | **Last Updated:** 2025-09-08
 
 **شرح مختصر:**
-يوضح هذا القسم أهمية الفهارس والاستعلامات لتحسين أداء النظام وسرعة الوصول للبيانات.
-
+هذا القسم يوضح أهمية الفهارس والاستعلامات لتحسين أداء النظام وسرعة الوصول للبيانات، مع ربطها بنموذج البيانات وحالات الاستخدام، وتوضيح كيف تؤثر على تجربة المستخدم والتكلفة.
 **Summary:**
-This section explains the importance of indexes and queries for system performance and fast data access.
+This section explains the importance of indexes and queries for system performance and fast data access, linking them to the data model and use cases, and clarifying their impact on user experience and cost.
 
 ---
 
-## المقدمة
-
-Introduction
-
-![indexes](https://img.icons8.com/color/96/000000/database.png)
-
-الفهارس والاستعلامات في Firestore ضرورية لتحسين الأداء. يقوم Firestore بإنشاء فهارس أحادية الحقل تلقائيًا، لكن يحتاج إلى فهارس مركبة عند وجود استعلامات متعددة الحقول.
-
-Indexes and queries in Firestore are critical for performance. Firestore automatically creates single-field indexes but requires composite indexes for multi-field queries.
-
----
-
-## ملخص بصري لتدفق الاستعلام
-
-Visual Query Flow
+## 🗄️ المقدمة | Introduction
 
 **شرح مختصر:**
-يوضح المخطط كيف ينتقل الاستعلام من المستخدم إلى قاعدة البيانات عبر الفهارس.
-
+الفهارس والاستعلامات هي الأساس في سرعة النظام وكفاءة البحث عن البيانات، وتؤثر مباشرة على تجربة المستخدم وتكلفة التشغيل.
 **Summary:**
-The diagram shows how a query moves from the user to the database through indexes.
+Indexes and queries are the foundation for system speed and data search efficiency, directly impacting user experience and operational cost.
+
+- الفهارس والاستعلامات في Firestore ضرورية لتحسين الأداء. يقوم Firestore بإنشاء فهارس أحادية الحقل تلقائيًا، لكن يحتاج إلى فهارس مركبة عند وجود استعلامات متعددة الحقول.
+- Indexes and queries in Firestore are critical for performance. Firestore automatically creates single-field indexes but requires composite indexes for multi-field queries.
+
+---
+
+---
+
+## 🖼️ ملخص بصري لتدفق الاستعلام | Visual Query Flow
+
+**شرح مختصر:**
+يوضح المخطط كيف ينتقل الاستعلام من المستخدم إلى قاعدة البيانات عبر الفهارس، مع إبراز دور كل نوع فهرس.
+**Summary:**
+The diagram shows how a query moves from the user to the database through indexes, highlighting the role of each index type.
 
 ```mermaid
-flowchart LR
-  User([👤 مستخدم]) --> Query[🔎 استعلام Firestore]
-  Query -->|🟦 أحادي الحقل| SIDX[📄 فهرس أحادي]
-  Query -->|🟧 مركب| CIDX[📑 فهرس مركب]
-  SIDX & CIDX --> Engine[⚙️ محرك الاستعلام]
-  Engine --> Result[📊 النتيجة]
+flowchart TD
+  User([👤 مستخدم | User]) -->|يكتب استعلام| Query[🔎 استعلام Firestore | Firestore Query]
+  Query -->|🟦 إذا كان الاستعلام بسيط| SIDX[📄 فهرس أحادي | Single Index]
+  Query -->|🟧 إذا كان الاستعلام مركب| CIDX[📑 فهرس مركب | Composite Index]
+  SIDX --> Engine[⚙️ محرك الاستعلام | Query Engine]
+  CIDX --> Engine
+  Engine -->|يعالج| Result[📊 النتيجة | Result]
 ```
 
 ---
 
-## أنواع الفهارس
+---
 
-Index Types
+## 🗺️ رسم توضيحي لعلاقة الفهارس بنموذج البيانات | Indexes & Data Model Visual
 
 **شرح مختصر:**
-أنواع الفهارس المتاحة في Firestore ومتى يستخدم كل نوع.
-
+مخطط يوضح كيف ترتبط الفهارس بمجموعات البيانات الرئيسية في النظام، ليسهل على المطور والمحلل فهم العلاقة بين الاستعلامات ونموذج البيانات.
 **Summary:**
-Types of indexes available in Firestore and when to use each.
+Diagram showing how indexes are linked to main data collections in the system, making it easier for developers and analysts to understand the relationship between queries and the data model.
 
-- فهرس أحادي الحقل: يُنشأ تلقائيًا لكل حقل. سريع للاستعلامات البسيطة.
-- فهرس مركب: مطلوب للاستعلامات متعددة الحقول. يجب تعريفه يدويًا.
-- بدون فهرس: فحص كامل للمجموعة (غير مستحب، بطيء ومكلف).
+```mermaid
+flowchart LR
+  Orders([📦 orders]) -- فهرس مركب --> IDX1([customerId+status+createdAt])
+  Shipments([🚚 shipments]) -- فهرس مركب --> IDX2([status+driverId])
+  Financial([💰 financialLogs]) -- فهرس مركب --> IDX3([type+createdAt])
+  Customers([🧑‍💼 customers]) -- فهرس مركب --> IDX4([phone+name])
+```
 
 ---
 
-## مقارنة أنواع الفهارس
+---
 
-Index Type Comparison
+## 🗂️ أنواع الفهارس | Index Types
 
 **شرح مختصر:**
-جدول يوضح مميزات وعيوب كل نوع فهرس.
-
+أنواع الفهارس المتاحة في Firestore ومتى يستخدم كل نوع، مع أمثلة عملية لكل نوع.
 **Summary:**
-Table showing pros and cons of each index type.
+Types of indexes available in Firestore and when to use each, with practical examples for each type.
+
+- فهرس أحادي الحقل: يُنشأ تلقائيًا لكل حقل. سريع للاستعلامات البسيطة (مثال: البحث عن عميل برقم الهاتف).
+- فهرس مركب: مطلوب للاستعلامات متعددة الحقول. يجب تعريفه يدويًا (مثال: جلب الطلبات حسب الحالة والتاريخ).
+- بدون فهرس: فحص كامل للمجموعة (غير مستحب، بطيء ومكلف).
+- Single-field index: Automatically created for each field. Fast for simple queries (e.g., search customer by phone).
+- Composite index: Required for multi-field queries. Must be defined manually (e.g., get orders by status and date).
+- No index: Full collection scan (not recommended, slow and costly).
+
+---
+
+---
+
+---
+
+---
+
+## 📊 مقارنة أنواع الفهارس | Index Type Comparison
+
+**شرح مختصر:**
+جدول يوضح مميزات وعيوب كل نوع فهرس، ليسهل اختيار الأنسب للمطور والمحلل.
+**Summary:**
+Table showing pros and cons of each index type, to help developers and analysts choose the best fit.
 
 | النوع      | الحالة                       | المميزات       | العيوب                            |
 | ---------- | ---------------------------- | -------------- | --------------------------------- |
 | فهرس أحادي | استعلامات بسيطة على حقل واحد | تلقائي، سريع   | لا يدعم الاستعلامات متعددة الحقول |
 | فهرس مركب  | استعلامات متعددة الحقول      | قوي ومرن       | يجب إنشاؤه يدويًا                 |
 | بدون فهرس  | فحص كامل للمجموعة            | لا يحتاج إعداد | بطيء ومكلف                        |
+
+---
+
+---
+
+---
 
 ---
 

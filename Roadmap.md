@@ -1,46 +1,46 @@
-# 🗺️ خارطة طريق التوثيق والرسومات
-
-Roadmap for Documentation & Diagrams
+# 🗺️ خارطة طريق التوثيق والرسومات | Documentation & Diagrams Roadmap
 
 ---
 
-## 🎯 الهدف
+## 🎯 الهدف | Goal
 
+**شرح مختصر:**
 إتقان مهارات إعداد التوثيق والرسومات الاحترافية لمشروع CA Admin (الرؤية → أصحاب المصلحة → القصص → حالات الاستخدام → نماذج البيانات → العمارة → التدفقات → الأمان → الاختبار → الإطلاق).
-**شرح مختصر:** تساعد هذه الخارطة في بناء وثائق احترافية خطوة بخطوة، وتوضح كيف ينتقل التوثيق من الفكرة حتى الإطلاق.
+تساعد هذه الخارطة في بناء وثائق احترافية خطوة بخطوة، وتوضح كيف ينتقل التوثيق من الفكرة حتى الإطلاق.
 
-Goal
+**Summary:**
 Master the skills to create professional documentation and diagrams for the CA Admin project (Vision → Stakeholders → Stories → Use Cases → Data Models → Architecture → Flows → Security → Testing → Release).
-**Summary:** This roadmap helps build professional documentation step by step, showing how documentation evolves from idea to release.
+This roadmap helps build professional documentation step by step, showing how documentation evolves from idea to release.
 
 ---
 
-## 🏁 ملخص بصري
+## 🏁 ملخص بصري | Visual Summary
 
+**شرح مختصر:**
 المخطط التالي يوضح تسلسل مراحل التوثيق من الرؤية حتى القاموس، مع إبراز كل مرحلة وأهميتها.
-**شرح مختصر:** يوضح المخطط كيف تتسلسل مراحل التوثيق من الرؤية حتى القاموس، مع إبراز كل مرحلة.
 
-Visual Summary
+**Summary:**
 The following diagram shows the sequence of documentation phases from vision to glossary, highlighting each phase and its importance.
-**Summary:** The diagram shows how documentation phases progress from vision to glossary, highlighting each phase.
 
 ```mermaid
 flowchart LR
-  V([🔭 الرؤية\nVision]) --> S([👥 أصحاب المصلحة\nStakeholders]) --> ST([📖 القصص\nStories]) --> UC([🎬 حالات الاستخدام\nUse Cases])
-  UC --> DM([🗂️ نماذج البيانات\nData Models]) --> AR([🏗️ العمارة\nArchitecture])
-  AR --> PF([🔄 تدفقات العمليات\nProcess Flows]) --> SE([� الأمان\nSecurity])
-  SE --> IQ([📊 الفهارس والاستعلامات\nIndexes & Queries]) --> NFR([⚙️ المتطلبات غير الوظيفية والجودة\nNFR & Quality])
-  NFR --> TP([🧪 خطة الاختبار\nTest Plan]) --> RD([🚀 الإطلاق و DevOps\nRelease & DevOps])
-  RD --> GL([📚 القاموس\nGlossary])
+  V([🔭 الرؤية | Vision]) --> S([👥 أصحاب المصلحة | Stakeholders]) --> ST([📖 القصص | Stories]) --> UC([🎬 حالات الاستخدام | Use Cases])
+  UC --> DM([🗂️ نماذج البيانات | Data Models]) --> AR([🏗️ العمارة | Architecture])
+  AR --> PF([🔄 تدفقات العمليات | Process Flows]) --> SE([🔒 الأمان | Security])
+  SE --> IQ([📊 الفهارس والاستعلامات | Indexes & Queries]) --> NFR([⚙️ المتطلبات غير الوظيفية والجودة | NFR & Quality])
+  NFR --> TP([🧪 خطة الاختبار | Test Plan]) --> RD([🚀 الإطلاق و DevOps | Release & DevOps])
+  RD --> GL([📚 القاموس | Glossary])
   classDef phase fill:#e3f6fc,stroke:#0ea5e9,stroke-width:2px;
   class V,S,ST,UC,DM,AR,PF,SE,IQ,NFR,TP,RD,GL phase;
 ```
 
 ---
 
-## 🧭 مراحل التعلم / Learning Phases
+---
 
-### 🎯 المرحلة 1: الأساسيات / Phase 1: Foundations
+## 🧭 مراحل التعلم | Learning Phases
+
+### 🎯 المرحلة 1: الأساسيات | Phase 1: Foundations
 
 | 📝 المهارة              | شرح مختصر                                         | Skill                         | Summary                                                |
 | ----------------------- | ------------------------------------------------- | ----------------------------- | ------------------------------------------------------ |
@@ -61,7 +61,7 @@ flowchart LR
 
 ---
 
-### 🎯 المرحلة 2: النمذجة والرسومات / Phase 2: Modeling & Diagrams
+### 🎯 المرحلة 2: النمذجة والرسومات | Phase 2: Modeling & Diagrams
 
 | 📝 المهارة                  | شرح مختصر                           | Skill                   | Summary                                |
 | --------------------------- | ----------------------------------- | ----------------------- | -------------------------------------- |
@@ -80,7 +80,7 @@ flowchart LR
 
 ---
 
-### 🎯 المرحلة 3: العمارة والتدفقات / Phase 3: Architecture & Flows
+### 🎯 المرحلة 3: العمارة والتدفقات | Phase 3: Architecture & Flows
 
 | 📝 المهارة            | شرح مختصر                        | Skill               | Summary                                              |
 | --------------------- | -------------------------------- | ------------------- | ---------------------------------------------------- |
@@ -98,7 +98,7 @@ flowchart LR
 
 ---
 
-### 🎯 المرحلة 4: الأمان والجودة / Phase 4: Security & Quality
+### 🎯 المرحلة 4: الأمان والجودة | Phase 4: Security & Quality
 
 | 📝 المهارة                     | شرح مختصر                    | Skill               | Summary                                |
 | ------------------------------ | ---------------------------- | ------------------- | -------------------------------------- |
@@ -116,7 +116,7 @@ flowchart LR
 
 ---
 
-### 🎯 المرحلة 5: الاختبار والإطلاق / Phase 5: Testing & Release
+### 🎯 المرحلة 5: الاختبار والإطلاق | Phase 5: Testing & Release
 
 | 📝 المهارة       | شرح مختصر                      | Skill            | Summary                                     |
 | ---------------- | ------------------------------ | ---------------- | ------------------------------------------- |
@@ -134,7 +134,7 @@ flowchart LR
 
 ---
 
-## 💡 نقاط إضافية / Extra Notes
+## 💡 نقاط إضافية | Extra Notes
 
 **العربية:**
 
@@ -174,7 +174,7 @@ flowchart LR
 
 ---
 
-## 🎯 Phase 3: Security, Testing & Quality / الأمان والاختبار والجودة
+## 🎯 Phase 3: Security, Testing & Quality | الأمان والاختبار والجودة
 
 ### 7. Security & Roles
 
@@ -208,7 +208,7 @@ flowchart LR
 
 ---
 
-## 🎯 Phase 4: Release & Maintenance / الإطلاق والصيانة
+## 🎯 Phase 4: Release & Maintenance | الإطلاق والصيانة
 
 ### 11. Release & DevOps
 
@@ -225,23 +225,23 @@ flowchart LR
 
 ---
 
-## 🎯 Phase 5: Continuous Improvement / التحسين المستمر
+## 🎯 Phase 5: Continuous Improvement | التحسين المستمر
 
-- Review documentation quarterly.
-- Update diagrams when data model or processes change.
-- Improve diagrams with BPMN/DFD tools if Mermaid isn’t enough.
-- Expand roadmap with **advanced topics**:
-  - System Design (Caching, Scaling, APIs).
-  - Advanced Security (Zero Trust, Audit Compliance).
-  - Data Analytics & Reporting.
+- راجع التوثيق كل ربع سنة.
+- حدّث الرسومات عند تغيير نموذج البيانات أو العمليات.
+- حسّن الرسومات باستخدام أدوات BPMN/DFD إذا لم تكفِ Mermaid.
+- وسّع خارطة الطريق بمواضيع متقدمة:
+  - تصميم الأنظمة (الكاش، التوسعة، APIs).
+  - الأمان المتقدم (Zero Trust، الامتثال).
+  - التحليلات والتقارير.
 
 ---
 
-## 📌 Tips for Success / نصائح للنجاح
+## 📌 نصائح للنجاح | Tips for Success
 
-- Follow the **order of docs** (Vision → Stakeholders → Stories → Use Cases → Data Model …).
-- Practice small examples in parallel with CA Admin docs.
-- Use **Mermaid** for quick diagrams and **Draw.io** for complex flows.
-- Treat documentation as a **living artifact**: keep it updated with every project change.
+- اتبع ترتيب الملفات (الرؤية → أصحاب المصلحة → القصص → حالات الاستخدام → نموذج البيانات ...).
+- طبّق أمثلة صغيرة بالتوازي مع توثيق CA Admin.
+- استخدم **Mermaid** للرسومات السريعة و**Draw.io** للعمليات المعقدة.
+- اعتبر التوثيق وثيقة حية: حدّثها مع كل تغيير في المشروع.
 
 ---

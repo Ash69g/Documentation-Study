@@ -1,6 +1,4 @@
-﻿# 📝 وثيقة الرؤية
-
-Vision Document
+﻿# 📝 وثيقة الرؤية | Vision Document
 
 ---
 
@@ -12,50 +10,39 @@ Vision Document
 > **Version:** 0.1 (Vision) - Owner: Abdullah Alshaif - Last Updated: 2025-09-20
 
 **شرح مختصر:**
-توثيق الرؤية يحدد أهداف المنصة، التقنيات المستخدمة، ويعطي نظرة شاملة عن المشروع.
-
+توثيق الرؤية يحدد أهداف المنصة، التقنيات المستخدمة، ويعطي نظرة شاملة عن المشروع، ليسهل على جميع الأطراف فهم الفكرة والقيمة.
 **Summary:**
-Vision documentation defines platform goals, used technologies, and provides a comprehensive project overview.
+Vision documentation defines platform goals, used technologies, and provides a comprehensive project overview, making the concept and value clear for all parties.
 
 ---
 
-## 1. مقدمة
+## 1. مقدمة | Introduction
 
-Introduction
-
----
-
-### 1.1 نظرة بصرية عامة
-
-Visual Overview
+### 1.1 👁️ نظرة بصرية عامة | Visual Overview
 
 **شرح مختصر:**
 يوضح المخطط تدفق الطلب من العميل حتى التسليم النهائي، مع إبراز نقاط الإدارة المالية والدعم والتحليل.
-
 **Summary:**
 The diagram shows order flow from customer to final delivery, highlighting finance, support, and analytics points.
 
 ```mermaid
 flowchart TD
-  Customer["👤 العميل\nCustomer"] --> Intake["📝 تسجيل الطلب\nOrder Intake"]
-  Intake --> Procurement["🌍 الشراء العالمي\nGlobal Procurement"]
-  Procurement --> HubKSA["🏢 مركز السعودية\nKSA Hub"]
-  HubKSA --> HubYemen["🏢 مركز اليمن\nYemen Hub"]
-  HubYemen --> Delivery["🚚 التوصيل الأخير\nLast Mile Delivery"]
+  Customer["👤 العميل / Customer"] --> Intake["📝 تسجيل الطلب / Order Intake"]
+  Intake --> Procurement["🌍 الشراء العالمي / Global Procurement"]
+  Procurement --> HubKSA["🏢 مركز السعودية / KSA Hub"]
+  HubKSA --> HubYemen["🏢 مركز اليمن / Yemen Hub"]
+  HubYemen --> Delivery["🚚 التوصيل الأخير / Last Mile Delivery"]
   Delivery --> Customer
-  Intake --> Finance["💰 الخزينة والمدفوعات\nFinance Ops"]
-  Finance --> Analytics["📊 تحليلات ولوحات\nAnalytics"]
-  Analytics --> Leadership["👔 الإدارة العليا\nLeadership"]
-  Finance --> Support["🎧 خدمة العملاء\nCustomer Support"]
+  Intake --> Finance["💰 الخزينة والمدفوعات / Finance Ops"]
+  Finance --> Analytics["📊 تحليلات ولوحات / Analytics"]
+  Analytics --> Leadership["👔 الإدارة العليا / Leadership"]
+  Finance --> Support["🎧 خدمة العملاء / Customer Support"]
 ```
 
-### 1.2 رحلة القيمة المبسطة
-
-Simplified Value Journey
+### 1.2 🛤️ رحلة القيمة المبسطة | Simplified Value Journey
 
 **شرح مختصر:**
 يوضح المخطط رحلة العميل من الطلب حتى الدفع، ودور العمليات والمالية في كل مرحلة.
-
 **Summary:**
 The diagram illustrates the customer journey from order to payment, and the role of operations and finance at each stage.
 
@@ -75,13 +62,10 @@ journey
     إصدار التقارير / Publish Reports: 3: Finance/المالي
 ```
 
-### 1.3 سياق المنصة
-
-Platform Context
+### 1.3 🌐 سياق المنصة | Platform Context
 
 **شرح مختصر:**
 يحدد هذا القسم مهمة المنصة، الشرائح المستهدفة، ومبادئ تجربة المستخدم.
-
 **Summary:**
 This section defines the platform mission, target segments, and user experience principles.
 
@@ -114,7 +98,7 @@ This section defines the platform mission, target segments, and user experience 
 
 ---
 
-## 2. لماذا الآن / Why Now
+## 2. لماذا الآن | Why Now
 
 - 🇸🇦 **تسارع التجارة العابرة للحدود:** الطلب على الشراء الدولي في اليمن ينمو 35% سنويا رغم ضعف البنية التحتية.  
   🇬🇧 **Cross-border commerce acceleration:** International shopping demand in Yemen grows 35% yearly despite infrastructure gaps.  
@@ -149,12 +133,12 @@ This section defines the platform mission, target segments, and user experience 
 
 ```mermaid
 flowchart LR
-    Legacy["سجلات متفرقة\nFragmented Records"] --> Errors["أخطاء بيانات\nData Errors"]
-    Errors --> Delays["تأخر الشحن\nShipping Delays"]
-    Delays --> Claims["شكاوى العملاء\nCustomer Claims"]
-    Finance["مالية غير مدمجة\nUnreconciled Finance"] --> Delays
-    Policies["غياب السياسات\nMissing Policies"] --> Errors
-    Skills["تدريب محدود\nLimited Training"] --> Errors
+    Legacy["سجلات متفرقة / Fragmented Records"] --> Errors["أخطاء بيانات / Data Errors"]
+    Errors --> Delays["تأخر الشحن / Shipping Delays"]
+    Delays --> Claims["شكاوى العملاء / Customer Claims"]
+    Finance["مالية غير مدمجة / Unreconciled Finance"] --> Delays
+    Policies["غياب السياسات / Missing Policies"] --> Errors
+    Skills["تدريب محدود / Limited Training"] --> Errors
 ```
 
 - 🇸🇦 **ضعف الرؤية التشغيلية:** لا يمكن ربط حالة الشحنة بالطلب أو العميل في مصدر واحد.  
@@ -201,18 +185,18 @@ flowchart LR
 ```mermaid
 mindmap
   root((CA Admin))
-    "قيمة العملاء\nCustomer Value"
-      "تتبع لحظي\nReal-time tracking"
-      "دفع مرن\nFlexible payments"
-    "قيمة الفريق\nTeam Value"
-      "عمل دون اتصال\nOffline-first ops"
-      "قوالب موحدة\nStandard templates"
-    "قيمة الأعمال\nBusiness Value"
-      "تقارير لحظية\nLive reporting"
-      "توسع منظم\nScalable expansion"
-    "قيمة الشركاء\nPartner Value"
-      "وضوح الحصص\nClear commissions"
-      "تكامل سهل\nEasy integrations"
+    "قيمة العملاء / Customer Value"
+      "تتبع لحظي / Real-time tracking"
+      "دفع مرن / Flexible payments"
+    "قيمة الفريق / Team Value"
+      "عمل دون اتصال / Offline-first ops"
+      "قوالب موحدة / Standard templates"
+    "قيمة الأعمال / Business Value"
+      "تقارير لحظية / Live reporting"
+      "توسع منظم / Scalable expansion"
+    "قيمة الشركاء / Partner Value"
+      "وضوح الحصص / Clear commissions"
+      "تكامل سهل / Easy integrations"
 ```
 
 - 🇸🇦 **قيمة العميل:** ضمان شفافية الطلب من الاستعلام حتى التسليم مع قنوات دعم متعددة.  
@@ -341,7 +325,7 @@ timeline
 
 ---
 
-## 10. مسرد المصطلحات / Glossary
+## 10. 📚 مسرد المصطلحات | Glossary
 
 | 🇸🇦 المصطلح        | 🇬🇧 Term                | 🇸🇦 التعريف                                            | 🇬🇧 Definition                                                |
 | ----------------- | ---------------------- | ----------------------------------------------------- | ------------------------------------------------------------ |
@@ -349,3 +333,18 @@ timeline
 | تجميع الشحنات     | Shipment Consolidation | دمج طلبات متعددة في شحنة واحدة لتقليل التكلفة         | Merging multiple orders into one shipment to reduce cost     |
 | محرك التسوية      | Reconciliation Engine  | طبقة منطقية تقارن المدفوعات بالطلبات والمخزون         | Logic layer comparing payments to orders and inventory       |
 | المطابقة المزدوجة | Dual Matching          | خطوة التحقق بين مركز السعودية ومركز اليمن قبل التسليم | Verification step between KSA and Yemen hubs before delivery |
+
+---
+
+## 🗂️ جدول علاقة الأهداف بالقيمة | Objectives vs Value Table
+
+**شرح مختصر:**
+جدول يوضح كيف ترتبط الأهداف الإستراتيجية بالقيمة المقدمة لكل طرف (العميل، الفريق، الأعمال، الشركاء)، ليسهل على القارئ فهم أثر كل هدف.
+**Summary:**
+Table showing how strategic objectives relate to the value delivered to each party (customer, team, business, partners), clarifying the impact of each objective.
+
+| الهدف الإستراتيجي (AR) | Strategic Objective (EN) | قيمة العميل | Customer Value | قيمة الفريق | Team Value | قيمة الأعمال | Business Value | قيمة الشركاء | Partner Value |
+|------------------------|-------------------------|--------------|---------------|-------------|------------|---------------|---------------|--------------|--------------|
+| توسيع العائد | Revenue expansion | عروض مجمعة | Bundle offers | أدوات دفع | Payment tools | نمو الأرباح | Profit growth | عمولات واضحة | Clear commissions |
+| تفوق تشغيلي | Operational excellence | سرعة الخدمة | Fast service | مسار موحد | Unified lane | تقليل التكلفة | Cost reduction | تكامل سهل | Easy integration |
+| حوكمة وامتثال | Governance & compliance | شفافية | Transparency | سياسات دقيقة| Precise policies | حماية قانونية | Legal protection | ثقة الشركاء | Partner trust |

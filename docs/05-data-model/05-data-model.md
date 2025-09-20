@@ -19,8 +19,6 @@ The data model defines core entities and relationships to ensure information con
 
 ---
 
-erDiagram
-
 ## 1. مقدمة
 
 Introduction
@@ -37,47 +35,70 @@ Visual Overview
 **Summary:**
 The diagram shows relationships between main entities: customer, order, shipment, finance, and security.
 
-````mermaid
+```mermaid
+erDiagram
+  CUSTOMER ||--o{ ORDER : ""
+  ORDER ||--o{ ORDERITEM : ""
+  ORDER ||--o{ SHIPMENT : ""
+  SHIPMENT ||--o{ SHIPMENTEVENT : ""
+  SHIPMENT ||--o{ DELIVERYPROOF : ""
+  ORDER ||--o{ PAYMENT : ""
+  PAYMENT ||--o{ LEDGERENTRY : ""
+  PAYMENT ||--o{ BANKSTATEMENT : ""
+  USER ||--o{ USERROLE : ""
+  USER ||--o{ AUDITLOG : ""
+  USERROLE ||--o{ POLICYSNAPSHOT : ""
+```
 
-- 🇸🇦 **أهداف نموذج البيانات:** ضمان اتساق المعلومات ودعم التجربة متعددة الخطوات.
-  🇬🇧 **Data model objectives:** Keep information consistent and support multi-step journeys.
-  🇸🇦 **ما هي:** منظومة كيان-علاقة تغطي العملاء، الطلبات، الشحن، المالية، والأمان.
-  🇬🇧 **What:** Entity-relationship system covering customer, order, shipment, finance, and security domains.
-  🇸🇦 **وظيفتها:** تربط العمليات اليومية بمصادر بيانات موثوقة.
-  🇬🇧 **Function:** Connects daily operations with reliable data sources.
-  🇸🇦 **فائدتها:** تسهل الإبلاغ والتحليلات دون تضارب أو تكرار.
-  🇬🇧 **Benefit:** Facilitates reporting and analytics without conflict or duplication.
+---
 
-- 🇸🇦 **توائم Firestore:** تنفيذ النموذج على هيكل مجموعات ووثائق مع فهارس داعمة.
-  🇬🇧 **Firestore mapping:** Implement entities as collection/document structures with supportive indexes.
-  🇸🇦 **ما هي:** تحويل الجداول إلى مجموعات أساسية، فرعية، وسجلات فهرس.
-  🇬🇧 **What:** Transform tables into root collections, subcollections, and index logs.
-  🇸🇦 **وظيفتها:** تمكن من أداء عالٍ وقراءة قابلة للتوسع.
-  🇬🇧 **Function:** Enables high performance and scalable reads.
-  🇸🇦 **فائدتها:** تقلل تكلفة الاستعلام وتسرع زمن الاستجابة.
-  🇬🇧 **Benefit:** Reduces query cost and improves response time.
+#### أهداف نموذج البيانات
+
+- منظومة كيان-علاقة تغطي العملاء، الطلبات، الشحن، المالية، والأمان.
+- تربط العمليات اليومية بمصادر بيانات موثوقة.
+- تسهل الإبلاغ والتحليلات دون تضارب أو تكرار.
+
+**Objectives:**
+
+- Entity-relationship system covering customer, order, shipment, finance, and security domains.
+- Connects daily operations with reliable data sources.
+- Facilitates reporting and analytics without conflict or duplication.
+
+#### توائم Firestore
+
+- تنفيذ النموذج على هيكل مجموعات ووثائق مع فهارس داعمة.
+- تحويل الجداول إلى مجموعات أساسية، فرعية، وسجلات فهرس.
+- تمكن من أداء عالٍ وقراءة قابلة للتوسع.
+- تقلل تكلفة الاستعلام وتسرع زمن الاستجابة.
+
+**Firestore mapping:**
+
+- Implement entities as collection/document structures with supportive indexes.
+- Transform tables into root collections, subcollections, and index logs.
+- Enables high performance and scalable reads.
+- Reduces query cost and improves response time.
 
 ---
 
 ## 2. كيان العميل / Customer Entity
 
-| 🇸🇦 الحقل | 🇬🇧 Field | 🇸🇦 النوع | 🇬🇧 Type | 🇸🇦 الوصف | 🇬🇧 Description |
-|----------|----------|-----------|----------|-----------|----------------|
-| customerId | customerId | معرف نصي | String ID | مفتاح أساسي يولده النظام | System-generated primary key |
-| fullName | fullName | نص | String | الاسم الكامل باللغتين | Full bilingual name |
-| phone | phone | نص | String | رقم اتصال معتمد | Verified contact number |
-| preferredLocale | preferredLocale | نص | String | تفضيل اللغة (ar/en) | Language preference (ar/en) |
-| loyaltyTier | loyaltyTier | نص | String | مستوى الولاء (فضي/ذهبي) | Loyalty tier (Silver/Gold) |
-| createdAt | createdAt | طابع زمني | Timestamp | تاريخ إنشاء السجل | Record creation date |
+| 🇸🇦 الحقل        | 🇬🇧 Field        | 🇸🇦 النوع  | 🇬🇧 Type   | 🇸🇦 الوصف                 | 🇬🇧 Description               |
+| --------------- | --------------- | --------- | --------- | ------------------------ | ---------------------------- |
+| customerId      | customerId      | معرف نصي  | String ID | مفتاح أساسي يولده النظام | System-generated primary key |
+| fullName        | fullName        | نص        | String    | الاسم الكامل باللغتين    | Full bilingual name          |
+| phone           | phone           | نص        | String    | رقم اتصال معتمد          | Verified contact number      |
+| preferredLocale | preferredLocale | نص        | String    | تفضيل اللغة (ar/en)      | Language preference (ar/en)  |
+| loyaltyTier     | loyaltyTier     | نص        | String    | مستوى الولاء (فضي/ذهبي)  | Loyalty tier (Silver/Gold)   |
+| createdAt       | createdAt       | طابع زمني | Timestamp | تاريخ إنشاء السجل        | Record creation date         |
 
-- 🇸🇦 **النطاق:** يدعم بيانات تعريف العملاء وسجلات التواصل.
-  🇬🇧 **Scope:** Supports customer identity and communication records.
-  🇸🇦 **ما هي:** وثيقة Firestore رئيسية مع حقول مفهرسة للبحث.
-  🇬🇧 **What:** Root Firestore document with indexed search fields.
-  🇸🇦 **وظيفتها:** تزوّد خدمة العملاء بسياق فوري أثناء إدخال الطلب.
-  🇬🇧 **Function:** Provides customer service with instant context during order entry.
-  🇸🇦 **فائدتها:** تحسن الدقة وتدعم الميزات الشخصية مثل التنبيهات.
-  🇬🇧 **Benefit:** Improves accuracy and powers personalization features like alerts.
+**النطاق:** يدعم بيانات تعريف العملاء وسجلات التواصل.
+**Scope:** Supports customer identity and communication records.
+**ما هي:** وثيقة Firestore رئيسية مع حقول مفهرسة للبحث.
+**What:** Root Firestore document with indexed search fields.
+**وظيفتها:** تزوّد خدمة العملاء بسياق فوري أثناء إدخال الطلب.
+**Function:** Provides customer service with instant context during order entry.
+**فائدتها:** تحسن الدقة وتدعم الميزات الشخصية مثل التنبيهات.
+**Benefit:** Improves accuracy and powers personalization features like alerts.
 
 ---
 
@@ -107,16 +128,16 @@ classDiagram
     +map preferences
   }
   Order <|-- OrderItem
-````
+```
 
-- 🇸🇦 **بنية الطلب:** تفصل بيانات رأس الطلب عن تفاصيل العناصر.  
-  🇬🇧 **Order structure:** Separates order header from item details.  
-  🇸🇦 **ما هي:** تصميم يعتمد على وثيقة رئيسية مع مجموعة عناصر فرعية.  
-  🇬🇧 **What:** Design using main document with nested item subcollection.  
-  🇸🇦 **وظيفتها:** يسمح بتحديثات مستقلة للعناصر دون تعديل الرأس.  
-  🇬🇧 **Function:** Allows independent item updates without touching the header.  
-  🇸🇦 **فائدتها:** يخفض النزاعات عند التحرير المتزامن ويزيد المرونة.  
-  🇬🇧 **Benefit:** Minimizes concurrent edit conflicts and boosts flexibility.
+**بنية الطلب:** تفصل بيانات رأس الطلب عن تفاصيل العناصر.
+**Order structure:** Separates order header from item details.
+**ما هي:** تصميم يعتمد على وثيقة رئيسية مع مجموعة عناصر فرعية.
+**What:** Design using main document with nested item subcollection.
+**وظيفتها:** يسمح بتحديثات مستقلة للعناصر دون تعديل الرأس.
+**Function:** Allows independent item updates without touching the header.
+**فائدتها:** يخفض النزاعات عند التحرير المتزامن ويزيد المرونة.
+**Benefit:** Minimizes concurrent edit conflicts and boosts flexibility.
 
 ---
 
@@ -128,14 +149,14 @@ classDiagram
 | shipmentEvents | shipmentEvents | مجموعة فرعية تسجل الأحداث الزمنية    | Subcollection logging time-based events   | تسجل الانتقالات مثل "وصل مركز جدة" | Records transitions like "Arrived Jeddah hub" | تمكن من التحليلات الدقيقة ودعم الأدلة | Enables precise analytics and proof support           |
 | deliveryProof  | deliveryProof  | مستودع للصور والمرفقات               | Storage bucket for images and attachments | يخزن صور التسليم وملاحظات العملاء  | Stores delivery images and customer notes     | يثبت الالتزام ويوثق نقاط الخلاف       | Proves compliance and documents disputes              |
 
-- 🇸🇦 **تصميم الأحداث المتسلسل:** كل حدث يحمل توقيتا ومسارا ومسؤولا.  
-  🇬🇧 **Sequential event design:** Each event carries timestamp, leg, and owner.  
-  🇸🇦 **ما هي:** هيكل يعتمد على append-only لمنع التعديل الخلفي.  
-  🇬🇧 **What:** Append-only structure preventing retroactive edits.  
-  🇸🇦 **وظيفتها:** يحافظ على سجل موثوق للأدلة.  
-  🇬🇧 **Function:** Maintains trustworthy audit trail.  
-  🇸🇦 **فائدتها:** يسهل الاستجابة للشكاوى والتحقيقات.  
-  🇬🇧 **Benefit:** Facilitates complaint handling and investigations.
+**تصميم الأحداث المتسلسل:** كل حدث يحمل توقيتا ومسارا ومسؤولا.
+**Sequential event design:** Each event carries timestamp, leg, and owner.
+**ما هي:** هيكل يعتمد على append-only لمنع التعديل الخلفي.
+**What:** Append-only structure preventing retroactive edits.
+**وظيفتها:** يحافظ على سجل موثوق للأدلة.
+**Function:** Maintains trustworthy audit trail.
+**فائدتها:** يسهل الاستجابة للشكاوى والتحقيقات.
+**Benefit:** Facilitates complaint handling and investigations.
 
 ---
 
@@ -154,23 +175,23 @@ flowchart TD
   Reconciliation --> Reports[تقارير مالية\nFinancial Reports]
 ```
 
-- 🇸🇦 **هيكل الدفعة:** وثيقة دفعة تحتوي على تفاصيل القناة والعملة والمصدر.  
-  🇬🇧 **Payment structure:** Payment document storing channel, currency, and source details.  
-  🇸🇦 **ما هي:** تصميم يجمع كل التحركات تحت معرف مرجعي واحد.  
-  🇬🇧 **What:** Design aggregating movements under a single reference id.  
-  🇸🇦 **وظيفتها:** يسمح بمطابقة تلقائية بين الطلبات والدفعات.  
-  🇬🇧 **Function:** Enables automatic matching between orders and payments.  
-  🇸🇦 **فائدتها:** يقلل الجهد اليدوي ويحسن اكتشاف الأخطاء.  
-  🇬🇧 **Benefit:** Cuts manual labor and improves error detection.
+**هيكل الدفعة:** وثيقة دفعة تحتوي على تفاصيل القناة والعملة والمصدر.
+**Payment structure:** Payment document storing channel, currency, and source details.
+**ما هي:** تصميم يجمع كل التحركات تحت معرف مرجعي واحد.
+**What:** Design aggregating movements under a single reference id.
+**وظيفتها:** يسمح بمطابقة تلقائية بين الطلبات والدفعات.
+**Function:** Enables automatic matching between orders and payments.
+**فائدتها:** يقلل الجهد اليدوي ويحسن اكتشاف الأخطاء.
+**Benefit:** Cuts manual labor and improves error detection.
 
-- 🇸🇦 **قيود سلامة:** الدفعات المربوطة لا يمكن حذفها إلا بصلاحيات خاصة.  
-  🇬🇧 **Integrity constraints:** Linked payments cannot be deleted without special privilege.  
-  🇸🇦 **ما هي:** قاعدة أمان تمنع الكتابة فوق السجلات المرجعية.  
-  🇬🇧 **What:** Security rule preventing overwriting referenced records.  
-  🇸🇦 **وظيفتها:** تحمي الأثر المالي من التلاعب.  
-  🇬🇧 **Function:** Protects financial footprint from tampering.  
-  🇸🇦 **فائدتها:** تعزز ثقة المدققين والمستثمرين.  
-  🇬🇧 **Benefit:** Builds auditor and investor trust.
+**قيود سلامة:** الدفعات المربوطة لا يمكن حذفها إلا بصلاحيات خاصة.
+**Integrity constraints:** Linked payments cannot be deleted without special privilege.
+**ما هي:** قاعدة أمان تمنع الكتابة فوق السجلات المرجعية.
+**What:** Security rule preventing overwriting referenced records.
+**وظيفتها:** تحمي الأثر المالي من التلاعب.
+**Function:** Protects financial footprint from tampering.
+**فائدتها:** تعزز ثقة المدققين والمستثمرين.
+**Benefit:** Builds auditor and investor trust.
 
 ---
 
@@ -186,42 +207,56 @@ flowchart TD
 
 ## 7. اعتبارات الأداء / Performance Considerations
 
-- 🇸🇦 **تقسيم المجموعات بحسب المنطقة:** إنشاء مجموعات إقليمية للشحنات (KSA/Yemen).  
-  🇬🇧 **Regional collection sharding:** Create regional shipment collections (KSA/Yemen).  
-  🇸🇦 **ما هي:** استراتيجية تقسيم أفقية لتقليل نقاط الضغط.  
-  🇬🇧 **What:** Horizontal sharding strategy to reduce hotspots.  
-  🇸🇦 **وظيفتها:** تمنع تجاوز حدود Firestore على الوثائق الساخنة.  
-  🇬🇧 **Function:** Prevents Firestore hot document limits from triggering.  
-  🇸🇦 **فائدتها:** تضمن أداء ثابتا مع تزايد الأوامر.  
-  🇬🇧 **Benefit:** Keeps performance stable as orders grow.
+- تقسيم المجموعات بحسب المنطقة: إنشاء مجموعات إقليمية للشحنات (KSA/Yemen).
+- استراتيجية تقسيم أفقية لتقليل نقاط الضغط.
+- تمنع تجاوز حدود Firestore على الوثائق الساخنة.
+- تضمن أداء ثابتا مع تزايد الأوامر.
 
-- 🇸🇦 **التخزين المؤقت المحلي:** استخدام IndexedDB لتخزين بيانات الطلبات النشطة.  
-  🇬🇧 **Local caching:** Use IndexedDB to cache active orders.  
-  🇸🇦 **ما هي:** طبقة وسيطة بين التطبيق وFirestore.  
-  🇬🇧 **What:** Middleware layer between app and Firestore.  
-  🇸🇦 **وظيفتها:** تسمح بالعمل دون اتصال وتزامن لاحق.  
-  🇬🇧 **Function:** Enables offline operation with later sync.  
-  🇸🇦 **فائدتها:** تدعم الفرق الميدانية في بيئات الاتصال المتقطع.  
-  🇬🇧 **Benefit:** Supports field teams in intermittent connectivity.
+**Regional collection sharding:**
+
+- Create regional shipment collections (KSA/Yemen).
+- Horizontal sharding strategy to reduce hotspots.
+- Prevents Firestore hot document limits from triggering.
+- Keeps performance stable as orders grow.
+
+- التخزين المؤقت المحلي: استخدام IndexedDB لتخزين بيانات الطلبات النشطة.
+- طبقة وسيطة بين التطبيق وFirestore.
+- تسمح بالعمل دون اتصال وتزامن لاحق.
+- تدعم الفرق الميدانية في بيئات الاتصال المتقطع.
+
+**Local caching:**
+
+- Use IndexedDB to cache active orders.
+- Middleware layer between app and Firestore.
+- Enables offline operation with later sync.
+- Supports field teams in intermittent connectivity.
 
 ---
 
 ## 8. خطة الحوكمة / Governance Plan
 
-- 🇸🇦 **مراجعة نصف سنوية للنموذج:** تقييم تأثير النمو والتوسع على الهيكل.  
-  🇬🇧 **Semi-annual model review:** Assess growth and expansion impact on schema.  
-  🇸🇦 **ما هي:** جلسة مشتركة تجمع المنتج والبيانات والهندسة.  
-  🇬🇧 **What:** Joint session with product, data, and engineering.  
-  🇸🇦 **وظيفتها:** تضبط الأولويات وتحدد التعديلات اللازمة.  
-  🇬🇧 **Function:** Tunes priorities and plans required adjustments.  
-  🇸🇦 **فائدتها:** تمنع التعقيد الزائد وتحافظ على الأداء.  
-  🇬🇧 **Benefit:** Prevents unnecessary complexity and maintains performance.
+- مراجعة نصف سنوية للنموذج: تقييم تأثير النمو والتوسع على الهيكل.
+- جلسة مشتركة تجمع المنتج والبيانات والهندسة.
+- تضبط الأولويات وتحدد التعديلات اللازمة.
+- تمنع التعقيد الزائد وتحافظ على الأداء.
 
-- 🇸🇦 **تنبيهات جودة البيانات:** مؤشرات لمراقبة الحقول الفارغة أو القيم الشاذة.  
-  🇬🇧 **Data quality alerts:** Metrics to monitor null fields or anomalous values.  
-  🇸🇦 **ما هي:** لوحات تحليلات تصدر إشعارات عند تجاوز الحدود.  
-  🇬🇧 **What:** Analytics dashboards issuing alerts when thresholds are crossed.  
-  🇸🇦 **وظيفتها:** تكشف المشكلات مبكرا قبل تأثيرها على العملاء.  
-  🇬🇧 **Function:** Detects issues early before impacting customers.  
-  🇸🇦 **فائدتها:** تحسن الثقة الداخلية وخبرة المستخدم النهائي.  
-  🇬🇧 **Benefit:** Improves internal trust and end-user experience.
+**Semi-annual model review:**
+
+- Assess growth and expansion impact on schema.
+- Joint session with product, data, and engineering.
+- Tunes priorities and plans required adjustments.
+- Prevents unnecessary complexity and maintains performance.
+
+- تنبيهات جودة البيانات: مؤشرات لمراقبة الحقول الفارغة أو القيم الشاذة.
+- لوحات تحليلات تصدر إشعارات عند تجاوز الحدود.
+- تكشف المشكلات مبكرا قبل تأثيرها على العملاء.
+- تحسن الثقة الداخلية وخبرة المستخدم النهائي.
+
+**Data quality alerts:**
+
+- Metrics to monitor null fields or anomalous values.
+- Analytics dashboards issuing alerts when thresholds are crossed.
+- Detects issues early before impacting customers.
+- Improves internal trust and end-user experience.
+
+---

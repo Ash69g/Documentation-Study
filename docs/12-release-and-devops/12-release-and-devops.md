@@ -1,6 +1,4 @@
-## 🚀 خطة الإطلاق وعمليات DevOps
-
-Release & DevOps Plan
+# 🚀 خطة الإطلاق وعمليات DevOps | Release & DevOps Plan
 
 ---
 
@@ -12,16 +10,13 @@ Release & DevOps Plan
 > **Last Updated:** 2025-09-08
 
 **شرح مختصر:**
-يوضح هذا القسم كيف يتم بناء واختبار وإطلاق وصيانة النظام بشكل آمن وسريع عبر جميع البيئات.
-
+يوضح هذا القسم كيف يتم بناء واختبار وإطلاق وصيانة النظام بشكل آمن وسريع عبر جميع البيئات، مع ضمان الأتمتة والجودة.
 **Summary:**
-This section explains how the system is built, tested, released, and maintained securely and quickly across all environments.
+This section explains how the system is built, tested, released, and maintained securely and quickly across all environments, ensuring automation and quality.
 
 ---
 
-## المقدمة
-
-Introduction
+## المقدمة | Introduction
 
 ![release](https://img.icons8.com/color/96/000000/rocket--v2.png)
 
@@ -31,9 +26,7 @@ The release and DevOps plan defines how CA Admin will be built, tested, released
 
 ---
 
-## ملخص بصري سريع
-
-Quick Visual Summary
+## 👁️ ملخص بصري سريع | Quick Visual Summary
 
 **شرح مختصر:**
 مخطط يوضح دورة النشر من التطوير حتى المراقبة.
@@ -54,9 +47,7 @@ flowchart TD
 
 ---
 
-## خريطة DevOps
-
-DevOps Mindmap
+## 🧠 خريطة DevOps | DevOps Mindmap
 
 **شرح مختصر:**
 خريطة ذهنية تلخص عناصر DevOps الأساسية.
@@ -90,9 +81,7 @@ mindmap
 
 ---
 
-## استراتيجية الإطلاق
-
-Release Strategy
+## 🗺️ استراتيجية الإطلاق | Release Strategy
 
 **شرح مختصر:**
 نهج تدريجي لإطلاق النظام لضمان الجودة.
@@ -110,9 +99,7 @@ Phased release approach to ensure quality.
 
 ---
 
-## دورة حياة الإطلاق (رسم توضيحي)
-
-Release Lifecycle (Visual)
+## 🔄 دورة حياة الإطلاق (رسم توضيحي) | Release Lifecycle (Visual)
 
 **شرح مختصر:**
 مخطط يوضح مراحل دورة حياة الإطلاق من التخطيط حتى المراقبة.
@@ -146,7 +133,7 @@ flowchart TD
 
 ---
 
-## 5. Deployment Environments / بيئات النشر
+## 🏞️ بيئات النشر | Deployment Environments
 
 1. **Development:** Firebase Emulator + local DB
 2. **Staging:** Firebase test project with sample data
@@ -154,7 +141,7 @@ flowchart TD
 
 ---
 
-## 6. DevOps Workflow / سير عمل DevOps
+## 🔗 سير عمل DevOps | DevOps Workflow
 
 ```mermaid
 flowchart LR
@@ -169,7 +156,7 @@ flowchart LR
 
 ---
 
-## 7. CI/CD Pipeline Stages / مراحل خط أنابيب CI/CD
+## ⚙️ مراحل خط أنابيب CI/CD | CI/CD Pipeline Stages
 
 ```mermaid
 flowchart TD
@@ -183,7 +170,7 @@ flowchart TD
 
 ---
 
-## 8. Tools & Services / الأدوات والخدمات
+## 🛠️ الأدوات والخدمات | Tools & Services
 
 1. **Version Control:** Git + GitHub
 2. **CI/CD:** GitHub Actions
@@ -194,7 +181,7 @@ flowchart TD
 
 ---
 
-## 9. Release Checklist / قائمة مراجعة الإصدار
+## ✅ قائمة مراجعة الإصدار | Release Checklist
 
 1. ✅ All unit/integration tests pass (≥ 70% coverage)
 2. ✅ Security Rules tested in Emulator
@@ -205,7 +192,7 @@ flowchart TD
 
 ---
 
-## 10. Rollback Strategy / إستراتيجية التراجع
+## 🔄 إستراتيجية التراجع | Rollback Strategy
 
 **EN:**
 If a release fails in production:
@@ -223,7 +210,7 @@ If a release fails in production:
 
 ---
 
-## 11. Advanced DevOps Tips / نصائح DevOps متقدمة
+## 💡 نصائح DevOps متقدمة | Advanced DevOps Tips
 
 1. Use feature flags for safe gradual rollouts.
 2. Automate rollback on failed deployments.
@@ -232,7 +219,7 @@ If a release fails in production:
 
 ---
 
-## 12. FAQ / أسئلة شائعة
+## ❓ أسئلة شائعة | FAQ
 
 ### Q: كيف أضمن أمان المفاتيح والرموز السرية؟
 
@@ -254,7 +241,7 @@ If a release fails in production:
 
 ---
 
-## 13. Release Versioning & Tagging / ترقيم الإصدارات ووضع العلامات
+## 🏷️ ترقيم الإصدارات ووضع العلامات | Release Versioning & Tagging
 
 **EN:**
 Follow [Semantic Versioning](https://semver.org/) (MAJOR.MINOR.PATCH) for all releases. Tag each release in GitHub (e.g., v1.0.0) and document changes in a `CHANGELOG.md` file.
@@ -264,7 +251,7 @@ Follow [Semantic Versioning](https://semver.org/) (MAJOR.MINOR.PATCH) for all re
 
 ---
 
-## 14. Release Approval Flow / سير موافقة الإطلاق (رسم توضيحي)
+## 📝 سير موافقة الإطلاق (رسم توضيحي) | Release Approval Flow (Visual)
 
 ```mermaid
 flowchart LR
@@ -278,10 +265,26 @@ flowchart LR
 
 ---
 
-## 15. Notes / ملاحظات
+## 🗒️ ملاحظات | Notes
 
 1. Release plan must stay aligned with [Test Plan](../11-test-plan/11-test-plan.md)
 2. DevOps workflow should evolve with team size and project scale
 3. Firebase quotas and billing must be monitored during scaling
 
 ---
+
+## 🗂️ جدول مراحل الإطلاق مقابل الأدوات | Release Stages vs Tools Table
+
+**شرح مختصر:**
+جدول يوضح الأدوات المستخدمة في كل مرحلة من مراحل الإطلاق، ليسهل على القارئ معرفة الأدوات المناسبة لكل خطوة.
+**Summary:**
+Table showing the tools used in each release stage, clarifying the appropriate tools for each step.
+
+| مرحلة الإطلاق | الأداة الرئيسية                      | شرح مختصر (AR)           | Main Tool                            | Summary (EN)                   |
+| ------------- | ------------------------------------ | ------------------------ | ------------------------------------ | ------------------------------ |
+| تطوير         | Git, GitHub                          | إدارة الكود والتغييرات   | Git, GitHub                          | Code & change management       |
+| بناء واختبار  | GitHub Actions                       | أتمتة البناء والاختبار   | GitHub Actions                       | Build & test automation        |
+| تجريبية       | Firebase Emulator Suite              | اختبار بيئة شبه حقيقية   | Firebase Emulator Suite              | Staging environment testing    |
+| قبول المستخدم | Firebase App Distribution            | توزيع التطبيق للمستخدمين | Firebase App Distribution            | App distribution to users      |
+| إنتاج         | Firebase Hosting/Firestore/Functions | نشر التطبيق النهائي      | Firebase Hosting/Firestore/Functions | Final app deployment           |
+| مراقبة        | Crashlytics, Analytics               | مراقبة الأداء والأخطاء   | Crashlytics, Analytics               | Performance & error monitoring |

@@ -14,35 +14,37 @@ CA Admin is a modern, integrated system for managing customers, orders, shipment
 
 ---
 
-## 🗺️ نظرة بصرية سريعة
+## 🗺️ نظرة بصرية سريعة | Visual Overview
 
+**شرح مختصر:**
 المخطط التالي يوضح تدفق البيانات بين مكونات النظام الرئيسية، من العميل حتى الإطلاق، مع إبراز نقاط التكامل والاختبار.
-**شرح مختصر:** يوضح المخطط كيف تتكامل مكونات النظام من العميل حتى الإطلاق، مع إبراز نقاط المزامنة والاختبار.
 
+**Summary:**
 The following diagram shows the data flow between main system components, from customer to release, highlighting integration and testing points.
-**Summary:** The diagram shows how system components integrate from customer to release, highlighting sync and testing points.
 
 ```mermaid
 flowchart TD
- Customer["👤 عميل\nCustomer"] --> Order["📝 طلبية\nOrder"]
- Order --> Shipment["📦 شحنة\nShipment"]
- Order --> Finance["💰 سجل مالي\nFinance Log"]
- Shipment --> Driver["🚚 سائق\nDriver"]
- Finance --> Bank["💳 بطاقة بنكية\nBank Card"]
- Finance --> Gift["🎁 بطاقة هدية\nGift Card"]
- Finance --> Checkout["🧾 سجل الدفع\nCheckout Log"]
- Order --> Firestore["🗄️ قاعدة بيانات Firestore\nFirestore"]
- Firestore --> Sync["🔄 خدمة المزامنة\nSync Service"]
- Firestore --> Offline["📴 دون إنترنت أولاً\nOffline-First"]
- Order --> Audit["📋 سجل تدقيق\nAudit Log"]
- Customer --> UAT["🧪 اختبار قبول المستخدم\nUAT"]
- UAT --> CI["⚙️ CI/CD"]
- CI --> Alpha["🅰️ إصدار ألفا\nAlpha Release"]
- CI --> Beta["🅱️ إصدار بيتا\nBeta Release"]
- CI --> Prod["🚀 الإنتاج\nProduction"]
- style Customer fill:#e3f6fc,stroke:#0ea5e9,stroke-width:2px
- style Prod fill:#e3f6fc,stroke:#0ea5e9,stroke-width:2px
+  Customer((👤 عميل | Customer)) -->|📝 طلبية| Order((📝 طلبية | Order))
+  Order -->|📦 شحنة| Shipment((📦 شحنة | Shipment))
+  Order -->|💰 سجل مالي| Finance((💰 سجل مالي | Finance Log))
+  Shipment -->|🚚 سائق| Driver((🚚 سائق | Driver))
+  Finance -->|💳 بطاقة بنكية| Bank((💳 بطاقة بنكية | Bank Card))
+  Finance -->|🎁 بطاقة هدية| Gift((🎁 بطاقة هدية | Gift Card))
+  Finance -->|🧾 سجل الدفع| Checkout((🧾 سجل الدفع | Checkout Log))
+  Order -->|🗄️ قاعدة بيانات| Firestore((🗄️ Firestore DB))
+  Firestore -->|🔄 مزامنة| Sync((🔄 Sync Service))
+  Firestore -->|📴 دون إنترنت| Offline((📴 Offline-First))
+  Order -->|📋 تدقيق| Audit((📋 Audit Log))
+  Customer -->|🧪 اختبار| UAT((🧪 UAT))
+  UAT -->|⚙️ CI/CD| CI((⚙️ CI/CD))
+  CI -->|🅰️ ألفا| Alpha((🅰️ Alpha Release))
+  CI -->|🅱️ بيتا| Beta((🅱️ Beta Release))
+  CI -->|🚀 الإنتاج| Prod((🚀 Production))
+  style Customer fill:#e3f6fc,stroke:#0ea5e9,stroke-width:2px
+  style Prod fill:#e3f6fc,stroke:#0ea5e9,stroke-width:2px
 ```
+
+---
 
 ---
 

@@ -37,41 +37,41 @@ The diagram shows how main categories interact to achieve platform goals.
 
 ```mermaid
 flowchart LR
-  Customers["👤 العملاء\nCustomers"] --> CS["🎧 خدمة العملاء\nCustomer Service"]
-  CS --> Ops["⚙️ التشغيل\nOperations"]
-  Ops --> Finance["💰 المالية\nFinance"]
-  Ops --> Logistics["🚚 اللوجستيات\nLogistics"]
-  Finance --> Leadership["👔 الإدارة العليا\nLeadership"]
-  Ops --> Tech["🖥️ الدعم التقني\nTech Support"]
-  Leadership --> Partners["🤝 الشركاء التجاريون\nCommercial Partners"]
+  Customers["👤 العملاء / Customers"] --> CS["🎧 خدمة العملاء / Customer Service"]
+  CS --> Ops["⚙️ التشغيل / Operations"]
+  Ops --> Finance["💰 المالية / Finance"]
+  Ops --> Logistics["🚚 اللوجستيات / Logistics"]
+  Finance --> Leadership["👔 الإدارة العليا / Leadership"]
+  Ops --> Tech["🖥️ الدعم التقني / Tech Support"]
+  Leadership --> Partners["🤝 الشركاء التجاريون / Commercial Partners"]
   Partners --> Ops
 ```
 
 - 🇸🇦 **أهمية تحليل أصحاب المصلحة:** يوضح كيف يؤثر كل طرف على نجاح المنصة وإطلاقها.  
-  🇬🇧 **Stakeholder analysis importance:** Shows how each party influences platform success and rollout.  
-  🇸🇦 **ما هي:** إطار لتصنيف الأطراف حسب التأثير والاهتمام.  
-  🇬🇧 **What:** A framework that classifies parties by influence and interest.  
-  🇸🇦 **وظيفتها:** توجه قرارات التصميم، الحوكمة، والتواصل.  
-  🇬🇧 **Function:** Guides decisions on design, governance, and communication.  
-  🇸🇦 **فائدتها:** تقلل مخاطر التعارض وتضمن مواءمة التوقعات مبكرا.  
+  🇬🇧 **Stakeholder analysis importance:** Shows how each party influences platform success and rollout.
+- 🇸🇦 **ما هي:** إطار لتصنيف الأطراف حسب التأثير والاهتمام.  
+  🇬🇧 **What:** A framework that classifies parties by influence and interest.
+- 🇸🇦 **وظيفتها:** توجه قرارات التصميم، الحوكمة، والتواصل.  
+  🇬🇧 **Function:** Guides decisions on design, governance, and communication.
+- 🇸🇦 **فائدتها:** تقلل مخاطر التعارض وتضمن مواءمة التوقعات مبكرا.  
   🇬🇧 **Benefit:** Reduces conflict risk and aligns expectations early.
 
 - 🇸🇦 **تنوع أصحاب المصلحة:** يجمع النظام مستخدمين داخليين، شركاء خارجيين، ومدققين مستقلين.  
-  🇬🇧 **Stakeholder diversity:** The system brings together internal users, external partners, and independent auditors.  
-  🇸🇦 **ما هي:** خارطة توضح الأطراف المتصلة بالتجربة الرقمية والعمليات الخلفية.  
-  🇬🇧 **What:** A map describing parties linked to the digital experience and back-office operations.  
-  🇸🇦 **وظيفتها:** تكشف نقاط التماس ومسؤوليات كل فريق.  
-  🇬🇧 **Function:** Reveals touchpoints and responsibilities for each team.  
-  🇸🇦 **فائدتها:** تسهل تصميم رحلات متكاملة وتحدد فرق الدعم المطلوبة.  
+  🇬🇧 **Stakeholder diversity:** The system brings together internal users, external partners, and independent auditors.
+- 🇸🇦 **ما هي:** خارطة توضح الأطراف المتصلة بالتجربة الرقمية والعمليات الخلفية.  
+  🇬🇧 **What:** A map describing parties linked to the digital experience and back-office operations.
+- 🇸🇦 **وظيفتها:** تكشف نقاط التماس ومسؤوليات كل فريق.  
+  🇬🇧 **Function:** Reveals touchpoints and responsibilities for each team.
+- 🇸🇦 **فائدتها:** تسهل تصميم رحلات متكاملة وتحدد فرق الدعم المطلوبة.  
   🇬🇧 **Benefit:** Simplifies building end-to-end journeys and defining support teams.
 
 - 🇸🇦 **مخرجات التحليل:** مصفوفة تأثير/اهتمام، خطط مشاركة، ومؤشرات التزام لكل طرف.  
-  🇬🇧 **Analysis output:** Influence/interest matrix, engagement plans, and commitment indicators for each party.  
-  🇸🇦 **ما هي:** مجموعة وثائق تشغيلية ومقاييس متابعة.  
-  🇬🇧 **What:** A set of operational documents and monitoring metrics.  
-  🇸🇦 **وظيفتها:** توفر مرجع موحد عند اتخاذ القرارات أو إدارة التغيير.  
-  🇬🇧 **Function:** Provides a unified reference for decision making and change management.  
-  🇸🇦 **فائدتها:** تعزز الشفافية وتدعم سرعة الاستجابة للفرص أو المخاطر.  
+  🇬🇧 **Analysis output:** Influence/interest matrix, engagement plans, and commitment indicators for each party.
+- 🇸🇦 **ما هي:** مجموعة وثائق تشغيلية ومقاييس متابعة.  
+  🇬🇧 **What:** A set of operational documents and monitoring metrics.
+- 🇸🇦 **وظيفتها:** توفر مرجع موحد عند اتخاذ القرارات أو إدارة التغيير.  
+  🇬🇧 **Function:** Provides a unified reference for decision making and change management.
+- 🇸🇦 **فائدتها:** تعزز الشفافية وتدعم سرعة الاستجابة للفرص أو المخاطر.  
   🇬🇧 **Benefit:** Enhances transparency and enables faster response to opportunities or risks.
 
 ### 1.2 خريطة الفئات
@@ -86,20 +86,20 @@ The mindmap classifies stakeholders into internal, external, and oversight group
 
 ```mermaid
 mindmap
-  root((أصحاب المصلحة\nStakeholders))
+  root((أصحاب المصلحة / Stakeholders))
     داخلي Internal
-      "🎧 خدمة العملاء\nCustomer Service"
-      "⚙️ التشغيل\nOperations"
-      "💰 المالية\nFinance"
-      "🖥️ الدعم التقني\nTech Support"
+      "🎧 خدمة العملاء / Customer Service"
+      "⚙️ التشغيل / Operations"
+      "💰 المالية / Finance"
+      "🖥️ الدعم التقني / Tech Support"
     خارجي External
-      "👤 العملاء\nCustomers"
-      "🤝 الشركاء\nPartners"
-      "🚚 شركات الشحن\nCouriers"
+      "👤 العملاء / Customers"
+      "🤝 الشركاء / Partners"
+      "🚚 شركات الشحن / Couriers"
     تنظيمي Oversight
-      "👔 الإدارة العليا\nLeadership"
-      "🔍 المدققون\nAuditors"
-      "💼 المستثمرون\nInvestors"
+      "👔 الإدارة العليا / Leadership"
+      "🔍 المدققون / Auditors"
+      "💼 المستثمرون / Investors"
 ```
 
 ---

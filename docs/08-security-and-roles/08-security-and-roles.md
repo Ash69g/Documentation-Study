@@ -1,6 +1,6 @@
-# �️ الأمان والأدوار
+# 🛡️ الأمان والأدوار
 
-Security & Roles
+## Security & Roles
 
 ---
 
@@ -12,43 +12,61 @@ Security & Roles
 > **Last Updated:** 2025-09-08
 
 **شرح مختصر:**
-يهدف هذا القسم إلى توضيح كيف يتم حماية النظام وتوزيع الصلاحيات بين المستخدمين لضمان أمان البيانات وسهولة الإدارة.
-
+هذا القسم يوضح كيف يتم حماية النظام وتوزيع الصلاحيات بين المستخدمين لضمان أمان البيانات وسهولة الإدارة، مع إبراز أهمية التحكم في الوصول وتوزيع الأدوار.
 **Summary:**
-This section explains how the system is protected and how permissions are distributed to ensure data security and easy management.
+This section explains how the system is protected and how permissions are distributed to ensure data security and easy management, highlighting the importance of access control and role distribution.
 
 ---
 
-## ملخص بصري للأمان
-
-Visual Security Overview
+## 🖼️ ملخص بصري للأمان
 
 **شرح مختصر:**
-يوضح المخطط كيف يتم التحقق من هوية المستخدم وتوزيع الصلاحيات عبر Firebase وFirestore.
-
+يوضح المخطط كيف تتم عملية المصادقة وتوزيع الصلاحيات بين المستخدمين والنظام وقاعدة البيانات.
+**Visual Security Overview**
 **Summary:**
-The diagram shows how user identity is verified and permissions are distributed via Firebase and Firestore.
+The diagram shows the authentication and permission distribution process between users, the system, and the database.
 
 ```mermaid
-flowchart LR
-  U([👤 مستخدم]) -->|🔑 تسجيل الدخول| APP[تطبيق CA Admin]
-  APP -->|🛡️ مصادقة| AUTH[مصادقة Firebase]
-  AUTH -->|🎫 رمز + دور| APP
-  APP -->|📄 طلب| DB[قاعدة بيانات Firestore]
-  DB -->|✅ سماح/رفض| APP
+flowchart TD
+  U([👤 مستخدم | User]) -->|🔑 تسجيل الدخول | Login| APP[تطبيق CA Admin | CA Admin App]
+  APP -->|🛡️ مصادقة | Auth| AUTH[مصادقة Firebase | Firebase Auth]
+  AUTH -->|🎫 رمز + دور | Token+Role| APP
+  APP -->|📄 طلب | Request| DB[قاعدة بيانات Firestore | Firestore]
+  DB -->|✅ سماح/رفض | Allow/Deny| APP
 ```
 
 ---
 
-## مقارنة نماذج التحكم في الوصول
-
-RBAC vs Other Access Control Models
+## 🏢 ملخص بصري للأدوار والهيكل التنظيمي
 
 **شرح مختصر:**
-يوضح الجدول الفرق بين أشهر نماذج التحكم في الوصول، مع مميزات وعيوب كل نموذج.
-
+مخطط يوضح العلاقة بين الأدوار الرئيسية والهيكل الإداري للنظام.
+**Visual Overview: Roles & Organizational Structure**
 **Summary:**
-The table shows the difference between popular access control models, with pros and cons for each.
+Diagram showing the relationship between main roles and the system's organizational hierarchy.
+
+```mermaid
+flowchart LR
+  Admin([👑 المدير | Admin]) -->|يدير| Finance([💰 المالي | Finance])
+  Admin -->|يدير| CS([🎧 خدمة العملاء | Customer Service])
+  Admin -->|يدير| Order([📦 منفذ الطلبات | Order Processor])
+  Admin -->|يدير| StaffKSA([🇸🇦 موظف السعودية | Staff KSA])
+  Admin -->|يدير| StaffYemen([🇾🇪 موظف اليمن | Staff Yemen])
+  StaffYemen -->|يسلم| Driver([🚚 السائق | Driver])
+  CS -->|يخدم| Customer([🧑‍💼 العميل | Customer])
+  Order -->|يربط| Customer
+  Finance -->|يخدم| Customer
+```
+
+---
+
+## 🗂️ مقارنة نماذج التحكم في الوصول
+
+**شرح مختصر:**
+جدول يوضح أشهر نماذج التحكم في الوصول، مع مميزات وعيوب كل نموذج، لمساعدة فرق التطوير في اختيار الأنسب.
+**Access Control Models Comparison**
+**Summary:**
+Table showing the most popular access control models, their pros and cons, to help development teams choose the best fit.
 
 | النموذج | شرح مختصر         | مميزات                     | عيوب              |
 | ------- | ----------------- | -------------------------- | ----------------- |
@@ -59,15 +77,13 @@ The table shows the difference between popular access control models, with pros 
 
 ---
 
-## نصائح وممارسات الأمان
-
-Security Tips & Best Practices
+## 🛡️ نصائح وممارسات الأمان
 
 **شرح مختصر:**
-نصائح عملية لضمان أمان النظام وتحديث الصلاحيات بشكل دوري.
-
+نصائح عملية لضمان أمان النظام وتحديث الصلاحيات بشكل دوري، مع تعزيز مبدأ أقل صلاحية.
+**Security Tips & Best Practices**
 **Summary:**
-Practical tips to ensure system security and regularly update permissions.
+Practical tips to ensure system security and regularly update permissions, emphasizing least privilege principle.
 
 - راجع الأدوار والصلاحيات كل 3 أشهر على الأقل.
 - استخدم مراجعة الأمان التلقائية إن أمكن.
@@ -80,27 +96,26 @@ Practical tips to ensure system security and regularly update permissions.
 
 ---
 
-## المقدمة
-
-Introduction
+## 📖 المقدمة | Introduction
 
 ![security](https://img.icons8.com/color/96/000000/security-checked.png)
 
-يتم إدارة الأمان في نظام CA Admin عبر التحكم في الوصول المبني على الأدوار (RBAC). تُمنح الأدوار من خلال Firebase Authentication باستخدام Custom Claims، ويتم تطبيق قواعد الوصول عبر Firestore Security Rules.
+**شرح مختصر:**
+تعريف عام بكيفية إدارة الأمان في النظام وأهمية التحكم في الوصول.
+**Summary:**
+General introduction to how security is managed in the system and the importance of access control.
 
+يتم إدارة الأمان في نظام CA Admin عبر التحكم في الوصول المبني على الأدوار (RBAC). تُمنح الأدوار من خلال Firebase Authentication باستخدام Custom Claims، ويتم تطبيق قواعد الوصول عبر Firestore Security Rules.
 Security in CA Admin is managed via Role-Based Access Control (RBAC). Roles are assigned using Firebase Authentication and Custom Claims, while access rules are enforced with Firestore Security Rules.
 
 ---
 
-## أدوار المستخدمين ومصفوفة الصلاحيات
-
-User Roles & RBAC Matrix
+## 👥 أدوار المستخدمين ومصفوفة الصلاحيات | User Roles & RBAC Matrix
 
 **شرح مختصر:**
-يوضح الجدول التالي صلاحيات كل دور في النظام.
-
+جدول يوضح صلاحيات كل دور في النظام، ليسهل فهم توزيع المسؤوليات.
 **Summary:**
-The table below shows the permissions for each role in the system.
+Table showing the permissions for each role in the system, to clarify responsibility distribution.
 
 | الدور (AR)        | Role (EN)                  | الوصف / Description                             | الصلاحيات / Permissions                                                                          |
 | ----------------- | -------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------ |
@@ -118,6 +133,13 @@ The table below shows the permissions for each role in the system.
 ## الفرق بين المصادقة والصلاحيات
 
 Authentication vs Authorization
+**Authentication (المصادقة):**
+
+- Verifies user identity (login via Firebase Auth).
+
+**Authorization (الصلاحيات):**
+
+- Determines what the user can access (based on role claims & security rules).
 
 **شرح مختصر:**
 المصادقة تتحقق من هوية المستخدم، بينما الصلاحيات تحدد ما يمكنه الوصول إليه.
@@ -223,6 +245,25 @@ Examples of staff permissions in the system.
 
 ---
 
+## 6. Security Tips & Best Practices / نصائح وممارسات الأمان
+
+**EN:**
+
+- Enforce least privilege principle (give minimum required permissions).
+- Use Firestore Security Rules Simulator before production.
+- Enable Firestore logging for auditing.
+- Use audit logs to track changes.
+
+**AR:**
+
+- تطبيق مبدأ أقل صلاحية (إعطاء الحد الأدنى من الصلاحيات).
+- اختبار القواعد عبر المحاكي قبل الإطلاق.
+- تفعيل سجلات Firestore للمراجعة.
+- استخدام سجل تدقيق لمتابعة جميع التغييرات.
+- سيتم إضافة أنواع موظفين وصلاحيات جديدة مستقبلاً حسب توسع النظام.
+
+---
+
 ## الأسئلة الشائعة وملاحظات
 
 FAQ & Notes
@@ -256,147 +297,6 @@ Admin role is powerful; access should be tightly controlled.
 - Update Cloud Functions for role assignment if needed.
 
 **Q: What if a user needs multiple roles?**
-
-- Use an array of roles in custom claims and check with `request.auth.token.roles` in rules.
-
----
-
----
-
-## 🛡️ Visual Security Overview / ملخص بصري للأمان
-
-```mermaid
-flowchart LR
-  U([User]) -->|Login| APP[CA Admin App]
-  APP -->|Auth| AUTH[Firebase Auth]
-  AUTH -->|Token+Role| APP
-  APP -->|Request| DB[Firestore]
-  DB -->|Allow/Deny| APP
-```
-
----
-
-## 1. Introduction / المقدمة
-
-![security](https://img.icons8.com/color/96/000000/security-checked.png)
-
-**EN:**
-Security in CA Admin is managed via **Role-Based Access Control (RBAC)**. Roles are assigned using **Firebase Authentication** and **Custom Claims**, while access rules are enforced with **Firestore Security Rules**.
-
-**AR:**
-يتم إدارة الأمان في نظام CA Admin عبر **التحكم في الوصول المبني على الأدوار (RBAC)**. تُمنح الأدوار من خلال **Firebase Authentication** باستخدام **Custom Claims**، ويتم تطبيق قواعد الوصول عبر **Firestore Security Rules**.
-
----
-
-## 2. User Roles & RBAC Matrix / أدوار المستخدمين ومصفوفة الصلاحيات
-
-| Role (EN)                  | الدور (AR)        | Description / الوصف                                           | Permissions / الصلاحيات                                                                                                |
-| -------------------------- | ----------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| **Admin**                  | المدير            | Full system access, manage roles, audit logs                  | CRUD on all modules, manage users, configure system                                                                    |
-| **Finance**                | المالي            | Handle invoices, payments, reports                            | Create/update financial logs, view orders, generate reports                                                            |
-| **Customer Service Staff** | موظف خدمة العملاء | Enter customer names and orders                               | Add/edit customer data, add/edit customer orders                                                                       |
-| **Order Processor**        | منفذ الطلبات      | Process, edit, split, and link orders, tracking, and invoices | Create/edit orders, link/split orders, create tracking states, create invoices, link invoices to orders and gift cards |
-| **Staff (KSA)**            | موظف السعودية     | Process purchases, register shipments                         | Create/update orders, shipments, attach images                                                                         |
-| **Staff (Yemen)**          | موظف اليمن        | Handle local deliveries                                       | Update delivery status, assign to drivers                                                                              |
-| **Driver**                 | السائق            | Transport shipments, update status                            | Update shipment status only                                                                                            |
-| **Customer**               | العميل            | Submit and track orders                                       | Create orders, view their own orders & balances                                                                        |
-
----
-
-## 3. Authentication vs Authorization / الفرق بين المصادقة والصلاحيات
-
-**Authentication (المصادقة):**
-
-- Verifies user identity (login via Firebase Auth).
-
-**Authorization (الصلاحيات):**
-
-- Determines what the user can access (based on role claims & security rules).
-
----
-
-## 4. Firebase Security Rules / قواعد Firestore الأمنية
-
-**Sample (simplified):**
-
-```js
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    // Customers can only read/write their own orders
-    match /customers/{customerId}/orders/{orderId} {
-      allow read, write: if request.auth != null && request.auth.uid == customerId;
-    }
-    // Finance role can manage financialLogs
-    match /financialLogs/{logId} {
-      allow read, write: if request.auth.token.role == 'finance' || request.auth.token.role == 'admin';
-    }
-    // Admin full access
-    match /{document=**} {
-      allow read, write: if request.auth.token.role == 'admin';
-    }
-  }
-}
-```
-
----
-
-## 5. Role Assignment (Custom Claims) / تعيين الأدوار
-
-Admin assigns roles via Cloud Function:
-
-```js
-const admin = require("firebase-admin");
-
-exports.setUserRole = functions.https.onCall((data, context) => {
-  if (context.auth.token.role !== "admin") {
-    throw new functions.https.HttpsError("permission-denied");
-  }
-  return admin.auth().setCustomUserClaims(data.uid, { role: data.role });
-});
-```
-
-**Example roles:** `admin`, `finance`, `staff-ksa`, `staff-yemen`, `driver`, `customer`
-
----
-
-## 6. Security Tips & Best Practices / نصائح وممارسات الأمان
-
-**EN:**
-
-- Enforce least privilege principle (give minimum required permissions).
-- Use Firestore Security Rules Simulator before production.
-- Enable Firestore logging for auditing.
-- Use audit logs to track changes.
-
-**AR:**
-
-- تطبيق مبدأ أقل صلاحية (إعطاء الحد الأدنى من الصلاحيات).
-- اختبار القواعد عبر المحاكي قبل الإطلاق.
-- تفعيل سجلات Firestore للمراجعة.
-- استخدام سجل تدقيق لمتابعة جميع التغييرات.
-- سيتم إضافة أنواع موظفين وصلاحيات جديدة مستقبلاً حسب توسع النظام.
-
----
-
----
-
-## 7. FAQ & Notes / أسئلة شائعة وملاحظات
-
-- Roles defined here must stay synchronized with [Stakeholders](../02-stakeholders/02-stakeholders.md) and [User Stories](../03-stories/03-stories.md).
-- Changes in business roles must be updated in Security Rules immediately.
-- Admin role is powerful; access should be tightly controlled.
-
-**Q: How do I add a new role?**
-
-**A:**
-
-- Add the role to the RBAC matrix and update security rules.
-- Update Cloud Functions for role assignment if needed.
-
-**Q: What if a user needs multiple roles?**
-
-**A:**
 
 - Use an array of roles in custom claims and check with `request.auth.token.roles` in rules.
 

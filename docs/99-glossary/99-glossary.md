@@ -1,6 +1,4 @@
-# 📚 القاموس
-
-Glossary
+# 📚 القاموس | Glossary
 
 ---
 
@@ -12,16 +10,13 @@ Glossary
 > **Last Updated:** 2025-09-08
 
 **شرح مختصر:**
-يوضح هذا القاموس جميع المصطلحات الرئيسية المستخدمة في النظام لضمان فهم موحد بين جميع الأطراف.
-
+يوضح هذا القاموس جميع المصطلحات الرئيسية المستخدمة في النظام لضمان فهم موحد بين جميع الأطراف، وتسهيل التواصل بين الفرق.
 **Summary:**
-This glossary explains all key terms used in the system to ensure unified understanding among all parties.
+This glossary explains all key terms used in the system to ensure unified understanding among all parties, facilitating team communication.
 
 ---
 
-## المقدمة
-
-Introduction
+## المقدمة | Introduction
 
 ![glossary](https://img.icons8.com/color/96/000000/book-shelf.png)
 
@@ -31,9 +26,7 @@ This glossary defines key terms used in the CA Admin system documentation. It en
 
 ---
 
-## ملخص بصري
-
-Visual Summary
+## 👁️ ملخص بصري | Visual Summary
 
 **شرح مختصر:**
 مخطط يوضح كيف ترتبط المصطلحات الرئيسية بجميع عناصر النظام.
@@ -53,9 +46,7 @@ flowchart LR
 
 ---
 
-## خريطة ذهنية للمصطلحات
-
-Glossary Mindmap
+## 🧠 خريطة ذهنية للمصطلحات | Glossary Mindmap
 
 **شرح مختصر:**
 خريطة ذهنية تلخص أهم المصطلحات المستخدمة في النظام.
@@ -88,9 +79,7 @@ mindmap
 
 ---
 
-## جدول المصطلحات
-
-Terms Table
+## 🗂️ جدول المصطلحات | Terms Table
 
 **شرح مختصر:**
 جدول يوضح تعريف كل مصطلح باللغتين.
@@ -126,7 +115,7 @@ Table showing the definition of each term in both languages.
 
 ---
 
-## 5. Usage Tips & Best Practices / نصائح الاستخدام وأفضل الممارسات
+## 💡 نصائح الاستخدام وأفضل الممارسات | Usage Tips & Best Practices
 
 1. **Keep the glossary updated:** Add new terms as the system evolves.
 2. **Use terms consistently:** All team members should use these terms in code, documentation, and communication.
@@ -135,14 +124,14 @@ Table showing the definition of each term in both languages.
 
 ---
 
-## 6. Notes / ملاحظات
+## 🗒️ ملاحظات | Notes
 
 1. This glossary should be updated whenever new business or technical terms appear.
 2. It complements the main documentation and helps unify understanding across the team.
 
 ---
 
-## 7. Common Abbreviations / الاختصارات الشائعة
+## 🔤 الاختصارات الشائعة | Common Abbreviations
 
 | Abbreviation | Full Term (EN)                               | المصطلح الكامل (AR)       |
 | ------------ | -------------------------------------------- | ------------------------- |
@@ -154,7 +143,7 @@ Table showing the definition of each term in both languages.
 
 ---
 
-## 8. Term Relationships Diagram / رسم توضيحي لعلاقات المصطلحات
+## 🔗 رسم توضيحي لعلاقات المصطلحات | Term Relationships Diagram
 
 ```mermaid
 graph TD
@@ -180,7 +169,7 @@ graph TD
 
 ---
 
-## 9. FAQ / الأسئلة الشائعة
+## ❓ الأسئلة الشائعة | FAQ
 
 ### Q1: لماذا يجب أن أستخدم هذا القاموس؟
 
@@ -195,3 +184,31 @@ graph TD
 نعم، يفضل ربط المصطلحات بالوثائق ذات الصلة مثل الرؤية، نموذج البيانات، أو خطة الأمان.
 
 ---
+
+## 🗂️ جدول علاقة المصطلحات بالأقسام | Terms vs Sections Table
+
+**شرح مختصر:**
+جدول يوضح ارتباط كل مصطلح بالقسم أو الملف الرئيسي في التوثيق، ليسهل على القارئ تتبع المصطلحات في السياق الصحيح.
+**Summary:**
+Table showing the link between each term and its main section/file in the documentation, helping readers track terms in the right context.
+
+| المصطلح (AR)     | Term (EN)     | القسم المرتبط                | Linked Section              |
+| ---------------- | ------------- | ---------------------------- | --------------------------- |
+| العميل           | Customer      | قصص المستخدم، نموذج البيانات | User Stories, Data Model    |
+| الطلبية          | Order         | نموذج البيانات، خطة الاختبار | Data Model, Test Plan       |
+| الشحنة           | Shipment      | نموذج البيانات، خطة الاختبار | Data Model, Test Plan       |
+| السائق           | Driver        | نموذج البيانات               | Data Model                  |
+| سجل مالي         | Finance Log   | المالية، خطة الاختبار        | Finance, Test Plan          |
+| البطاقة البنكية  | Bank Card     | المالية                      | Finance                     |
+| بطاقة هدية       | Gift Card     | المالية                      | Finance                     |
+| سجل الخروج       | Checkout Log  | المالية                      | Finance                     |
+| التحكم بالأدوار  | RBAC          | الأمان والأدوار              | Security & Roles            |
+| Firestore        | Firestore     | نموذج البيانات               | Data Model                  |
+| دون إنترنت أولاً | Offline-First | العمارة، العمليات            | Architecture, Process Flows |
+| خدمة المزامنة    | Sync Service  | العمليات                     | Process Flows               |
+| سجل التدقيق      | Audit Log     | الأمان، المالية              | Security, Finance           |
+| اختبار القبول    | UAT           | خطة الاختبار                 | Test Plan                   |
+| CI/CD            | CI/CD         | خطة الإطلاق وDevOps          | Release & DevOps            |
+| الإصدار الأولي   | Alpha Release | خطة الإطلاق                  | Release Plan                |
+| الإصدار التجريبي | Beta Release  | خطة الإطلاق                  | Release Plan                |
+| الإنتاج          | Production    | خطة الإطلاق                  | Release Plan                |
