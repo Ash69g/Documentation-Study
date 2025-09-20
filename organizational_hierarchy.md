@@ -1,18 +1,35 @@
 # 🏢 الهيكل التنظيمي والتسلسل الهرمي
 
+Organizational Hierarchy & Structure
+
+---
+
+**شرح مختصر:**
+يوضح هذا المستند كيف تتوزع الأدوار والمسؤوليات داخل المؤسسة، ويساعد في فهم تدفق العمل الإداري.
+
+**Summary:**
+This document explains how roles and responsibilities are distributed within the organization and helps understand the administrative workflow.
+
 ---
 
 ## 🛠️ سير العمل الرقمي بين الأقسام
 
+Digital Workflow between Departments
+
+**شرح مختصر:**
+المخطط التالي يوضح كيف ينتقل الطلب بين الأقسام المختلفة من البداية حتى التسليم.
+
+**Summary:**
+The following diagram shows how requests move between departments from start to delivery.
+
 ```mermaid
-%% مخطط سير العمل الرقمي بين الأقسام
 flowchart TD
-    Customer((👤 عميل)) -->|📝 طلب جديد| CustStaff[🧑‍💼 موظف خدمة العملاء]
-    CustStaff -->|🔄 إدخال الطلب| OrderProcessor[🧑‍💻 منفذ الطلبات]
-    OrderProcessor -->|✅ مراجعة وتنفيذ| Stores[🏬 إدارة المخازن]
-    Stores -->|📦 تجهيز وشحن| Reception[🎫 إدارة الاستقبال]
-    Reception -->|🚚 تسليم الطلب| Customer
-    CustStaff -->|🔔 متابعة حالة الطلب| Customer
+  Customer((👤 عميل)) -->|📝 طلب جديد| CustStaff[🧑‍💼 موظف خدمة العملاء]
+  CustStaff -->|🔄 إدخال الطلب| OrderProcessor[🧑‍💻 منفذ الطلبات]
+  OrderProcessor -->|✅ مراجعة وتنفيذ| Stores[🏬 إدارة المخازن]
+  Stores -->|📦 تجهيز وشحن| Reception[🎫 إدارة الاستقبال]
+  Reception -->|🚚 تسليم الطلب| Customer
+  CustStaff -->|🔔 متابعة حالة الطلب| Customer
     OrderProcessor -->|📊 تحديث حالة الطلب| CustStaff
 ```
 
@@ -33,6 +50,13 @@ flowchart TD
 
 ## 👥 ملخص أدوار الموظفين الرئيسيين
 
+جدول يوضح الأدوار الرئيسية والمهام والتفاعل بين الأقسام.
+**شرح مختصر:** يساعد الجدول في تحديد مسؤوليات كل فريق.
+
+Main Staff Roles Summary
+Table showing main roles, tasks, and department interactions.
+**Summary:** The table clarifies each team's responsibilities.
+
 | الدور                | المهام الرئيسية                                           | التفاعل مع الأقسام      |
 | -------------------- | --------------------------------------------------------- | ----------------------- |
 | 🧑‍💼 موظف خدمة العملاء | استقبال الطلبات، إدخالها بالنظام، متابعة العملاء          | منفذ الطلبات، الاستقبال |
@@ -41,10 +65,26 @@ flowchart TD
 | 🎫 موظفو الاستقبال   | استقبال العملاء، تسليم الطلبيات، استلام المستحقات المالية | خدمة العملاء، المخازن   |
 | 👔 مدير القسم        | الإشراف، اتخاذ القرارات، التنسيق بين الفرق                | جميع الأقسام            |
 
+| Role                | Main Tasks                                              | Interaction with Depts     |
+| ------------------- | ------------------------------------------------------- | -------------------------- |
+| 🧑‍💼 Customer Service | Receive orders, enter in system, follow up with clients | Order Processor, Reception |
+| 🧑‍💻 Order Processor  | Review orders, execute, update status, issue invoices   | Customer Service, Stores   |
+| 🏬 Store Staff      | Prepare/sort orders, inventory, prepare shipments       | Order Processor, Reception |
+| 🎫 Reception Staff  | Receive clients, deliver orders, collect payments       | Customer Service, Stores   |
+| 👔 Dept Manager     | Supervise, make decisions, coordinate teams             | All departments            |
+
 ---
 
+## 🏢 الهيكل التنظيمي العام
+
+مخطط يوضح التسلسل الإداري من المدير العام حتى الأقسام الفرعية.
+**شرح مختصر:** يوضح المخطط توزيع السلطة والمسؤوليات.
+
+General Organizational Structure
+Diagram showing management hierarchy from CEO to sub-departments.
+**Summary:** The diagram shows authority and responsibility distribution.
+
 ```mermaid
-%% مخطط الهيكل التنظيمي العام
 graph TD
   CEO[👔 المدير العام]
   CEO --> Admin[📋 الإدارة العامة]

@@ -1,88 +1,141 @@
-# ⚙️ Non-Functional Requirements & Quality / المتطلبات غير الوظيفية والجودة
+# ⚙️ المتطلبات غير الوظيفية والجودة
 
-> **Project:** CA Admin  
-> **Version:** v0.1 — Owner: Abdullah Alshaif  
-> **Last Updated:** 2025-09-08
+Non-Functional Requirements & Quality
 
 ---
 
-## 1. Introduction / المقدمة
+> **المشروع:** CA Admin
+> **Project:** CA Admin
+> **الإصدار:** v0.1 — المالك: عبدالله الشائف
+> **Version:** v0.1 — Owner: Abdullah Alshaif
+> **آخر تحديث:** 2025-09-08
+> **Last Updated:** 2025-09-08
+
+**شرح مختصر:**
+يوضح هذا القسم كيف تضمن المتطلبات غير الوظيفية جودة النظام واستقراره وسهولة استخدامه.
+
+**Summary:**
+This section explains how NFRs ensure system quality, stability, and usability.
+
+---
+
+## المقدمة
+
+Introduction
 
 ![quality](https://img.icons8.com/color/96/000000/checked-2--v2.png)
 
-**EN:**
-Non-functional requirements (NFRs) define the **quality attributes** of the CA Admin system, including performance, reliability, usability, security, and maintainability. These ensure the system is practical, stable, and user-friendly.
+المتطلبات غير الوظيفية تحدد سمات الجودة لنظام CA Admin مثل الأداء، الموثوقية، سهولة الاستخدام، الأمان، وقابلية الصيانة. وهي تضمن أن يكون النظام عمليًا ومستقرًا وسهل الاستخدام.
 
-**AR:**
-المتطلبات غير الوظيفية تحدد **سمات الجودة** لنظام CA Admin مثل الأداء، الموثوقية، سهولة الاستخدام، الأمان، وقابلية الصيانة. وهي تضمن أن يكون النظام عمليًا ومستقرًا وسهل الاستخدام.
+Non-functional requirements (NFRs) define the quality attributes of the CA Admin system, including performance, reliability, usability, security, and maintainability. These ensure the system is practical, stable, and user-friendly.
 
 ---
 
-## 2. Visual Quality Map / خريطة جودة بصرية
+## خريطة جودة بصرية
+
+Visual Quality Map
+
+**شرح مختصر:**
+يوضح المخطط كيف ترتبط سمات الجودة الرئيسية بالمتطلبات غير الوظيفية.
+
+**Summary:**
+The diagram shows how main quality attributes relate to NFRs.
 
 ```mermaid
 graph TD
-  NFRs((NFRs))
-  NFRs --> Performance
-  NFRs --> Reliability
-  NFRs --> Usability
-  NFRs --> Security
-  NFRs --> Maintainability
-  NFRs --> Scalability
-  NFRs --> Compatibility
-  NFRs --> Portability
+  NFRs((المتطلبات غير الوظيفية))
+  NFRs --> الأداء
+  NFRs --> الموثوقية
+  NFRs --> سهولة_الاستخدام
+  NFRs --> الأمان
+  NFRs --> الصيانة
+  NFRs --> التوسع
+  NFRs --> التوافقية
+  NFRs --> النقل
 ```
 
 ---
 
-## 3. NFR Mindmap / خريطة ذهنية للمتطلبات غير الوظيفية
+## خريطة ذهنية للمتطلبات غير الوظيفية
+
+NFR Mindmap
+
+**شرح مختصر:**
+خريطة ذهنية تلخص أهم سمات الجودة المطلوبة للنظام.
+
+**Summary:**
+Mindmap summarizing the main quality attributes required for the system.
 
 ```mermaid
 mindmap
-  root((NFRs))
-    Performance
-      Response Time < 2s
-      500+ Concurrent Users
-    Reliability
-      Uptime 99.5%
-      Auto Sync
-    Usability
-      Bilingual (AR/EN)
-      Mobile-first
-    Security
+  root((المتطلبات غير الوظيفية))
+    الأداء
+      زمن الاستجابة < 2 ثانية
+      500+ مستخدم متزامن
+    الموثوقية
+      توفر 99.5%
+      مزامنة تلقائية
+    سهولة_الاستخدام
+      ثنائي اللغة (عربي/إنجليزي)
+      الهاتف أولاً
+    الأمان
       RBAC
-      Encryption
-      Audit Logs
-    Maintainability
-      Clean Architecture
-      70%+ Test Coverage
-    Scalability
-      5000+ Customers
-      Auto-scaling
+      تشفير
+      سجلات تدقيق
+    الصيانة
+      هندسة نظيفة
+      تغطية اختبار 70%+
+    التوسع
+      5000+ عميل
+      توسع تلقائي
 ```
 
 ---
 
-## 4. NFRs vs Functional Requirements / الفرق بين المتطلبات غير الوظيفية والمتطلبات الوظيفية
+## الفرق بين المتطلبات غير الوظيفية والمتطلبات الوظيفية
 
-| Aspect     | Functional Requirements (FRs) / المتطلبات الوظيفية | Non-Functional Requirements (NFRs) / المتطلبات غير الوظيفية |
-| ---------- | -------------------------------------------------- | ----------------------------------------------------------- |
-| Definition | What the system does (features, use cases)         | How the system should be (quality, performance, security)   |
-| Example    | Place order, generate report                       | Response < 2s, 99.5% uptime, bilingual UI                   |
-| Validation | User acceptance tests, feature demos               | Performance tests, monitoring, user feedback                |
+NFRs vs Functional Requirements
+
+**شرح مختصر:**
+جدول يوضح الفرق بين المتطلبات الوظيفية وغير الوظيفية.
+
+**Summary:**
+Table showing the difference between functional and non-functional requirements.
+
+| الجانب  | المتطلبات الوظيفية                      | المتطلبات غير الوظيفية                            |
+| ------- | --------------------------------------- | ------------------------------------------------- |
+| التعريف | ماذا يفعل النظام (ميزات، حالات استخدام) | كيف يجب أن يكون النظام (جودة، أداء، أمان)         |
+| مثال    | إنشاء طلب، توليد تقرير                  | استجابة < 2 ثانية، توفر 99.5%، واجهة ثنائية اللغة |
+| التحقق  | اختبارات قبول المستخدم، عروض الميزات    | اختبارات الأداء، المراقبة، ملاحظات المستخدمين     |
 
 ---
 
-## 5. Quality Review Cycle / دورة مراجعة الجودة
+## دورة مراجعة الجودة
+
+Quality Review Cycle
+
+**شرح مختصر:**
+مخطط يوضح دورة مراجعة الجودة الدورية للنظام.
+
+**Summary:**
+Diagram showing the periodic quality review cycle for the system.
 
 ```mermaid
 flowchart LR
-  Start([Start]) --> Define[Define NFRs]
-  Define --> Implement[Implement]
-  Implement --> Test[Test & Monitor]
-  Test --> Review[Quarterly Review]
-  Review --> Update[Update NFRs]
-  Update --> Implement
+  البداية([بداية]) --> تعريف[تعريف المتطلبات غير الوظيفية]
+  تعريف --> تنفيذ[تنفيذ]
+  تنفيذ --> اختبار[اختبار ومراقبة]
+  اختبار --> مراجعة[مراجعة ربع سنوية]
+  مراجعة --> تحديث[تحديث المتطلبات]
+  تحديث --> تنفيذ
+```
+
+Define --> Implement[Implement]
+Implement --> Test[Test & Monitor]
+Test --> Review[Quarterly Review]
+Review --> Update[Update NFRs]
+Update --> Implement
+
 ```
 
 ---
@@ -205,3 +258,4 @@ flowchart LR
 - راجع نتائج اختبارات الأداء بعد كل تحديث رئيسي.
 
 ---
+```

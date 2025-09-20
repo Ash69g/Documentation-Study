@@ -1,65 +1,102 @@
-# 📚 Glossary / القاموس
+# 📚 القاموس
 
-> **Project:** CA Admin  
-> **Version:** v0.1 — Owner: Abdullah Alshaif  
-> **Last Updated:** 2025-09-08
+Glossary
 
 ---
 
-## 1. Introduction / المقدمة
+> **المشروع:** CA Admin
+> **Project:** CA Admin
+> **الإصدار:** v0.1 — المالك: عبدالله الشائف
+> **Version:** v0.1 — Owner: Abdullah Alshaif
+> **آخر تحديث:** 2025-09-08
+> **Last Updated:** 2025-09-08
+
+**شرح مختصر:**
+يوضح هذا القاموس جميع المصطلحات الرئيسية المستخدمة في النظام لضمان فهم موحد بين جميع الأطراف.
+
+**Summary:**
+This glossary explains all key terms used in the system to ensure unified understanding among all parties.
+
+---
+
+## المقدمة
+
+Introduction
 
 ![glossary](https://img.icons8.com/color/96/000000/book-shelf.png)
 
-**EN:**
-This glossary defines key terms used in the CA Admin system documentation. It ensures consistent understanding across stakeholders, developers, and auditors.
+يعرف هذا القاموس المصطلحات الرئيسية المستخدمة في توثيق نظام CA Admin. ويساعد على ضمان فهم موحد بين أصحاب المصلحة، المطورين، والمراجعين.
 
-**AR:**
-يعرّف هذا القاموس المصطلحات الرئيسية المستخدمة في توثيق نظام CA Admin. ويساعد على ضمان فهم موحد بين أصحاب المصلحة، المطورين، والمراجعين.
+This glossary defines key terms used in the CA Admin system documentation. It ensures consistent understanding across stakeholders, developers, and auditors.
 
 ---
 
-## 2. Visual Summary / ملخص بصري
+## ملخص بصري
+
+Visual Summary
+
+**شرح مختصر:**
+مخطط يوضح كيف ترتبط المصطلحات الرئيسية بجميع عناصر النظام.
+
+**Summary:**
+Diagram showing how key terms relate to all system elements.
 
 ```mermaid
 flowchart LR
- Terms["Key Terms"] --> Docs["Documentation"]
- Terms --> Devs["Developers"]
- Terms --> Analysts["Analysts"]
- Terms --> Auditors["Auditors"]
- Docs --> System["CA Admin System"]
- Terms --> Mindmap["Mindmap"]
+ Terms["المصطلحات الرئيسية"] --> Docs["التوثيق"]
+ Terms --> Devs["المطورون"]
+ Terms --> Analysts["المحللون"]
+ Terms --> Auditors["المراجعون"]
+ Docs --> System["نظام CA Admin"]
+ Terms --> Mindmap["خريطة ذهنية"]
 ```
 
 ---
 
-## 3. Glossary Mindmap / خريطة ذهنية للمصطلحات
+## خريطة ذهنية للمصطلحات
+
+Glossary Mindmap
+
+**شرح مختصر:**
+خريطة ذهنية تلخص أهم المصطلحات المستخدمة في النظام.
+
+**Summary:**
+Mindmap summarizing the main terms used in the system.
 
 ```mermaid
 mindmap
- root((Glossary))
-  Customer
-  Order
-  Shipment
-  Driver
-  Finance Log
-  Bank Card
-  Gift Card
-  Checkout Log
-  RBAC
-  Firestore
-  Offline-First
-  Sync Service
-  Audit Log
-  UAT
-  CI/CD
-  Alpha Release
-  Beta Release
-  Production
+  root((القاموس))
+    العميل
+    الطلبية
+    الشحنة
+    السائق
+    سجل مالي
+    البطاقة البنكية
+    بطاقة هدية
+    سجل الخروج
+    التحكم بالأدوار
+    Firestore
+    دون إنترنت أولاً
+    خدمة المزامنة
+    سجل التدقيق
+    اختبار القبول
+    CI/CD
+    الإصدار الأولي
+    الإصدار التجريبي
+    الإنتاج
 ```
 
 ---
 
-## 4. Terms Table / جدول المصطلحات
+## جدول المصطلحات
+
+Terms Table
+
+**شرح مختصر:**
+جدول يوضح تعريف كل مصطلح باللغتين.
+
+**Summary:**
+Table showing the definition of each term in both languages.
 
 | #   | Term (EN)         | المصطلح (AR)           | Definition (EN)                                                     | التعريف (AR)                                                               |
 | --- | ----------------- | ---------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------- |

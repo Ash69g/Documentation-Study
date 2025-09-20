@@ -1,329 +1,237 @@
-# 📝 User Stories / قصص المستخدم
+﻿# 📖 قصص المستخدم
 
-> **Project:** CA Admin
-> **Version:** v0.1 — Owner: Abdullah Alshaif — Last Updated: YYYY-MM-DD
-
----
-
-## 1. Introduction / المقدمة
-
-![user stories](https://img.icons8.com/color/96/000000/storytelling.png)
-
-**EN:**
-User Stories describe system features from the perspective of the end-users or stakeholders. They are written in a simple structure to clarify what the user wants and why. Each story should have **Acceptance Criteria** to make it testable.
-
-**AR:**
-قصص المستخدم تصف ميزات النظام من منظور المستخدمين النهائيين أو أصحاب المصلحة. تُكتب بشكل مبسط لتوضيح ما يريده المستخدم ولماذا. يجب أن تحتوي كل قصة على **معايير قبول** لتكون قابلة للاختبار.
+User Stories
 
 ---
 
-## 1.1 User Journey Overview / رحلة المستخدم
+> **المشروع:** منصة إدارة وساطة التسوق CA Admin  
+> **Project:** CA Admin Shopping Mediation Platform  
+> **التقنيات:** Flutter، Firebase (Firestore، Auth، Storage، Functions)  
+> **Stack:** Flutter, Firebase (Firestore, Auth, Storage, Functions)  
+> **الإصدار:** 0.1 (رؤية) - المالك: عبدالله الشائف - آخر تحديث: 2025-09-20  
+> **Version:** 0.1 (Vision) - Owner: Abdullah Alshaif - Last Updated: 2025-09-20
+
+**شرح مختصر:**
+قصص المستخدم توضح احتياجات الأطراف المختلفة وتربط كل قصة بهدف وقيمة واضحة.
+
+**Summary:**
+User stories clarify the needs of different parties and link each story to a clear goal and value.
+
+---
+
+## 1. مقدمة
+
+Introduction
+
+---
+
+### 1.1 نظرة بصرية
+
+Visual Overview
+
+**شرح مختصر:**
+يوضح المخطط رحلة المستخدم من استكشاف المنتجات حتى إتمام الدفع والتسوية المالية.
+
+**Summary:**
+The diagram shows the user journey from product exploration to payment and financial reconciliation.
 
 ```mermaid
 journey
-  title Typical User Journey
-  section Customer
-   Register: 5: Customer
-   Place Order: 5: Customer
-   Track Shipment: 4: Customer
-   Pay Invoice: 3: Customer
-  section Staff
-   Register Incoming Shipment: 4: Staff
-   Deliver Packages: 3: Staff
-  section Finance
-   Record Payment: 4: Finance
-   Generate Weekly Report: 3: Finance
-  section Admin/IT
-   Manage User Roles: 4: Admin
-   System Sync Offline/Online: 3: IT
+  title رحلة قصة المستخدم / User Story Journey
+  section عميل Customer
+    استكشاف المنتجات / Explore products: 5: Customer/العميل
+    تقديم طلب / Place order: 5: Customer/العميل
+    متابعة حالة / Track status: 4: Customer/العميل
+  section خدمة العملاء Service
+    التحقق من الطلب / Validate order: 4: Service/الخدمة
+    تحديث بيانات / Update details: 3: Service/الخدمة
+  section التشغيل Operations
+    شراء خارجي / External procurement: 4: Operations/التشغيل
+    شحن إلى السعودية / Ship to KSA: 3: Operations/التشغيل
+    تحويل إلى اليمن / Forward to Yemen: 3: Operations/التشغيل
+  section المالية Finance
+    تسجيل دفعة / Record payment: 4: Finance/المالية
+    مطابقة رصيد / Reconcile balance: 3: Finance/المالية
 ```
+
+- 🇸🇦 **قصص المستخدم كأداة تواصل:** ترجمة احتياجات الأطراف إلى صيغة قابلة للتنفيذ.  
+  🇬🇧 **User stories as a communication tool:** Translate stakeholder needs into actionable language.  
+  🇸🇦 **ما هي:** صياغة تعتمد على "بصفتي... أريد... حتى".  
+  🇬🇧 **What:** A format built on "As a... I want... so that".  
+  🇸🇦 **وظيفتها:** توحد اللغة بين المنتج، التصميم، التطوير، والاختبار.  
+  🇬🇧 **Function:** Aligns terminology across product, design, engineering, and QA.  
+  🇸🇦 **فائدتها:** تقلل الغموض وتسرع الموافقات على المتطلبات.  
+  🇬🇧 **Benefit:** Reduces ambiguity and accelerates requirement sign-off.
+
+- 🇸🇦 **ارتباط القصص بالرؤية والقيمة:** ربط كل قصة بهدف عمل أو مؤشر جودة.  
+  🇬🇧 **Story-to-vision linkage:** Tie each story to a business goal or quality indicator.  
+  🇸🇦 **ما هي:** منهجية تعقب تعرض السبب والنتيجة لكل تطوير.  
+  🇬🇧 **What:** A traceability method showing cause and effect for every enhancement.  
+  🇸🇦 **وظيفتها:** تمكّن من قياس العائد وتحديد الأولويات بوضوح.  
+  🇬🇧 **Function:** Enables ROI measurement and clear prioritization.  
+  🇸🇦 **فائدتها:** تمنع تراكم قصص بلا قيمة وتدعم الشفافية أمام القيادة.  
+  🇬🇧 **Benefit:** Prevents low-value backlog clutter and supports transparent leadership reporting.
+
+- 🇸🇦 **الالتزام بمعايير INVEST:** ضمان استقلالية القصة وقابليتها للتفاوض والتقدير.  
+  🇬🇧 **Adhering to INVEST criteria:** Ensure each story is independent, negotiable, and estimable.  
+  🇸🇦 **ما هي:** قائمة تحقق تشمل الاستقلال، القيمة، إمكانية الاختبار.  
+  🇬🇧 **What:** A checklist covering independence, value, and testability.  
+  🇸🇦 **وظيفتها:** تحافظ على جودة الدخول إلى السبرنت وتمنع التضخم.  
+  🇬🇧 **Function:** Maintains sprint entry quality and avoids scope bloat.  
+  🇸🇦 **فائدتها:** تجعل التخطيط أكثر دقة وتقلل إعادة العمل.  
+  🇬🇧 **Benefit:** Increases planning accuracy and reduces rework.
 
 ---
 
-## 2. Epic Stories & Breakdown / القصص الكبرى والتفصيلية
+## 2. خريطة القصص / Story Map
 
 ```mermaid
 mindmap
-  root((Epic Stories))
-    Customer
-      Place Order
-      Track Shipment
-      Pay Invoice
-    Customer Service Staff
-      Enter Customer Data
-      Enter Customer Orders
-    Order Processor
-      Create Order Numbers
-      View & Execute Orders
-      Edit Orders
-      Add Orders
-      Link Orders
-      Split Orders
-      Create Tracking States
-      Link Tracking to Orders
-      Create Payment Invoices
-      Link Invoices to Orders & Gift Cards
-    Staff
-      Register Incoming Shipment
-      Deliver Packages
-    Finance
-      Record Payment
-      Generate Weekly Report
-    Admin/IT
-      Manage User Roles
-      System Sync Offline/Online
+  root((خريطة القصص\nStory Map))
+    اكتساب العملاء Onboarding
+      "تسجيل عميل\nCustomer Registration"
+      "التحقق من الهوية\nIdentity Check"
+    الطلب والشراء Order & Procurement
+      "إنشاء طلب\nCreate Order"
+      "إرفاق روابط\nAttach Links"
+      "جدولة الدفع\nSchedule Payment"
+    الشحن والتسليم Shipping & Delivery
+      "تتبع المراحل\nTrack Phases"
+      "إدارة الشحنات\nManage Shipments"
+      "إثبات التسليم\nProof of Delivery"
+    المالية Finance
+      "تسجيل الدفعات\nRecord Payments"
+      "تسوية الأرصدة\nReconcile Balances"
+      "إصدار التقارير\nGenerate Reports"
+    الدعم Support
+      "إدارة التذاكر\nTicket Handling"
+      "تنبيهات فورية\nInstant Alerts"
+      "قاعدة المعرفة\nKnowledge Base"
 ```
+
+| 🇸🇦 الشخصية        | 🇬🇧 Persona             | 🇸🇦 قصة المستخدم                                                                             | 🇬🇧 User Story                                                                                                                     | 🇸🇦 معايير القبول المختصرة                                                 | 🇬🇧 Key Acceptance Criteria                                                                           |
+| ----------------- | ---------------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| العميل            | Customers              | بصفتي عميلا أرغب في تقديم طلب جديد مع روابط المنتجات حتى أستطيع متابعة الشحنة بسهولة.       | As a customer I want to submit a new order with product links so that I can track the shipment easily.                            | يدعم النموذج عدة روابط، إشعار تأكيد لحظي، حالة ابتدائية "بانتظار الشراء". | Form supports multiple links, instant confirmation notification, initial status "Awaiting purchase". |
+| موظف خدمة العملاء | Customer Service Agent | بصفتي موظف خدمة أريد البحث عن عميل وإضافة طلبه بضغطة واحدة حتى أضمن إدخال البيانات بسرعة.   | As a service agent I want to search for a customer and add their order in one click so that I capture data quickly.               | بحث بالأسماء والأرقام، التحقق من الحقول الإلزامية، تسجيل اسم المدخل.      | Search by name and number, validate required fields, log agent identity.                             |
+| مشغل العمليات     | Operations Specialist  | بصفتي مشغلا أحتاج إلى تقسيم الطلب إلى شحنات فرعية مع حالة لكل شحنة حتى أضمن التتبع المرحلي. | As an operations specialist I need to split an order into sub-shipments with status per shipment so that I ensure stage tracking. | إنشاء أرقام فرعية، تاريخ لكل انتقال، منع إغلاق الطلب قبل اكتمال الشحنات.  | Create sub identifiers, timestamp every transition, block closure before shipments complete.         |
+| محلل مالي         | Finance Analyst        | بصفتي محلل مالية أريد مطابقة الدفعات مع الطلبات المرتبطة حتى أخرج تقرير الربحية الأسبوعي.   | As a finance analyst I want to reconcile payments with linked orders so that I produce the weekly profitability report.           | استيراد كشف البنك، تنبيه عند اختلاف العملة، تقرير تفصيلي مع إجمالي الربح. | Import bank statement, alert on currency mismatch, detailed report with gross margin.                |
 
 ---
 
-## 3. User Story Template / قالب قصة المستخدم
+## 3. أولوية القصص / Story Prioritization
+
+- 🇸🇦 **نظام تسجيل قيمة-جهد:** تقييم كل قصة بدرجات قيمة وتأثير وتعقيد.  
+  🇬🇧 **Value-effort scoring system:** Rate each story on value, impact, and complexity.  
+  🇸🇦 **ما هي:** مصفوفة من ثلاث نقاط (1-5) يستخدمها الفريق عند التخطيط.  
+  🇬🇧 **What:** A three-axis matrix (1-5) applied during planning.  
+  🇸🇦 **وظيفتها:** تمكّن من ترتيب القصص داخل السبرنت والربع سنويا.  
+  🇬🇧 **Function:** Enables ordering stories within sprints and quarterly cycles.  
+  🇸🇦 **فائدتها:** تضمن بدء العمل بالأعلى أثرا دون إهمال المكاسب السريعة.  
+  🇬🇧 **Benefit:** Ensures high-impact items start first without ignoring quick wins.
+
+- 🇸🇦 **خريطة الاعتماديات:** تحديد العلاقات بين القصص التقنية والوظيفية.  
+  🇬🇧 **Dependency mapping:** Identify relationships between technical and functional stories.  
+  🇸🇦 **ما هي:** لوحة تربط القصص باستخدام أسهم قبل/بعد.  
+  🇬🇧 **What:** A board that links stories with before/after arrows.  
+  🇸🇦 **وظيفتها:** تمنع إدخال قصة غير قابلة للتنفيذ بسبب عائق تقني.  
+  🇬🇧 **Function:** Prevents pulling a story that is blocked by a technical prerequisite.  
+  🇸🇦 **فائدتها:** تقلل التوقف المفاجئ وتحسن دقة تقديرات السبرنت.  
+  🇬🇧 **Benefit:** Reduces sudden blockers and improves sprint estimate accuracy.
+
+- 🇸🇦 **مؤشر المخاطر:** تسجيل مستوى المخاطرة (منخفض، متوسط، مرتفع) لكل قصة ذات تعقيد تنظيمي.  
+  🇬🇧 **Risk indicator:** Assign low/medium/high risk to stories with regulatory or operational complexity.  
+  🇸🇦 **ما هي:** تسميات ألوان تظهر في لوحة كانبان.  
+  🇬🇧 **What:** Color labels displayed on the Kanban board.  
+  🇸🇦 **وظيفتها:** توجه الاهتمام القيادي وتحدد الحاجة لمراجعات قانونية.  
+  🇬🇧 **Function:** Directs leadership attention and flags legal review needs.  
+  🇸🇦 **فائدتها:** تمنع التأخير المتأخر وتدعم الامتثال المبكر.  
+  🇬🇧 **Benefit:** Prevents late delays and supports early compliance.
+
+---
+
+## 4. إدارة دورة الحياة / Story Lifecycle
 
 ```mermaid
 flowchart LR
-  A[As a <role>] --> B[I want <feature>]
-  B --> C[So that <benefit>]
+    Idea["فكرة\nIdea"] --> Draft["مسودة\nDraft"]
+    Draft --> Ready["جاهز للتطوير\nReady"]
+    Ready --> InProgress["قيد التنفيذ\nIn Progress"]
+    InProgress --> Review["مراجعة الجودة\nQA Review"]
+    Review --> Done["منجز\nDone"]
+    Done --> Measure["قياس الأثر\nMeasure"]
+    Measure --> Improve["تحسين لاحق\nImprove"]
+    Improve --> Backlog["باك لوج التعلم\nLearning Backlog"]
+    Backlog --> Draft
 ```
 
-- **As a [role]**, I want [feature] so that [benefit].
-- **بصفتي [الدور]**، أريد [الميزة] لكي [الفائدة].
-
-**Acceptance Criteria / معايير القبول:**
-
-- **Given** (الحالة الأولية)
-- **When** (الحدث)
-- **Then** (النتيجة المتوقعة)
-
----
-
-## 4. User Story Examples / أمثلة قصص المستخدم
-
-### Category B: Customer Service Staff Stories / قصص موظفي خدمة العملاء
-
-#### Story CS1: Enter customer data
-
-- EN: As a **Customer Service Staff**, I want to **enter customer names and details** so that the customer library is accurate.
-- AR: بصفتي **موظف خدمة العملاء**، أريد **إدخال أسماء العملاء وبياناتهم** لكي تكون مكتبة العملاء دقيقة.
-
-**Acceptance Criteria:**
-
-- Given a new customer
-- When staff enters their data
-- Then the customer is added to the customer library
-
-#### Story CS2: Enter customer orders
-
-- EN: As a **Customer Service Staff**, I want to **enter customer orders** so that all requests are recorded.
-- AR: بصفتي **موظف خدمة العملاء**، أريد **إدخال طلبيات العملاء** لكي يتم تسجيل جميع الطلبات.
-
-**Acceptance Criteria:**
-
-- Given a valid order
-- When staff enters the order
-- Then it is added to the order library
-
-### Category C: Order Processor Stories / قصص منفذ الطلبات
-
-#### Story OP1: Create order numbers
-
-- EN: As an **Order Processor**, I want to **create order numbers** so that each order is uniquely tracked.
-- AR: بصفتي **منفذ الطلبات**، أريد **إنشاء أرقام الطلبيات** لكي يتم تتبع كل طلب بشكل فريد.
-
-**Acceptance Criteria:**
-
-- Given a new order
-- When processor creates the order
-- Then a unique order number is generated and stored
-
-#### Story OP2: View and execute orders
-
-- EN: As an **Order Processor**, I want to **view and execute customer orders** so that requests are fulfilled.
-- AR: بصفتي **منفذ الطلبات**، أريد **استعراض وتنفيذ طلبيات العملاء** لكي يتم تنفيذ الطلبات.
-
-**Acceptance Criteria:**
-
-- Given a list of orders
-- When processor selects and executes an order
-- Then the order status is updated
-
-#### Story OP3: Edit orders
-
-- EN: As an **Order Processor**, I want to **edit any order field as needed** so that corrections can be made.
-- AR: بصفتي **منفذ الطلبات**، أريد **تعديل أي حقل في الطلبيات حسب الحاجة** لكي يتم تصحيح الأخطاء.
-
-**Acceptance Criteria:**
-
-- Given an order
-- When processor edits a field
-- Then the change is saved
-
-#### Story OP4: Link and split orders
-
-- EN: As an **Order Processor**, I want to **link multiple orders and split them into parts** so that complex requests are handled.
-- AR: بصفتي **منفذ الطلبات**، أريد **ربط عدة طلبيات وتقسيمها إلى أجزاء** لكي يتم التعامل مع الطلبات المعقدة.
-
-**Acceptance Criteria:**
-
-- Given several orders
-- When processor links or splits them
-- Then tracking states and references are created for each part
-
-#### Story OP5: Create tracking states and invoices
-
-- EN: As an **Order Processor**, I want to **create tracking states and payment invoices for each part** and link invoices to orders and gift cards.
-- AR: بصفتي **منفذ الطلبات**، أريد **إنشاء حالات تتبع وفواتير مدفوعات لكل جزء وربطها بالطلبيات وبطاقات الهدايا**.
-
-**Acceptance Criteria:**
-
-- Given split orders
-- When processor creates tracking and invoices
-- Then all links and discounts are recorded
-
-### Category A: Customer Stories / قصص العملاء
-
-### Story C1: Place an order
-
-- EN: As a **Customer**, I want to **submit product links and quantities** so that I can **buy items easily**.
-- AR: بصفتي **عميل**، أريد **إرسال روابط المنتجات والكميات** لكي أتمكن من **الشراء بسهولة**.
-
-**Acceptance Criteria:**
-
-- Given product links are valid
-- When the customer submits the order
-- Then the system generates an OrderNo and stores it in Firestore
+- 🇸🇦 **حاكمية بوابات المراحل:** عدم الانتقال بين المراحل دون توفر معايير محددة.  
+  🇬🇧 **Stage gate governance:** Block transitions unless predefined criteria are met.  
+  🇸🇦 **ما هي:** شروط جاهزية تشمل التصميم، الكود، الاختبار، التوثيق.  
+  🇬🇧 **What:** Ready conditions covering design, code, testing, and documentation.  
+  🇸🇦 **وظيفتها:** تمنع التسرع وتضمن جودة موحدة عبر الفرق.  
+  🇬🇧 **Function:** Prevents rushing and keeps consistent quality among teams.  
+  🇸🇦 **فائدتها:** تخفض الرجوع للخلف وترفع الثقة بتاريخ الإطلاق.  
+  🇬🇧 **Benefit:** Lowers rollback incidents and increases confidence in release dates.
 
 ---
 
-#### Story C2: Track shipment
+## 5. مقاييس الجودة / Quality Metrics
 
-- EN: As a **Customer**, I want to **view shipment status** so that I know **when to expect delivery**.
-- AR: بصفتي **عميل**، أريد **عرض حالة الشحنة** لكي أعرف **متى ستصل**.
+- 🇸🇦 **نسبة القصص ذات معايير القبول الصريحة:** الهدف 100%.  
+  🇬🇧 **Stories with explicit acceptance criteria:** Target 100%.  
+  🇸🇦 **ما هي:** مراجعة أسبوعية لحصر القصص المفقودة للمعايير.  
+  🇬🇧 **What:** Weekly review counting stories missing criteria.  
+  🇸🇦 **وظيفتها:** تكشف الثغرات في التحضير وتحدد القصص المهددة.  
+  🇬🇧 **Function:** Exposes preparation gaps and flags at-risk stories.  
+  🇸🇦 **فائدتها:** تقلل الأخطاء المتكررة بين السبرنتات.  
+  🇬🇧 **Benefit:** Reduces recurring sprint defects.
 
-**Acceptance Criteria:**
+- 🇸🇦 **زمن دورة القصة:** المدة من جاهز للتطوير إلى منجز.  
+  🇬🇧 **Story cycle time:** Duration from Ready to Done.  
+  🇸🇦 **ما هي:** قياس تلقائي عبر لوحة كانبان.  
+  🇬🇧 **What:** Automated measurement via Kanban board.  
+  🇸🇦 **وظيفتها:** يقيّم كفاءة التنفيذ ويكشف الزحام.  
+  🇬🇧 **Function:** Evaluates execution efficiency and spots congestion.  
+  🇸🇦 **فائدتها:** يساعد على تحسين حجم السبرنت وضبط الطاقة الاستيعابية.  
+  🇬🇧 **Benefit:** Helps tune sprint size and capacity.
 
-- Given the shipment is in the system
-- When the customer opens “My Orders”
-- Then the current status is displayed
-
----
-
-### Story C3: Pay invoice
-
-- EN: As a **Customer**, I want to **see my balance and pay invoices** so that I stay updated financially.
-- AR: بصفتي **عميل**، أريد **رؤية رصيدي ودفع الفواتير** لكي أبقى مطلعًا ماليًا.
-
-**Acceptance Criteria:**
-
-- Given an invoice exists
-- When the customer pays
-- Then the system updates the balance
-
----
-
-### Category B: Staff Stories / قصص الموظفين
-
-#### Story S1: Register incoming shipment
-
-- EN: As **Saudi Office Staff**, I want to **register incoming packages** so that they can be consolidated.
-- AR: بصفتي **موظف مكتب السعودية**، أريد **تسجيل الطرود الواردة** لكي يتم تجميعها.
-
-**Acceptance Criteria:**
-
-- Given a shipment arrives
-- When staff register it
-- Then it is linked to customer orders
+- 🇸🇦 **معدل إرجاع القصة:** النسبة التي تعاد من الاختبار إلى التطوير.  
+  🇬🇧 **Story return rate:** Percentage sent back from QA to development.  
+  🇸🇦 **ما هي:** مؤشر جودة أسبوعي.  
+  🇬🇧 **What:** A weekly quality metric.  
+  🇸🇦 **وظيفتها:** يرصد جودة القبول والتوثيق.  
+  🇬🇧 **Function:** Monitors acceptance quality and documentation.  
+  🇸🇦 **فائدتها:** يدفع لتحسين معايير القبول والاختبارات الآلية.  
+  🇬🇧 **Benefit:** Drives better acceptance criteria and automated tests.
 
 ---
 
-#### Story S2: Deliver packages
+## 6. قالب القصة / Story Template
 
-- EN: As **Yemen Office Staff**, I want to **mark deliveries as complete** so that records are accurate.
-- AR: بصفتي **موظف مكتب اليمن**، أريد **تحديد الطرود كمُسلمة** لكي تكون السجلات دقيقة.
+```markdown
+🇸🇦 بصفتي [الشخصية] أريد [الهدف] حتى [القيمة].
+🇬🇧 As a [persona] I want [goal] so that [value].
 
-**Acceptance Criteria:**
+🇸🇦 **معايير القبول / Acceptance Criteria**
 
-- Given a package is out for delivery
-- When staff mark it delivered
-- Then the system updates customer status
+1. 🇸🇦 [شرط عربي]  
+   🇬🇧 [English condition]
+2. 🇸🇦 [شرط عربي]  
+   🇬🇧 [English condition]
+3. 🇸🇦 [شرط عربي]  
+   🇬🇧 [English condition]
 
----
+🇸🇦 **ملاحظات إضافية / Notes**
 
-### Category C: Finance Stories / قصص المالية
+- 🇸🇦 [مرجع أو رابط]  
+  🇬🇧 [Reference or link]
+```
 
-#### Story F1: Record customer payment
-
-- EN: As a **Finance Officer**, I want to **record customer payments** so that balances remain correct.
-- AR: بصفتي **موظف مالي**، أريد **تسجيل مدفوعات العملاء** لكي تبقى الأرصدة صحيحة.
-
-**Acceptance Criteria:**
-
-- Given a payment amount
-- When it is logged in the system
-- Then the customer balance decreases
-
----
-
-#### Story F2: Generate weekly report
-
-- EN: As a **Finance Officer**, I want to **generate weekly reports** so that I can review trends.
-- AR: بصفتي **موظف مالي**، أريد **إنشاء تقارير أسبوعية** لكي أراجع الاتجاهات.
-
-**Acceptance Criteria:**
-
-- Given the system has financial logs
-- When the report is requested
-- Then the system outputs a PDF/Excel
-
----
-
-### Category D: Admin / IT Stories / قصص الإدارة والتقنية
-
-#### Story A1: Manage user roles
-
-- EN: As an **Admin**, I want to **assign staff roles** so that access is controlled.
-- AR: بصفتي **مدير**، أريد **تعيين أدوار الموظفين** لكي يكون الوصول مضبوطًا.
-
-**Acceptance Criteria:**
-
-- Given a staff account
-- When the role is updated
-- Then permissions are applied immediately
-
----
-
-#### Story A2: System sync offline/online
-
-- EN: As an **IT Manager**, I want the app to **work offline and sync later** so that staff can work without internet.
-- AR: بصفتي **مدير تقنية**، أريد أن يعمل التطبيق **بدون إنترنت ويزامن لاحقًا** لكي يتمكن الموظفون من العمل باستمرار.
-
-**Acceptance Criteria:**
-
-- Given no internet connection
-- When staff enter data
-- Then it is cached locally and synced on reconnect
-
----
-
-## 5. Mapping to Use Cases & Test Plan / ربط القصص بحالات الاستخدام وخطة الاختبار
-
-- Each User Story is linked to at least one **Use Case** (see [Use Cases](../04-use-cases/04-use-cases.md)).
-- **Acceptance Criteria** are reused directly in the [Test Plan](../11-test-plan/11-test-plan.md) for validation.
-- Stories are updated as requirements evolve and feedback is received from stakeholders.
-
----
-
-## 6. Suggested Categories / التصنيفات المقترحة
-
-- Customers / العملاء
-- Staff (Saudi & Yemen) / الموظفون (السعودية واليمن)
-- Finance / المالية
-- Admin / الإدارة
-- IT / التقنية
-
----
-
-## 7. Notes / ملاحظات
-
-- User Stories are the foundation for system design and testing.
-- Keep stories concise, testable, and always up to date.
-
----
+- 🇸🇦 **توحيد القالب:** استخدام نموذج واحد لكل قصة في أداة إدارة العمل.  
+  🇬🇧 **Template standardization:** Apply one template to every story in the work management tool.  
+  🇸🇦 **ما هي:** قاعدة تنسيق تشمل الوصف، المعايير، الروابط.  
+  🇬🇧 **What:** A formatting rule covering description, criteria, and links.  
+  🇸🇦 **وظيفتها:** تسهل المراجعة وتعزز قابلية البحث.  
+  🇬🇧 **Function:** Simplifies review and improves searchability.  
+  🇸🇦 **فائدتها:** تقلل الوقت اللازم لفهم القصة لأي عضو جديد.  
+  🇬🇧 **Benefit:** Cuts the time a newcomer needs to grasp a story.

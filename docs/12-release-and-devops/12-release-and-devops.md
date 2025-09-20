@@ -1,83 +1,136 @@
-# 🚀 Release & DevOps Plan / خطة الإطلاق وعمليات DevOps
+## 🚀 خطة الإطلاق وعمليات DevOps
 
-> **Project:** CA Admin  
-> **Version:** v0.1 — Owner: Abdullah Alshaif  
-> **Last Updated:** 2025-09-08
+Release & DevOps Plan
 
 ---
 
-## Introduction / المقدمة
+> **المشروع:** CA Admin
+> **Project:** CA Admin
+> **الإصدار:** v0.1 — المالك: عبدالله الشائف
+> **Version:** v0.1 — Owner: Abdullah Alshaif
+> **آخر تحديث:** 2025-09-08
+> **Last Updated:** 2025-09-08
+
+**شرح مختصر:**
+يوضح هذا القسم كيف يتم بناء واختبار وإطلاق وصيانة النظام بشكل آمن وسريع عبر جميع البيئات.
+
+**Summary:**
+This section explains how the system is built, tested, released, and maintained securely and quickly across all environments.
+
+---
+
+## المقدمة
+
+Introduction
 
 ![release](https://img.icons8.com/color/96/000000/rocket--v2.png)
 
-**EN:**
-The release and DevOps plan defines how CA Admin will be built, tested, released, and maintained across environments. It ensures **reliability, speed, and automation** in the development lifecycle.
+تحدد خطة الإطلاق وعمليات DevOps كيفية بناء واختبار وإطلاق وصيانة نظام CA Admin عبر البيئات المختلفة. تهدف إلى ضمان الموثوقية، السرعة، والأتمتة في دورة التطوير.
 
-**AR:**
-تحدد خطة الإطلاق وعمليات DevOps كيفية بناء واختبار وإطلاق وصيانة نظام CA Admin عبر البيئات المختلفة. تهدف إلى ضمان **الموثوقية، السرعة، والأتمتة** في دورة التطوير.
+The release and DevOps plan defines how CA Admin will be built, tested, released, and maintained across environments. It ensures reliability, speed, and automation in the development lifecycle.
 
 ---
 
-## 1. Quick Visual Summary / ملخص بصري سريع
+## ملخص بصري سريع
+
+Quick Visual Summary
+
+**شرح مختصر:**
+مخطط يوضح دورة النشر من التطوير حتى المراقبة.
+
+**Summary:**
+Diagram showing the release cycle from development to monitoring.
 
 ```mermaid
 flowchart TD
-  Dev["Dev"] --> CI["CI/CD"]
-  CI --> Test["Test"]
-  Test --> Stage["Staging"]
-  Stage --> UAT["UAT"]
-  UAT --> Prod["Production"]
-  Prod --> Monitor["Monitor"]
+  Dev["تطوير"] --> CI["CI/CD"]
+  CI --> Test["اختبار"]
+  Test --> Stage["تجريبية"]
+  Stage --> UAT["قبول المستخدم"]
+  UAT --> Prod["إنتاج"]
+  Prod --> Monitor["مراقبة"]
   Monitor --> Dev
 ```
 
 ---
 
-## 2. DevOps Mindmap / خريطة DevOps
+## خريطة DevOps
+
+DevOps Mindmap
+
+**شرح مختصر:**
+خريطة ذهنية تلخص عناصر DevOps الأساسية.
+
+**Summary:**
+Mindmap summarizing the main DevOps elements.
 
 ```mermaid
 mindmap
   root((DevOps))
-    Version Control
+    التحكم في الإصدارات
       Git
       GitHub
     CI/CD
       GitHub Actions
-      Build & Test
-      Deploy
-    Environments
-      Development
-      Staging
-      Production
-    Monitoring
+      بناء واختبار
+      نشر
+    البيئات
+      تطوير
+      تجريبية
+      إنتاج
+    مراقبة
       Crashlytics
       Analytics
-    Security
+    الأمان
       GitHub Secrets
-      Emulator Rules
-    Distribution
+      قواعد المحاكي
+    التوزيع
       Firebase App Distribution
 ```
 
 ---
 
-## 3. Release Strategy / استراتيجية الإطلاق
+## استراتيجية الإطلاق
 
-**EN:** Phased release approach:
+Release Strategy
 
-1. **Alpha (internal team only)** → core features tested
-2. **Beta (selected users)** → real-world feedback
-3. **Production (public)** → full release to all users
+**شرح مختصر:**
+نهج تدريجي لإطلاق النظام لضمان الجودة.
 
-**AR:** نهج إصدار تدريجي:
+**Summary:**
+Phased release approach to ensure quality.
 
-1. **ألفا (الفريق الداخلي فقط)** → اختبار الميزات الأساسية
-2. **بيتا (مستخدمون محددون)** → ملاحظات من الواقع
-3. **الإصدار النهائي (عام)** → إطلاق كامل لجميع المستخدمين
+1. ألفا (الفريق الداخلي فقط): اختبار الميزات الأساسية
+2. بيتا (مستخدمون محددون): ملاحظات من الواقع
+3. الإصدار النهائي (عام): إطلاق كامل لجميع المستخدمين
+
+4. Alpha (internal team only): core features tested
+5. Beta (selected users): real-world feedback
+6. Production (public): full release to all users
 
 ---
 
-## 4. Release Lifecycle / دورة حياة الإطلاق (رسم توضيحي)
+## دورة حياة الإطلاق (رسم توضيحي)
+
+Release Lifecycle (Visual)
+
+**شرح مختصر:**
+مخطط يوضح مراحل دورة حياة الإطلاق من التخطيط حتى المراقبة.
+
+**Summary:**
+Diagram showing the release lifecycle stages from planning to monitoring.
+
+```mermaid
+flowchart TD
+  Plan["تخطيط وتصميم"] --> Dev["تطوير"]
+  Dev --> Test["اختبارات تلقائية"]
+  Test --> Build["بناء الحزم"]
+  Build --> Stage["نشر تجريبي"]
+  Stage --> UAT["قبول المستخدم"]
+  UAT --> Release["إطلاق الإنتاج"]
+  Release --> Monitor["مراقبة وتغذية راجعة"]
+  Monitor --> Plan
+```
 
 ```mermaid
 flowchart TD

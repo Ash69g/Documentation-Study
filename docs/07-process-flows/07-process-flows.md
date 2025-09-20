@@ -1,62 +1,87 @@
-# 🔄 Process Flows / تدفقات العمليات
+# 🔄 تدفقات العمليات
 
-> **Project:** CA Admin
-> **Version:** v0.1 — Owner: Abdullah Alshaif
-> **Last Updated:** 2025-09-08
+Process Flows
 
 ---
 
-## 🏁 Visual Summary / ملخص بصري
+> **المشروع:** CA Admin
+> **Project:** CA Admin
+> **الإصدار:** v0.1 — المالك: عبدالله الشائف
+> **Version:** v0.1 — Owner: Abdullah Alshaif
+> **آخر تحديث:** 2025-09-08
+> **Last Updated:** 2025-09-08
+
+**شرح مختصر:**
+توضح هذه الوثيقة تسلسل الأنشطة في النظام باستخدام BPMN للأعمال وDFD لتدفق البيانات.
+
+**Summary:**
+This document describes the activity sequence in the system using BPMN for business and DFD for data flows.
+
+---
+
+## 🏁 ملخص بصري
+
+Visual Summary
+
+**شرح مختصر:**
+يوضح المخطط مراحل العملية من البداية حتى الدفع النهائي.
+
+**Summary:**
+The diagram shows process stages from start to final payment.
 
 ```mermaid
 flowchart TD
-  Start([بداية العملية]) --> CS[موظف خدمة العملاء]
-  CS --> Order[إدخال بيانات العميل والطلب]
-  Order --> OP[منفذ الطلبات]
-  OP --> Validate[تحقق وتخزين]
-  Validate --> Purchase[شراء وتجميع]
-  Purchase --> Shipment[شحن]
-  Shipment --> Sort[فرز وتجهيز]
-  Sort --> Delivery[تسليم]
-  Delivery --> Payment[دفع]
-  Payment --> End([نهاية العملية])
+  Start([🏁 بداية العملية]) --> CS[🎧 موظف خدمة العملاء]
+  CS --> Order[📝 إدخال بيانات العميل والطلب]
+  Order --> OP[⚙️ منفذ الطلبات]
+  OP --> Validate[✅ تحقق وتخزين]
+  Validate --> Purchase[🛒 شراء وتجميع]
+  Purchase --> Shipment[🚚 شحن]
+  Shipment --> Sort[📦 فرز وتجهيز]
+  Sort --> Delivery[🚚 تسليم]
+  Delivery --> Payment[💳 دفع]
+  Payment --> End([🏁 نهاية العملية])
 ```
 
 ---
 
-## 1. Introduction / المقدمة
+## 1. المقدمة
+
+Introduction
 
 ![process flows](https://img.icons8.com/color/96/000000/process.png)
 
-**EN:**
-Process flows describe the sequence of activities in the CA Admin system. We use **BPMN (Business Process Model and Notation)** for business flows and **DFD (Data Flow Diagrams)** for data movement.
+تصف تدفقات العمليات تسلسل الأنشطة في نظام CA Admin. نستخدم BPMN لتوضيح سير الأعمال وDFD لتوضيح تدفق البيانات.
 
-**AR:**
-تصف تدفقات العمليات تسلسل الأنشطة في نظام CA Admin. نستخدم **BPMN** لتوضيح سير الأعمال و **DFD** لتوضيح تدفق البيانات.
+Process flows describe the sequence of activities in the CA Admin system. We use BPMN (Business Process Model and Notation) for business flows and DFD (Data Flow Diagrams) for data movement.
 
 ---
 
-## 2. High-Level BPMN / مخطط BPMN عام
+## مخطط BPMN عام
+
+High-Level BPMN
+
+**شرح مختصر:**
+يوضح المخطط كيف ينتقل الطلب بين الفرق من العميل حتى التسليم والدفع.
+
+**Summary:**
+The diagram shows how the order moves between teams from customer to delivery and payment.
 
 ```mermaid
 flowchart LR
-  C[عميل / Customer] -->|إرسال الطلب / Submit order| CS[موظف خدمة العملاء / Customer Service Staff]
-  CS -->|إدخال بيانات الطلب / Enter order data| OP[منفذ الطلبات / Order Processor]
-  OP -->|تحقق وتخزين / Validate & Store| SYS[نظام CA Admin / CA Admin System]
-  SYS -->|تأكيد الطلب / Confirm order| C
-  OP -->|إنشاء حالات تتبع وفواتير / Create tracking & invoices| SYS
-  SYS -->|تحويل الطلب / Forward order| SO[موظف السعودية / Saudi Office Staff]
-  SO -->|شراء وتجميع / Purchase & Consolidate| SH[شحنة / Shipment]
-  SH -->|إرسال لليمن / Forward to Yemen| YO[موظف اليمن / Yemen Office Staff]
-  YO -->|فرز وتجهيز التسليم / Sort & Prepare delivery| D[سائق / Driver]
-  D -->|تسليم الطرد / Deliver package| C
-  C -->|دفع / Payment| F[مسؤول المالية / Finance Officer]
-  F -->|تسجيل العملية / Record Transaction| SYS
+  C[👤 عميل / Customer] -->|📝 إرسال الطلب / Submit order| CS[🎧 موظف خدمة العملاء / Customer Service Staff]
+  CS -->|📝 إدخال بيانات الطلب / Enter order data| OP[⚙️ منفذ الطلبات / Order Processor]
+  OP -->|✅ تحقق وتخزين / Validate & Store| SYS[🖥️ نظام CA Admin / CA Admin System]
+  SYS -->|🔔 تأكيد الطلب / Confirm order| C
+  OP -->|📦 إنشاء حالات تتبع وفواتير / Create tracking & invoices| SYS
+  SYS -->|🚚 تحويل الطلب / Forward order| SO[🧑‍💼 موظف السعودية / Saudi Office Staff]
+  SO -->|🛒 شراء وتجميع / Purchase & Consolidate| SH[🚚 شحنة / Shipment]
+  SH -->|🚚 إرسال لليمن / Forward to Yemen| YO[🧑‍💼 موظف اليمن / Yemen Office Staff]
+  YO -->|📦 فرز وتجهيز التسليم / Sort & Prepare delivery| D[🚚 سائق / Driver]
+  D -->|🚚 تسليم الطرد / Deliver package| C
+  C -->|💳 دفع / Payment| F[💰 مسؤول المالية / Finance Officer]
+  F -->|📝 تسجيل العملية / Record Transaction| SYS
 ```
-
----
-
-## 3. Detailed BPMN Steps / خطوات BPMN بالتفصيل
 
 1. Customer submits order → Customer Service Staff enters customer and order data.
 2. Order Processor creates order number, links/splits orders, creates tracking states and invoices.

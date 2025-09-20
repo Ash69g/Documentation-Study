@@ -1,54 +1,150 @@
-# 🗺️ Learning Roadmap for Documentation & Diagrams
+# 🗺️ خارطة طريق التوثيق والرسومات
 
-## خارطة طريق لتعلّم التوثيق والرسومات
-
-> **Goal:** Master the skills to create professional documentation and diagrams for the CA Admin project (Vision → Stakeholders → Stories → Use Cases → Data Models → Architecture → Flows → Security → Testing → Release).
+Roadmap for Documentation & Diagrams
 
 ---
 
-## 🏁 Visual Summary / ملخص بصري
+## 🎯 الهدف
+
+إتقان مهارات إعداد التوثيق والرسومات الاحترافية لمشروع CA Admin (الرؤية → أصحاب المصلحة → القصص → حالات الاستخدام → نماذج البيانات → العمارة → التدفقات → الأمان → الاختبار → الإطلاق).
+**شرح مختصر:** تساعد هذه الخارطة في بناء وثائق احترافية خطوة بخطوة، وتوضح كيف ينتقل التوثيق من الفكرة حتى الإطلاق.
+
+Goal
+Master the skills to create professional documentation and diagrams for the CA Admin project (Vision → Stakeholders → Stories → Use Cases → Data Models → Architecture → Flows → Security → Testing → Release).
+**Summary:** This roadmap helps build professional documentation step by step, showing how documentation evolves from idea to release.
+
+---
+
+## 🏁 ملخص بصري
+
+المخطط التالي يوضح تسلسل مراحل التوثيق من الرؤية حتى القاموس، مع إبراز كل مرحلة وأهميتها.
+**شرح مختصر:** يوضح المخطط كيف تتسلسل مراحل التوثيق من الرؤية حتى القاموس، مع إبراز كل مرحلة.
+
+Visual Summary
+The following diagram shows the sequence of documentation phases from vision to glossary, highlighting each phase and its importance.
+**Summary:** The diagram shows how documentation phases progress from vision to glossary, highlighting each phase.
 
 ```mermaid
 flowchart LR
-    V([Vision]) --> S([Stakeholders]) --> ST([Stories]) --> UC([Use Cases])
-    UC --> DM([Data Models]) --> AR([Architecture])
-    AR --> PF([Process Flows]) --> SE([Security])
-    SE --> IQ([Indexes & Queries]) --> NFR([NFR & Quality])
-    NFR --> TP([Test Plan]) --> RD([Release & DevOps])
-    RD --> GL([Glossary])
-    classDef phase fill:#e3f6fc,stroke:#0ea5e9,stroke-width:2px;
-    class V,S,ST,UC,DM,AR,PF,SE,IQ,NFR,TP,RD,GL phase;
+  V([🔭 الرؤية\nVision]) --> S([👥 أصحاب المصلحة\nStakeholders]) --> ST([📖 القصص\nStories]) --> UC([🎬 حالات الاستخدام\nUse Cases])
+  UC --> DM([🗂️ نماذج البيانات\nData Models]) --> AR([🏗️ العمارة\nArchitecture])
+  AR --> PF([🔄 تدفقات العمليات\nProcess Flows]) --> SE([� الأمان\nSecurity])
+  SE --> IQ([📊 الفهارس والاستعلامات\nIndexes & Queries]) --> NFR([⚙️ المتطلبات غير الوظيفية والجودة\nNFR & Quality])
+  NFR --> TP([🧪 خطة الاختبار\nTest Plan]) --> RD([🚀 الإطلاق و DevOps\nRelease & DevOps])
+  RD --> GL([📚 القاموس\nGlossary])
+  classDef phase fill:#e3f6fc,stroke:#0ea5e9,stroke-width:2px;
+  class V,S,ST,UC,DM,AR,PF,SE,IQ,NFR,TP,RD,GL phase;
 ```
 
 ---
 
-## 🎯 Phase 1: Foundations / الأساسيات
+## 🧭 مراحل التعلم / Learning Phases
 
-### 1. Markdown Documentation
+### 🎯 المرحلة 1: الأساسيات / Phase 1: Foundations
 
-- **What to Learn:** Writing clear and structured docs using Markdown.
-- **Resources:**
-  - [Markdown Crash Course - Traversy Media](https://www.youtube.com/watch?v=HUBNt18RFbo)
-  - [Mastering Markdown - FreeCodeCamp](https://www.youtube.com/watch?v=2JE66WFpaII)
-- **Practice:** Document a small app idea in `/docs` folder.
+| 📝 المهارة              | شرح مختصر                                         | Skill                         | Summary                                                |
+| ----------------------- | ------------------------------------------------- | ----------------------------- | ------------------------------------------------------ |
+| توثيق Markdown          | كتابة وثائق واضحة ومنظمة باستخدام Markdown        | Markdown Documentation        | Writing clear and structured docs using Markdown       |
+| أساسيات التوثيق البرمجي | فهم الرؤية، أصحاب المصلحة، القصص، حالات الاستخدام | Software Documentation Basics | Understanding vision, stakeholders, stories, use cases |
 
-### 2. Software Documentation Basics
+**موارد / Resources:**
 
-- **What to Learn:** Vision, Stakeholders, Stories, Use Cases.
-- **Resources:**
-  - [Software Documentation Course - FreeCodeCamp](https://www.youtube.com/watch?v=qJqAXjz-Rh4)
-  - Book: _Software Requirements by Karl Wiegers_.
-- **Practice:** Fill `/01-vision`, `/02-stakeholders`, `/03-stories`.
+- [Markdown Crash Course - Traversy Media](https://www.youtube.com/watch?v=HUBNt18RFbo)
+- [Mastering Markdown - FreeCodeCamp](https://www.youtube.com/watch?v=2JE66WFpaII)
+- [Software Documentation Course - FreeCodeCamp](https://www.youtube.com/watch?v=qJqAXjz-Rh4)
+- كتاب: _Software Requirements by Karl Wiegers_
+
+**تطبيق عملي / Practice:**
+
+- وثّق فكرة تطبيق صغيرة في مجلد `/docs`.
+- املأ مجلدات `/01-vision`, `/02-stakeholders`, `/03-stories`.
 
 ---
 
-## 🎯 Phase 2: Modeling & Diagrams / النمذجة والرسومات
+### 🎯 المرحلة 2: النمذجة والرسومات / Phase 2: Modeling & Diagrams
 
-### 3. UML & Use Case Diagrams
+| 📝 المهارة                  | شرح مختصر                           | Skill                   | Summary                                |
+| --------------------------- | ----------------------------------- | ----------------------- | -------------------------------------- |
+| مخططات UML وحالات الاستخدام | رسم مخططات حالات الاستخدام والتسلسل | UML & Use Case Diagrams | Drawing use case and sequence diagrams |
+| أدوات النمذجة               | استخدام Mermaid وDraw.io            | Modeling Tools          | Using Mermaid and Draw.io              |
 
-- **What to Learn:** Use Case diagrams, Sequence diagrams.
-- **Tools:** Mermaid (Markdown), Draw.io.
-- **Resources:**
+**موارد / Resources:**
+
+- [Mermaid Docs](https://mermaid-js.github.io/mermaid/#/)
+- [Draw.io](https://app.diagrams.net/)
+
+**تطبيق عملي / Practice:**
+
+- أنشئ مخطط حالة استخدام لمشروعك.
+- صمّم مخطط تسلسل لعملية رئيسية.
+
+---
+
+### 🎯 المرحلة 3: العمارة والتدفقات / Phase 3: Architecture & Flows
+
+| 📝 المهارة            | شرح مختصر                        | Skill               | Summary                                              |
+| --------------------- | -------------------------------- | ------------------- | ---------------------------------------------------- |
+| تصميم العمارة التقنية | بناء هيكل النظام وتوزيع المكونات | Architecture Design | Building system structure and component distribution |
+| تدفقات العمليات       | رسم تدفق العمليات بين الأقسام    | Process Flows       | Drawing process flows between departments            |
+
+**موارد / Resources:**
+
+- [System Architecture Basics](https://www.youtube.com/watch?v=1y8Qh6qg9wA)
+
+**تطبيق عملي / Practice:**
+
+- صمّم مخطط عمارة لمشروعك.
+- أنشئ مخطط تدفق عملية رئيسية.
+
+---
+
+### 🎯 المرحلة 4: الأمان والجودة / Phase 4: Security & Quality
+
+| 📝 المهارة                     | شرح مختصر                    | Skill               | Summary                                |
+| ------------------------------ | ---------------------------- | ------------------- | -------------------------------------- |
+| إدارة الأدوار والصلاحيات       | تحديد الأدوار وضبط الصلاحيات | Roles & Permissions | Defining roles and setting permissions |
+| المتطلبات غير الوظيفية والجودة | ضمان الأداء والجودة          | NFR & Quality       | Ensuring performance and quality       |
+
+**موارد / Resources:**
+
+- [Security Best Practices](https://www.owasp.org/index.php/Main_Page)
+
+**تطبيق عملي / Practice:**
+
+- وثّق الأدوار والصلاحيات في مشروعك.
+- حدد متطلبات الجودة والأداء.
+
+---
+
+### 🎯 المرحلة 5: الاختبار والإطلاق / Phase 5: Testing & Release
+
+| 📝 المهارة       | شرح مختصر                      | Skill            | Summary                                     |
+| ---------------- | ------------------------------ | ---------------- | ------------------------------------------- |
+| خطة الاختبار     | إعداد خطة اختبار شاملة         | Test Plan        | Preparing a comprehensive test plan         |
+| الإطلاق و DevOps | تجهيز المشروع للإطلاق والتشغيل | Release & DevOps | Preparing project for release and operation |
+
+**موارد / Resources:**
+
+- [DevOps Roadmap](https://roadmap.sh/devops)
+
+**تطبيق عملي / Practice:**
+
+- أنشئ خطة اختبار لمشروعك.
+- جهّز إجراءات الإطلاق والتشغيل.
+
+---
+
+## 💡 نقاط إضافية / Extra Notes
+
+**العربية:**
+
+- يمكن تخصيص كل مرحلة حسب احتياج المشروع.
+- يفضل استخدام الرسومات التوضيحية في كل قسم.
+
+**English:**
+
+- Each phase can be customized according to project needs.
+- It is recommended to use visual diagrams in every section.
   - [UML Diagrams Full Course - FreeCodeCamp](https://www.youtube.com/watch?v=WnMQ8HlmeXc)
 - **Practice:** Create `/04-use-cases` diagrams.
 

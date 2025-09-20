@@ -1,264 +1,217 @@
-# 🎭 Use Cases / حالات الاستخدام
+﻿# 🗂️ حالات الاستخدام
 
-> Project: **CA Admin**
-> Version: v0.1 — Owner: Abdullah Alshaif — Last Updated: 2025-09-08
-
----
-
-## 1. Introduction / المقدمة
-
-![use cases](https://img.icons8.com/color/96/000000/flow-chart.png)
-
-**EN:**
-Use Cases describe the functional scenarios of the CA Admin system. Each Use Case explains how an **Actor** (Customer, Staff, Driver, Finance, Admin) interacts with the system to achieve a business goal. They provide detailed flows and form the base for test cases.
-
-**AR:**
-تصف حالات الاستخدام السيناريوهات الوظيفية لنظام CA Admin. كل حالة استخدام توضح كيف يتفاعل **الممثل** (العميل، الموظف، السائق، المالية، المدير) مع النظام لتحقيق هدف عمل. وهي توفر تدفقات مفصلة وتشكل أساسًا لحالات الاختبار.
+Use Cases
 
 ---
 
-## 1.1 Use Case Lifecycle / دورة حياة حالة الاستخدام
+> **المشروع:** منصة إدارة وساطة التسوق CA Admin  
+> **Project:** CA Admin Shopping Mediation Platform  
+> **التقنيات:** Flutter، Firebase (Firestore، Auth، Storage، Functions)  
+> **Stack:** Flutter, Firebase (Firestore, Auth, Storage, Functions)  
+> **الإصدار:** 0.1 (رؤية) - المالك: عبدالله الشائف - آخر تحديث: 2025-09-20  
+> **Version:** 0.1 (Vision) - Owner: Abdullah Alshaif - Last Updated: 2025-09-20
 
-```mermaid
-flowchart LR
-    A[User Story] --> B[Use Case]
-    B --> C[Sequence Diagram]
-    C --> D[Test Case]
-    D --> E[Deployment]
-    E --> F[Feedback & Update]
-    F --> B
-```
+**شرح مختصر:**
+توثيق حالات الاستخدام يحول المتطلبات إلى سيناريوهات عملية لكل فاعل في النظام.
 
----
-
-## 2. Use Case Overview / نظرة عامة على حالات الاستخدام
-
-| ID    | Use Case (EN)              | Use Case (AR)              | Actor                  | Priority |
-| ----- | -------------------------- | -------------------------- | ---------------------- | -------- |
-| UC-01 | Place Customer Order       | إنشاء طلبية عميل           | Customer               | High     |
-| UC-02 | Process Payment            | معالجة دفعة مالية          | Finance Officer        | High     |
-| UC-03 | Track Shipment             | تتبع الشحنة                | Customer               | Medium   |
-| UC-04 | Update Shipment Status     | تحديث حالة الشحنة          | Driver                 | High     |
-| UC-05 | Manage User Roles          | إدارة صلاحيات المستخدم     | Admin                  | High     |
-| UC-06 | Generate Reports           | إنشاء تقارير               | Finance/Admin          | Medium   |
-| UC-07 | Offline Data Sync          | مزامنة البيانات دون إنترنت | IT Manager             | High     |
-| UC-08 | Enter Customer Data        | إدخال بيانات العملاء       | Customer Service Staff | High     |
-| UC-09 | Enter Customer Orders      | إدخال طلبيات العملاء       | Customer Service Staff | High     |
-| UC-10 | Create Order Numbers       | إنشاء أرقام الطلبيات       | Order Processor        | High     |
-| UC-11 | View & Execute Orders      | استعراض وتنفيذ الطلبيات    | Order Processor        | High     |
-| UC-12 | Edit Orders                | تعديل الطلبيات             | Order Processor        | High     |
-| UC-13 | Link & Split Orders        | ربط وتقسيم الطلبيات        | Order Processor        | Medium   |
-| UC-14 | Create Tracking & Invoices | إنشاء حالات تتبع وفواتير   | Order Processor        | Medium   |
+**Summary:**
+Use case documentation converts requirements into actionable scenarios for each system actor.
 
 ---
 
-## 3. Detailed Use Cases / تفاصيل حالات الاستخدام
+## 1. مقدمة
 
-### UC-08: Enter Customer Data / إدخال بيانات العملاء
-
-- **Actors / الممثلون:** Customer Service Staff
-- **Preconditions / الشروط المسبقة:** New customer information available
-- **Main Flow / التدفق الرئيسي:**
-  1. Staff enters customer name and details.
-  2. System validates and saves data to customer library.
-- **Alternative Flow / التدفق البديل:** Invalid data → error message.
+Introduction
 
 ---
 
-### UC-09: Enter Customer Orders / إدخال طلبيات العملاء
+### 1.1 نظرة بصرية
 
-- **Actors:** Customer Service Staff
-- **Preconditions:** Valid order details available
-- **Main Flow:**
-  1. Staff enters order details for a customer.
-  2. System validates and saves order to order library.
-- **Alternative Flow:** Invalid order → error message.
+Visual Overview
 
----
+**شرح مختصر:**
+يوضح المخطط كيف يتفاعل كل فاعل مع حالات الاستخدام الرئيسية في النظام.
 
-### UC-10: Create Order Numbers / إنشاء أرقام الطلبيات
-
-- **Actors:** Order Processor
-- **Preconditions:** New order exists
-- **Main Flow:**
-  1. Processor creates a unique order number.
-  2. System stores the order number in the order number library.
-- **Alternative Flow:** Duplicate order number → error message.
-
----
-
-### UC-11: View & Execute Orders / استعراض وتنفيذ الطلبيات
-
-- **Actors:** Order Processor
-- **Preconditions:** Orders exist in the system
-- **Main Flow:**
-  1. Processor views list of orders.
-  2. Selects and executes orders as needed.
-  3. System updates order status.
-- **Alternative Flow:** No orders found → message displayed.
-
----
-
-### UC-12: Edit Orders / تعديل الطلبيات
-
-- **Actors:** Order Processor
-- **Preconditions:** Order exists
-- **Main Flow:**
-  1. Processor edits any field in the order.
-  2. System saves changes.
-- **Alternative Flow:** Invalid edit → error message.
-
----
-
-### UC-13: Link & Split Orders / ربط وتقسيم الطلبيات
-
-- **Actors:** Order Processor
-- **Preconditions:** Multiple orders exist
-- **Main Flow:**
-  1. Processor links several orders together.
-  2. Splits orders into parts as needed.
-  3. System creates tracking states for each part.
-- **Alternative Flow:** Linking/splitting fails → error message.
-
----
-
-### UC-14: Create Tracking & Invoices / إنشاء حالات تتبع وفواتير
-
-- **Actors:** Order Processor
-- **Preconditions:** Split orders exist
-- **Main Flow:**
-  1. Processor creates tracking states for each part (part number, reference, account, quantity).
-  2. Links tracking states to orders.
-  3. Creates payment invoices for each part, records discounts.
-  4. Links invoices to orders and gift cards.
-- **Alternative Flow:** Invoice creation fails → error message.
-
-### UC-01: Place Customer Order / إنشاء طلبية عميل
-
-- **Actors / الممثلون:** Customer
-- **Preconditions / الشروط المسبقة:** Customer logged in, product links available
-- **Main Flow / التدفق الرئيسي:**
-  1. Customer enters product links and quantities.
-  2. System validates inputs.
-  3. System generates a unique OrderNo.
-  4. Order is saved to Firestore.
-- **Alternative Flow / التدفق البديل:** Invalid link → error message.
-
----
-
-### UC-02: Process Payment / معالجة دفعة مالية
-
-- **Actors:** Finance Officer
-- **Preconditions:** Order exists in the system
-- **Main Flow:**
-  1. Finance selects order.
-  2. Enters payment amount and method.
-  3. System updates customer balance and logs transaction.
-- **Alternative Flow:** Payment > Due → system alerts Finance.
-
----
-
-### UC-03: Track Shipment / تتبع الشحنة
-
-- **Actors:** Customer
-- **Main Flow:**
-  1. Customer opens “My Orders”.
-  2. System fetches latest shipment status.
-  3. Status is displayed in real time.
-
----
-
-### UC-04: Update Shipment Status / تحديث حالة الشحنة
-
-- **Actors:** Driver
-- **Main Flow:**
-  1. Driver selects shipment.
-  2. Updates status (in transit, delivered).
-  3. System stores update and notifies customer.
-
----
-
-### UC-05: Manage User Roles / إدارة صلاحيات المستخدم
-
-- **Actors:** Admin
-- **Main Flow:**
-  1. Admin selects staff account.
-  2. Assigns role (Finance, Staff, Driver, etc.).
-  3. System updates permissions instantly.
-
----
-
-### UC-06: Generate Reports / إنشاء تقارير
-
-- **Actors:** Finance/Admin
-- **Main Flow:**
-  1. User selects report type (financial or shipments).
-  2. System aggregates data.
-  3. Report exported to PDF/Excel.
-
----
-
-### UC-07: Offline Data Sync / مزامنة البيانات دون إنترنت
-
-- **Actors:** IT Manager, Staff
-- **Main Flow:**
-  1. Staff enters data offline.
-  2. System caches locally.
-  3. Once online, system syncs with Firestore.
-
----
-
-## 4. Use Case Diagram / رسم حالات الاستخدام
+**Summary:**
+The diagram shows how each actor interacts with the main use cases in the system.
 
 ```mermaid
 usecaseDiagram
-  actor Customer
-  actor "Finance Officer" as Finance
-  actor Driver
-  actor Admin
-  actor "IT Manager" as IT
-
-  Customer --> (UC-01 Place Order)
-  Customer --> (UC-03 Track Shipment)
-  Finance --> (UC-02 Process Payment)
-  Finance --> (UC-06 Generate Reports)
-  Driver --> (UC-04 Update Shipment Status)
-  Admin --> (UC-05 Manage User Roles)
-  IT --> (UC-07 Offline Data Sync)
+  actor "👤 العميل\nCustomer" as Customer
+  actor "🎧 موظف الخدمة\nService Agent" as Service
+  actor "⚙️ مشغل العمليات\nOperations Operator" as Operator
+  actor "💰 المحاسب\nAccountant" as Accountant
+  actor "🖥️ المسؤول التقني\nTech Admin" as Tech
+  Customer --> (📝 تقديم طلب جديد\nSubmit New Order)
+  Customer --> (🔎 متابعة الطلب\nTrack Order)
+  Service --> (✅ تخصيص الطلب\nQualify Order)
+  Operator --> (🚚 إدارة الشحن المتعدد\nManage Multi-Shipments)
+  Operator --> (📦 تأكيد التسليم\nConfirm Delivery)
+  Accountant --> (💳 تسوية المدفوعات\nReconcile Payments)
+  Tech --> (🔐 إدارة الصلاحيات\nManage Roles)
+  (📝 تقديم طلب جديد\nSubmit New Order) ..> (💳 تسوية المدفوعات\nReconcile Payments) : <<includes>>
+  (🚚 إدارة الشحن المتعدد\nManage Multi-Shipments) ..> (📦 تأكيد التسليم\nConfirm Delivery) : <<extends>>
 ```
 
-## 🛠️ Tips for Developers & Analysts / نصائح للمطورين والمحللين
+- 🇸🇦 **الغرض من وثيقة حالات الاستخدام:** تحويل المتطلبات إلى سيناريوهات تفاعلية قابلة للتنفيذ.  
+  🇬🇧 **Purpose of the use case document:** Convert requirements into actionable interaction scenarios.  
+  🇸🇦 **ما هي:** وصف منظم للحالات التي يواجهها كل ممثل أثناء استخدام النظام.  
+  🇬🇧 **What:** Structured description of scenarios each actor experiences while using the system.  
+  🇸🇦 **وظيفتها:** توجيه التصميم وتجربة المستخدم والاختبار بالتفصيل المطلوب.  
+  🇬🇧 **Function:** Directs design, UX, and testing with the needed detail.  
+  🇸🇦 **فائدتها:** تقلل سوء الفهم وتضمن أن التطوير يلبي الاحتياجات الواقعية.  
+  🇬🇧 **Benefit:** Reduces misinterpretation and keeps development aligned with real needs.
 
-**EN:**
-
-- Always keep use cases updated as requirements evolve.
-- Link use cases to user stories ([see User Stories](../03-stories/03-stories.md)), data model ([see Data Model](../05-data-model/05-data-model.md)), and test plan ([see Test Plan](../11-test-plan/11-test-plan.md)).
-- Use sequence diagrams for complex flows.
-- Validate each use case with stakeholders before implementation.
-
-**AR:**
-
-- احرص على تحديث حالات الاستخدام مع تطور المتطلبات.
-- اربط حالات الاستخدام بالقصص ([انظر القصص](../03-stories/03-stories.md))، نموذج البيانات ([انظر نموذج البيانات](../05-data-model/05-data-model.md))، وخطة الاختبار ([انظر خطة الاختبار](../11-test-plan/11-test-plan.md)).
-- استخدم مخططات التسلسل للعمليات المعقدة.
-- تحقق من كل حالة استخدام مع الأطراف المعنية قبل التنفيذ.
-
----
-
-## 🚀 Future Expansion & Challenges / التوسعة المستقبلية والتحديات
-
-**EN:**
-
-- Consider adding use cases for notifications, audit logs, and advanced analytics.
-- Plan for scalability and offline-first scenarios.
-- Anticipate integration with external payment/shipping providers.
-
-**AR:**
-
-- فكر في إضافة حالات استخدام للإشعارات، سجلات التدقيق، والتحليلات المتقدمة.
-- خطط للتوسع ودعم العمل دون اتصال.
-- توقع الحاجة للربط مع مزودي الدفع أو الشحن الخارجيين.
+- 🇸🇦 **مستويات التفاصيل:** تتراوح من حالات استخدام أساسية إلى موسعة مع شروط استثنائية.  
+  🇬🇧 **Levels of detail:** Range from basic to extended use cases with exception conditions.  
+  🇸🇦 **ما هي:** تدرج يسمح بتغطية المسارات الرئيسية والفرعية في السرد.  
+  🇬🇧 **What:** A hierarchy that covers primary and alternate flows within narratives.  
+  🇸🇦 **وظيفتها:** يمكّن الفرق من فهم الاعتماديات قبل التنفيذ.  
+  🇬🇧 **Function:** Enables teams to grasp dependencies prior to execution.  
+  🇸🇦 **فائدتها:** يقلل إعادة العمل ويزيد دقة التقدير الزمني.  
+  🇬🇧 **Benefit:** Lowers rework and increases estimation accuracy.
 
 ---
 
+## 2. الفاعلون الرئيسيون / Primary Actors
+
+| 🇸🇦 الفاعل         | 🇬🇧 Actor            | 🇸🇦 ما هي                                            | 🇬🇧 What                                                      | 🇸🇦 الوظيفة                                  | 🇬🇧 Function                                                       | 🇸🇦 الفائدة                                 | 🇬🇧 Benefit                                               |
+| ----------------- | ------------------- | --------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------ | -------------------------------------------------------- |
+| العميل            | Customer            | مستخدم نهائي يقدم طلباته عبر التطبيق                | End user placing requests through the app                    | يبدأ الرحلة من جمع المنتجات حتى تأكيد الدفع | Initiates journey from product collection to payment confirmation | يضمن تجربة شراء سلسة وشفافة                | Ensures a smooth, transparent purchase experience        |
+| موظف خدمة العملاء | Service Agent       | عضو فريق يتولى إدخال الطلبات ومتابعة بيانات العملاء | Team member handling order entry and customer data           | يتحقق من صحة البيانات ويدير التواصل الأولي  | Validates information and manages first-line communication        | يقلل أخطاء الإدخال ويرفع رضا العملاء       | Reduces input errors and increases customer satisfaction |
+| مشغل العمليات     | Operations Operator | مسؤول عن التنسيق اللوجستي وتتبع مراحل الشحنة        | Responsible for logistics coordination and shipment tracking | يقسم الشحنات، يدير الحالات، ويوثق الإثباتات | Splits shipments, manages statuses, and logs evidence             | يوفر رؤية تشغيلية موحدة على مستوى المراكز  | Provides unified operational visibility across hubs      |
+| المحاسب           | Accountant          | عضو من فريق المالية يراجع الدفعات والأرصدة          | Finance team member reviewing payments and balances          | يربط المدفوعات بالطلبات ويعد التقارير       | Links payments to orders and prepares reports                     | يحسن الدقة المالية ويضمن الامتثال          | Improves financial accuracy and ensures compliance       |
+| المسؤول التقني    | Tech Admin          | مسؤول عن الصلاحيات والأمان والتكاملات               | Oversees permissions, security, and integrations             | يعين الأدوار، يراقب الأداء، ويطبق السياسات  | Assigns roles, monitors performance, enforces policies            | يحافظ على سلامة البيانات واستمرارية الخدمة | Maintains data safety and service continuity             |
+
 ---
+
+## 3. حالات استخدام أساسية / Core Use Cases
+
+| 🇸🇦 الرمز | 🇬🇧 ID | 🇸🇦 الحالة          | 🇬🇧 Use Case                | 🇸🇦 وصف موجز                                            | 🇬🇧 Brief Description                                                | 🇸🇦 المسار الرئيسي                                    | 🇬🇧 Main Flow                                               | 🇸🇦 المسارات البديلة                        | 🇬🇧 Alternate Flows                               |
+| -------- | ----- | ------------------ | -------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------ | ------------------------------------------------ |
+| UC-01    | UC-01 | تقديم طلب جديد     | Submit New Order           | العميل يرفع روابط المنتجات ويحدد خيارات الدفع          | Customer submits product links and selects payment options          | تسجيل بيانات العميل، تحميل الروابط، تأكيد ملخص الطلب | Capture customer data, upload links, confirm order summary | الروابط غير الصالحة، إشعار نقص الرصيد      | Invalid links, insufficient balance notification |
+| UC-02    | UC-02 | تأهيل الطلب        | Qualify Order              | موظف الخدمة يراجع الطلب، يقدر التكلفة، ويؤكد مع العميل | Service agent reviews order, estimates cost, confirms with customer | التحقق من المخزون، حساب الرسوم، إرسال موافقة         | Check inventory, compute fees, send approval               | تبديل عملة الدفع، تعليقات إضافية من العميل | Change of payment currency, extra customer notes |
+| UC-03    | UC-03 | تقسيم الطلب لشحنات | Split Order into Shipments | مشغل العمليات يقسم الطلب حسب البائع أو الوزن           | Operator splits order by vendor or weight                           | إنشاء معرف لكل شحنة، تحديث الجدول الزمني             | Create identifier per shipment, update timeline            | دمج شحنات، تأجيل لمنتج متأخر               | Merge shipments, backorder handling              |
+| UC-04    | UC-04 | تسوية دفعة         | Reconcile Payment          | المحاسب يطابق الدفعات مع الطلبات                       | Accountant matches payments with orders                             | استيراد كشف، مطابقة تلقائية، معالجة فروقات           | Import statement, auto-match, handle differences           | تحويل يدوي، تسجيل خصم عمولة                | Manual transfer, record commission discount      |
+| UC-05    | UC-05 | إدارة الصلاحيات    | Manage Permissions         | المسؤول التقني يحدّث أدوار المستخدمين                  | Tech admin updates user roles                                       | اختيار المستخدم، تعيين الدور، مراجعة السجلات         | Select user, assign role, review logs                      | إبطال جلسة، رفع صلاحية مؤقتة               | Revoke session, temporary privilege elevation    |
+
+---
+
+## 4. تفاصيل الحالة UC-01
+
+- 🇸🇦 **عنوان الحالة:** تقديم طلب جديد.  
+  🇬🇧 **Use case title:** Submit new order.  
+  🇸🇦 **ما هي:** سيناريو يبدأه العميل لإرسال قائمة منتجات للشراء عبر المنصة.  
+  🇬🇧 **What:** Scenario initiated by customer to submit product list for platform procurement.  
+  🇸🇦 **وظيفتها:** تضمن جمع بيانات دقيقة حول المنتج، الكمية، التفضيلات، وخيارات الدفع.  
+  🇬🇧 **Function:** Ensures accurate capture of item, quantity, preference, and payment choices.  
+  🇸🇦 **فائدتها:** تهيئ الطلب للمعالجة السلسة وتحسين التخطيط اللوجستي.  
+  🇬🇧 **Benefit:** Prepares the order for smooth processing and better logistics planning.
+
+| 🇸🇦 الخطوة | 🇬🇧 Step | 🇸🇦 الوصف                                         | 🇬🇧 Description                                               |
+| --------- | ------- | ------------------------------------------------ | ------------------------------------------------------------ |
+| 1         | 1       | يفتح العميل نموذج الطلب من صفحة المنتج           | Customer opens order form from product page                  |
+| 2         | 2       | يدخل روابط المنتجات، الخيارات، والكمية           | Enters product links, options, and quantity                  |
+| 3         | 3       | يختار طريقة الدفع ويحدد التفضيلات (تجميع، تغليف) | Selects payment method and preferences (bundling, packaging) |
+| 4         | 4       | يراجع الملخص ويتلقى إشعار التوثيق                | Reviews summary and receives confirmation alert              |
+| 5         | 5       | يرسل الطلب وينتظر موافقة الخدمة                  | Submits order and awaits service approval                    |
+
+- 🇸🇦 **مسارات استثنائية:** رفض رابط، تنبيه حد ائتماني، تغيير عنوان الشحن.  
+  🇬🇧 **Exception flows:** Link rejection, credit limit alert, shipping address change.  
+  🇸🇦 **ما هي:** حالات تتطلب معالجة خاصة أثناء التقديم الأولي.  
+  🇬🇧 **What:** Situations needing dedicated handling during submission.  
+  🇸🇦 **وظيفتها:** تمنع دخول طلب غير مكتمل أو مخالف للسياسات.  
+  🇬🇧 **Function:** Prevents incomplete or non-compliant orders from entering pipeline.  
+  🇸🇦 **فائدتها:** تقلل إعادة الإدخال وتجنب تأخير المراجعة.  
+  🇬🇧 **Benefit:** Lowers re-entry rates and avoids review delays.
+
+---
+
+## 5. مصفوفة تتبع المتطلبات / Requirement Traceability Matrix
+
+| 🇸🇦 المعيار | 🇬🇧 Requirement          | 🇸🇦 مصدره        | 🇬🇧 Source             | 🇸🇦 حالة الاستخدام المرتبطة | 🇬🇧 Linked Use Case |
+| ---------- | ----------------------- | --------------- | --------------------- | -------------------------- | ------------------ |
+| RQ-01      | دعم الروابط المتعددة    | طلب العميل      | Customer request      | UC-01                      |
+| RQ-07      | تقسيم الشحنات           | فريق العمليات   | Operations team       | UC-03                      |
+| RQ-12      | مطابقة المصاريف تلقائيا | المالية         | Finance               | UC-04                      |
+| RQ-19      | سجلات التدقيق للصلاحيات | الأمن والامتثال | Security & Compliance | UC-05                      |
+
+- 🇸🇦 **أهمية المصفوفة:** ضمان تغطية كل مطلب عبر حالة استخدام واضحة.  
+  🇬🇧 **Matrix importance:** Ensure every requirement is covered by a clear use case.  
+  🇸🇦 **ما هي:** جدول ربط بين المتطلبات التنفيذية وحالات الاستخدام.  
+  🇬🇧 **What:** A linking table between execution requirements and use cases.  
+  🇸🇦 **وظيفتها:** تكشف أي فجوات أو تكرارات في التغطية.  
+  🇬🇧 **Function:** Reveals gaps or duplicates in coverage.  
+  🇸🇦 **فائدتها:** تمنع نسيان المتطلبات وتدعم تحكم التغيير.  
+  🇬🇧 **Benefit:** Prevents missed requirements and supports change control.
+
+---
+
+## 6. تشغيل السيناريوهات / Scenario Simulation
+
+```mermaid
+sequenceDiagram
+  participant Customer as العميل
+  participant Service as خدمة العملاء
+  participant Operator as مشغل العمليات
+  participant Finance as المالية
+  Customer->>Service: طلب جديد بروابط متعددة
+  Service->>Customer: تقدير التكلفة وموافقة
+  Service->>Operator: إنشاء أمر شراء وشحنات
+  Operator->>Finance: تحديث حالة الشحن وإشعار الدفع
+  Finance->>Customer: تأكيد استلام الدفعة
+  Operator->>Customer: تأكيد التسليم بالأدلة
+```
+
+- 🇸🇦 **محاكاة التسلسل:** تصور تفاعل الأطراف عبر الزمن في حالة استخدام واحدة.  
+  🇬🇧 **Sequence simulation:** Visualizes party interactions over time within a use case.  
+  🇸🇦 **ما هي:** مخطط زمن يعرض تبادل الرسائل والخطوات.  
+  🇬🇧 **What:** Timeline chart showing message exchanges and steps.  
+  🇸🇦 **وظيفتها:** يساعد على اكتشاف التداخلات ومواطن التأخير.  
+  🇬🇧 **Function:** Helps detect overlaps and potential delays.  
+  🇸🇦 **فائدتها:** يوفر أساسا لتحسين الأداء وتقليل زمن الدورة.  
+  🇬🇧 **Benefit:** Provides foundation for performance tuning and cycle reduction.
+
+---
+
+## 7. التوسع المستقبلي / Future Extensions
+
+- 🇸🇦 **تكامل API مع أسواق جديدة:** تمكين إدخال الطلبات عبر قنوات بائعين خارجيين.  
+  🇬🇧 **API integrations with new marketplaces:** Allow order intake through external vendor channels.  
+  🇸🇦 **ما هي:** امتداد لحالة UC-01 لاستقبال الطلبات تلقائيا.  
+  🇬🇧 **What:** Extension of UC-01 to receive orders automatically.  
+  🇸🇦 **وظيفتها:** تقلل الحاجة للإدخال اليدوي وتوسع العرض.  
+  🇬🇧 **Function:** Reduces manual entry and broadens catalog.  
+  🇸🇦 **فائدتها:** تدعم النمو وتسرع الاستجابة للاتجاهات.  
+  🇬🇧 **Benefit:** Supports scale and speeds response to trends.
+
+- 🇸🇦 **تحليلات توقع التأخير:** استخدام بيانات الحالات لاستباق مشاكل الشحن.  
+  🇬🇧 **Delay prediction analytics:** Use case data to anticipate shipment issues.  
+  🇸🇦 **ما هي:** نماذج تعتمد على سجلات UC-03 وUC-04.  
+  🇬🇧 **What:** Models built on UC-03 and UC-04 logs.  
+  🇸🇦 **وظيفتها:** تنبه الفرق قبل تفاقم التأخير.  
+  🇬🇧 **Function:** Alerts teams before delays escalate.  
+  🇸🇦 **فائدتها:** يحافظ على رضا العميل ويقلل غرامات التخزين.  
+  🇬🇧 **Benefit:** Maintains customer satisfaction and reduces storage penalties.
+
+---
+
+## 8. المراجعة الدورية / Governance Rhythm
+
+- 🇸🇦 **اجتماع شهري لمراجعة الحالات:** تحديث السيناريوهات بناء على التغذية الراجعة.  
+  🇬🇧 **Monthly use case review:** Refresh scenarios based on feedback.  
+  🇸🇦 **ما هي:** جلسة تشمل المنتج، العمليات، المالية، والأمن.  
+  🇬🇧 **What:** Session spanning product, operations, finance, and security.  
+  🇸🇦 **وظيفتها:** تحافظ على حداثة الوثائق واتساقها مع الواقع.  
+  🇬🇧 **Function:** Keeps documentation current and aligned with reality.  
+  🇸🇦 **فائدتها:** تمنع تقادم العمليات وتضمن تكامل التجربة.  
+  🇬🇧 **Benefit:** Prevents process drift and ensures cohesive experience.
+
+- 🇸🇦 **لوحة قياس الامتثال:** تتبع نسبة الحالات المغطاة بالاختبارات.  
+  🇬🇧 **Compliance scorecard:** Track percentage of use cases covered by tests.  
+  🇸🇦 **ما هي:** مؤشر قيادة يربط التوثيق بجودة الاختبار.  
+  🇬🇧 **What:** Leadership metric linking documentation to test quality.  
+  🇸🇦 **وظيفتها:** يكشف الثغرات ويحفز تسوية الديون التقنية.  
+  🇬🇧 **Function:** Exposes gaps and encourages tech debt resolution.  
+  🇸🇦 **فائدتها:** يضمن أن كل سيناريو مدعوم بحماية جودة مناسبة.  
+  🇬🇧 **Benefit:** Ensures every scenario has adequate quality safeguards.
