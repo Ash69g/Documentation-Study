@@ -1,4 +1,4 @@
-# 📚 توثيق CA Admin DmG 34
+# 📚 توثيق CA Admin DmG
 
 ![CA Admin](https://img.icons8.com/color/96/000000/management.png)
 
@@ -24,24 +24,24 @@ The following diagram shows the data flow between main system components, from c
 
 ```mermaid
 flowchart TD
-	Customer["👤 عميل\nCustomer"] --> Order["📝 طلبية\nOrder"]
-	Order --> Shipment["📦 شحنة\nShipment"]
-	Order --> Finance["💰 سجل مالي\nFinance Log"]
-	Shipment --> Driver["🚚 سائق\nDriver"]
-	Finance --> Bank["💳 بطاقة بنكية\nBank Card"]
-	Finance --> Gift["🎁 بطاقة هدية\nGift Card"]
-	Finance --> Checkout["🧾 سجل الدفع\nCheckout Log"]
-	Order --> Firestore["🗄️ قاعدة بيانات Firestore\nFirestore"]
-	Firestore --> Sync["🔄 خدمة المزامنة\nSync Service"]
-	Firestore --> Offline["📴 دون إنترنت أولاً\nOffline-First"]
-	Order --> Audit["📋 سجل تدقيق\nAudit Log"]
-	Customer --> UAT["🧪 اختبار قبول المستخدم\nUAT"]
-	UAT --> CI["⚙️ CI/CD"]
-	CI --> Alpha["🅰️ إصدار ألفا\nAlpha Release"]
-	CI --> Beta["🅱️ إصدار بيتا\nBeta Release"]
-	CI --> Prod["🚀 الإنتاج\nProduction"]
-	style Customer fill:#e3f6fc,stroke:#0ea5e9,stroke-width:2px
-	style Prod fill:#e3f6fc,stroke:#0ea5e9,stroke-width:2px
+ Customer["👤 عميل\nCustomer"] --> Order["📝 طلبية\nOrder"]
+ Order --> Shipment["📦 شحنة\nShipment"]
+ Order --> Finance["💰 سجل مالي\nFinance Log"]
+ Shipment --> Driver["🚚 سائق\nDriver"]
+ Finance --> Bank["💳 بطاقة بنكية\nBank Card"]
+ Finance --> Gift["🎁 بطاقة هدية\nGift Card"]
+ Finance --> Checkout["🧾 سجل الدفع\nCheckout Log"]
+ Order --> Firestore["🗄️ قاعدة بيانات Firestore\nFirestore"]
+ Firestore --> Sync["🔄 خدمة المزامنة\nSync Service"]
+ Firestore --> Offline["📴 دون إنترنت أولاً\nOffline-First"]
+ Order --> Audit["📋 سجل تدقيق\nAudit Log"]
+ Customer --> UAT["🧪 اختبار قبول المستخدم\nUAT"]
+ UAT --> CI["⚙️ CI/CD"]
+ CI --> Alpha["🅰️ إصدار ألفا\nAlpha Release"]
+ CI --> Beta["🅱️ إصدار بيتا\nBeta Release"]
+ CI --> Prod["🚀 الإنتاج\nProduction"]
+ style Customer fill:#e3f6fc,stroke:#0ea5e9,stroke-width:2px
+ style Prod fill:#e3f6fc,stroke:#0ea5e9,stroke-width:2px
 ```
 
 ---
