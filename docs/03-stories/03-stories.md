@@ -11,23 +11,21 @@ User Stories
 > **الإصدار:** 0.1 (رؤية) - المالك: عبدالله الشائف - آخر تحديث: 2025-09-20  
 > **Version:** 0.1 (Vision) - Owner: Abdullah Alshaif - Last Updated: 2025-09-20
 
-**شرح مختصر:**
+**📝 شرح مختصر:**
 قصص المستخدم توضح احتياجات الأطراف المختلفة وتربط كل قصة بهدف وقيمة واضحة.
 
-**Summary:**
+**📝 Summary:**
 User stories clarify the needs of different parties and link each story to a clear goal and value.
 
 ---
 
 ## 1. مقدمة
 
-Introduction
-
 ---
 
 ### 1.1 نظرة بصرية
 
-Visual Overview
+---
 
 **شرح مختصر:**
 يوضح المخطط رحلة المستخدم من استكشاف المنتجات حتى إتمام الدفع والتسوية المالية.
@@ -35,23 +33,25 @@ Visual Overview
 **Summary:**
 The diagram shows the user journey from product exploration to payment and financial reconciliation.
 
+---
+
 ```mermaid
 journey
   title رحلة قصة المستخدم / User Story Journey
   section عميل Customer
-    استكشاف المنتجات / Explore products: 5: Customer/العميل
-    تقديم طلب / Place order: 5: Customer/العميل
-    متابعة حالة / Track status: 4: Customer/العميل
+    استكشاف المنتجات / Explore products: 5: 👤 Customer/العميل
+    تقديم طلب / Place order: 5: 🛒 Customer/العميل
+    متابعة حالة / Track status: 4: 📦 Customer/العميل
   section خدمة العملاء Service
-    التحقق من الطلب / Validate order: 4: Service/الخدمة
-    تحديث بيانات / Update details: 3: Service/الخدمة
+    التحقق من الطلب / Validate order: 4: 🕵️‍♂️ Service/الخدمة
+    تحديث بيانات / Update details: 3: ✏️ Service/الخدمة
   section التشغيل Operations
-    شراء خارجي / External procurement: 4: Operations/التشغيل
-    شحن إلى السعودية / Ship to KSA: 3: Operations/التشغيل
-    تحويل إلى اليمن / Forward to Yemen: 3: Operations/التشغيل
+    شراء خارجي / External procurement: 4: 🌍 Operations/التشغيل
+    شحن إلى السعودية / Ship to KSA: 3: 🚚 Operations/التشغيل
+    تحويل إلى اليمن / Forward to Yemen: 3: 🚚 Operations/التشغيل
   section المالية Finance
-    تسجيل دفعة / Record payment: 4: Finance/المالية
-    مطابقة رصيد / Reconcile balance: 3: Finance/المالية
+    تسجيل دفعة / Record payment: 4: 💳 Finance/المالية
+    مطابقة رصيد / Reconcile balance: 3: 📊 Finance/المالية
 ```
 
 - 🇸🇦 **قصص المستخدم كأداة تواصل:** ترجمة احتياجات الأطراف إلى صيغة قابلة للتنفيذ.  
@@ -85,6 +85,14 @@ journey
 
 ## 2. خريطة القصص / Story Map
 
+**🗺️ شرح مختصر:**
+مخطط ذهني يوضح الفئات الرئيسية للقصص وعلاقتها بالعمليات.
+
+**🗺️ Summary:**
+A mindmap showing main story categories and their relation to operations.
+
+---
+
 ```mermaid
 mindmap
   root((خريطة القصص\nStory Map))
@@ -109,16 +117,24 @@ mindmap
       "قاعدة المعرفة\nKnowledge Base"
 ```
 
-| 🇸🇦 الشخصية        | 🇬🇧 Persona             | 🇸🇦 قصة المستخدم                                                                             | 🇬🇧 User Story                                                                                                                     | 🇸🇦 معايير القبول المختصرة                                                 | 🇬🇧 Key Acceptance Criteria                                                                           |
-| ----------------- | ---------------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| العميل            | Customers              | بصفتي عميلا أرغب في تقديم طلب جديد مع روابط المنتجات حتى أستطيع متابعة الشحنة بسهولة.       | As a customer I want to submit a new order with product links so that I can track the shipment easily.                            | يدعم النموذج عدة روابط، إشعار تأكيد لحظي، حالة ابتدائية "بانتظار الشراء". | Form supports multiple links, instant confirmation notification, initial status "Awaiting purchase". |
-| موظف خدمة العملاء | Customer Service Agent | بصفتي موظف خدمة أريد البحث عن عميل وإضافة طلبه بضغطة واحدة حتى أضمن إدخال البيانات بسرعة.   | As a service agent I want to search for a customer and add their order in one click so that I capture data quickly.               | بحث بالأسماء والأرقام، التحقق من الحقول الإلزامية، تسجيل اسم المدخل.      | Search by name and number, validate required fields, log agent identity.                             |
-| مشغل العمليات     | Operations Specialist  | بصفتي مشغلا أحتاج إلى تقسيم الطلب إلى شحنات فرعية مع حالة لكل شحنة حتى أضمن التتبع المرحلي. | As an operations specialist I need to split an order into sub-shipments with status per shipment so that I ensure stage tracking. | إنشاء أرقام فرعية، تاريخ لكل انتقال، منع إغلاق الطلب قبل اكتمال الشحنات.  | Create sub identifiers, timestamp every transition, block closure before shipments complete.         |
-| محلل مالي         | Finance Analyst        | بصفتي محلل مالية أريد مطابقة الدفعات مع الطلبات المرتبطة حتى أخرج تقرير الربحية الأسبوعي.   | As a finance analyst I want to reconcile payments with linked orders so that I produce the weekly profitability report.           | استيراد كشف البنك، تنبيه عند اختلاف العملة، تقرير تفصيلي مع إجمالي الربح. | Import bank statement, alert on currency mismatch, detailed report with gross margin.                |
+| 🇸🇦 الشخصية           | 🇬🇧 Persona             | 🇸🇦 قصة المستخدم                                                                             | 🇬🇧 User Story                                                                                                                     | 🇸🇦 معايير القبول المختصرة                                                 | 🇬🇧 Key Acceptance Criteria                                                                           |
+| -------------------- | ---------------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| 👤 العميل            | Customers              | بصفتي عميلا أرغب في تقديم طلب جديد مع روابط المنتجات حتى أستطيع متابعة الشحنة بسهولة.       | As a customer I want to submit a new order with product links so that I can track the shipment easily.                            | يدعم النموذج عدة روابط، إشعار تأكيد لحظي، حالة ابتدائية "بانتظار الشراء". | Form supports multiple links, instant confirmation notification, initial status "Awaiting purchase". |
+| 🕵️‍♂️ موظف خدمة العملاء | Customer Service Agent | بصفتي موظف خدمة أريد البحث عن عميل وإضافة طلبه بضغطة واحدة حتى أضمن إدخال البيانات بسرعة.   | As a service agent I want to search for a customer and add their order in one click so that I capture data quickly.               | بحث بالأسماء والأرقام، التحقق من الحقول الإلزامية، تسجيل اسم المدخل.      | Search by name and number, validate required fields, log agent identity.                             |
+| 🛠️ مشغل العمليات     | Operations Specialist  | بصفتي مشغلا أحتاج إلى تقسيم الطلب إلى شحنات فرعية مع حالة لكل شحنة حتى أضمن التتبع المرحلي. | As an operations specialist I need to split an order into sub-shipments with status per shipment so that I ensure stage tracking. | إنشاء أرقام فرعية، تاريخ لكل انتقال، منع إغلاق الطلب قبل اكتمال الشحنات.  | Create sub identifiers, timestamp every transition, block closure before shipments complete.         |
+| 💰 محلل مالي         | Finance Analyst        | بصفتي محلل مالية أريد مطابقة الدفعات مع الطلبات المرتبطة حتى أخرج تقرير الربحية الأسبوعي.   | As a finance analyst I want to reconcile payments with linked orders so that I produce the weekly profitability report.           | استيراد كشف البنك، تنبيه عند اختلاف العملة، تقرير تفصيلي مع إجمالي الربح. | Import bank statement, alert on currency mismatch, detailed report with gross margin.                |
 
 ---
 
 ## 3. أولوية القصص / Story Prioritization
+
+**⚡ شرح مختصر:**
+سياسات ترتيب القصص حسب القيمة، الجهد، والمخاطر.
+
+**⚡ Summary:**
+Policies for ordering stories by value, effort, and risk.
+
+---
 
 - 🇸🇦 **نظام تسجيل قيمة-جهد:** تقييم كل قصة بدرجات قيمة وتأثير وتعقيد.  
   🇬🇧 **Value-effort scoring system:** Rate each story on value, impact, and complexity.  
@@ -151,16 +167,24 @@ mindmap
 
 ## 4. إدارة دورة الحياة / Story Lifecycle
 
+**🔄 شرح مختصر:**
+مخطط يوضح مراحل تطور القصة من الفكرة حتى التحسين.
+
+**🔄 Summary:**
+Diagram showing story evolution from idea to improvement.
+
+---
+
 ```mermaid
 flowchart LR
-    Idea["فكرة\nIdea"] --> Draft["مسودة\nDraft"]
-    Draft --> Ready["جاهز للتطوير\nReady"]
-    Ready --> InProgress["قيد التنفيذ\nIn Progress"]
-    InProgress --> Review["مراجعة الجودة\nQA Review"]
-    Review --> Done["منجز\nDone"]
-    Done --> Measure["قياس الأثر\nMeasure"]
-    Measure --> Improve["تحسين لاحق\nImprove"]
-    Improve --> Backlog["باك لوج التعلم\nLearning Backlog"]
+    Idea["💡 فكرة\nIdea"] --> Draft["📝 مسودة\nDraft"]
+    Draft --> Ready["🚦 جاهز للتطوير\nReady"]
+    Ready --> InProgress["🔨 قيد التنفيذ\nIn Progress"]
+    InProgress --> Review["🔍 مراجعة الجودة\nQA Review"]
+    Review --> Done["✅ منجز\nDone"]
+    Done --> Measure["📊 قياس الأثر\nMeasure"]
+    Measure --> Improve["🔁 تحسين لاحق\nImprove"]
+    Improve --> Backlog["📚 باك لوج التعلم\nLearning Backlog"]
     Backlog --> Draft
 ```
 
@@ -176,6 +200,14 @@ flowchart LR
 ---
 
 ## 5. مقاييس الجودة / Quality Metrics
+
+**📊 شرح مختصر:**
+مؤشرات جودة تضمن وضوح القصة وسرعة التنفيذ.
+
+**📊 Summary:**
+Quality metrics ensuring story clarity and execution speed.
+
+---
 
 - 🇸🇦 **نسبة القصص ذات معايير القبول الصريحة:** الهدف 100%.  
   🇬🇧 **Stories with explicit acceptance criteria:** Target 100%.  
@@ -207,6 +239,14 @@ flowchart LR
 ---
 
 ## 6. قالب القصة / Story Template
+
+**📄 شرح مختصر:**
+نموذج موحد لكتابة القصة ومعايير القبول والملاحظات.
+
+**📄 Summary:**
+A unified template for story, acceptance criteria, and notes.
+
+---
 
 ```markdown
 🇸🇦 بصفتي [الشخصية] أريد [الهدف] حتى [القيمة].

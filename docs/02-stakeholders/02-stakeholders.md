@@ -11,29 +11,29 @@ Stakeholders Analysis
 > **الإصدار:** 0.1 (رؤية) - المالك: عبدالله الشائف - آخر تحديث: 2025-09-20  
 > **Version:** 0.1 (Vision) - Owner: Abdullah Alshaif - Last Updated: 2025-09-20
 
-**شرح مختصر:**
+**🔎 شرح مختصر:**
 تحليل أصحاب المصلحة يحدد جميع الأطراف المؤثرة في نجاح المنصة، ويوضح احتياجاتهم وتوقعاتهم.
 
-**Summary:**
+**🔎 Summary:**
 Stakeholder analysis identifies all parties influencing platform success and clarifies their needs and expectations.
 
 ---
 
 ## 1. مقدمة
 
-Introduction
-
 ---
 
 ### 1.1 نظرة بصرية
 
-Visual Overview
+---
 
 **شرح مختصر:**
 يوضح المخطط كيف تتفاعل الفئات الرئيسية مع بعضها لتحقيق أهداف المنصة.
 
 **Summary:**
 The diagram shows how main categories interact to achieve platform goals.
+
+---
 
 ```mermaid
 flowchart LR
@@ -74,15 +74,17 @@ flowchart LR
 - 🇸🇦 **فائدتها:** تعزز الشفافية وتدعم سرعة الاستجابة للفرص أو المخاطر.  
   🇬🇧 **Benefit:** Enhances transparency and enables faster response to opportunities or risks.
 
-### 1.2 خريطة الفئات
+---
 
-Stakeholder Category Map
+## 1.2 خريطة الفئات
 
 **شرح مختصر:**
 المخطط الذهني يصنف أصحاب المصلحة إلى داخليين، خارجيين، وتنظيميين.
 
 **Summary:**
 The mindmap classifies stakeholders into internal, external, and oversight groups.
+
+---
 
 ```mermaid
 mindmap
@@ -106,6 +108,14 @@ mindmap
 
 ## 2. قائمة أصحاب المصلحة / Stakeholder Catalogue
 
+**📋 شرح مختصر:**
+جدول يوضح الفئات الرئيسية، أدوارها، وتوقعاتها الأساسية.
+
+**📋 Summary:**
+A table showing main categories, their roles, and key expectations.
+
+---
+
 | 🇸🇦 الفئة           | 🇬🇧 Category            | 🇸🇦 الدور الأساسي                                  | 🇬🇧 Primary Role                                         | 🇸🇦 التوقع الرئيسي                                   | 🇬🇧 Key Expectation                                             |
 | ------------------ | ---------------------- | ------------------------------------------------- | ------------------------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------- |
 | العملاء            | Customers              | تقديم الطلبات ومتابعة الشحنات                     | Place orders and track shipments                        | تجربة موثوقة ثنائية اللغة مع شفافية الأسعار         | Reliable bilingual journey with transparent pricing            |
@@ -121,6 +131,14 @@ mindmap
 ---
 
 ## 3. الاحتياجات الأساسية / Core Needs
+
+**🎯 شرح مختصر:**
+أهم المتطلبات التي تضمن نجاح المنصة لجميع الأطراف.
+
+**🎯 Summary:**
+Key needs that ensure platform success for all parties.
+
+---
 
 - 🇸🇦 **وضوح تجربة العميل:** ضمان معلومات شفافة من الطلب حتى التسليم.  
   🇬🇧 **Customer journey clarity:** Guarantee transparent information from order to delivery.  
@@ -162,6 +180,14 @@ mindmap
 
 ## 4. استراتيجيات المشاركة / Engagement Strategies
 
+**🔗 شرح مختصر:**
+سياسات وقنوات تواصل تضمن مشاركة فعالة لكل فئة.
+
+**🔗 Summary:**
+Policies and channels that ensure effective engagement for each group.
+
+---
+
 - 🇸🇦 **قنوات تواصل مخصصة:** تحديد القناة المناسبة لكل فئة (لوحات، بريد، مجموعات عمل).  
   🇬🇧 **Tailored communication channels:** Assign the right channel to each segment (dashboards, email, working groups).  
   🇸🇦 **ما هي:** سياسة تصنيف للقنوات حسب نوع الرسالة وسرعتها.  
@@ -193,6 +219,14 @@ mindmap
 
 ## 5. دورة التغذية الراجعة / Feedback Cycle
 
+**🔄 شرح مختصر:**
+مخطط يوضح كيف يتم جمع ومعالجة التغذية الراجعة من جميع الأطراف.
+
+**🔄 Summary:**
+Diagram showing how feedback is collected and processed from all parties.
+
+---
+
 ```mermaid
 flowchart TD
     Trigger["حدث العميل\nCustomer Event"] --> Capture["جمع الملاحظة\nCapture Feedback"]
@@ -218,6 +252,14 @@ flowchart TD
 
 ## 6. مصفوفة المسؤوليات / Responsibility Matrix (RACI)
 
+**🗂️ شرح مختصر:**
+جدول يوضح توزيع المسؤوليات بين الفرق المختلفة لكل نشاط رئيسي.
+
+**🗂️ Summary:**
+A table showing responsibility distribution for each main activity.
+
+---
+
 | 🇸🇦 النشاط        | 🇬🇧 Activity            | 🇸🇦 R (مسؤول) | 🇬🇧 R             | 🇸🇦 A (معتمد)   | 🇬🇧 A       | 🇸🇦 C (استشاري)        | 🇬🇧 C                      | 🇸🇦 I (مطلع)                  | 🇬🇧 I                      |
 | ---------------- | ---------------------- | ------------ | ---------------- | -------------- | ---------- | --------------------- | ------------------------- | ---------------------------- | ------------------------- |
 | تسجيل طلب جديد   | New order intake       | خدمة العملاء | Customer Service | التشغيل        | Operations | التقنية، المالية      | Tech, Finance             | الإدارة العليا               | Leadership                |
@@ -228,6 +270,14 @@ flowchart TD
 ---
 
 ## 7. مؤشرات المتابعة / Monitoring Indicators
+
+**📊 شرح مختصر:**
+مؤشرات رقمية ونوعية لمتابعة الأداء وتحسينه باستمرار.
+
+**📊 Summary:**
+Quantitative and qualitative indicators for ongoing performance monitoring and improvement.
+
+---
 
 - 🇸🇦 **معدل استجابة الشكاوى:** قياس نسبة الرد خلال SLA المحدد.  
   🇬🇧 **Complaint response rate:** Measure percentage of replies within defined SLA.  
@@ -255,3 +305,5 @@ flowchart TD
   🇬🇧 **Function:** Monitors health of commercial relationships and improvement areas.  
   🇸🇦 **فائدتها:** يساعد في الحفاظ على الحصة السوقية وتوسيع شبكة التوريد.  
   🇬🇧 **Benefit:** Helps maintain market share and expand supplier network.
+
+---
