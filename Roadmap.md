@@ -1,247 +1,233 @@
-# 🗺️ خارطة طريق التوثيق والرسومات | Documentation & Diagrams Roadmap
+﻿# 🗺️ خارطة طريق التوثيق والرسومات | Documentation & Diagrams Roadmap
+
+> | 🔖  | البيان                       | Details                                   |
+> | --- | ---------------------------- | ----------------------------------------- |
+> | 🧾  | **المشروع / Project**        | CA Admin DmG                              |
+> | 🧑‍💼  | **مالك التوثيق / Owner**     | Abdullah Alshaif                          |
+> | 🎯  | **الغرض / Purpose**          | تطوير مهارات التوثيق والرسومات الاحترافية |
+> | 📅  | **آخر تحديث / Last Updated** | 2025-09-08                                |
+
+**الملخص التنفيذي | Executive Summary:**  
+تسلسل تعليمي عملي يُمكّن الفريق من بناء توثيق CA Admin خطوة بخطوة؛ بدءًا من الرؤية وحتى الإطلاق والصيانة مع التركيز على الرسومات ومخططات Mermaid.  
+**Summary (EN):** Hands-on learning sequence that guides the team through crafting CA Admin documentation from vision to release, emphasizing visuals and Mermaid diagrams.
 
 ---
 
 ## 🎯 الهدف | Goal
 
-**شرح مختصر:**
-إتقان مهارات إعداد التوثيق والرسومات الاحترافية لمشروع CA Admin (الرؤية → أصحاب المصلحة → القصص → حالات الاستخدام → نماذج البيانات → العمارة → التدفقات → الأمان → الاختبار → الإطلاق).
-تساعد هذه الخارطة في بناء وثائق احترافية خطوة بخطوة، وتوضح كيف ينتقل التوثيق من الفكرة حتى الإطلاق.
-
-**Summary:**
-Master the skills to create professional documentation and diagrams for the CA Admin project (Vision → Stakeholders → Stories → Use Cases → Data Models → Architecture → Flows → Security → Testing → Release).
-This roadmap helps build professional documentation step by step, showing how documentation evolves from idea to release.
+- 🧠 **إتقان التوثيق:** الانتقال من فهم الرؤية إلى إنتاج ملفات قابلة للمراجعة والإطلاق.  
+  **Master Documentation:** Move from understanding the vision to shipping review-ready docs.
+- 🖼️ **إجادة الرسومات:** استخدام Mermaid وDraw.io وBPMN/DFD لتوضيح الأفكار.  
+  **Excel at Diagrams:** Apply Mermaid, Draw.io, BPMN/DFD to convey concepts.
+- 🔄 **منهج متدرج:** تقسيم التعلم إلى مراحل صغيرة مع تطبيق عملي لكل خطوة.  
+  **Iterative Learning:** Break skills into focused phases with practice per step.
 
 ---
 
-## 🏁 ملخص بصري | Visual Summary
-
-**شرح مختصر:**
-المخطط التالي يوضح تسلسل مراحل التوثيق من الرؤية حتى القاموس، مع إبراز كل مرحلة وأهميتها.
-
-**Summary:**
-The following diagram shows the sequence of documentation phases from vision to glossary, highlighting each phase and its importance.
+## 🧭 نظرة بصرية شاملة | Visual Documentation Flow
 
 ```mermaid
 flowchart LR
-  V([🔭 الرؤية | Vision]) --> S([👥 أصحاب المصلحة | Stakeholders]) --> ST([📖 القصص | Stories]) --> UC([🎬 حالات الاستخدام | Use Cases])
-  UC --> DM([🗂️ نماذج البيانات | Data Models]) --> AR([🏗️ العمارة | Architecture])
-  AR --> PF([🔄 تدفقات العمليات | Process Flows]) --> SE([🔒 الأمان | Security])
-  SE --> IQ([📊 الفهارس والاستعلامات | Indexes & Queries]) --> NFR([⚙️ المتطلبات غير الوظيفية والجودة | NFR & Quality])
-  NFR --> TP([🧪 خطة الاختبار | Test Plan]) --> RD([🚀 الإطلاق و DevOps | Release & DevOps])
-  RD --> GL([📚 القاموس | Glossary])
+  V([🔭 الرؤية\nVision]) --> S([👥 أصحاب المصلحة\nStakeholders]) --> ST([📖 القصص\nStories]) --> UC([🎬 حالات الاستخدام\nUse Cases])
+  UC --> DM([🗂️ نماذج البيانات\nData Models]) --> AR([🏗️ العمارة\nArchitecture])
+  AR --> PF([🔄 تدفقات العمليات\nProcess Flows]) --> SE([🔒 الأمان والأدوار\nSecurity & Roles])
+  SE --> IQ([📊 الفهارس والاستعلامات\nIndexes & Queries]) --> NFR([⚙️ المتطلبات غير الوظيفية والجودة\nNFR & Quality])
+  NFR --> TP([🧪 خطة الاختبار\nTest Plan]) --> RD([🚀 الإطلاق وDevOps\nRelease & DevOps])
+  RD --> GL([📚 القاموس\nGlossary])
+
   classDef phase fill:#e3f6fc,stroke:#0ea5e9,stroke-width:2px;
   class V,S,ST,UC,DM,AR,PF,SE,IQ,NFR,TP,RD,GL phase;
 ```
 
----
+- 🔗 يظهر المخطط العلاقة بين ملفات التوثيق الرئيسية وكيفية انتقال العمل بينها.  
+  **Highlights how documents connect and flow across the project.**
+- 🧭 استخدمه كدليل سريع عند إنشاء أو تحديث أي ملف.  
+  **Use as a quick compass when creating or updating docs.**
 
 ---
 
-## 🧭 مراحل التعلم | Learning Phases
+## 🗂️ مخطط المراحل التعليمية | Phase Overview
 
-### 🎯 المرحلة 1: الأساسيات | Phase 1: Foundations
-
-| 📝 المهارة              | شرح مختصر                                         | Skill                         | Summary                                                |
-| ----------------------- | ------------------------------------------------- | ----------------------------- | ------------------------------------------------------ |
-| توثيق Markdown          | كتابة وثائق واضحة ومنظمة باستخدام Markdown        | Markdown Documentation        | Writing clear and structured docs using Markdown       |
-| أساسيات التوثيق البرمجي | فهم الرؤية، أصحاب المصلحة، القصص، حالات الاستخدام | Software Documentation Basics | Understanding vision, stakeholders, stories, use cases |
-
-**موارد / Resources:**
-
-- [Markdown Crash Course - Traversy Media](https://www.youtube.com/watch?v=HUBNt18RFbo)
-- [Mastering Markdown - FreeCodeCamp](https://www.youtube.com/watch?v=2JE66WFpaII)
-- [Software Documentation Course - FreeCodeCamp](https://www.youtube.com/watch?v=qJqAXjz-Rh4)
-- كتاب: _Software Requirements by Karl Wiegers_
-
-**تطبيق عملي / Practice:**
-
-- وثّق فكرة تطبيق صغيرة في مجلد `/docs`.
-- املأ مجلدات `/01-vision`, `/02-stakeholders`, `/03-stories`.
+| المرحلة (AR)         | Phase (EN)                       | التركيز / Focus                        | المخرجات الأساسية / Key Deliverables                           |
+| -------------------- | -------------------------------- | -------------------------------------- | -------------------------------------------------------------- |
+| 1. الأساسيات         | Foundations                      | Markdown، رؤية، أصحاب المصلحة، قصص     | مجلدات `01-vision`, `02-stakeholders`, `03-stories` مكتملة     |
+| 2. النمذجة والرسومات | Modeling & Diagrams              | UML، حالات الاستخدام، أدوات الرسم      | مخططات استخدام وتسلسل + ملفات `04-use-cases`                   |
+| 3. العمارة والتدفقات | Architecture & Flows             | ERD، نماذج البيانات، العمارة، BPMN/DFD | مستندات `05-data-model`, `06-architecture`, `07-process-flows` |
+| 4. الأمان والجودة    | Security, Testing & Quality      | RBAC، الاستعلامات، NFR، خطة الاختبار   | ملفات `08`→`11` مكتملة بمخططات داعمة                           |
+| 5. الإطلاق والتحسين  | Release & Continuous Improvement | CI/CD، القاموس، مراجعات دورية          | `12-release-and-devops` + `99-glossary` + خطة تحسين ربع سنوية  |
 
 ---
 
-### 🎯 المرحلة 2: النمذجة والرسومات | Phase 2: Modeling & Diagrams
+## 🧱 المرحلة 1: الأساسيات | Phase 1: Foundations
 
-| 📝 المهارة                  | شرح مختصر                           | Skill                   | Summary                                |
-| --------------------------- | ----------------------------------- | ----------------------- | -------------------------------------- |
-| مخططات UML وحالات الاستخدام | رسم مخططات حالات الاستخدام والتسلسل | UML & Use Case Diagrams | Drawing use case and sequence diagrams |
-| أدوات النمذجة               | استخدام Mermaid وDraw.io            | Modeling Tools          | Using Mermaid and Draw.io              |
+| 📝 المهارة              | شرح مختصر                                         | Skill                         | Summary                                  |
+| ----------------------- | ------------------------------------------------- | ----------------------------- | ---------------------------------------- |
+| توثيق Markdown          | كتابة وثائق واضحة ومنظمة                          | Markdown Documentation        | Clear, structured Markdown writing       |
+| أساسيات التوثيق البرمجي | فهم الرؤية، أصحاب المصلحة، القصص، حالات الاستخدام | Software Documentation Basics | Vision, stakeholders, stories, use cases |
 
-**موارد / Resources:**
+**موارد | Resources**
 
-- [Mermaid Docs](https://mermaid-js.github.io/mermaid/#/)
-- [Draw.io](https://app.diagrams.net/)
+- [Markdown Crash Course – Traversy Media](https://www.youtube.com/watch?v=HUBNt18RFbo)
+- [Mastering Markdown – FreeCodeCamp](https://www.youtube.com/watch?v=2JE66WFpaII)
+- [Software Documentation Course – FreeCodeCamp](https://www.youtube.com/watch?v=qJqAXjz-Rh4)
+- كتاب: _Software Requirements_ لـ Karl Wiegers
 
-**تطبيق عملي / Practice:**
+**تطبيق عملي | Practice**
 
-- أنشئ مخطط حالة استخدام لمشروعك.
-- صمّم مخطط تسلسل لعملية رئيسية.
-
----
-
-### 🎯 المرحلة 3: العمارة والتدفقات | Phase 3: Architecture & Flows
-
-| 📝 المهارة            | شرح مختصر                        | Skill               | Summary                                              |
-| --------------------- | -------------------------------- | ------------------- | ---------------------------------------------------- |
-| تصميم العمارة التقنية | بناء هيكل النظام وتوزيع المكونات | Architecture Design | Building system structure and component distribution |
-| تدفقات العمليات       | رسم تدفق العمليات بين الأقسام    | Process Flows       | Drawing process flows between departments            |
-
-**موارد / Resources:**
-
-- [System Architecture Basics](https://www.youtube.com/watch?v=1y8Qh6qg9wA)
-
-**تطبيق عملي / Practice:**
-
-- صمّم مخطط عمارة لمشروعك.
-- أنشئ مخطط تدفق عملية رئيسية.
+- وثّق فكرة تطبيق صغيرة داخل `/docs`.
+- اكمل مجلدات `01-vision`, `02-stakeholders`, `03-stories`.
 
 ---
 
-### 🎯 المرحلة 4: الأمان والجودة | Phase 4: Security & Quality
+## 🎯 المرحلة 2: النمذجة والرسومات | Phase 2: Modeling & Diagrams
 
-| 📝 المهارة                     | شرح مختصر                    | Skill               | Summary                                |
-| ------------------------------ | ---------------------------- | ------------------- | -------------------------------------- |
-| إدارة الأدوار والصلاحيات       | تحديد الأدوار وضبط الصلاحيات | Roles & Permissions | Defining roles and setting permissions |
-| المتطلبات غير الوظيفية والجودة | ضمان الأداء والجودة          | NFR & Quality       | Ensuring performance and quality       |
+| 📝 المهارة                  | شرح مختصر                           | Skill                   | Summary                            |
+| --------------------------- | ----------------------------------- | ----------------------- | ---------------------------------- |
+| مخططات UML وحالات الاستخدام | رسم مخططات حالات الاستخدام والتسلسل | UML & Use Case Diagrams | Build use case & sequence diagrams |
+| أدوات النمذجة               | استخدام Mermaid وDraw.io            | Modeling Tools          | Apply Mermaid & Draw.io            |
 
-**موارد / Resources:**
+**موارد | Resources**
 
-- [Security Best Practices](https://www.owasp.org/index.php/Main_Page)
+- [Mermaid Documentation](https://mermaid-js.github.io/mermaid/#/)
+- [Draw.io (diagrams.net)](https://app.diagrams.net/)
+- [UML Diagrams Full Course – FreeCodeCamp](https://www.youtube.com/watch?v=WnMQ8HlmeXc)
 
-**تطبيق عملي / Practice:**
+**تطبيق عملي | Practice**
 
-- وثّق الأدوار والصلاحيات في مشروعك.
-- حدد متطلبات الجودة والأداء.
-
----
-
-### 🎯 المرحلة 5: الاختبار والإطلاق | Phase 5: Testing & Release
-
-| 📝 المهارة       | شرح مختصر                      | Skill            | Summary                                     |
-| ---------------- | ------------------------------ | ---------------- | ------------------------------------------- |
-| خطة الاختبار     | إعداد خطة اختبار شاملة         | Test Plan        | Preparing a comprehensive test plan         |
-| الإطلاق و DevOps | تجهيز المشروع للإطلاق والتشغيل | Release & DevOps | Preparing project for release and operation |
-
-**موارد / Resources:**
-
-- [DevOps Roadmap](https://roadmap.sh/devops)
-
-**تطبيق عملي / Practice:**
-
-- أنشئ خطة اختبار لمشروعك.
-- جهّز إجراءات الإطلاق والتشغيل.
+- صمّم مخطط حالة استخدام لسيناريو رئيسي.
+- أنشئ مخطط تسلسل لرحلة طلب كاملة.
+- املأ `/04-use-cases` بالمخططات والنصوص الداعمة.
 
 ---
 
-## 💡 نقاط إضافية | Extra Notes
+## 🏗️ المرحلة 3: العمارة والتدفقات | Phase 3: Architecture & Flows
 
-**العربية:**
+| 📝 المهارة             | شرح مختصر                               | Skill                             | Summary                               |
+| ---------------------- | --------------------------------------- | --------------------------------- | ------------------------------------- |
+| نمذجة البيانات (ERD)   | تعريف الكيانات والخصائص والعلاقات       | ERD & Data Modeling               | Entities, attributes, relationships   |
+| العمارة وتقسيم الطبقات | Clean Architecture، تكامل Firebase      | Architecture & Clean Architecture | Layered design & Firebase integration |
+| BPMN وDFD              | التفريق بين تدفق الأعمال وتدفق البيانات | BPMN & DFD                        | Business vs data flow diagrams        |
 
-- يمكن تخصيص كل مرحلة حسب احتياج المشروع.
-- يفضل استخدام الرسومات التوضيحية في كل قسم.
+**موارد | Resources**
 
-**English:**
+- [Database Design Full Course – FreeCodeCamp](https://www.youtube.com/watch?v=ztHopE5Wnpc)
+- [ERD Basics – Lucidchart](https://www.youtube.com/watch?v=QpdhBUYk7Kk)
+- [Clean Architecture in Flutter – ResoCoder](https://www.youtube.com/watch?v=KjE2IDphA_U)
+- [System Design Basics – FreeCodeCamp](https://www.youtube.com/watch?v=F7AX1g0Y4Fw)
+- [BPMN Tutorial – Camunda](https://www.youtube.com/watch?v=Jl2CWBj0vSQ)
+- [Data Flow Diagram Tutorial](https://www.youtube.com/watch?v=R0kTTlJv8rE)
 
-- Each phase can be customized according to project needs.
-- It is recommended to use visual diagrams in every section.
-  - [UML Diagrams Full Course - FreeCodeCamp](https://www.youtube.com/watch?v=WnMQ8HlmeXc)
-- **Practice:** Create `/04-use-cases` diagrams.
+**تطبيق عملي | Practice**
 
-### 4. ERD & Data Modeling
-
-- **What to Learn:** Entities, attributes, relationships. Convert to Firestore schema.
-- **Resources:**
-  - [Database Design Full Course - FreeCodeCamp](https://www.youtube.com/watch?v=ztHopE5Wnpc)
-  - [ERD Basics - Lucidchart](https://www.youtube.com/watch?v=QpdhBUYk7Kk)
-- **Practice:** Complete `/05-data-model`.
-
-### 5. Architecture & Clean Architecture
-
-- **What to Learn:** Layers (Presentation, Domain, Data), Firebase integration.
-- **Resources:**
-  - [Clean Architecture in Flutter - ResoCoder](https://www.youtube.com/watch?v=KjE2IDphA_U)
-  - [System Design Basics - FreeCodeCamp](https://www.youtube.com/watch?v=F7AX1g0Y4Fw)
-- **Practice:** Fill `/06-architecture`.
-
-### 6. BPMN & DFD
-
-- **What to Learn:** Business flows (BPMN) vs Data flows (DFD).
-- **Resources:**
-  - [BPMN Tutorial - Camunda](https://www.youtube.com/watch?v=Jl2CWBj0vSQ)
-  - [Data Flow Diagram Tutorial](https://www.youtube.com/watch?v=R0kTTlJv8rE)
-- **Practice:** Create `/07-process-flows`.
+- وثّق نموذج بيانات Firestore في `/05-data-model`.
+- أنشئ مخطط عمارة في `/06-architecture`.
+- جهّز مخططات BPMN/DFD في `/07-process-flows`.
 
 ---
 
-## 🎯 Phase 3: Security, Testing & Quality | الأمان والاختبار والجودة
+## 🔒 المرحلة 4: الأمان، الاختبار، الجودة | Phase 4: Security, Testing & Quality
 
-### 7. Security & Roles
+| 📝 المهارة             | شرح مختصر                                    | Skill             | Summary                           |
+| ---------------------- | -------------------------------------------- | ----------------- | --------------------------------- |
+| الأمان والأدوار        | RBAC، Firebase Security Rules، Custom Claims | Security & Roles  | RBAC & Firebase rules             |
+| الفهارس والاستعلامات   | إعداد استعلامات Firestore والفهارس المركبة   | Indexes & Queries | Firestore querying & indexes      |
+| المتطلبات غير الوظيفية | ISO/IEC 25010، سمات الجودة                   | NFR & Quality     | Quality attributes & measurements |
+| خطة الاختبار           | Unit, Integration, UAT                       | Test Planning     | Build test strategies & plans     |
 
-- **What to Learn:** RBAC, Firebase Security Rules, Custom Claims.
-- **Resources:**
-  - [Firebase Security Rules - Fireship.io](https://www.youtube.com/watch?v=qKfkCY7cmwI)
-  - [Authentication & RBAC Basics](https://www.youtube.com/watch?v=VdNNxU2bXlU)
-- **Practice:** Document `/08-security-and-roles`.
+**موارد | Resources**
 
-### 8. Indexes & Queries
+- [Firebase Security Rules – Fireship.io](https://www.youtube.com/watch?v=qKfkCY7cmwI)
+- [Authentication & RBAC Basics](https://www.youtube.com/watch?v=VdNNxU2bXlU)
+- [Firestore Querying – Academind](https://www.youtube.com/watch?v=2Vf1D-rUMwE)
+- [Non-functional Requirements Explained](https://www.youtube.com/watch?v=i3AqkKdtOxE)
+- [Flutter Testing Tutorial](https://www.youtube.com/watch?v=OwgH3Vh2dAs)
+- [Software Testing Course – FreeCodeCamp](https://www.youtube.com/watch?v=Fj0sf0x5a4A)
 
-- **What to Learn:** Firestore queries & composite indexes.
-- **Resources:**
-  - [Firestore Querying - Academind](https://www.youtube.com/watch?v=2Vf1D-rUMwE)
-- **Practice:** Build `/09-indexes-and-queries`.
+**تطبيق عملي | Practice**
 
-### 9. Non-Functional Requirements (NFRs) & Quality
-
-- **What to Learn:** ISO/IEC 25010, system quality attributes.
-- **Resources:**
-  - [Non-functional Requirements Explained](https://www.youtube.com/watch?v=i3AqkKdtOxE)
-- **Practice:** Document `/10-nfr-and-quality`.
-
-### 10. Test Planning
-
-- **What to Learn:** Unit tests, integration tests, UAT.
-- **Resources:**
-  - [Flutter Testing Tutorial](https://www.youtube.com/watch?v=OwgH3Vh2dAs)
-  - [Software Testing Course - FreeCodeCamp](https://www.youtube.com/watch?v=Fj0sf0x5a4A)
-- **Practice:** Create `/11-test-plan`.
+- وثّق حماية الوصول في `/08-security-and-roles`.
+- أنشئ استعلامات وفهارس في `/09-indexes-and-queries`.
+- اكتب ملف `/10-nfr-and-quality` مع معايير القياس.
+- ابني خطة `/11-test-plan` بما يشمل الهرم، التغطية، والقبول.
 
 ---
 
-## 🎯 Phase 4: Release & Maintenance | الإطلاق والصيانة
+## 🚀 المرحلة 5: الإطلاق والتحسين المستمر | Phase 5: Release & Continuous Improvement
 
-### 11. Release & DevOps
+| 📝 المهارة         | شرح مختصر                                 | Skill                  | Summary                         |
+| ------------------ | ----------------------------------------- | ---------------------- | ------------------------------- |
+| CI/CD وخطط الإطلاق | GitHub Actions، Firebase App Distribution | Release & DevOps       | Automate build/test/deploy      |
+| إدارة المصطلحات    | توحيد المفاهيم بين الفرق                  | Glossary Management    | Maintain shared vocabulary      |
+| التحسين المستمر    | مراجعات ربع سنوية للوثائق والرسومات       | Continuous Improvement | Quarterly doc & diagram reviews |
 
-- **What to Learn:** CI/CD pipelines (GitHub Actions, Firebase App Distribution).
-- **Resources:**
-  - [GitHub Actions for Beginners](https://www.youtube.com/watch?v=R8_veQiYBjI)
-  - [Firebase App Distribution - Google](https://www.youtube.com/watch?v=qhnN8eZmgxQ)
-- **Practice:** Write `/12-release-and-devops`.
+**موارد | Resources**
 
-### 12. Glossary
+- [GitHub Actions for Beginners](https://www.youtube.com/watch?v=R8_veQiYBjI)
+- [Firebase App Distribution – Google](https://www.youtube.com/watch?v=qhnN8eZmgxQ)
 
-- **What to Learn:** Importance of terminology alignment.
-- **Practice:** Complete `/99-glossary`.
+**تطبيق عملي | Practice**
+
+- أعد ملف `/12-release-and-devops` مع مخطط CI/CD.
+- حدّث `/99-glossary` دوريًا أثناء إضافة مصطلحات جديدة.
+- ضع تذكيرًا ربع سنويًا لمراجعة التوثيق والرسومات.
+- حسّن الرسومات باستخدام BPMN/DFD عندما لا تكفي Mermaid.
 
 ---
 
-## 🎯 Phase 5: Continuous Improvement | التحسين المستمر
+## 💡 نصائح إضافية | Extra Notes
 
-- راجع التوثيق كل ربع سنة.
-- حدّث الرسومات عند تغيير نموذج البيانات أو العمليات.
-- حسّن الرسومات باستخدام أدوات BPMN/DFD إذا لم تكفِ Mermaid.
-- وسّع خارطة الطريق بمواضيع متقدمة:
-  - تصميم الأنظمة (الكاش، التوسعة، APIs).
-  - الأمان المتقدم (Zero Trust، الامتثال).
-  - التحليلات والتقارير.
+- 🧭 اتبع ترتيب الملفات (الرؤية → أصحاب المصلحة → القصص → حالات الاستخدام → البيانات → العمارة → التدفقات → الأمان → الاختبار → الإطلاق → القاموس).  
+  **Follow the file order to keep context flowing naturally.**
+- 🧪 طبّق كل مهارة على مثال صغير قبل دمجها في CA Admin.  
+  **Prototype on small examples before committing to the main docs.**
+- 🖼️ استخدم Mermaid للرسومات السريعة وDraw.io أو أدوات BPMN للسيناريوهات المعقدة.  
+  **Pick Mermaid for quick diagrams; escalate to Draw.io/BPMN as needed.**
+- 🔄 اعتبر التوثيق وثيقة حية تُحدَّث مع كل تغيير وظيفي أو معماري.  
+  **Treat documentation as living assets—update alongside feature or architecture changes.**
+
+---
+
+## ✅ قائمة التقدم | Progress Checklist
+
+```mermaid
+mindmap
+  root((Progress))
+    "Phase 1\nالمكتمل؟"
+      "Vision"
+      "Stakeholders"
+      "Stories"
+    "Phase 2"
+      "Use Case Diagrams"
+      "Sequence Diagrams"
+    "Phase 3"
+      "Data Models"
+      "Architecture"
+      "Process Flows"
+    "Phase 4"
+      "Security & Roles"
+      "NFR & Quality"
+      "Test Plan"
+    "Phase 5"
+      "Release & DevOps"
+      "Glossary"
+      "Quarterly Reviews"
+```
+
+> استخدم هذه الخريطة الذهنية لتحديد المراحل المكتملة وتلك التي ما تزال قيد العمل.
 
 ---
 
 ## 📌 نصائح للنجاح | Tips for Success
 
-- اتبع ترتيب الملفات (الرؤية → أصحاب المصلحة → القصص → حالات الاستخدام → نموذج البيانات ...).
-- طبّق أمثلة صغيرة بالتوازي مع توثيق CA Admin.
-- استخدم **Mermaid** للرسومات السريعة و**Draw.io** للعمليات المعقدة.
-- اعتبر التوثيق وثيقة حية: حدّثها مع كل تغيير في المشروع.
+1. 📅 خصص وقتًا أسبوعيًا ثابتًا للتوثيق (حتى لو ساعة واحدة).  
+   **Block an hour weekly dedicated to docs.**
+2. 📎 أضف روابط متقاطعة بين الملفات (مثلاً: خطة الاختبار ↔ حالات الاستخدام).  
+   **Add cross-links (e.g., Test Plan ↔ Use Cases).**
+3. 🧑‍🤝‍🧑 شارك التحديثات مع الفريق لتحصل على تغذية راجعة مبكرة.  
+   **Share updates early for quick feedback.**
+4. 📊 راقب تقدمك عبر تحديث قائمة التقدم بعد كل مرحلة.  
+   **Update the progress checklist as you complete phases.**
+5. 🧭 وسّع خارطة الطريق بمواضيع متقدمة عند الحاجة (تصميم الأنظمة، التحليلات، الأمان المتقدم).  
+   **Extend this roadmap with advanced topics (system design, analytics, advanced security) when ready.**
 
 ---

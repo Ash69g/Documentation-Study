@@ -1,62 +1,67 @@
-# 📚 توثيق CA Admin DmG
+﻿# 📚 CA Admin DmG Documentation
+
+> | 🔖  | البيان                       | Details          |
+> | --- | ---------------------------- | ---------------- |
+> | 🧾  | **المشروع / Project**        | CA Admin DmG     |
+> | 🧑‍💼  | **مالك التوثيق / Owner**     | Abdullah Alshaif |
+> | 🏷️  | **الإصدار / Version**        | v0.1             |
+> | 📅  | **آخر تحديث / Last Updated** | 2025-09-08       |
+
+**الملخص التنفيذي | Executive Summary:**  
+يوفر هذا المستودع مرجعًا ثنائي اللغة ينظم رؤية نظام CA Admin، حالات الاستخدام، النماذج، الاختبارات، وعمليات الإطلاق لضمان فهم موحد وتسليم عالي الجودة.  
+**Summary (EN):** This repository is a bilingual reference covering CA Admin's vision, use cases, models, testing, and release operations to keep teams aligned and delivery consistent.
+
+---
+
+## 🌟 عن المشروع | About The Project
 
 ![CA Admin](https://img.icons8.com/color/96/000000/management.png)
 
----
-
-## 📖 عن المشروع
-
-CA Admin هو نظام متكامل وحديث لإدارة العملاء والطلبات والشحن والعمليات المالية لمشاريع الوساطة في الشراء عبر الإنترنت. هذا التوثيق يوفر مرجعًا شاملاً ثنائي اللغة لكل من أصحاب المصلحة والمطورين والمحللين.
-**شرح مختصر:** يسهل المشروع إدارة عمليات الوساطة التجارية، ويعزز تجربة المستخدم، ويضمن الشفافية المالية.
-
-CA Admin is a modern, integrated system for managing customers, orders, shipments, and financial operations for online purchasing intermediaries. This documentation provides a comprehensive, bilingual reference for all stakeholders, developers, and analysts.
-**Summary:** The project facilitates commercial mediation management, enhances user experience, and ensures financial transparency.
+- 🧠 **المفهوم / Concept:** نظام متكامل لإدارة العملاء، الطلبات، الشحن، والمالية في مشاريع الوساطة بالشراء عبر الإنترنت.  
+  **Concept (EN):** Integrated platform for managing customers, orders, shipping, and finance for online purchasing mediation.
+- 🎯 **الأثر / Value:** يسهّل عمليات الوساطة، يعزز تجربة المستخدم، ويضمن الشفافية المالية.  
+  **Value (EN):** Streamlines mediation flows, improves user experience, and enforces financial transparency.
+- 🤝 **الجمهور / Audience:** أصحاب المصلحة، المطورون، محللو الأعمال، فرق الاختبار وDevOps.  
+  **Audience (EN):** Stakeholders, developers, business analysts, QA, and DevOps teams.
 
 ---
 
-## 🗺️ نظرة بصرية سريعة | Visual Overview
-
-**شرح مختصر:**
-المخطط التالي يوضح تدفق البيانات بين مكونات النظام الرئيسية، من العميل حتى الإطلاق، مع إبراز نقاط التكامل والاختبار.
-
-**Summary:**
-The following diagram shows the data flow between main system components, from customer to release, highlighting integration and testing points.
+## 🗺️ نظرة بصرية شاملة | System Visual Overview
 
 ```mermaid
 flowchart TD
-  Customer((👤 عميل | Customer)) -->|📝 طلبية| Order((📝 طلبية | Order))
-  Order -->|📦 شحنة| Shipment((📦 شحنة | Shipment))
-  Order -->|💰 سجل مالي| Finance((💰 سجل مالي | Finance Log))
-  Shipment -->|🚚 سائق| Driver((🚚 سائق | Driver))
-  Finance -->|💳 بطاقة بنكية| Bank((💳 بطاقة بنكية | Bank Card))
-  Finance -->|🎁 بطاقة هدية| Gift((🎁 بطاقة هدية | Gift Card))
-  Finance -->|🧾 سجل الدفع| Checkout((🧾 سجل الدفع | Checkout Log))
-  Order -->|🗄️ قاعدة بيانات| Firestore((🗄️ Firestore DB))
-  Firestore -->|🔄 مزامنة| Sync((🔄 Sync Service))
-  Firestore -->|📴 دون إنترنت| Offline((📴 Offline-First))
-  Order -->|📋 تدقيق| Audit((📋 Audit Log))
-  Customer -->|🧪 اختبار| UAT((🧪 UAT))
-  UAT -->|⚙️ CI/CD| CI((⚙️ CI/CD))
-  CI -->|🅰️ ألفا| Alpha((🅰️ Alpha Release))
-  CI -->|🅱️ بيتا| Beta((🅱️ Beta Release))
-  CI -->|🚀 الإنتاج| Prod((🚀 Production))
+  %% استخدم \n للفصل بين العربية والإنجليزية داخل كل عقدة
+  Customer(("👤 عميل\nCustomer")) -->|📝 طلبية\nOrder| Order(("📝 طلبية\nOrder"))
+  Order -->|📦 شحنة\nShipment| Shipment(("📦 شحنة\nShipment"))
+  Order -->|💰 سجل مالي\nFinance Log| Finance(("💰 سجل مالي\nFinance Log"))
+  Shipment -->|🚚 سائق\nDriver| Driver(("🚚 سائق\nDriver"))
+  Finance -->|💳 بطاقة بنكية\nBank Card| Bank(("💳 بطاقة بنكية\nBank Card"))
+  Finance -->|🎁 بطاقة هدية\nGift Card| Gift(("🎁 بطاقة هدية\nGift Card"))
+  Finance -->|🧾 سجل الدفع\nCheckout Log| Checkout(("🧾 سجل الدفع\nCheckout Log"))
+  Order -->|🗄️ قاعدة بيانات\nDatabase| Firestore(("🗄️ Firestore DB\nFirestore DB"))
+  Firestore -->|🔄 مزامنة\nSync| Sync(("🔄 خدمة المزامنة\nSync Service"))
+  Firestore -->|📴 دون إنترنت\nOffline-first| Offline(("📴 دون إنترنت\nOffline-First"))
+  Order -->|📋 تدقيق\nAudit| Audit(("📋 سجل التدقيق\nAudit Log"))
+  Customer -->|🧪 اختبار\nUAT| UAT(("🧪 اختبار القبول\nUAT"))
+  UAT -->|⚙️ CI/CD| CI(("⚙️ التكامل والنشر\nCI/CD"))
+  CI -->|🅰️ ألفا\nAlpha| Alpha(("🅰️ إصدار ألفا\nAlpha Release"))
+  CI -->|🅱️ بيتا\nBeta| Beta(("🅱️ إصدار بيتا\nBeta Release"))
+  CI -->|🚀 الإنتاج\nProduction| Prod(("🚀 الإنتاج\nProduction"))
+
+  %% أنماط اختيارية
   style Customer fill:#e3f6fc,stroke:#0ea5e9,stroke-width:2px
   style Prod fill:#e3f6fc,stroke:#0ea5e9,stroke-width:2px
 ```
 
----
+- 🔗 يوضح المخطط تدفق البيانات من العميل حتى الإطلاق مع إبراز نقاط التكامل.
+- 🧩 يساعد المطورين والمحللين على فهم الاعتماديات قبل إجراء أي تغييرات.
+- 📊 دليل سريع للفرق التشغيلية لمعرفة أماكن الاختبار والمراقبة.
 
 ---
 
-## 🗂️ هيكل التوثيق
+## 🧭 خريطة الوثائق | Documentation Roadmap
 
-يوضح الجدول التالي هيكل مجلدات التوثيق، حيث يحتوي كل مجلد على ملفات تفصيلية لكل مرحلة من مراحل المشروع.
-**شرح مختصر:** يوضح الهيكل ترتيب الملفات والمجلدات لتسهيل الوصول للمعلومات.
-
-The following table shows the documentation folder structure, with each folder containing detailed files for each project phase.
-**Summary:** The structure clarifies file and folder order for easy information access.
-
-| 📁 المجلد              | الوظيفة (شرح مختصر)            | Folder                 | Purpose (Summary) |
+| 📁 مجلد                | الوظيفة (AR)                   | Folder                 | Purpose (EN)      |
 | ---------------------- | ------------------------------ | ---------------------- | ----------------- |
 | 01-vision              | الرؤية والأهداف                | 01-vision              | Vision & Goals    |
 | 02-stakeholders        | أصحاب المصلحة                  | 02-stakeholders        | Stakeholders      |
@@ -69,81 +74,66 @@ The following table shows the documentation folder structure, with each folder c
 | 09-indexes-and-queries | الفهارس والاستعلامات           | 09-indexes-and-queries | Indexes & Queries |
 | 10-nfr-and-quality     | المتطلبات غير الوظيفية والجودة | 10-nfr-and-quality     | NFR & Quality     |
 | 11-test-plan           | خطة الاختبار                   | 11-test-plan           | Test Plan         |
-| 12-release-and-devops  | الإطلاق و DevOps               | 12-release-and-devops  | Release & DevOps  |
+| 12-release-and-devops  | الإطلاق وDevOps                | 12-release-and-devops  | Release & DevOps  |
 | 99-glossary            | القاموس                        | 99-glossary            | Glossary          |
 
----
-
-## 💡 نقاط إضافية
-
-- التوثيق يدعم التطوير السريع، ويقلل الأخطاء، ويسهل التواصل بين الفرق.
-- كل قسم يحتوي على أمثلة عملية ورسومات توضيحية.
-  **شرح مختصر:** يدعم التوثيق التعاون ويقلل الأخطاء ويوضح المفاهيم.
-
-Documentation supports rapid development, reduces errors, and facilitates team communication.
-Each section includes practical examples and visual diagrams.
-**Summary:** Documentation supports collaboration, reduces errors, and clarifies concepts.
+> 💡 استخدم هذه الخريطة للعثور على الملف المناسب بسرعة، وراجع الروابط المتقاطعة داخل كل مستند للتنقل بين الأقسام.
 
 ---
 
-## ⚡ البداية السريعة
+## 🔗 روابط سريعة | Quick Links
 
-1. [الرؤية](/docs/01-vision/01-vision.md)
-2. [أصحاب المصلحة](/docs/02-stakeholders/02-stakeholders.md)
-3. [قصص المستخدم](/docs/03-stories/03-stories.md)
-4. [حالات الاستخدام](/docs/04-use-cases/04-use-cases.md)
-5. [نموذج البيانات (ERD & Firestore)](/docs/05-data-model/05-data-model.md)
-6. [العمارة وقرارات التصميم](/docs/06-architecture/06-architecture.md)
-7. [تدفقات العمليات (BPMN & DFD)](/docs/07-process-flows/07-process-flows.md)
-8. [الأمان والأدوار (RBAC + قواعد)](/docs/08-security-and-roles/08-security-and-roles.md)
-9. [الفهارس والاستعلامات (Firestore)](/docs/09-indexes-and-queries/09-indexes-and-queries.md)
-10. [المتطلبات غير الوظيفية والجودة (ISO/IEC 25010)](/docs/10-nfr-and-quality/10-nfr-and-quality.md)
-11. [خطة الاختبار والبيئات](/docs/11-test-plan/11-test-plan.md)
-12. [خطة الإطلاق و DevOps (CI/CD & توزيع التطبيق)](/docs/12-release-and-devops/12-release-and-devops.md)
-13. [القاموس](/docs/99-glossary/99-glossary.md)
+- 📌 [خطة الاختبار | Test Plan](docs/11-test-plan/11-test-plan.md)
+- 🚀 [خطة الإطلاق وDevOps | Release & DevOps](docs/12-release-and-devops/12-release-and-devops.md)
+- 📊 [المتطلبات غير الوظيفية والجودة | NFR & Quality](docs/10-nfr-and-quality/10-nfr-and-quality.md)
+- 📚 [القاموس | Glossary](docs/99-glossary/99-glossary.md)
+- 🧠 [حالات الاستخدام | Use Cases](docs/04-use-cases/04-use-cases.md)
 
-**شرح مختصر:** تسلسل الروابط يساعد القارئ على التنقل بين أجزاء التوثيق بسهولة.
-
-The link sequence helps readers navigate documentation sections easily.
-**Summary:** The link sequence helps readers navigate documentation sections easily.
+**شرح مختصر:** تساعد هذه الروابط الفرق في الوصول مباشرة إلى المستندات الأكثر استخدامًا.  
+**Summary:** Quick access for frequently referenced documentation assets.
 
 ---
 
-## 🛠️ المساهمة وسير العمل
+## 🔄 سير دورة التوثيق | Documentation Lifecycle
 
-- يُشجَّع جميع أعضاء الفريق على المساهمة في تحسين التوثيق وتحديثه باستمرار.
-- استخدم رسائل التزام واضحة وحدد القسم أو الملف الذي تم تحديثه.
-- راجع [القاموس](/docs/99-glossary/99-glossary.md) لتوحيد المصطلحات.
+```mermaid
+flowchart LR
+  Ideas["💡 الفكرة"] --> Draft["📝 المسودة"]
+  Draft --> Review["👥 المراجعة"]
+  Review --> Approve["✅ الاعتماد"]
+  Approve --> Publish["📤 النشر"]
+  Publish --> Feedback["📣 التغذية الراجعة"]
+  Feedback --> Ideas
+```
 
-**شرح مختصر:** يضمن هذا القسم جودة التوثيق وتوحيد المصطلحات بين أعضاء الفريق.
-
-All team members are encouraged to contribute improvements and keep documentation up to date.
-Use clear commit messages and reference the section or file being updated.
-Review the [Glossary](/docs/99-glossary/99-glossary.md) for consistent terminology.
-
-**Summary:** This section ensures documentation quality and terminology consistency among team members.
-
----
-
-## 📚 مصادر وأدوات مفيدة
-
-- [Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor/) — رسم المخططات مباشرة وتصديرها إلى Markdown.
-- [Draw.io (diagrams.net)](https://app.diagrams.net/) — لرسم المخططات الخارجية.
-- [Markdown Guide](https://www.markdownguide.org/) — مرجع تنسيقات Markdown.
-
-**شرح مختصر:** أدوات تساعد في رسم المخططات وتنسيق التوثيق.
-
-Resources & Tools:
-
-- [Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor/) — Draw diagrams directly and export to Markdown.
-- [Draw.io (diagrams.net)](https://app.diagrams.net/) — For external diagrams.
-- [Markdown Guide](https://www.markdownguide.org/) — Markdown formatting reference.
-
-**Summary:** Tools to help with diagramming and documentation formatting.
+- 🔁 اعتمد هذا المسار لضمان بقاء المستندات محدثة ومتسقة.
+- 👥 تضمين أصحاب المصلحة في مرحلة المراجعة يحسن الجودة ويقلل إعادة العمل.
 
 ---
 
-## ❓ الأسئلة الشائعة
+## 🤝 كيفية المساهمة | How To Contribute
+
+1. 🔍 راجع ملف القسم المرتبط قبل إجراء أي تعديل للتأكد من السياق.
+2. 🧾 استخدم بنية ثنائية اللغة (عربي/إنجليزي) مع أيقونات تدعم الفهم.
+3. 🧪 تحقق من مخططات Mermaid باستخدام [Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor/).
+4. 🔄 افتح Pull Request مع شرح مختصر للتغييرات وروابط للملفات المتأثرة.
+5. ✅ انتظر الموافقة من مالك التوثيق قبل الدمج.
+
+**Summary (EN):** Review the relevant doc, keep bilingual formatting, validate diagrams, open a PR describing your changes, and wait for approval.
+
+---
+
+## 🛠️ أدوات مساعدة | Helper Tools
+
+| الأداة                 | الوظيفة (AR)          | Tool                | Purpose (EN)                  |
+| ---------------------- | --------------------- | ------------------- | ----------------------------- |
+| Mermaid Live Editor    | معاينة مخططات Mermaid | Mermaid Live Editor | Preview Mermaid diagrams      |
+| Draw.io (diagrams.net) | رسم مخططات إضافية     | Draw.io             | External diagramming          |
+| Markdown Guide         | مرجع تنسيق Markdown   | Markdown Guide      | Markdown formatting reference |
+
+---
+
+## ❓ الأسئلة الشائعة | FAQ
 
 ### س: هل يمكنني إضافة أو تعديل أي جزء من التوثيق؟
 
@@ -151,15 +141,13 @@ Resources & Tools:
 
 ### س: ما هي أفضل طريقة لإضافة الرسومات؟
 
-يفضل استخدام Mermaid داخل ملفات Markdown أو Draw.io للرسومات المعقدة.
+يفضل استخدام Mermaid داخل Markdown أو Draw.io للرسومات المعقدة.
 
 ### س: كيف أضمن توحيد المصطلحات؟
 
-راجع دائمًا [القاموس](/docs/99-glossary/99-glossary.md) قبل كتابة أو تحديث أي مستند.
+راجع دائمًا [القاموس](docs/99-glossary/99-glossary.md) قبل كتابة أو تحديث أي مستند.
 
-**شرح مختصر:** الأسئلة الشائعة تساعد في توضيح سياسات التوثيق.
-
-FAQ:
+---
 
 ### Q: Can I add or edit any part of the documentation?
 
@@ -167,52 +155,32 @@ FAQ:
 
 ### Q: What is the best way to add diagrams?
 
-Prefer using Mermaid inside Markdown files or Draw.io for complex diagrams.
+Prefer Mermaid inside Markdown files or Draw.io for complex diagrams.
 
 ### Q: How do I ensure terminology consistency?
 
-Always review the [Glossary](/docs/99-glossary/99-glossary.md) before writing or updating any document.
-
-**Summary:** FAQ clarifies documentation policies.
+Always review the [Glossary](docs/99-glossary/99-glossary.md) before writing or updating any document.
 
 ---
 
-## 📝 أفضل ممارسات التوثيق
+## 📝 أفضل ممارسات التوثيق | Documentation Best Practices
 
-1. استخدم لغة واضحة ومباشرة (بالعربية والإنجليزية).
-2. حدّث التوثيق مع كل تغيير في النظام أو المتطلبات.
-3. راجع المخططات والروابط بشكل دوري.
-4. التزم بهيكل التوثيق الموحد.
-5. أضف أمثلة عملية أو سيناريوهات عند الحاجة.
-
-**شرح مختصر:** هذه الممارسات تضمن جودة التوثيق وسهولة استخدامه.
-
-Documentation Best Practices:
-
-1. Use clear and direct language (Arabic and English).
-2. Update documentation with every system or requirement change.
-3. Review diagrams and links regularly.
-4. Stick to the unified documentation structure.
-5. Add practical examples or scenarios when needed.
-
-**Summary:** These practices ensure documentation quality and usability.
+1. ✍️ استخدم لغة واضحة ومباشرة (عربي + EN).  
+   Use clear, direct bilingual language.
+2. 🔄 حدّث التوثيق مع كل تغيير في النظام أو المتطلبات.  
+   Update docs whenever system or requirements change.
+3. 🧭 راجع الروابط والمخططات بانتظام لضمان صحتها.  
+   Review links/diagrams regularly for accuracy.
+4. 📐 التزم بالهيكل الموحد للأقسام.  
+   Stick to the unified documentation layout.
+5. 🧪 أضف أمثلة عملية أو سيناريوهات عند الحاجة.  
+   Add practical examples or scenarios when useful.
 
 ---
 
-## 📜 الرخصة
+## 📜 الترخيص | License
 
-- **حاليًا:** للاستخدام الخاص فقط (بدون رخصة).
-
-**شرح مختصر:** التوثيق للاستخدام الداخلي فقط.
-
-License
-
-- **Current:** Private use only (no license).
-
-**Summary:** Documentation is for internal use only.
+- **حاليًا / Current:** استخدام داخلي فقط (بدون رخصة).  
+  **Summary:** Documentation is for internal use only.
 
 ---
-
-```markdown
-
-```
