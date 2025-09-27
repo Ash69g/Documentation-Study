@@ -1,23 +1,34 @@
 ﻿﻿# 🗺️ قصص المستخدم | User Stories
 
-> 🏷️ **اسم المشروع:** منصة الوساطة الشرائية CA Admin
-> Project Name: CA Admin Shopping Mediation Platform
-> 👤 **مالك الوثيقة:** عبدالله الشايع
-> Document Owner: Abdullah Alshaif
-> 🛠️ **المكدس التقني:** Flutter، Firebase (Firestore، Auth، Storage، Functions)
-> Tech Stack: Flutter, Firebase (Firestore, Auth, Storage, Functions)
-> 🔢 **الإصدار:** 0.1 (رؤية)
-> Version: 0.1 (Vision)
-> 📅 **آخر تحديث:** 20-09-2025
-> Last Updated: 2025-09-20
+> **🏷️ اسم المشروع | Project Name**
+> منصة **CA Admin** للوساطة الشرائية  
+> CA Admin Shopping Mediation Platform
+>
+> **🧑‍💼 مالك الوثيقة | Document Owner**  
+> عبدالله الشايف | Abdullah Alshaif
+>
+> **🛠️ المكدس التقني | Tech Stack**
+>
+> - Flutter
+> - Firebase (Firestore, Auth, Storage, Functions)
+>
+> **🔢 الإصدار | Version**  
+> 0.1 (رؤية) | (Vision)
+>
+> **📅 آخر تحديث | Last Updated**  
+> 20-09-2025
 
-**⚡ نظرة خاطفة:**
-تجمع الوثيقة قصص المستخدم المعتمدة وتربط كل قصة بنتيجة قابلة للقياس وقيمة تجارية واضحة.
-Focused insight: The document consolidates approved user stories and links each one to measurable outcomes and business value.
+---
 
-**🧭 قيمة تنفيذية:**
-تعمل القصص كبوصلة للأولويات وتضمن اتساق تجربة جميع أصحاب المصلحة مع أهداف المنصة.
-Applied value: The stories act as a compass for prioritisation, keeping every stakeholder experience aligned with platform objectives.
+## ⚡ نظرة خاطفة | Focused Insight
+
+- تجمع الوثيقة قصص المستخدم المعتمدة وتربط كل قصة بنتيجة قابلة للقياس وقيمة تجارية واضحة.  
+  The document consolidates approved user stories and links each one to measurable outcomes and business value.
+
+## 🧭 قيمة تنفيذية | Applied Value
+
+- تعمل القصص كبوصلة للأولويات وتضمن اتساق تجربة جميع أصحاب المصلحة مع أهداف المنصة.  
+  The stories act as a compass for prioritisation, keeping every stakeholder experience aligned with platform objectives.
 
 ---
 
@@ -130,13 +141,84 @@ mindmap
 يقدم الجدول أهم القصص المعتمدة مع إبراز القيمة المضافة ومعايير القبول لكل قصة.
 Purpose: The table summarises key approved stories, detailing delivered value and acceptance criteria.
 
-| المستفيد<br>Beneficiary                        | الهدف الرئيسي<br>Main Goal                                                                                         | قصة المستخدم<br>User Story                                                                                                                                                                                  | القيمة المتحققة<br>Delivered Value                                                                                                                                             | معايير القبول المحورية<br>Key Acceptance Criteria                                                                                                                                                                                                                                                                                                                                                   |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 👥 العملاء الأفراد<br>Retail Customers         | تقديم طلب جديد بروابط المنتجات مع متابعة كاملة.<br>Submit a new order with product links and full tracking.        | كعميل أرغب في إدخال طلب جديد مرفقًا بروابط المنتجات حتى أتابع الشحنة بسهولة.<br>As a customer I want to submit an order with product links so I can monitor the shipment easily.                            | رحلة تقديم مبسطة مع إشعارات تلقائية تقلل الاستفسارات المتكررة.<br>Simplified submission with automated alerts that lower repeated inquiries.                                   | 1. يعرض ملخص الطلب قبل الإرسال.<br>Summary is shown before submission.<br>2. يدعم الحقول إدخال روابط متعددة وتوضيح الملاحظات الثنائية اللغة.<br>Fields accept multiple links and bilingual notes.<br>3. يتم إرسال إشعار فوري بالبريد وقناة الاتصال المختارة.<br>Instant notification is delivered to email and selected channel.                                                                    |
-| 🎧 فريق خدمة العملاء<br>Customer Service Team  | تحديث بيانات الطلب دون فقدان سجل المراجعات.<br>Update order data without losing revision history.                  | كوكيل خدمة أريد تعديل تفاصيل الطلب مع الاحتفاظ بسجل التغييرات لضمان متابعة دقيقة.<br>As a service agent I want to edit order details while keeping change history to ensure accurate follow-up.             | تحسين جودة البيانات وتقليل أخطاء التوثيق في مركز الاتصال.<br>Improves data quality and reduces documentation errors inside the contact centre.                                 | 1. يخزن كل تعديل الوقت والاسم والملاحظات.<br>Each edit stores timestamp, username, and notes.<br>2. يظهر تنبيه عند وجود تعارض بين تعديلات متعددة.<br>Conflict warning appears on overlapping edits.<br>3. يمكن الرجوع لإصدار سابق بضغطة واحدة للحالات الطارئة.<br>Previous version can be restored in a single click for emergencies.                                                               |
-| 🏭 مشرف العمليات<br>Operations Supervisor      | مراقبة مراحل التوريد والشحن في لوحة واحدة موحدة.<br>Monitor sourcing and shipping stages from a unified dashboard. | كمشرف عمليات أريد عرض حالة كل شحنة ومصدرها حتى أوجه الفريق وتلافى التأخير.<br>As an operations supervisor I want to see every shipment status and origin so I can steer the team and prevent delays.        | يقلل الوقت المطلوب لتنسيق الموردين ويمنح رؤية موحدة للتقدم اليومي.<br>Reduces coordination time with suppliers and provides a unified view of daily progress.                  | 1. تعرض اللوحة مؤشرات اللون لكل مرحلة.<br>Dashboard shows coloured indicators per stage.<br>2. يُولد تقرير PDF يومي تلقائي للمراجعة الصباحية.<br>Daily PDF report is generated automatically for morning review.<br>3. يمكن تصفية البيانات حسب المورد أو الدولة أو حالة الشحن.<br>Data can be filtered by supplier, country, or shipping stage.                                                     |
-| 💰 محلل المالية<br>Finance Analyst             | مطابقة الدفعات وتحديث الرصيد المتبقي بدقة.<br>Reconcile payments and update remaining balance accurately.          | كمحلل مالية أريد مراجعة كل دفعة وربطها بالطلب حتى أضمن شمولية السجلات.<br>As a finance analyst I want to reconcile each payment with its order so that records stay complete.                               | يدعم الفوترة الدقيقة ويقلل زمن التسوية ويعزز جاهزية التدقيق.<br>Supports precise invoicing, shortens reconciliation time, and boosts audit readiness.                          | 1. يمكن استيراد الحركات البنكية CSV وتطابقها مع الطلبات.<br>Bank CSV imports can be matched to orders.<br>2. يظهر تنبيه فوري إذا لم يُغطِّ الدفع كامل المبلغ.<br>Alert triggers when payment does not cover full amount.<br>3. تُخزن القيود المحاسبية باللغتين للاستخدام في التقارير الخارجية.<br>Journal entries are stored bilingually for external reporting.                                    |
-| 🛠️ مهندس الدعم التقني<br>Tech Support Engineer | تتبع مشكلات الأداء وربطها بالقصص ذات الصلة.<br>Track performance issues and link them to relevant stories.         | كمهندس دعم أريد ربط البلاغات بقصص المستخدم لأتأكد من معالجة الأسباب الجذرية في الإصدارات القادمة.<br>As a support engineer I want to link incidents to user stories so future releases address root causes. | يعزز الشفافية بين فرق الدعم والتطوير ويمنع تكرار الأعطال الحرجة.<br>Enhances transparency between support and development teams and prevents recurrence of critical incidents. | 1. يسمح النظام بربط التذكرة بأكثر من قصة مع توثيق المبررات.<br>System allows linking tickets to multiple stories with documented rationale.<br>2. يتم توليد تقرير أسبوعي للبلاغات المرتفعة.<br>A weekly raised-incidents report is generated automatically.<br>3. تتبع الحل يحدَّث تلقائيًا عند إغلاق القصة المرتبطة.<br>Resolution tracking updates automatically when the linked story is closed. |
+<table>
+  <thead>
+    <tr>
+      <th>👤 المستفيد<br><i>Beneficiary</i></th>
+      <th>🎯 الهدف الرئيسي<br><i>Main Goal</i></th>
+      <th>📖 قصة المستخدم<br><i>User Story</i></th>
+      <th>💡 القيمة المتحققة<br><i>Delivered Value</i></th>
+      <th>✔️ معايير القبول<br><i>Acceptance Criteria</i></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>👥 العملاء الأفراد<br><i>Retail Customers</i></b></td>
+      <td>تقديم طلب جديد بروابط المنتجات مع متابعة كاملة<br><i>Submit a new order with product links and full tracking</i></td>
+      <td>كعميل أرغب في إدخال طلب جديد مرفقًا بروابط المنتجات حتى أتابع الشحنة بسهولة<br><i>As a customer I want to submit an order with product links so I can monitor the shipment easily</i></td>
+      <td>رحلة تقديم مبسطة مع إشعارات تلقائية تقلل الاستفسارات المتكررة<br><i>Simplified submission with automated alerts that lower repeated inquiries</i></td>
+      <td>
+        <ul>
+          <li>📌 يعرض ملخص الطلب قبل الإرسال<br><i>Summary shown before submission</i></li>
+          <li>📌 يدعم إدخال روابط متعددة وملاحظات ثنائية اللغة<br><i>Fields accept multiple links and bilingual notes</i></li>
+          <li>📌 يتم إرسال إشعار فوري بالبريد وقناة الاتصال<br><i>Instant notification sent via email and selected channel</i></li>
+        </ul>
+      </td>
+    </tr>
+    <tr style="background-color:#f9fafb;">
+      <td><b>🎧 فريق خدمة العملاء<br><i>Customer Service Team</i></b></td>
+      <td>تحديث بيانات الطلب دون فقدان سجل المراجعات<br><i>Update order data without losing revision history</i></td>
+      <td>كوكيل خدمة أريد تعديل تفاصيل الطلب مع الاحتفاظ بسجل التغييرات<br><i>As a service agent I want to edit order details while keeping change history</i></td>
+      <td>تحسين جودة البيانات وتقليل أخطاء التوثيق<br><i>Improves data quality and reduces documentation errors</i></td>
+      <td>
+        <ul>
+          <li>🕒 يخزن كل تعديل الوقت والاسم والملاحظات<br><i>Each edit stores timestamp, username, and notes</i></li>
+          <li>⚠️ يظهر تنبيه عند وجود تعارض بين التعديلات<br><i>Conflict warning on overlapping edits</i></li>
+          <li>↩️ يمكن الرجوع لإصدار سابق بضغطة واحدة<br><i>Previous version can be restored with one click</i></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><b>🏭 مشرف العمليات<br><i>Operations Supervisor</i></b></td>
+      <td>مراقبة مراحل التوريد والشحن في لوحة واحدة<br><i>Monitor sourcing and shipping stages from a unified dashboard</i></td>
+      <td>كمشرف عمليات أريد عرض حالة كل شحنة ومصدرها<br><i>As an operations supervisor I want to see every shipment status and origin</i></td>
+      <td>تقليل وقت التنسيق ورؤية موحدة للتقدم اليومي<br><i>Reduces coordination time and provides a unified view of progress</i></td>
+      <td>
+        <ul>
+          <li>🎨 مؤشرات لونية لكل مرحلة<br><i>Colour indicators per stage</i></li>
+          <li>📄 تقرير PDF يومي تلقائي<br><i>Daily PDF report generated automatically</i></li>
+          <li>🔍 إمكانية التصفية حسب المورد أو الدولة<br><i>Data filtering by supplier, country, or stage</i></li>
+        </ul>
+      </td>
+    </tr>
+    <tr style="background-color:#f9fafb;">
+      <td><b>💰 محلل المالية<br><i>Finance Analyst</i></b></td>
+      <td>مطابقة الدفعات وتحديث الرصيد بدقة<br><i>Reconcile payments and update remaining balance accurately</i></td>
+      <td>كمحلل مالية أريد مراجعة كل دفعة وربطها بالطلب<br><i>As a finance analyst I want to reconcile each payment with its order</i></td>
+      <td>دعم الفوترة الدقيقة وتقليل زمن التسوية<br><i>Supports precise invoicing and shortens reconciliation time</i></td>
+      <td>
+        <ul>
+          <li>📥 استيراد الحركات البنكية CSV وربطها بالطلبات<br><i>Import bank CSV and match to orders</i></li>
+          <li>⚠️ تنبيه فوري عند عدم تغطية المبلغ<br><i>Alert when payment does not cover full amount</i></li>
+          <li>🌐 تخزين القيود المحاسبية باللغتين<br><i>Bilingual journal entries for reporting</i></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><b>🛠️ مهندس الدعم التقني<br><i>Tech Support Engineer</i></b></td>
+      <td>تتبع مشكلات الأداء وربطها بالقصص<br><i>Track performance issues and link them to stories</i></td>
+      <td>كـمهندس دعم أريد ربط البلاغات بقصص المستخدم<br><i>As a support engineer I want to link incidents to user stories</i></td>
+      <td>تعزيز الشفافية بين الدعم والتطوير<br><i>Enhances transparency and prevents recurrence</i></td>
+      <td>
+        <ul>
+          <li>🔗 ربط التذكرة بأكثر من قصة<br><i>Link ticket to multiple stories</i></li>
+          <li>📊 تقرير أسبوعي للبلاغات<br><i>Weekly raised-incidents report</i></li>
+          <li>✅ تحديث تلقائي لتتبع الحل<br><i>Resolution tracking updates automatically</i></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 

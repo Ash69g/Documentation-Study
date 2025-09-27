@@ -1,7 +1,12 @@
 {
   "MD013": false,
   "MD033": {
-    "allowed_elements": ["br", "div", "span"]
+    "allowed_elements": [
+      "br", "div", "span",
+      "p", "ul", "li",
+      "h3", "h4",
+      "strong", "b", "em", "i", "table", "tr", "td", "th", "thead", "tbody", "code" 
+    ]
   },
   "MD028": true,
   "MD041": false,

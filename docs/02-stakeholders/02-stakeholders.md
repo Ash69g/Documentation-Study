@@ -1,35 +1,50 @@
 ﻿# 🤝 تحليل أصحاب المصلحة | Stakeholder Analysis
 
-> 🏷️ **اسم المشروع:** منصة CA Admin للوساطة الشرائية
-> Project Name: CA Admin Shopping Mediation Platform
-> 🧑‍💼 **مالك الوثيقة:** عبدالله الشايع
-> Document Owner: Abdullah Alshaif
-> 🛠️ **المكدس التقني:** Flutter، Firebase (Firestore، Auth، Storage، Functions)
-> Tech Stack: Flutter, Firebase (Firestore, Auth, Storage, Functions)
-> 🔢 **الإصدار:** 0.1 (رؤية)
-> Version: 0.1 (Vision)
-> 📅 **آخر تحديث:** 20-09-2025
-> Last Updated: 2025-09-20
-
-**🎯 نظرة مركّزة:**
-يقدم الملف تصورًا موحدًا لتوقعات أصحاب المصلحة ويوجه القرارات اليومية نحو أولوياتهم.
-Focused insight: The document delivers a unified view of stakeholder expectations and steers day-to-day decisions toward their priorities.
-
-**🧭 قيمة تطبيقية:**
-يوضح المسار التشغيلي لتحديث بيانات الأطراف ويسهّل إعداد موجزات الإدارة والحوكمة.
-Applied value: It clarifies the operational path for updating stakeholder data and streamlines the preparation of management and governance briefs.
+> **🏷️ اسم المشروع | Project Name**
+> منصة **CA Admin** للوساطة الشرائية  
+> CA Admin Shopping Mediation Platform
+>
+> **🧑‍💼 مالك الوثيقة | Document Owner**  
+> عبدالله الشايف | Abdullah Alshaif
+>
+> **🛠️ المكدس التقني | Tech Stack**
+>
+> - Flutter
+> - Firebase (Firestore, Auth, Storage, Functions)
+>
+> **🔢 الإصدار | Version**  
+> 0.1 (رؤية) | (Vision)
+>
+> **📅 آخر تحديث | Last Updated**  
+> 20-09-2025
 
 ---
 
-## 1. 🔍 نظرة عامة على التحليل
+## 🎯 نظرة مركّزة | Focused Insight
 
-Analysis Overview
+- يقدم الملف تصورًا موحدًا لتوقعات أصحاب المصلحة ويوجه القرارات اليومية نحو أولوياتهم.  
+  The document delivers a unified view of stakeholder expectations and steers day-to-day decisions toward their priorities.
 
-يشرح القسم منهجية تحديد الأطراف المؤثرة استنادًا إلى قوتهم واهتمامهم وكيفية دمج النتائج في خارطة الطريق.
-It explains the methodology for mapping influential parties by power and interest and shows how findings feed the roadmap.
+## 🧭 قيمة تطبيقية | Applied Value
 
-يركز التحليل على التحديث المستمر باستخدام جلسات مراجعة ربع سنوية مع قادة الأعمال والفرق التقنية.
-The analysis relies on continuous refresh through quarterly review sessions with business leaders and technical squads.
+- يوضح المسار التشغيلي لتحديث بيانات الأطراف ويسهّل إعداد موجزات الإدارة والحوكمة.  
+  It clarifies the operational path for updating stakeholder data and streamlines the preparation of management and governance briefs.
+
+---
+
+## 1. 🔍 نظرة عامة على التحليل | Analysis Overview
+
+> 📖 **المنهجية | Methodology**  
+> يشرح القسم منهجية تحديد الأطراف المؤثرة استنادًا إلى قوتهم واهتمامهم، وكيفية دمج النتائج في خارطة الطريق.  
+> _It explains the methodology for mapping influential parties by power and interest, and shows how findings feed the roadmap._
+
+---
+
+> 🔄 **التحديث المستمر | Continuous Refresh**  
+> يركز التحليل على التحديث المستمر باستخدام جلسات مراجعة ربع سنوية مع قادة الأعمال والفرق التقنية.  
+> _The analysis relies on continuous refresh through quarterly review sessions with business leaders and technical squads._
+
+---
 
 ## 1.1 🔗 مشهد التفاعل | Interaction Landscape
 
@@ -143,18 +158,67 @@ mindmap
 يقدم الجدول توصيفًا موجزًا للأدوار والتوقعات لضمان توحيد الرسائل والنتائج المطلوبة.
 Purpose: The table delivers concise role and expectation definitions to unify messaging and desired outcomes.
 
-| الفئة<br>Category                                 | الدور الرئيسي<br>Primary Role                                                                                                                           | التوقع المحوري<br>Key Expectation                                                                                                                                      |
-| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 👥 العملاء<br>Customers                           | تقديم الطلبات ومتابعة حالتها عبر القنوات الرقمية والهاتفية.<br>Submit orders and track their status through digital and phone channels.                 | رحلة واضحة ثنائية اللغة مع تسعير شفاف وإشعارات آنية بكل تغيير.<br>A clear bilingual journey with transparent pricing and real-time change alerts.                      |
-| 🎧 فريق خدمة العملاء<br>Customer Service Team     | التحقق من بيانات الطلبات والرد على الاستفسارات وإدارة شكاوى المستخدمين.<br>Validate order data, handle questions, and manage customer complaints.       | واجهة موحدة وسجلات تفاعل قابلة للبحث مع قوالب رد جاهزة.<br>A unified interface and searchable interaction history with ready-to-use response templates.                |
-| 🏭 فريق العمليات<br>Operations Team               | تنسيق المشتريات وإدارة المخزون والمتابعة مع الشحن والموردين.<br>Coordinate procurement, manage inventory, and liaise with shipping and suppliers.       | لوحة تحكم تنبؤية تقلل العمل اليدوي وتنبه مبكرًا لأي تأخير أو نقص.<br>A predictive dashboard that reduces manual steps and raises early alerts for delays or shortages. |
-| 💰 فريق المالية<br>Finance Team                   | مطابقة المدفوعات، إدارة الأرصدة، وإصدار التقارير الدورية للحوكمة.<br>Reconcile payments, manage balances, and produce periodic governance reports.      | بيانات دقيقة متعددة العملات وجاهزية فورية للتدقيق.<br>Accurate multi-currency data with instant audit readiness.                                                       |
-| 🏆 القيادة التنفيذية<br>Executive Leadership      | وضع الأولويات، اعتماد الميزانيات، ومراقبة الأداء الاستراتيجي.<br>Set priorities, approve budgets, and monitor strategic performance.                    | مؤشرات أداء موجزة ونماذج مخاطر شفافة لدعم قرارات النمو.<br>Concise KPIs and transparent risk models to back growth decisions.                                          |
-| 🛠️ الدعم التقني<br>Tech Support                   | إدارة الصلاحيات، مراقبة سلامة النظام، ومعالجة الأعطال والبلاغات التقنية.<br>Manage permissions, monitor system health, and resolve technical incidents. | سجلات أخطاء دقيقة وأدوات مراقبة لحظية مع اختبارات أمن متكررة.<br>Precise error logs, real-time monitoring tools, and recurring security tests.                         |
-| 🤝 الشركاء التجاريون<br>Commercial Partners       | تحديث الأسعار وتوفير التوافر وتنسيق الحملات المشتركة.<br>Update pricing, secure availability, and coordinate joint campaigns.                           | تكاملات API مستقرة وتقارير عمولات موثوقة مع رؤية زمنية للطلبات.<br>Stable API integrations, reliable commission reports, and timely order visibility.                  |
-| 🚚 مقدمو الخدمات اللوجستية<br>Logistics Providers | استلام الشحنات ونقلها وتوثيق التسليم ضمن الإطارات الزمنية المتفق عليها.<br>Receive, transport, and confirm deliveries within agreed timeframes.         | جداول دقيقة، إثباتات تسليم رقمية، ونظام لإدارة الاستثناءات بسهولة.<br>Accurate schedules, digital proof of delivery, and easy exception management.                    |
-| 📋 المدققون الخارجيون<br>External Auditors        | التحقق من الامتثال المالي والتشغيلي باستخدام سجلات رسمية موثوقة.<br>Validate financial and operational compliance through authoritative records.        | وصول مضبوط للبيانات وسجلات كاملة لكل معاملة وتقارير مراجعة معتمدة.<br>Controlled data access, full per-transaction logs, and certified audit reports.                  |
-| 💼 المستثمرون<br>Investors                        | متابعة العوائد، فهم خارطة الطريق، ومراقبة مستويات المخاطر.<br>Track returns, understand the roadmap, and observe risk levels.                           | تقارير حكومية مختصرة وتوقعات نمو مدعومة ببيانات موثوقة.<br>Concise governance reports and growth forecasts backed by trustworthy data.                                 |
+<table>
+  <thead>
+    <tr>
+      <th>📌 الفئة<br><i>Category</i></th>
+      <th>🎭 الدور الرئيسي<br><i>Primary Role</i></th>
+      <th>🎯 التوقع المحوري<br><i>Key Expectation</i></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>👥 العملاء<br><i>Customers</i></b></td>
+      <td>تقديم الطلبات ومتابعة حالتها عبر القنوات الرقمية والهاتفية<br><i>Submit orders and track their status through digital and phone channels</i></td>
+      <td>رحلة واضحة ثنائية اللغة مع تسعير شفاف وإشعارات آنية بكل تغيير<br><i>A clear bilingual journey with transparent pricing and real-time change alerts</i></td>
+    </tr>
+    <tr style="background-color:#f9fafb;">
+      <td><b>🎧 فريق خدمة العملاء<br><i>Customer Service Team</i></b></td>
+      <td>التحقق من بيانات الطلبات والرد على الاستفسارات وإدارة شكاوى المستخدمين<br><i>Validate order data, handle questions, and manage customer complaints</i></td>
+      <td>واجهة موحدة وسجلات تفاعل قابلة للبحث مع قوالب رد جاهزة<br><i>A unified interface and searchable interaction history with ready-to-use response templates</i></td>
+    </tr>
+    <tr>
+      <td><b>🏭 فريق العمليات<br><i>Operations Team</i></b></td>
+      <td>تنسيق المشتريات وإدارة المخزون والمتابعة مع الشحن والموردين<br><i>Coordinate procurement, manage inventory, and liaise with shipping and suppliers</i></td>
+      <td>لوحة تحكم تنبؤية تقلل العمل اليدوي وتنبه مبكرًا لأي تأخير أو نقص<br><i>A predictive dashboard that reduces manual steps and raises early alerts for delays or shortages</i></td>
+    </tr>
+    <tr style="background-color:#f9fafb;">
+      <td><b>💰 فريق المالية<br><i>Finance Team</i></b></td>
+      <td>مطابقة المدفوعات، إدارة الأرصدة، وإصدار التقارير الدورية<br><i>Reconcile payments, manage balances, and produce periodic governance reports</i></td>
+      <td>بيانات دقيقة متعددة العملات وجاهزية فورية للتدقيق<br><i>Accurate multi-currency data with instant audit readiness</i></td>
+    </tr>
+    <tr>
+      <td><b>🏆 القيادة التنفيذية<br><i>Executive Leadership</i></b></td>
+      <td>وضع الأولويات، اعتماد الميزانيات، ومراقبة الأداء الاستراتيجي<br><i>Set priorities, approve budgets, and monitor strategic performance</i></td>
+      <td>مؤشرات أداء موجزة ونماذج مخاطر شفافة لدعم قرارات النمو<br><i>Concise KPIs and transparent risk models to back growth decisions</i></td>
+    </tr>
+    <tr style="background-color:#f9fafb;">
+      <td><b>🛠️ الدعم التقني<br><i>Tech Support</i></b></td>
+      <td>إدارة الصلاحيات، مراقبة سلامة النظام، ومعالجة الأعطال<br><i>Manage permissions, monitor system health, and resolve technical incidents</i></td>
+      <td>سجلات أخطاء دقيقة وأدوات مراقبة لحظية مع اختبارات أمن متكررة<br><i>Precise error logs, real-time monitoring tools, and recurring security tests</i></td>
+    </tr>
+    <tr>
+      <td><b>🤝 الشركاء التجاريون<br><i>Commercial Partners</i></b></td>
+      <td>تحديث الأسعار وتوفير التوافر وتنسيق الحملات المشتركة<br><i>Update pricing, secure availability, and coordinate joint campaigns</i></td>
+      <td>تكاملات API مستقرة وتقارير عمولات موثوقة مع رؤية زمنية للطلبات<br><i>Stable API integrations, reliable commission reports, and timely order visibility</i></td>
+    </tr>
+    <tr style="background-color:#f9fafb;">
+      <td><b>🚚 مقدمو الخدمات اللوجستية<br><i>Logistics Providers</i></b></td>
+      <td>استلام الشحنات ونقلها وتوثيق التسليم ضمن الإطارات الزمنية<br><i>Receive, transport, and confirm deliveries within agreed timeframes</i></td>
+      <td>جداول دقيقة، إثباتات تسليم رقمية، ونظام لإدارة الاستثناءات<br><i>Accurate schedules, digital proof of delivery, and easy exception management</i></td>
+    </tr>
+    <tr>
+      <td><b>📋 المدققون الخارجيون<br><i>External Auditors</i></b></td>
+      <td>التحقق من الامتثال المالي والتشغيلي باستخدام سجلات موثوقة<br><i>Validate financial and operational compliance through authoritative records</i></td>
+      <td>وصول مضبوط للبيانات وسجلات كاملة لكل معاملة وتقارير مراجعة معتمدة<br><i>Controlled data access, full per-transaction logs, and certified audit reports</i></td>
+    </tr>
+    <tr style="background-color:#f9fafb;">
+      <td><b>💼 المستثمرون<br><i>Investors</i></b></td>
+      <td>متابعة العوائد، فهم خارطة الطريق، ومراقبة مستويات المخاطر<br><i>Track returns, understand the roadmap, and observe risk levels</i></td>
+      <td>تقارير مختصرة وتوقعات نمو مدعومة ببيانات موثوقة<br><i>Concise governance reports and growth forecasts backed by trustworthy data</i></td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
@@ -240,24 +304,67 @@ flowchart TD
 يوزع الجدول أدوار RACI للأنشطة المحورية حتى تبقى الخطوط الوظيفية واضحة وفعّالة.
 Purpose: The table assigns RACI roles to critical activities, keeping functional boundaries clear and effective.
 
-| النشاط<br>Activity                             | المسؤول<br>Responsible             | المُحاسَب<br>Accountable  | المستشارون<br>Consulted                                  | الجهات المُخطَرة<br>Informed                              |
-| ---------------------------------------------- | ---------------------------------- | ------------------------- | -------------------------------------------------------- | --------------------------------------------------------- |
-| 📨 استقبال الطلبات الجديدة<br>New Order Intake | 🎧 دعم العملاء<br>Customer Service | 🏭 العمليات<br>Operations | 🛠️ الدعم التقني، 💰 المالية<br>Tech Support, Finance     | 🏆 القيادة<br>Leadership                                  |
-| 🚚 تحديث حالة الشحن<br>Update Shipment Status  | 🏭 العمليات<br>Operations          | 💰 المالية<br>Finance     | 🚚 مقدمو الخدمات اللوجستية<br>Logistics Providers        | 🎧 دعم العملاء<br>Customer Service                        |
-| 💳 مطابقة الدفعات<br>Payment Reconciliation    | 💰 المالية<br>Finance              | 🏆 القيادة<br>Leadership  | 🏭 العمليات<br>Operations                                | 🤝 الشركاء، 📋 المدققون<br>Partners, Auditors             |
-| 🚀 إطلاق ميزة جديدة<br>Launch New Feature      | 🛠️ الدعم التقني<br>Tech Support    | 🏆 القيادة<br>Leadership  | 🎧 خدمة العملاء، 💰 المالية<br>Customer Service, Finance | جميع أصحاب المصلحة المتأثرين<br>All impacted stakeholders |
+<table>
+  <thead>
+    <tr>
+      <th>📌 النشاط<br><i>Activity</i></th>
+      <th>👷 المسؤول<br><i>Responsible (R)</i></th>
+      <th>🧑‍💼 المُحاسَب<br><i>Accountable (A)</i></th>
+      <th>👥 المستشارون<br><i>Consulted (C)</i></th>
+      <th>📢 الجهات المُخطَرة<br><i>Informed (I)</i></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>📨 استقبال الطلبات الجديدة<br><i>New Order Intake</i></b></td>
+      <td>🎧 دعم العملاء<br><i>Customer Service</i></td>
+      <td>🏭 العمليات<br><i>Operations</i></td>
+      <td>🛠️ الدعم التقني، 💰 المالية<br><i>Tech Support, Finance</i></td>
+      <td>🏆 القيادة<br><i>Leadership</i></td>
+    </tr>
+    <tr style="background-color:#f9fafb;">
+      <td><b>🚚 تحديث حالة الشحن<br><i>Update Shipment Status</i></b></td>
+      <td>🏭 العمليات<br><i>Operations</i></td>
+      <td>💰 المالية<br><i>Finance</i></td>
+      <td>🚚 مقدمو الخدمات اللوجستية<br><i>Logistics Providers</i></td>
+      <td>🎧 دعم العملاء<br><i>Customer Service</i></td>
+    </tr>
+    <tr>
+      <td><b>💳 مطابقة الدفعات<br><i>Payment Reconciliation</i></b></td>
+      <td>💰 المالية<br><i>Finance</i></td>
+      <td>🏆 القيادة<br><i>Leadership</i></td>
+      <td>🏭 العمليات<br><i>Operations</i></td>
+      <td>🤝 الشركاء، 📋 المدققون<br><i>Partners, Auditors</i></td>
+    </tr>
+    <tr style="background-color:#f9fafb;">
+      <td><b>🚀 إطلاق ميزة جديدة<br><i>Launch New Feature</i></b></td>
+      <td>🛠️ الدعم التقني<br><i>Tech Support</i></td>
+      <td>🏆 القيادة<br><i>Leadership</i></td>
+      <td>🎧 خدمة العملاء، 💰 المالية<br><i>Customer Service, Finance</i></td>
+      <td>📢 جميع أصحاب المصلحة المتأثرين<br><i>All impacted stakeholders</i></td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
 ## 7. 📈 مؤشرات المتابعة | Monitoring Indicators
 
-**📌 الهدف:**
-تساعد المؤشرات على قياس تأثير إدارة أصحاب المصلحة وتوجيه التحسين المستمر.
-Purpose: The indicators measure the impact of stakeholder management and guide continuous improvement.
+**📌 الهدف | Purpose**  
+ تساعد المؤشرات على قياس تأثير إدارة أصحاب المصلحة وتوجيه التحسين المستمر.  
+ _The indicators measure the impact of stakeholder management and guide continuous improvement._
 
-- ⏱️ معدل الاستجابة للشكاوى يختبر الالتزام بمستويات الخدمة ويسلط الضوء على الاختناقات.
-  Complaint response rate tests SLA compliance and exposes emerging bottlenecks.
-- 💸 زمن إغلاق الدورة المالية يتتبع المدة من المعاملة حتى التسوية لتوجيه قرارات الاستثمار والتدقيق.
-  Financial cycle closure time tracks the span from transaction to reconciliation to guide investment and audit decisions.
-- 🤝 مؤشر رضا الشركاء يقيس جودة التكامل والدعم ويحمي الحصة السوقية مع توسيع شبكة الموردين.
-  Partner satisfaction index gauges integration quality and support, protecting market share while expanding the supplier network.
+**⏱️ معدل الاستجابة للشكاوى | Complaint Response Rate**
+
+- يختبر الالتزام بمستويات الخدمة ويسلط الضوء على الاختناقات.  
+  _Tests SLA compliance and exposes emerging bottlenecks._
+
+**💸 زمن إغلاق الدورة المالية | Financial Cycle Closure Time**
+
+- يتتبع المدة من المعاملة حتى التسوية لتوجيه قرارات الاستثمار والتدقيق.  
+  _Tracks the span from transaction to reconciliation to guide investment and audit decisions._
+
+**🤝 مؤشر رضا الشركاء | Partner Satisfaction Index**
+
+- يقيس جودة التكامل والدعم ويحمي الحصة السوقية مع توسيع شبكة الموردين.  
+  _Gauges integration quality and support, protecting market share while expanding the supplier network._
