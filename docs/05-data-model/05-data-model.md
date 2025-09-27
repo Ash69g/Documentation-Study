@@ -1,295 +1,220 @@
-﻿# 🗃️ نموذج البيانات
+﻿# 🗃️ نموذج البيانات | Data Model
 
-> 🗂️ **ملخص سريع | Quick Summary**
-> هذا الملف يوضح الكيانات الأساسية للنظام والعلاقات بينها، مع دعم كل نقطة بأيقونات ورسومات توضيحية وشرح مختصر.
+| العنصر        | التفاصيل                                                                                                                                                                                                                           |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| المنصة        | منصة الوساطة الشرائية CA Admin<br>CA Admin Shopping Mediation Platform                                                                                                                                                             |
+| الإصدار       | 0.1 – آخر تحديث 2025-09-20 – المالك: عبدالله الشائف<br>Version 0.1 – Last updated 2025-09-20 – Owner: Abdullah Alshaif                                                                                                             |
+| المكدس التقني | Flutter، Firebase (Firestore، Auth، Storage، Functions)<br>Flutter, Firebase (Firestore, Auth, Storage, Functions)                                                                                                                 |
+| روابط مساندة  | `docs/01-vision/01-vision.md`، `docs/03-stories/03-stories.md`، `docs/10-nfr-and-quality/10-nfr-and-quality.md`<br>`docs/01-vision/01-vision.md`, `docs/03-stories/03-stories.md`, `docs/10-nfr-and-quality/10-nfr-and-quality.md` |
 
-Data Model
-
----
-
-> **المشروع:** منصة إدارة وساطة التسوق CA Admin  
-> **Project:** CA Admin Shopping Mediation Platform  
-> **التقنيات:** Flutter، Firebase (Firestore، Auth، Storage، Functions)  
-> **Stack:** Flutter, Firebase (Firestore, Auth, Storage, Functions)  
-> **الإصدار:** 0.1 (رؤية) - المالك: عبدالله الشائف - آخر تحديث: 2025-09-20  
-> **Version:** 0.1 (Vision) - Owner: Abdullah Alshaif - Last Updated: 2025-09-20
-
-**شرح مختصر:**
-نموذج البيانات يحدد الكيانات والعلاقات الأساسية لضمان اتساق المعلومات ودعم العمليات.
-
-**Summary:**
-The data model defines core entities and relationships to ensure information consistency and support operations.
+> 🔑 **الخلاصة السريعة:** يربط هذا المستند بين التشغيل اليومي وطبقات البيانات لضمان الدقة، منع التضارب، وتمكين التحليلات الفورية.
+> 🔑 **Quick Glance:** This reference links daily operations to their data layers to guarantee accuracy, avoid conflicts, and enable real-time analytics.
 
 ---
 
-> 🧩 **ما هي؟ | What:**
-> نموذج يربط العمليات اليومية بمصادر بيانات موثوقة ويمنع التضارب والتكرار.
-> _A model linking daily operations to reliable data sources, preventing conflict and duplication._
+## 1. نظرة عامة | Overview
 
----
+- 🧭 يوضح نطاق العمل الرحلة من استلام الطلب حتى التسوية المالية النهائية.
+  🧭 Outlines the scope from order intake all the way to final financial reconciliation.
+- 🎯 يحدد الأهداف عبر وصف سلوك الممثلين والقيمة التشغيلية لكل جزء من النموذج.
+  🎯 States the goals by describing actor behaviour and the operational value tied to each model segment.
+- 📦 يسلم حالات استخدام بيانات جاهزة للتحليل والتصميم والاختبار مع سياق إداري واضح.
+  📦 Delivers data use cases ready for analysis, design, and testing with explicit governance context.
 
-## 1. مقدمة
-
-Introduction
-
----
-
-### 1.1 نظرة بصرية
-
-Visual Overview
-
-**شرح مختصر:**
-يوضح المخطط العلاقات بين الكيانات الرئيسية مثل العميل، الطلب، الشحن، المالية، والأمان.
-
-**Summary:**
-The diagram shows relationships between main entities: customer, order, shipment, finance, and security.
+## 1.1 🛰️ العرض المرئي العام | System Overview Diagram
 
 ```mermaid
-erDiagram
-  CUSTOMER ||--o{ ORDER : ""
-  ORDER ||--o{ ORDERITEM : ""
-  ORDER ||--o{ SHIPMENT : ""
-  SHIPMENT ||--o{ SHIPMENTEVENT : ""
-  SHIPMENT ||--o{ DELIVERYPROOF : ""
-  ORDER ||--o{ PAYMENT : ""
-  PAYMENT ||--o{ LEDGERENTRY : ""
-  PAYMENT ||--o{ BANKSTATEMENT : ""
-  USER ||--o{ USERROLE : ""
-  USER ||--o{ AUDITLOG : ""
-  USERROLE ||--o{ POLICYSNAPSHOT : ""
+flowchart LR
+  Customer["العميل\nCustomer"]
+  OrderNode["الطلب\nOrder"]
+  ItemNode["عنصر الطلب\nOrder Item"]
+  Shipment["الشحنة\nShipment"]
+  ShipEvent["حدث الشحنة\nShipment Event"]
+  Proof["إثبات التسليم\nDelivery Proof"]
+  Payment["الدفعة\nPayment"]
+  Ledger["قيد الدفتر\nLedger Entry"]
+  Statement["كشف البنك\nBank Statement"]
+  User["المستخدم\nUser"]
+  Role["الدور\nRole"]
+  Audit["سجل التدقيق\nAudit Log"]
+
+  Customer --> OrderNode
+  OrderNode --> ItemNode
+  OrderNode --> Shipment
+  Shipment --> ShipEvent
+  Shipment --> Proof
+  OrderNode --> Payment
+  Payment --> Ledger
+  Payment --> Statement
+  User --> Role
+  User --> Audit
+  Role --> Ledger
 ```
 
-> 🖼️ **شرح الرسم:** يوضح كيف ترتبط الكيانات الرئيسية ببعضها البعض، مع إبراز العلاقة بين العمليات والمالية والأمان.
+> 📌 يوضح الرسم كيفية ترابط الكيانات التشغيلية والمالية لضمان مصدر واحد للحقيقة عبر المنصة.
+> 📌 The diagram highlights how operational and financial entities interlink to maintain a single source of truth across the platform.
+
+## 1.2 🎯 مبادئ نموذج البيانات | Data Model Principles
+
+- 🧱 يغطي التصميم كيانات العميل، الطلب، الشحنة، المالية، والأمن لضمان الصورة المتكاملة.
+  🧱 The structure spans customer, order, shipment, finance, and security entities to deliver a holistic view.
+- 🔄 يربط إجراءات اليوم الواحد بمصادر بيانات موثوقة لمنع التكرار والتضارب.
+  🔄 Links day-to-day actions to trusted data sources, eliminating duplication and conflict.
+- 📊 يؤسس لفصل واضح بين البيانات التشغيلية والتحليلات مع إمكان بناء مؤشرات الأداء بسلاسة.
+  📊 Establishes a clean separation between operational data and analytics, making KPI construction straightforward.
+- 🛡️ يشمل اعتبارات Firestore من حيث البنية، الشاردينغ، والفهارس للحفاظ على الأداء.
+  🛡️ Embeds Firestore considerations around structure, sharding, and indexes to keep performance stable.
 
 ---
 
-#### أهداف نموذج البيانات
+## 2. كيان العميل | Customer Entity
 
-> 🎯 **شرح مختصر:** منظومة كيان-علاقة تغطي العملاء، الطلبات، الشحن، المالية، والأمان.
+> 👥 يعكس هذا الكيان بيانات التعريف والتواصل لكل عميل مع حقول صالحة للبحث السريع والتخصيص.
+> 👥 This entity captures customer identity and contact data with fields optimised for quick search and personalisation.
 
-- منظومة كيان-علاقة تغطي العملاء، الطلبات، الشحن، المالية، والأمان.
-- تربط العمليات اليومية بمصادر بيانات موثوقة.
-- تسهل الإبلاغ والتحليلات دون تضارب أو تكرار.
+| الحقل Field     | النوع Type             | الوصف Description                                                                                                                     |
+| --------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| customerId      | معرف نصي<br>String ID  | مفتاح أساسي يولده النظام لكل عميل لضمان التتبع الموحد.<br>System-generated primary key that keeps customer tracking unique.           |
+| fullName        | نص<br>String           | الاسم الكامل ثنائي اللغة كما يفضله العميل لضمان اتساق التواصل.<br>Bilingual full name reflecting the customer’s preferred expression. |
+| phone           | نص<br>String           | رقم اتصال موثّق يستخدم للمصادقة والتحديثات الفورية.<br>Verified contact number used for authentication and instant notifications.     |
+| preferredLocale | نص<br>String           | لغة الواجهة (ar/en) لعرض القوالب والإشعارات بشكل مناسب.<br>Interface locale (ar/en) to render templates and alerts accurately.        |
+| loyaltyTier     | نص<br>String           | مستوى الولاء (Silver/Gold) لدعم عروض الولاء والتصعيد.<br>Loyalty tier (Silver/Gold) powering incentives and priority routing.         |
+| createdAt       | طابع زمني<br>Timestamp | تاريخ إنشاء السجل لحساب عمر العميل والتقارير.<br>Record creation timestamp used for lifetime metrics and reporting.                   |
 
-**Objectives:**
-
-- Entity-relationship system covering customer, order, shipment, finance, and security domains.
-- Connects daily operations with reliable data sources.
-- Facilitates reporting and analytics without conflict or duplication.
-
-#### توائم Firestore
-
-> 🔥 **شرح مختصر:** تحويل النموذج إلى هيكل مجموعات ووثائق مع فهارس داعمة في Firestore.
-
-- تنفيذ النموذج على هيكل مجموعات ووثائق مع فهارس داعمة.
-- تحويل الجداول إلى مجموعات أساسية، فرعية، وسجلات فهرس.
-- تمكن من أداء عالٍ وقراءة قابلة للتوسع.
-- تقلل تكلفة الاستعلام وتسرع زمن الاستجابة.
-
-**Firestore mapping:**
-
-- Implement entities as collection/document structures with supportive indexes.
-- Transform tables into root collections, subcollections, and index logs.
-- Enables high performance and scalable reads.
-- Reduces query cost and improves response time.
+- 🔍 يوفر تخزينًا متسقًا لملفات العملاء وخريطتهم التفاعلية عبر القنوات.
+  🔍 Provides consistent customer profiles and cross-channel history.
+- 📨 يدعم الردود الفورية بفضل الحقول المفهرسة والفلاتر الجاهزة.
+  📨 Enables instant responses through indexed lookups and ready-made filters.
 
 ---
 
-## 2. كيان العميل / Customer Entity
+## 3. مخطط الطلب | Order Schema
 
-> 👤 **شرح مختصر:** يدعم بيانات تعريف العملاء وسجلات التواصل، ويوفر سياق فوري أثناء إدخال الطلب.
-
-| 🇸🇦 الحقل        | 🇬🇧 Field        | 🇸🇦 النوع  | 🇬🇧 Type   | 🇸🇦 الوصف                 | 🇬🇧 Description               |
-| --------------- | --------------- | --------- | --------- | ------------------------ | ---------------------------- |
-| customerId      | customerId      | معرف نصي  | String ID | مفتاح أساسي يولده النظام | System-generated primary key |
-| fullName        | fullName        | نص        | String    | الاسم الكامل باللغتين    | Full bilingual name          |
-| phone           | phone           | نص        | String    | رقم اتصال معتمد          | Verified contact number      |
-| preferredLocale | preferredLocale | نص        | String    | تفضيل اللغة (ar/en)      | Language preference (ar/en)  |
-| loyaltyTier     | loyaltyTier     | نص        | String    | مستوى الولاء (فضي/ذهبي)  | Loyalty tier (Silver/Gold)   |
-| createdAt       | createdAt       | طابع زمني | Timestamp | تاريخ إنشاء السجل        | Record creation date         |
-
-**النطاق:** يدعم بيانات تعريف العملاء وسجلات التواصل.
-**Scope:** Supports customer identity and communication records.
-**ما هي:** وثيقة Firestore رئيسية مع حقول مفهرسة للبحث.
-**What:** Root Firestore document with indexed search fields.
-**وظيفتها:** تزوّد خدمة العملاء بسياق فوري أثناء إدخال الطلب.
-**Function:** Provides customer service with instant context during order entry.
-**فائدتها:** تحسن الدقة وتدعم الميزات الشخصية مثل التنبيهات.
-**Benefit:** Improves accuracy and powers personalization features like alerts.
-
----
-
-## 3. نموذج الطلب / Order Schema
-
-> 🛒 **شرح مختصر:** تصميم يفصل بيانات رأس الطلب عن تفاصيل العناصر، ويقلل النزاعات عند التحرير المتزامن.
+> 🛒 يفصل المخطط بين رأس الطلب وعناصره لتقليل تضارب التعديلات وتحسين الأداء على Firestore.
+> 🛒 The schema separates order headers from line items to minimise edit conflicts and improve Firestore performance.
 
 ```mermaid
 classDiagram
-  class Order {
-    +string orderId
-    +string customerId
-    +string status
-    +double totalAmount
-    +string currency
-    +string paymentMethod
-    +map metadata
-    +timestamp createdAt
-    +timestamp updatedAt
+  class Order["الطلب\nOrder"] {
+    +orderId: string
+    +customerId: string
+    +status: string
+    +totalAmount: double
+    +currency: string
+    +paymentMethod: string
+    +metadata: map
+    +createdAt: datetime
+    +updatedAt: datetime
   }
-  class OrderItem {
-    +string itemId
-    +string orderId
-    +string sourceUrl
-    +string descriptionAr
-    +string descriptionEn
-    +int quantity
-    +double unitPrice
-    +map preferences
+
+  class OrderItem["عنصر الطلب\nOrder Item"] {
+    +itemId: string
+    +orderId: string
+    +sourceUrl: string
+    +descriptionAr: string
+    +descriptionEn: string
+    +quantity: int
+    +unitPrice: double
+    +preferences: map
   }
-  Order <|-- OrderItem
+
+  %% العلاقة: الطلب يحتوي عناصر طلب
+  Order "1" *-- "0..*" OrderItem : contains
 ```
 
-> 📝 **شرح الرسم:** يوضح بنية الطلب وفصل العناصر عن الرأس، مع إبراز الحقول الأساسية.
+| الحقل Field | الوصف Description                                                                                                                               |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| status      | حالة الطلب (جديد، قيد المراجعة، مكتمل) لتوجيه سير العمل.<br>Status lifecycle (New, Under Review, Completed) steering workflow routing.          |
+| metadata    | تفاصيل إضافية مثل قناة الطلب والوسيط المستخدم للتقارير.<br>Additional details such as order channel and mediator used for reporting.            |
+| preferences | إعدادات خاصة بالعناصر (لون، حجم، تعليمات تغليف) لدعم التخصيص.<br>Item-level preferences (colour, size, packing notes) enabling personalisation. |
 
-**بنية الطلب:** تفصل بيانات رأس الطلب عن تفاصيل العناصر.
-**Order structure:** Separates order header from item details.
-**ما هي:** تصميم يعتمد على وثيقة رئيسية مع مجموعة عناصر فرعية.
-**What:** Design using main document with nested item subcollection.
-**وظيفتها:** يسمح بتحديثات مستقلة للعناصر دون تعديل الرأس.
-**Function:** Allows independent item updates without touching the header.
-**فائدتها:** يخفض النزاعات عند التحرير المتزامن ويزيد المرونة.
-**Benefit:** Minimizes concurrent edit conflicts and boosts flexibility.
-
----
-
-## 4. سجل الشحن / Shipment Ledger
-
-> 🚚 **شرح مختصر:** سجل شامل لكل شحنة وأحداثها وصور الإثبات، يدعم التحليلات الدقيقة.
-
-| 🇸🇦 المجموعة    | 🇬🇧 Collection  | 🇸🇦 ما هي                             | 🇬🇧 What                                   | 🇸🇦 الوظيفة                         | 🇬🇧 Function                                   | 🇸🇦 الفائدة                            | 🇬🇧 Benefit                                            |
-| -------------- | -------------- | ------------------------------------ | ----------------------------------------- | ---------------------------------- | --------------------------------------------- | ------------------------------------- | ----------------------------------------------------- |
-| shipments      | shipments      | مجموعة رئيسية لكل شحنة مرتبطة بالطلب | Root collection per order shipment        | تتبع موقع الشحنة وحالتها الحالية   | Track shipment location and status            | توفر رؤية لحظية للعملاء والعمليات     | Provides live visibility for customers and operations |
-| shipmentEvents | shipmentEvents | مجموعة فرعية تسجل الأحداث الزمنية    | Subcollection logging time-based events   | تسجل الانتقالات مثل "وصل مركز جدة" | Records transitions like "Arrived Jeddah hub" | تمكن من التحليلات الدقيقة ودعم الأدلة | Enables precise analytics and proof support           |
-| deliveryProof  | deliveryProof  | مستودع للصور والمرفقات               | Storage bucket for images and attachments | يخزن صور التسليم وملاحظات العملاء  | Stores delivery images and customer notes     | يثبت الالتزام ويوثق نقاط الخلاف       | Proves compliance and documents disputes              |
-
-**تصميم الأحداث المتسلسل:** كل حدث يحمل توقيتا ومسارا ومسؤولا.
-**Sequential event design:** Each event carries timestamp, leg, and owner.
-**ما هي:** هيكل يعتمد على append-only لمنع التعديل الخلفي.
-**What:** Append-only structure preventing retroactive edits.
-**وظيفتها:** يحافظ على سجل موثوق للأدلة.
-**Function:** Maintains trustworthy audit trail.
-**فائدتها:** يسهل الاستجابة للشكاوى والتحقيقات.
-**Benefit:** Facilitates complaint handling and investigations.
+- 🧮 يسمح بتجميع الرسوم أثناء عملية الإدخال دون التأثير على العناصر.
+  🧮 Allows fee aggregation during intake without touching line items.
+- 🔁 يدعم تحديث العناصر بشكل مستقل مع الحفاظ على رأس الطلب.
+  🔁 Supports independent line-item updates while keeping the order header intact.
 
 ---
 
-## 5. دفتر الأستاذ المالي / Financial Ledger
+## 4. سجل الشحن | Shipment Ledger
 
-> 💳 **شرح مختصر:** تصميم يجمع كل التحركات المالية تحت معرف مرجعي واحد، ويسهل المطابقة والتقارير.
+> 🚚 يتتبع هذا الجزء مسار الشحنة وأحداثها وإثباتاتها لتقديم رؤية فورية وتقليل النزاعات.
+> 🚚 Tracks shipment path, time-based events, and proof artefacts to deliver real-time visibility and reduce disputes.
+
+| المكوّن Component | التفاصيل Details                                                                                                                             |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| shipments         | مجموعة رئيسية لكل شحنة مرتبطة بالطلب مع حالة ومسار مبدئي.<br>Root collection per shipment containing status and initial routing.             |
+| shipmentEvents    | سجل زمنى للأحداث يحمل الطابع الزمني والموقع والمالك التشغيلي.<br>Time-series log of checkpoint events with timestamp, location, and handler. |
+| deliveryProof     | مرفقات صور وتواقيع العملاء تحفظ في مساحة تخزين آمنة.<br>Image and signature attachments stored in controlled bucket space.                   |
+
+- ⏱️ يحافظ التصميم على نمط append-only لضمان سلسلة تدقيق غير قابلة للتلاعب.
+  ⏱️ Uses an append-only pattern to keep an untampered audit chain.
+- 📍 يدعم التحليلات المكانية والتقارير التشغيلية الدقيقة للأميال الأخيرة.
+  📍 Enables granular geospatial analytics and last-mile operational reporting.
+
+---
+
+## 5. دفتر المالية | Financial Ledger
+
+> 💳 يوحّد هذا القسم المستندات المالية وقيد الدفتر وكشف البنك لإتمام التسوية الآلية والتقارير.
+> 💳 Unifies payment documents, ledger entries, and bank statements to automate reconciliation and reporting.
 
 ```mermaid
 flowchart TD
-  subgraph Payments
-    PaymentDoc[دفعة رئيسية\nPayment Document]
-    LedgerEntry[قيد دفتر\nLedger Entry]
-    BankStatement[كشف بنك\nBank Statement]
-  end
-  PaymentDoc --> LedgerEntry
-  BankStatement --> LedgerEntry
-  LedgerEntry --> Reconciliation[تسوية\nReconciliation]
-  Reconciliation --> Reports[تقارير مالية\nFinancial Reports]
+  PaymentDoc["مستند الدفعة\nPayment Document"] --> LedgerEntry["قيد الدفتر\nLedger Entry"]
+  BankStatement["كشف البنك\nBank Statement"] --> LedgerEntry
+  LedgerEntry --> Reconciliation["التسوية\nReconciliation"]
+  Reconciliation --> Reports["التقارير المالية\nFinancial Reports"]
 ```
 
-> 💳 **شرح الرسم:** يوضح تدفق الدفعات من المستندات إلى التقارير المالية، مع إبراز نقاط المطابقة والتسوية.
+| العنصر Element | الملاحظات Notes                                                                                                                                  |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| paymentDoc     | يحتفظ بمصدر الدفع، العملة، ورقم المرجع الموحد لكل طلب.<br>Stores channel, currency, and unified reference number per order.                      |
+| ledgerEntry    | يجمع الحركات المالية تحت معرف واحد لضمان المطابقة الآلية.<br>Aggregates financial movements under a single id for automated matching.            |
+| reconciliation | ينتج حالات (متطابق، فرق جزئي، مفقود) مع روابط إلى عناصر المتابعة.<br>Outputs statuses (Matched, Partial, Missing) with links to follow-up tasks. |
 
-**هيكل الدفعة:** وثيقة دفعة تحتوي على تفاصيل القناة والعملة والمصدر.
-**Payment structure:** Payment document storing channel, currency, and source details.
-**ما هي:** تصميم يجمع كل التحركات تحت معرف مرجعي واحد.
-**What:** Design aggregating movements under a single reference id.
-**وظيفتها:** يسمح بمطابقة تلقائية بين الطلبات والدفعات.
-**Function:** Enables automatic matching between orders and payments.
-**فائدتها:** يقلل الجهد اليدوي ويحسن اكتشاف الأخطاء.
-**Benefit:** Cuts manual labor and improves error detection.
-
-**قيود سلامة:** الدفعات المربوطة لا يمكن حذفها إلا بصلاحيات خاصة.
-**Integrity constraints:** Linked payments cannot be deleted without special privilege.
-**ما هي:** قاعدة أمان تمنع الكتابة فوق السجلات المرجعية.
-**What:** Security rule preventing overwriting referenced records.
-**وظيفتها:** تحمي الأثر المالي من التلاعب.
-**Function:** Protects financial footprint from tampering.
-**فائدتها:** تعزز ثقة المدققين والمستثمرين.
-**Benefit:** Builds auditor and investor trust.
+- 🔒 يمنع حذف أو تعديل أي دفعة مرتبطة إلا بصلاحيات خاصة موثّقة.
+  🔒 Prevents deleting or editing linked payments without documented elevated privileges.
+- 📈 يحد من الجهود اليدوية ويزيد ثقة المدققين والمستثمرين بالبيانات المالية.
+  📈 Cuts manual work and boosts auditor/investor confidence in financial data.
 
 ---
 
-## 6. نموذج الأمان / Security Schema
+## 6. مخطط الأمن | Security Schema
 
-> 🔐 **شرح مختصر:** يحدد أدوار المستخدمين وسجلات التدقيق وسياسات الصلاحيات لضمان الأمان والامتثال.
+> 🛡️ يحدد هذا المخطط الصلاحيات وسجل التغيير لضمان امتثال RBAC ودعم التحقيقات السريعة.
+> 🛡️ Defines permissions and change history to enforce RBAC and accelerate investigations.
 
-| 🇸🇦 العنصر       | 🇬🇧 Element      | 🇸🇦 ما هي                                  | 🇬🇧 What                                        | 🇸🇦 الوظيفة                                     | 🇬🇧 Function                                          | 🇸🇦 الفائدة                               | 🇬🇧 Benefit                                              |
-| --------------- | --------------- | ----------------------------------------- | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------------- | ---------------------------------------- | ------------------------------------------------------- |
-| userRoles       | userRoles       | مجموعة تحدد هوية الدور والسياسات المرتبطة | Collection defining role identity and policies | تربط المستخدمين بمصفوفة الصلاحيات في Firestore | Connects users to Firestore rules matrix             | تضمن تطبيق RBAC بدقة وجدولة مراجعات      | Ensures precise RBAC enforcement with scheduled reviews |
-| auditLogs       | auditLogs       | سجل مركزي لكل عملية حساسة                 | Central log for sensitive operations           | يخزن من نفذ، ماذا تغير، ومتى                   | Stores who performed changes, what changed, and when | يوفر أثر تدقيق كامل ويكشف الأنماط الشاذة | Provides full audit trail and surfaces anomalies        |
-| policySnapshots | policySnapshots | أرشيف للحالة السابقة للصلاحيات            | Archive of previous policy state               | يدعم مقارنة الفروقات والتراجع الآمن            | Supports diff comparisons and safe rollback          | يقلل أخطار انتشار صلاحيات غير مقصودة     | Reduces risk of unintended privilege drift              |
-
----
-
-## 7. اعتبارات الأداء / Performance Considerations
-
-> ⚡ **شرح مختصر:** تقسيم المجموعات إقليمياً وتخزين مؤقت محلي لدعم الأداء العالي والعمل دون اتصال.
-
-- تقسيم المجموعات بحسب المنطقة: إنشاء مجموعات إقليمية للشحنات (KSA/Yemen).
-- استراتيجية تقسيم أفقية لتقليل نقاط الضغط.
-- تمنع تجاوز حدود Firestore على الوثائق الساخنة.
-- تضمن أداء ثابتا مع تزايد الأوامر.
-
-**Regional collection sharding:**
-
-- Create regional shipment collections (KSA/Yemen).
-- Horizontal sharding strategy to reduce hotspots.
-- Prevents Firestore hot document limits from triggering.
-- Keeps performance stable as orders grow.
-
-- التخزين المؤقت المحلي: استخدام IndexedDB لتخزين بيانات الطلبات النشطة.
-- طبقة وسيطة بين التطبيق وFirestore.
-- تسمح بالعمل دون اتصال وتزامن لاحق.
-- تدعم الفرق الميدانية في بيئات الاتصال المتقطع.
-
-**Local caching:**
-
-- Use IndexedDB to cache active orders.
-- Middleware layer between app and Firestore.
-- Enables offline operation with later sync.
-- Supports field teams in intermittent connectivity.
+| المكوّن Component | الوصف Description                                                                                                                                 | الفائدة Benefit                                                                                                              |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| userRoles         | مجموعة تحدد الأدوار المعتمدة وسياسات الوصول المرتبطة بكل دور.<br>Collection defining approved roles and their access policies.                    | يضمن تطبيق RBAC بدقة مع مراجعات مجدولة.<br>Ensures precise RBAC enforcement with scheduled reviews.                          |
+| auditLogs         | سجل مركزي يسجل من قام بالتغيير، ماذا تغير، ومتى حدث ذلك.<br>Central log storing who changed what and when.                                        | يوفر أثرًا تدقيقيًا كاملاً ويكشف الأنماط الشاذة بسرعة.<br>Provides full audit trail and surfaces anomalies quickly.          |
+| policySnapshots   | أرشيف للسياسات السابقة لدعم المقارنات والاسترجاع الآمن عند الحاجة.<br>Archive of previous policy states supporting comparisons and safe rollback. | يقلل مخاطر انزلاق الصلاحيات غير المقصود ويحافظ على الامتثال.<br>Reduces unintended privilege drift and preserves compliance. |
 
 ---
 
-## 8. خطة الحوكمة / Governance Plan
+## 7. اعتبارات الأداء | Performance Considerations
 
-> 📅 **شرح مختصر:** مراجعة دورية للنموذج وتنبيهات جودة البيانات لضمان التكيف مع النمو والحفاظ على الثقة.
-
-- مراجعة نصف سنوية للنموذج: تقييم تأثير النمو والتوسع على الهيكل.
-- جلسة مشتركة تجمع المنتج والبيانات والهندسة.
-- تضبط الأولويات وتحدد التعديلات اللازمة.
-- تمنع التعقيد الزائد وتحافظ على الأداء.
-
-**Semi-annual model review:**
-
-- Assess growth and expansion impact on schema.
-- Joint session with product, data, and engineering.
-- Tunes priorities and plans required adjustments.
-- Prevents unnecessary complexity and maintains performance.
-
-- تنبيهات جودة البيانات: مؤشرات لمراقبة الحقول الفارغة أو القيم الشاذة.
-- لوحات تحليلات تصدر إشعارات عند تجاوز الحدود.
-- تكشف المشكلات مبكرا قبل تأثيرها على العملاء.
-- تحسن الثقة الداخلية وخبرة المستخدم النهائي.
-
-**Data quality alerts:**
-
-- Metrics to monitor null fields or anomalous values.
-- Analytics dashboards issuing alerts when thresholds are crossed.
-- Detects issues early before impacting customers.
-- Improves internal trust and end-user experience.
+- 🌍 تقسيم المجموعات إقليميًا (السعودية/اليمن) لتقليل النقاط الساخنة على Firestore.
+  🌍 Regional sharding (KSA/Yemen) to minimise Firestore hotspots.
+- ⚖️ مراقبة حصص الكتابة وتدوير المعرفات يضمن ثبات الأداء مع نمو الطلبات.
+  ⚖️ Monitoring write quotas and id rotation keeps throughput stable as orders grow.
+- 💾 تفعيل التخزين المؤقت المحلي عبر IndexedDB يدعم العمل دون اتصال ويقلل زمن القراءة.
+  💾 Local caching via IndexedDB enables offline work and lowers read latency.
+- 📡 مزامنة تدريجية تستخدم طوابير خلفية لتفادي تضارب البيانات عند الرجوع للاتصال.
+  📡 Progressive sync with background queues prevents data clashes after reconnecting.
 
 ---
+
+## 8. خطة الحوكمة | Governance Plan
+
+- 📅 مراجعة نصف سنوية للنموذج بمشاركة المنتج، البيانات، والهندسة لضبط التوسعات.
+  📅 Semi-annual model review with product, data, and engineering to adjust for expansion.
+- 📊 مراقبة جودة البيانات عبر لوحات تنبه للحقل الخالي أو القيم الشاذة قبل تأثيرها على العملاء.
+  📊 Data quality dashboards alert on null or anomalous values before they impact customers.
+- 📘 تحديث الأدلة التشغيلية فور أي تعديل على المخطط مع تسجيل الأثر المتسلسل.
+  📘 Operational runbooks are updated immediately after schema changes with linked impact logs.
+- 🛡️ مواءمة الامتثال الدوري مع سياسات الأمن والمالية لضمان الثقة التنظيمية.
+  🛡️ Periodic compliance alignment with security and finance policies to preserve regulatory trust.
+
+> 🧾 **خلاصة التنفيذ:** يجب التعامل مع هذا النموذج كمستند حي، وتحديثه بالتزامن مع أي تغيير تشغيلي أو تنظيمي لضمان استمرارية الجودة.
+> 🧾 **Execution Reminder:** Treat the model as a living document and update it alongside any operational or regulatory change to sustain quality.
