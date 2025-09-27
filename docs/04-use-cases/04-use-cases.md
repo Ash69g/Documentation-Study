@@ -372,7 +372,7 @@ Support->>Operations: "مشاركة الدروس المستفادة\nShare lesso
 
 ---
 
-## 8. 📅 إيقاع الحوكمة | Governance Rhythm
+## 📅 8. إيقاع الحوكمة | Governance Rhythm
 
 - 🗓️ مراجعة شهرية لحالات الاستخدام تجمع التحليل والعمليات والدعم لتقييم الأداء وتحديد التحسينات.
   🗓️ Conduct a monthly use case review across analysis, operations, and support to assess performance and spot improvements.
