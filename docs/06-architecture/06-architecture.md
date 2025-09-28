@@ -1,217 +1,248 @@
-﻿# 🏛️ بنية النظام | System Architecture
+﻿# 🏛️ معمارية النظام
 
-| العنصر         | التفاصيل                                                                                                                                                                                                                                       |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| المنتج         | منصة الوساطة الشرائية CA Admin<br>CA Admin Shopping Mediation Platform                                                                                                                                                                         |
-| الإصدار        | 0.1 – آخر تحديث 2025-09-08 – المالك: عبدالله الشائف<br>Version 0.1 – Last updated 2025-09-08 – Owner: Abdullah Alshaif                                                                                                                         |
-| الهدف المعماري | منصة مرنة، قابلة للتوسع، وآمنة تدعم التخصيص الإقليمي<br>Resilient, scalable, and secure platform with regional customisation                                                                                                                   |
-| المكدس الرئيس  | Flutter، Firebase (Firestore، Auth، Storage، Cloud Functions)، مخزن محلي<br>Flutter, Firebase (Firestore, Auth, Storage, Cloud Functions), Local Cache                                                                                         |
-| وثائق مرتبطة   | `docs/01-vision/01-vision.md`، `docs/05-data-model/05-data-model.md`، `docs/10-nfr-and-quality/10-nfr-and-quality.md`<br>`docs/01-vision/01-vision.md`, `docs/05-data-model/05-data-model.md`, `docs/10-nfr-and-quality/10-nfr-and-quality.md` |
+🏛️ System Architecture
 
-> 🔑 **لماذا تقرأ هذا المستند؟**
-> 🔑 **Why read this document?**
+| الحقل                | القيمة                                                                                                                                                                                                                               |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 🧩 المنتج            | منصة وساطة التسوق CA Admin<br>CA Admin Shopping Mediation Platform                                                                                                                                                                   |
+| 📅 الإصدار           | الإصدار 0.1 – آخر تحديث 2025-09-08 – المالك: عبدالله الشائف<br>Version 0.1 – Last updated 2025-09-08 – Owner: Abdullah Alshaif                                                                                                       |
+| 🛡️ الرؤية المعمارية  | منصة مرنة، قابلة للتوسع، وآمنة مع تخصيص إقليمي.<br>Resilient, scalable, and secure platform with regional customisation.                                                                                                             |
+| 🧰 التقنيات الرئيسية | Flutter، Firebase (Firestore، Auth، Storage، Cloud Functions)، ذاكرة محلية.<br>Flutter, Firebase (Firestore, Auth, Storage, Cloud Functions), Local Cache.                                                                           |
+| 🔗 مراجع ذات صلة     | docs/01-vision/01-vision.md، docs/05-data-model/05-data-model.md، docs/10-nfr-and-quality/10-nfr-and-quality.md.<br>docs/01-vision/01-vision.md, docs/05-data-model/05-data-model.md, docs/10-nfr-and-quality/10-nfr-and-quality.md. |
+
+> 📌 **لماذا تقرأ هذا المستند؟**
+> 📌 **Why read this document?**
 >
-> - 🧱 يستعرض تطبيق Clean Architecture على مكدس Flutter/Firebase لضمان فصل واضح بين الطبقات.
->   🧱 Demonstrates Clean Architecture on the Flutter/Firebase stack to keep layers decoupled.
-> - 🔄 يوضح كيفية تكامل الخدمات والوظائف لتحقيق المرونة، المراقبة، والأمن.
->   🔄 Shows how services and functions integrate to deliver flexibility, observability, and security.
+> - 🧱 يوضح تطبيق مبادئ المعمارية النظيفة على مكدس Flutter/Firebase للحفاظ على انفصال الطبقات واستقرار التطوير.
+>   🧱 Demonstrates Clean Architecture on the Flutter/Firebase stack to keep layers decoupled and development stable.
+> - 🛰️ يعرض كيفية تكامل الخدمات والوظائف السحابية لتقديم المرونة والقابلية للمراقبة والأمان المتوافق.
+>   🛰️ Shows how cloud services and functions integrate to deliver flexibility, observability, and compliant security.
 
 ---
 
-## 1. المقدمة | Introduction
+## 🧭 1. المقدمة
 
-- 🛠️ **ما نبنيه:** تطبيق Flutter يعمل على Android وiOS مع مزامنة آنية مع Firebase.
-  🛠️ **What we build:** A Flutter application for Android/iOS synchronising in real time with Firebase.
-- 🔄 **كيف نحافظ على المرونة:** طبقات قابلة للتعديل للفصل بين العرض، المجال، والبيانات.
-  🔄 **How we stay adaptable:** Modular layers separating presentation, domain, and data concerns.
-- 👥 **من يستفيد:** فرق العمليات، المالية، والدعم الذين يحتاجون إلى خدمة مستقرة وقابلة للتوسع.
-  👥 **Who benefits:** Operations, finance, and support teams relying on stability and elasticity.
+🧭 1. Introduction
 
----
-
-## 2. مبادئ التصميم الأساسية | Core Design Principles
-
-| الأيقونة | المبدأ                                  | الوصف                                                                                                                            | الفائدة                                                                                                    |
-| -------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| 🧱       | الطبقات النظيفة<br>Clean Layers         | فصل العرض، التطبيق، المجال، والبيانات لتقليل التداخل.<br>Separate presentation, application, domain, and data to limit coupling. | يسهل تغييرات الواجهة أو المنطق دون التأثير على البقية.<br>Allows UI or logic changes without side effects. |
-| 📡       | أولوية عدم الاتصال<br>Offline First     | استخدام مخزن محلي ومزامنة لاحقة مع Firestore.<br>Use local storage with background sync to Firestore.                            | يحافظ على تجربة المستخدم في ضعف الشبكة.<br>Keeps UX stable under poor connectivity.                        |
-| 🔐       | أمان مستند إلى الأدوار<br>RBAC Security | مصادقة بـ Firebase Auth وسياسات Firestore مفصلة.<br>Firebase Auth backed by granular Firestore rules.                            | يحمي البيانات ويمنع الوصول غير المصرح.<br>Protects data and blocks unauthorised access.                    |
-| 📈       | قابلية المراقبة<br>Observability        | سجلات Cloud Functions وCrashlytics ولوحات أداء.<br>Cloud Functions logs, Crashlytics, and performance dashboards.                | تكشف المشاكل قبل تأثيرها على المستخدم.<br>Surfaces issues before they affect users.                        |
-| 📃       | عقود واضحة<br>Explicit Contracts        | اعتماد DTOs وواجهات محددة بين الطبقات.<br>DTOs and explicit interfaces connecting layers.                                        | يقلل أخطاء التكامل ويسهل الاختبار.<br>Reduces integration errors and simplifies testing.                   |
+- 🛠️ **ما الذي نبنيه:** تطبيق Flutter لأنظمة Android وiOS يتزامن آنياً مع Firebase لتقديم تجربة موحدة.
+  🛠️ **What we build:** A Flutter application for Android/iOS synchronising in real time with Firebase for a unified experience.
+- 🔧 **كيف نحافظ على القابلية للتكيف:** طبقات معيارية تفصل العرض والمنطق والبيانات لتسهيل التغيير المستقبلي بدون تشابك.
+  🔧 **How we stay adaptable:** Modular layers separating presentation, domain, and data concerns to enable future change without coupling.
+- 👥 **من المستفيد:** فرق العمليات والمالية والدعم التي تعتمد على استقرارية المنصة وسهولة التوسع الإقليمي.
+  👥 **Who benefits:** Operations, finance, and support teams relying on a stable platform that scales regionally with ease.
 
 ---
 
-## 3. العرض الطبقي | Layered View
+## 🧱 2. مبادئ التصميم الأساسية
 
-```mermaid
+🧱 2. Core Design Principles
+
+| المبدأ                    | الشرح                                                                                                                                                                   | الفائدة                                                                                                                                          |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 🧼 الطبقات النظيفة        | تقسيم العرض، التطبيق، المجال، والبيانات للحد من الاعتماد المتبادل.<br>Separate presentation, application, domain, and data layers to minimise coupling.                 | 🔄 يتيح تعديل الواجهة أو المنطق دون آثار جانبية غير متوقعة.<br>Allows UI or logic changes without unintended side effects.                       |
+| 🔄 أولوية العمل دون اتصال | استخدام تخزين محلي مع مزامنة خلفية إلى Firestore لضمان الاستمرارية.<br>Use local storage with background sync to Firestore to guarantee continuity.                     | 📶 يحافظ على تجربة مستخدم ثابتة حتى مع ضعف الاتصال.<br>Keeps user experience steady even when connectivity drops.                                |
+| 🛡️ أمان مبني على الأدوار  | مصادقة Firebase مع قواعد دقيقة في Firestore ووظائف تحقق إضافية.<br>Firebase Auth with granular Firestore rules and supporting validation functions.                     | 🔐 يقدم تحكمًا دقيقًا بالصلاحيات ويضمن التتبع الكامل للأحداث الحساسة.<br>Delivers precise access control with full tracking of sensitive events. |
+| 📊 مراقبة قابلة للتدقيق   | تسجيل مركزي للأحداث وتدفقات نحو BigQuery ولوحات مراقبة محدثة.<br>Centralised logging, BigQuery export, and live monitoring dashboards.                                  | 👁️ يوفر شفافية لحظية لفرق العمليات والتدقيق والامتثال.<br>Provides live transparency for operations, audit, and compliance teams.                |
+| ⚙️ قابلية التوسع الإقليمي | تكوينات ديناميكية تدعم فروقات السوق بين السعودية واليمن بدون إعادة نشر.<br>Dynamic configuration supporting market differences between KSA and Yemen without redeploys. | 🌍 يختصر زمن التهيئة ويسمح بتحسينات محلية سريعة.<br>Shortens configuration cycles and enables rapid localised improvements.                      |
+
+---
+
+## 🏗️ 3. العرض الطبقي
+
+🏗️ 3. Layered View
+
+`mermaid
 flowchart LR
-  subgraph عرض واجهة المستخدم\nPresentation Layer
-    UI["واجهات Flutter\nFlutter UI"]
-  end
-  subgraph تطبيقات العمليات\nApplication Layer
-    Logic["حالات استخدام\nUse Cases"]
-    Controllers["وحدات التحكم\nControllers"]
-  end
-  subgraph المجال التشغيلي\nDomain Layer
-    Domain["الكيانات والقواعد\nEntities & Rules"]
-  end
-  subgraph إدارة البيانات\nData Layer
-    Repo["المستودعات\nRepositories"]
-    Remote["مصادر بعيدة\nRemote Sources"]
-    Local["مخزن محلي\nLocal Cache"]
-  end
+classDef layer fill:#f8fafc,stroke:#475569,color:#0f172a,stroke-width:1px;
 
-  UI --> Logic
-  Logic --> Controllers
-  Controllers --> Domain
-  Domain --> Repo
-  Repo --> Remote
-  Repo --> Local
-```
+subgraph PresentationLayer["طبقة العرض\nPresentation Layer"]
+UI["واجهة Flutter\nFlutter UI"]:::layer
+end
 
-- 🧩 يوضح المخطط تسلسل تدفق البيانات من الواجهة إلى المصادر البعيدة والمحلية.
-  🧩 Shows the flow from UI down to remote and local sources.
-- 🧮 يمنح فرق الاختبار نقطة دخول واضحة لكل طبقة.
-  🧮 Gives QA teams a clear entry point per layer for testing.
+subgraph ApplicationLayer["طبقة التطبيق\nApplication Layer"]
+UseCases["حالات الاستخدام\nUse Cases"]:::layer
+Controllers["وحدات التحكم\nControllers"]:::layer
+end
 
----
+subgraph DomainLayer["طبقة المجال\nDomain Layer"]
+Entities["كيانات وقواعد\nEntities & Rules"]:::layer
+end
 
-## 4. خدمات Firebase والتكامل | Firebase Services & Integration
+subgraph DataLayer["طبقة البيانات\nData Layer"]
+Repos["مستودعات\nRepositories"]:::layer
+Remote["مصادر بعيدة\nRemote Sources"]:::layer
+LocalCache["ذاكرة محلية\nLocal Cache"]:::layer
+end
 
-| الخدمة                  | الاستخدام                                                                                                                  | الفائدة                                                                                                                      |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Auth                    | إدارة الهوية، كلمات المرور أحادية الاستخدام، وSSO مع Google/Apple.<br>Identity management, OTP, and SSO with Google/Apple. | تأمين جلسات الدخول وتشغيل RBAC بدقة.<br>Secures login sessions and powers precise RBAC.                                      |
-| Firestore               | تخزين البيانات التشغيلية، مؤشرات الحالة، وسجلات البحث.<br>Stores operational records, state flags, and search views.       | تحديثات لحظية وشفافية للمستخدمين عبر المنصات.<br>Realtime updates providing transparency across devices.                     |
-| Storage                 | حفظ المرفقات، إثباتات الصور، والفواتير الصادرة.<br>Stores attachments, images, and issued invoices.                        | مساحة آمنة مشفرة بمستويات صلاحيات مفصلة.<br>Secure, encrypted space with fine-grained permissions.                           |
-| Cloud Functions         | المهام الخلفية، حساب الرسوم، إرسال الإشعارات.<br>Backend tasks, fee calculation, push notifications.                       | يحافظ على منطق الخوادم بعيدًا عن التطبيق ويقلل استهلاك الطاقة.<br>Keeps server logic off the app and saves device resources. |
-| Hosting & Remote Config | تهيئة ديناميكية للواجهات ورسائل الترحيب.<br>Dynamic UI configuration and welcome messaging.                                | تمكين تغييرات دون نشر التطبيق مجددًا.<br>Allows updates without re-deploying the app.                                        |
+UI --> UseCases
+UseCases --> Controllers
+Controllers --> Entities
+Entities --> Repos
+Repos --> Remote
+Repos --> LocalCache
+`
+
+- 🧭 يوضح تسلسل تدفق الطلب من الواجهة حتى المصادر البعيدة والمحلية لضمان فهم مشترك للحدود.
+  🧭 Shows the order flow from UI down to remote and local sources to cement shared understanding of boundaries.
+- 🧪 يمنح فرق الاختبار نقطة دخول واضحة لكل طبقة مما يسهل تصميم السيناريوهات والتحقق المستهدف.
+  🧪 Gives QA teams a clear entry point per layer, simplifying scenario design and targeted verification.
 
 ---
 
-## 5. استراتيجية عدم الاتصال | Offline-First Strategy
+## 🔌 4. خدمات Firebase والتكاملات
 
-- 💾 الاعتماد على مخزن محلي (SQLite/Hive) لسجلات الطلبات النشطة.
-  💾 Use local stores (SQLite/Hive) to keep active orders in sync.
-- 🔁 عملية مزامنة ثنائية الاتجاه مع طوابير موقوتة لتجنب تضارب السجلات.
-  🔁 Bi-directional sync with queued jobs prevents conflicting updates.
-- 🚨 مراقبة التزامن عبر علامات زمنية لمنع البيانات القديمة من الكتابة فوق الحديثة.
-  🚨 Timestamp checks ensure stale data never overwrites recent entries.
-- 📡 استعادة الاتصال تفعّل رفع الأنشطة المؤجلة وطلب إعادة المحاولة للمدفوعات.
-  📡 On reconnect, queued actions flush and payment retries are triggered.
+🔌 4. Firebase Services & Integration
 
----
-
-## 6. سجلات قرارات البنية | Architecture Decision Records
-
-| الرقم  | القرار                                                      | المرحلة الزمنية | الحالة | ملاحظات                                          |
-| ------ | ----------------------------------------------------------- | --------------- | ------ | ------------------------------------------------ |
-| ADR-01 | اعتماد نمط MVVM مع Riverpod لإدارة الحالة                   | الربع 3 2025    | نشط    | يسهل اختبار الوحدات واستبدال الواجهات.           |
-| ADR-02 | استخدام Firestore كقاعدة عمليات رئيسية مع BigQuery للتقارير | الربع 3 2025    | نشط    | يغطي احتياج القراءة السريعة والتحليلات المتقدمة. |
-| ADR-03 | فرض RBAC عبر Firebase Auth + Claims Customization           | الربع 4 2025    | مخطط   | يربط الصلاحيات مع السياسات التنظيمية المتغيرة.   |
+| الخدمة                     | الاستخدام المعماري                                                                                                                               | القيمة التشغيلية                                                                                                                            |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🔐 Auth                    | إدارة الهوية، OTP، وSSO مع Google/Apple، وتخزين المطالبات المخصصة.<br>Identity management, OTP, SSO with Google/Apple, and custom claim storage. | 🛡️ يؤمن الجلسات ويغذي سياسات RBAC الدقيقة والتدقيق الفوري.<br>Secures sessions and powers precise RBAC policies with instant auditing.      |
+| 📚 Firestore               | تخزين السجلات التشغيلية، حالات الطلب، وواجهات القراءة المبسطة.<br>Stores operational records, order states, and optimised read projections.      | ⚡ يوفر تحديثات فورية للأجهزة ويحافظ على الشفافية بين الفرق.<br>Delivers realtime updates across devices and keeps teams aligned.           |
+| 🗂️ Storage                 | حفظ المرفقات، الصور، والفواتير الصادرة في حاويات مشفرة.<br>Stores attachments, images, and issued invoices inside encrypted buckets.             | 🔒 يضمن حوكمة الوصول الدقيقة ويمنع تسريب المستندات الحساسة.<br>Enforces fine-grained access and prevents leakage of sensitive documents.    |
+| 🧠 Cloud Functions         | تنفيذ عمليات الذكاء الخلفي مثل التسعير والتنبيهات والتحقق الإضافي.<br>Executes backend intelligence like pricing, alerts, and extra validation.  | ⚙️ يبقي المنطق بعيدًا عن الأجهزة ويوفر موارد التطبيقات المحمولة.<br>Keeps heavy logic off devices and preserves mobile resources.           |
+| 🛰️ Hosting & Remote Config | إدارة تكوينات الواجهة والترحيب الديناميكي وحملات التواصل.<br>Controls UI configuration, welcome flows, and communication campaigns.              | 🚀 يسمح بالتحديث السريع دون إعادة نشر ويُمكّن التجارب المتدرجة.<br>Enables rapid updates without redeploys and empowers staged experiments. |
 
 ---
 
-## 7. تدفق البيانات الشامل | End-to-End Data Flow
+## 📶 5. إستراتيجية العمل دون اتصال
 
-```mermaid
+📶 5. Offline-First Strategy
+
+- 💾 تعتمد المنصة على مخازن محلية مثل SQLite أو Hive لتخزين الطلبات النشطة وبيانات التتبع الحرجة.
+  💾 The platform depends on local stores such as SQLite or Hive to keep active orders and critical tracking data available.
+- 🔁 تستخدم مزامنة ثنائية الاتجاه مع قوائم انتظار في الخلفية لضمان تسوية التحديثات بدون تعارضات.
+  🔁 Bi-directional sync with background job queues ensures updates reconcile without conflicts.
+- 🕒 تتحقق الخوارزميات من الطوابع الزمنية قبل الكتابة لمنع البيانات القديمة من استبدال الأحدث.
+  🕒 Timestamp validation before writes stops stale information from overwriting newer records.
+- 🚀 عند استعادة الاتصال تُفرّغ الطوابير وتُعاد محاولات الدفع أو التنبيهات تلقائيًا لضمان الإكمال.
+  🚀 Once reconnected, queues flush and payment or alert retries execute automatically to guarantee completion.
+
+---
+
+## 📘 6. سجلات قرارات المعمارية
+
+📘 6. Architecture Decision Records
+
+| المعرّف | القرار                                                                                                                                           | التاريخ                | الحالة          | المبرر                                                                                                                                          |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| ADR-01  | اعتماد نمط MVVM مع Riverpod لإدارة الحالة داخل طبقة العرض.<br>Adopt MVVM with Riverpod for state management inside the presentation layer.       | مارس 2025<br>Mar 2025  | جاري<br>Active  | يقلل التعقيد ويحافظ على اختبارية عالية للمكونات المرئية.<br>Reduces complexity while preserving high testability of view components.            |
+| ADR-02  | ربط Firestore بعمليات تفريغ ليلية إلى BigQuery للتقارير والتحليلات.<br>Wire Firestore nightly exports into BigQuery for reporting and analytics. | مارس 2025<br>Mar 2025  | جاري<br>Active  | يوفر مصدرًا موحدًا للبيانات المالية والتشغيلية المتقدمة.<br>Provides a unified source for advanced financial and operational insight.           |
+| ADR-03  | تنفيذ RBAC عبر Firebase Auth مع مطالبات مخصصة ووظائف تحقق إضافية.<br>Implement RBAC using Firebase Auth with custom claims plus guard functions. | أبريل 2025<br>Apr 2025 | مخطط<br>Planned | يتيح تحديث الصلاحيات دون نشر ويضمن التتبع الكامل للتغييرات الحساسة.<br>Allows privilege updates without redeploys and keeps a full audit trail. |
+
+---
+
+## 🔄 7. تدفق البيانات من طرف إلى طرف
+
+🔄 7. End-to-End Data Flow
+
+`mermaid
 sequenceDiagram
-  participant Customer as "العميل\nCustomer"
-  participant App as "تطبيق Flutter\nFlutter App"
-  participant Firestore as "Firestore"
-  participant Functions as "Cloud Functions"
-  participant BigQuery as "BigQuery"
+participant Customer as "العميل\nCustomer"
+participant App as "تطبيق Flutter\nFlutter App"
+participant Firestore as "قاعدة Firestore\nFirestore"
+participant Functions as "وظائف سحابية\nCloud Functions"
+participant BigQuery as "مستودع BigQuery\nBigQuery"
 
-  Customer->>App: تقديم طلب جديد\nSubmit new order
-  App->>Firestore: حفظ الطلب\nPersist order
-  Firestore->>Functions: تشغيل منطق التسعير\nTrigger pricing logic
-  Functions->>Firestore: تحديث التكاليف\nUpdate costs
-  Firestore->>App: بث الحالة الجديدة\nBroadcast new status
-  Firestore-->>BigQuery: مزامنة ليلية للتقارير\nNightly sync for reporting
-```
+Customer->>App: "إرسال طلب جديد\nSubmit new order"
+App->>Firestore: "تخزين الطلب\nPersist order"
+Firestore->>Functions: "تشغيل التسعير\nTrigger pricing"
+Functions->>Firestore: "تحديث التكاليف\nUpdate costs"
+Firestore->>App: "بث الحالة الجديدة\nBroadcast new status"
+Firestore-->>BigQuery: "مزامنة ليلية للتقارير\nNightly sync for reporting"
+`
 
-- 🔄 يضمن التدفق بقاء التطبيق محدثًا حتى بعد تنفيذ الوظائف الخلفية.
-  🔄 Ensures the app stays up to date even after backend functions run.
-- 📈 يوفر قناة رسمية لنسخ البيانات إلى BigQuery دون التأثير على الأداء اليومي.
-  📈 Provides an official path to BigQuery without harming daily performance.
+- 🔂 يحافظ التسلسل على تزامن التطبيق مع نتائج الوظائف الخلفية دون تدخل يدوي.
+  🔂 Keeps the app aligned with backend computation outcomes without manual intervention.
+- 📡 يوفّر مسارًا رسميًا نحو BigQuery للتقارير المتقدمة دون التأثير على الأداء اليومي.
+  📡 Provides an official route into BigQuery for advanced reporting without harming daily performance.
 
 ---
 
-## 8. نشر النظام والتكاملات | Deployment & Integrations View
+## 🚀 8. مشهد النشر والتكاملات
 
-```mermaid
+🚀 8. Deployment & Integrations View
+
+`mermaid
 flowchart TB
-  subgraph أجهزة العملاء\nClient Devices
-    Mobile["تطبيقات Flutter\nFlutter Apps"]
-  end
+classDef node fill:#f1f5f9,stroke:#475569,color:#0f172a,stroke-width:1px;
 
-  subgraph منصة Firebase\nFirebase Platform
-    Auth[(المصادقة\nAuth)]
-    Firestore[(قاعدة البيانات\nFirestore)]
-    Storage[(التخزين\nStorage)]
-    Functions[[الدوال السحابية\nCloud Functions]]
-    Hosting[[الاستضافة/الإعداد\nHosting / Remote Config]]
-  end
+subgraph Clients["أجهزة العميل\nClient Devices"]
+Mobile["تطبيقات Flutter\nFlutter Apps"]:::node
+end
 
-  subgraph أنظمة خارجية\nExternal Systems
-    Payments[(بوابات الدفع\nPayment Gateways)]
-    Vendors[(شركاء الموردين\nSupply Partners)]
-    Analytics[(تحليلات متقدمة\nAdvanced Analytics)]
-  end
+subgraph Firebase["منصة Firebase\nFirebase Platform"]
+Auth[("خدمة المصادقة\nAuth")]:::node
+Firestore[("قاعدة البيانات\nFirestore")]:::node
+Storage[("تخزين الملفات\nStorage")]:::node
+Functions[["وظائف سحابية\nCloud Functions"]]:::node
+Hosting[["الاستضافة والتكوين\nHosting & Remote Config"]]:::node
+end
 
-  Mobile --> Auth
-  Mobile --> Firestore
-  Mobile --> Storage
-  Mobile --> Hosting
-  Functions --> Firestore
-  Functions --> Storage
-  Functions --> Payments
-  Functions --> Vendors
-  Firestore --> Analytics
-```
+subgraph ExternalSystems["أنظمة خارجية\nExternal Systems"]
+Payments[("بوابات الدفع\nPayment Gateways")]:::node
+Vendors[("شركاء الإمداد\nSupply Partners")]:::node
+Analytics[("تحليلات متقدمة\nAdvanced Analytics")]:::node
+end
 
-- 🔐 يعتمد الاتصال على HTTPS وOAuth2 لمنع التنصت وتأكيد الهوية.
-  🔐 Uses HTTPS and OAuth2 to prevent eavesdropping and confirm identity.
-- 🛰️ توجد مراقبة مستمرة عبر Crashlytics وCloud Logging مع تنبيهات فورية.
-  🛰️ Continuous monitoring via Crashlytics and Cloud Logging with instant alerts.
+Mobile --> Auth
+Mobile --> Firestore
+Mobile --> Storage
+Mobile --> Hosting
+Functions --> Firestore
+Functions --> Storage
+Functions --> Payments
+Functions --> Vendors
+Firestore --> Analytics
+`
 
----
-
-## 9. الأدوار التشغيلية في البنية | Operational Roles in Architecture
-
-| الدور                                       | طبقات المسؤولية                                             | وصف التفاعل                                                                                                                                                         | الفائدة                                                                                                       |
-| ------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| فريق خدمة العملاء<br>Customer Service Staff | العرض، التطبيق، المجال<br>Presentation, Application, Domain | يتعامل مع واجهة Flutter لإدخال الطلبات والتحقق من البيانات باستخدام منطق التطبيق.<br>Uses Flutter UI to capture orders and validate data through application logic. | يحافظ على جودة البيانات ويغلق الطلبات بسرعة.<br>Keeps data quality high and closes requests quickly.          |
-| معالج الطلبات<br>Order Processor            | التطبيق، المجال، البيانات<br>Application, Domain, Data      | يستخدم الأدوات الخلفية لمراجعة الطلبات وتحديث الشحنات والموردين.<br>Back-office tools to review orders and update shipments/vendors.                                | يقصر زمن المعالجة ويحد من تكرار الأخطاء.<br>Shortens processing time and reduces repeat errors.               |
-| مسؤول المالية<br>Finance Officer            | المجال، البيانات، الوظائف<br>Domain, Data, Functions        | يشرف على التسويات ويشغل الوظائف الآلية لإصدار التقارير المالية.<br>Oversees reconciliation and triggers functions for financial reporting.                          | يقلل الاعتماد على الجهد اليدوي ويزيد دقة التقارير.<br>Reduces manual effort and increases report accuracy.    |
-| قائد العمليات<br>Operations Lead            | العرض، الوظائف<br>Presentation, Functions                   | يتابع لوحات الأداء ويصدر قرارات تنبيه أو تصعيد عبر الوظائف السحابية.<br>Monitors dashboards and issues alerts/escalations via cloud functions.                      | يحافظ على التزامات SLA ويقود التحسين المستمر.<br>Maintains SLA commitments and drives continuous improvement. |
+- 🔐 تستخدم كل القنوات بروتوكول HTTPS وOAuth2 لحماية البيانات والتحقق من الهوية بين الأنظمة.
+  🔐 All channels rely on HTTPS and OAuth2 to protect data in transit and verify identities across systems.
+- 📟 يتم تشغيل مراقبة مستمرة عبر Crashlytics وCloud Logging مع تنبيهات فورية للحوادث العالية.
+  📟 Continuous monitoring through Crashlytics and Cloud Logging raises instant alerts for high-severity incidents.
 
 ---
 
-## 10. الأمن والامتثال | Security & Compliance
+## 🧑‍💻 9. الأدوار التشغيلية داخل المعمارية
 
-- 🔐 إدارة claims مخصصة في Firebase Auth لضبط الصلاحيات الديناميكية.
-  🔐 Custom claims in Firebase Auth keep dynamic permissions aligned.
-- 📜 تخزين auditTrailId داخل كل مستند مهم وربطه بتحليلات BigQuery.
-  📜 Embed auditTrailId within critical documents and link it to BigQuery analytics.
-- 🧾 سياسات الاحتفاظ بالبيانات تتبع المعايير السعودية واليمنية للبيانات المالية.
-  🧾 Data retention policies follow Saudi and Yemeni financial regulations.
-- 📘 توثيق NFR عبر `docs/10-nfr-and-quality/10-nfr-and-quality.md` وتحديث ADR عند أي تعديل جذري.
-  📘 Document NFRs in `docs/10-nfr-and-quality/10-nfr-and-quality.md` and refresh ADRs upon major changes.
+🧑‍💻 9. Operational Roles in Architecture
+
+| الدور                | الطبقات الأساسية                                              | طريقة التفاعل                                                                                                                                                      | القيمة المتحققة                                                                                                                       |
+| -------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| 👩‍💼 موظف خدمة العملاء | العرض، التطبيق، المجال.<br>Presentation, Application, Domain. | يستخدم واجهات Flutter لالتقاط الطلبات والتحقق من البيانات عبر منطق التطبيق.<br>Uses Flutter UI to capture orders and validate data through application logic.      | ⚡ يحافظ على جودة البيانات ويغلق الطلبات بسرعة لصالح العميل.<br>Keeps data quality high and closes requests quickly.                  |
+| 🧾 معالج الطلبات     | التطبيق، المجال، البيانات.<br>Application, Domain, Data.      | يصمم أدوات المكتب الخلفي لمراجعة الطلبات وتحديث الشحنات والموردين.<br>Operates back-office tools to review orders and update shipments or vendors.                 | ⏱️ يقلل مدة المعالجة ويقلص أخطاء التكرار في المسارات الحرجة.<br>Shortens processing time and reduces repeat errors in critical flows. |
+| 💰 مسؤول المالية     | المجال، البيانات، الوظائف.<br>Domain, Data, Functions.        | يشرف على المصالحة ويشغّل الوظائف لإنتاج التقارير المالية الدقيقة.<br>Oversees reconciliation and runs functions to produce accurate financial reports.             | 📈 يخفض الجهد اليدوي ويرفع دقة التقارير الرقابية.<br>Reduces manual workload and boosts regulatory reporting accuracy.                |
+| 🛰️ قائد العمليات     | العرض، الوظائف.<br>Presentation, Functions.                   | يراقب اللوحات ويطلق التنبيهات أو التصعيد عبر الوظائف السحابية المتخصصة.<br>Monitors dashboards and triggers alerts or escalations via specialised cloud functions. | 🛡️ يحافظ على الالتزام باتفاقيات SLA ويدعم التحسين المستمر للمنصة.<br>Maintains SLA commitments and drives continuous improvement.     |
 
 ---
 
-## 11. مواءمة خارطة الطريق | Roadmap Alignment
+## 🛡️ 10. الأمان والامتثال
 
-- 🏗️ تفعيل Cloud Functions المتخصصة (الفوترة، الشحن، الأمن) وفق الجدول المحدد.
-  🏗️ Activate specialised Cloud Functions (billing, shipping, security) according to the roadmap. |
-- 🧭 تحديث ADRs بالتزامن مع مراحل التنفيذ للحفاظ على أثر القرارات.
-  🧭 Update ADRs in sync with delivery milestones to preserve decision traceability. |
-- 📊 ضمان وصول 80٪ من قواعد المجال و100٪ من حالات الاستخدام إلى طبقة التطبيق بحلول الربع الرابع.
-  📊 Ensure 80% of domain rules and 100% of use cases live inside the application layer by Q4. |
-- 🤝 تكامل بوابات الدفع الخارجية وفق خطة `Roadmap.md` مع مراقبة الأثر الأمني.
-  🤝 Integrate external payment gateways per `Roadmap.md` while monitoring security impact. |
-- 🧪 إجراء مراجعات دورية للأداء والحوكمة للتأكد من التوافق مع النمو المتوقع.
-  🧪 Run regular performance and governance reviews to stay aligned with expected growth. |
+🛡️ 10. Security & Compliance
 
-> 🧾 **خلاصة التنفيذ:** تُحدّث هذه الوثيقة بالتوازي مع قرارات البنية الكبرى وأي تغير تنظيمي لضمان تماسك المنصة.
-> 🧾 **Execution Reminder:** Keep this document updated alongside major architectural decisions and regulatory changes to maintain platform cohesion.
+- 🔑 تُستخدم المطالبات المخصصة في Firebase Auth لمواءمة الصلاحيات الديناميكية مع السياسة المركزية.
+  🔑 Custom claims in Firebase Auth align dynamic permissions with central policy controls.
+- 🧾 تُدرج معرفات uditTrailId داخل الوثائق الحرجة وترتبط بتحليلات BigQuery للتتبع الكامل.
+  🧾 uditTrailId identifiers are embedded in critical documents and linked to BigQuery analytics for end-to-end traceability.
+- 📜 تتبع سياسات الاحتفاظ بالبيانات اللوائح المالية في السعودية واليمن مع جدول مراجعة دوري.
+  📜 Data retention policies follow Saudi and Yemeni financial regulations with a scheduled review cadence.
+- 📁 يتم تحديث NFRs في docs/10-nfr-and-quality/10-nfr-and-quality.md وتحديث ADRs فور أي تغييرات كبيرة.
+  📁 NFRs are maintained in docs/10-nfr-and-quality/10-nfr-and-quality.md, and ADRs are refreshed after major changes.
+
+---
+
+## 🗺️ 11. مواءمة خارطة الطريق
+
+🗺️ 11. Roadmap Alignment
+
+- ⚙️ تفعيل وظائف سحابية متخصصة (الفوترة، الشحن، الأمان) بالتزامن مع محطات خارطة الطريق.
+  ⚙️ Activate specialised Cloud Functions (billing, shipping, security) in lockstep with roadmap milestones.
+- 📝 تحديث قرارات ADR مع كل مرحلة تسليم لحفظ تتبع القرارات ودعم التعلم المؤسسي.
+  📝 Update ADRs alongside delivery milestones to preserve decision traceability and institutional learning.
+- 🎯 ضمان أن 80٪ من قواعد المجال و100٪ من حالات الاستخدام تعيش داخل طبقة التطبيق قبل نهاية الربع الرابع.
+  🎯 Ensure 80% of domain rules and 100% of use cases reside inside the application layer by Q4.
+- 🔗 دمج بوابات الدفع الخارجية حسب Roadmap.md مع مراقبة الأثر الأمني والأداءي.
+  🔗 Integrate external payment gateways per Roadmap.md while monitoring security and performance impact.
+- 📈 تنفيذ مراجعات أداء وحوكمة دورية للبقاء متوافقين مع النمو المتوقع ومتطلبات السوق.
+  📈 Run recurring performance and governance reviews to stay aligned with expected growth and market demands.
+
+> 🧭 **تذكير تنفيذي:** حدّث هذا المستند مع كل قرار معماري أو تغيير تنظيمي للحفاظ على تناسق المنصة وتوافقها.
+> 🧭 **Execution reminder:** Update this document alongside each architectural decision or regulatory shift to keep the platform coherent and compliant.

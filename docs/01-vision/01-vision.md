@@ -28,13 +28,62 @@
 
 ## 📊 العناصر الرئيسية | Key Elements
 
-| العنصر 🏷️                                       | التفاصيل                                                                                                                                                                                     |
-| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 🏢 **المؤسسة**<br>**Organization**              | الإدارة العامة **CA Admin DmG Headquarters** <br> **CA Admin DmG Headquarters**                                                                                                              |
-| 🌐 **نطاق الحل**<br>**Solution Scope**          | منصة وساطة للتسوق عبر الحدود تخدم **اليمن والسعودية** مع ربط رقمي متكامل <br> A cross-border shopping mediation platform serving **Yemen and Saudi Arabia** with integrated digital linkages |
-| 🚀 **الرؤية الإدارية**<br>**Management Vision** | تسريع الطلبات، الشحن، والمدفوعات عبر **مسار رقمي واحد وشفاف** <br> Accelerate orders, shipping, and payments through a **single transparent digital lane**                                   |
-| 🎯 **الجمهور الأساسي**<br>**Primary Audience**  | المتسوقون، فرق العمليات، المالية، الشركاء، القيادة التنفيذية <br> Shoppers, operations teams, finance, partners, executive leadership                                                        |
-
+<table class="styled-table">
+  <thead>
+    <tr>
+      <th>
+        <span class="ar">العنصر 🏷️</span><br>
+        <span class="en"><i>Element</i></span>
+      </th>
+      <th>
+        <span class="ar">التفاصيل</span><br>
+        <span class="en"><i>Details</i></span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="center">
+        <div class="ar">🏢 <b>المؤسسة</b></div>
+        <div class="en"><i><b>Organization</b></i></div>
+      </td>
+      <td>
+        <div class="ar">الإدارة العامة <b>CA Admin DmG Headquarters</b></div>
+        <div class="en"><i>CA Admin DmG Headquarters</i></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="center">
+        <div class="ar">🌐 <b>نطاق الحل</b></div>
+        <div class="en"><i><b>Solution Scope</b></i></div>
+      </td>
+      <td>
+        <div class="ar">منصة وساطة للتسوق عبر الحدود تخدم <b>اليمن والسعودية</b> مع ربط رقمي متكامل</div>
+        <div class="en"><i>A cross-border shopping mediation platform serving <b>Yemen and Saudi Arabia</b> with integrated digital linkages</i></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="center">
+        <div class="ar">🚀 <b>الرؤية الإدارية</b></div>
+        <div class="en"><i><b>Management Vision</b></i></div>
+      </td>
+      <td>
+        <div class="ar">تسريع الطلبات، الشحن، والمدفوعات عبر <b>مسار رقمي واحد وشفاف</b></div>
+        <div class="en"><i>Accelerate orders, shipping, and payments through a <b>single transparent digital lane</b></i></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="center">
+        <div class="ar">🎯 <b>الجمهور الأساسي</b></div>
+        <div class="en"><i><b>Primary Audience</b></i></div>
+      </td>
+      <td>
+        <div class="ar">المتسوقون، فرق العمليات، المالية، الشركاء، القيادة التنفيذية</div>
+        <div class="en"><i>Shoppers, operations teams, finance, partners, executive leadership</i></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
 ---
 
 ## 1. ℹ️ مقدمة | Introduction
@@ -245,42 +294,97 @@ flowchart LR
 
 ### 3.1 🎯 الحالة الحالية والمستهدفة | Current vs Target State
 
-<table>
+<table class="styled-table">
   <thead>
     <tr>
-      <th>📌 البعد<br>Aspect</th>
-      <th>📍 الحالة الحالية<br>Current State</th>
-      <th>🎯 الحالة المستهدفة<br>Target State</th>
+      <th>
+        <span class="ar">📌 البعد</span><br>
+        <span class="en"><i>Aspect</i></span>
+      </th>
+      <th>
+        <span class="ar">📍 الحالة الحالية</span><br>
+        <span class="en"><i>Current State</i></span>
+      </th>
+      <th>
+        <span class="ar">🎯 الحالة المستهدفة</span><br>
+        <span class="en"><i>Target State</i></span>
+      </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><b>🧾 الطلبات<br>Orders</b></td>
-      <td>إدخال يدوي مع اعتماد متأخر يؤدي إلى بطء التنفيذ<br><i>Manual entry with delayed approvals that slow execution</i></td>
-      <td>تدفق رقمي كامل مع إشعارات فورية ومسار تدقيق واضح<br><i>Fully digital flow with instant notifications and a clear audit trail</i></td>
-    </tr>
-    <tr style="background-color:#f9fafb;">
-      <td><b>🚚 الشحن<br>Shipping</b></td>
-      <td>تحديثات متقطعة بدون أدلة مما يرفع التصعيدات<br><i>Irregular updates without evidence escalating disputes</i></td>
-      <td>تتبع لحظي مع صور إثبات وتأكيد تسليم موحد<br><i>Real-time tracking with proof images and unified delivery confirmation</i></td>
-    </tr>
-    <tr>
-      <td><b>💰 المالية<br>Finance</b></td>
-      <td>دفاتر متباينة عبر العملات تعرقل التسوية الدقيقة<br><i>Disparate ledgers across currencies blocking accurate reconciliation</i></td>
-      <td>تسويات مؤتمتة وتحويلات فورية عبر القنوات المعتمدة<br><i>Automated reconciliations with instant transfers across approved channels</i></td>
-    </tr>
-    <tr style="background-color:#f9fafb;">
-      <td><b>📊 التقارير<br>Reporting</b></td>
-      <td>تقارير أسبوعية في جداول Excel تحد من الرؤية اللحظية<br><i>Weekly Excel reports limiting real-time visibility</i></td>
-      <td>لوحات تحليل مباشرة قابلة للتنقيب تدعم القرار السريع<br><i>Live drill-down dashboards supporting rapid decision-making</i></td>
+      <td class="center">
+        <div class="ar"><b>🧾 الطلبات</b></div>
+        <div class="en"><i><b>Orders</b></i></div>
+      </td>
+      <td>
+        <div class="ar">إدخال يدوي مع اعتماد متأخر يؤدي إلى بطء التنفيذ</div>
+        <div class="en"><i>Manual entry with delayed approvals that slow execution</i></div>
+      </td>
+      <td>
+        <div class="ar">تدفق رقمي كامل مع إشعارات فورية ومسار تدقيق واضح</div>
+        <div class="en"><i>Fully digital flow with instant notifications and a clear audit trail</i></div>
+      </td>
     </tr>
     <tr>
-      <td><b>📈 القابلية للتوسع<br>Scalability</b></td>
-      <td>اعتماد على أفراد محددين يهدد الاستمرارية التشغيلية<br><i>Dependence on key individuals risking operational continuity</i></td>
-      <td>عمليات موثقة قابلة للتكرار مع توزيع أدوار واضح<br><i>Documented repeatable processes with clear role distribution</i></td>
+      <td class="center">
+        <div class="ar"><b>🚚 الشحن</b></div>
+        <div class="en"><i><b>Shipping</b></i></div>
+      </td>
+      <td>
+        <div class="ar">تحديثات متقطعة بدون أدلة مما يرفع التصعيدات</div>
+        <div class="en"><i>Irregular updates without evidence escalating disputes</i></div>
+      </td>
+      <td>
+        <div class="ar">تتبع لحظي مع صور إثبات وتأكيد تسليم موحد</div>
+        <div class="en"><i>Real-time tracking with proof images and unified delivery confirmation</i></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="center">
+        <div class="ar"><b>💰 المالية</b></div>
+        <div class="en"><i><b>Finance</b></i></div>
+      </td>
+      <td>
+        <div class="ar">دفاتر متباينة عبر العملات تعرقل التسوية الدقيقة</div>
+        <div class="en"><i>Disparate ledgers across currencies blocking accurate reconciliation</i></div>
+      </td>
+      <td>
+        <div class="ar">تسويات مؤتمتة وتحويلات فورية عبر القنوات المعتمدة</div>
+        <div class="en"><i>Automated reconciliations with instant transfers across approved channels</i></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="center">
+        <div class="ar"><b>📊 التقارير</b></div>
+        <div class="en"><i><b>Reporting</b></i></div>
+      </td>
+      <td>
+        <div class="ar">تقارير أسبوعية في جداول Excel تحد من الرؤية اللحظية</div>
+        <div class="en"><i>Weekly Excel reports limiting real-time visibility</i></div>
+      </td>
+      <td>
+        <div class="ar">لوحات تحليل مباشرة قابلة للتنقيب تدعم القرار السريع</div>
+        <div class="en"><i>Live drill-down dashboards supporting rapid decision-making</i></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="center">
+        <div class="ar"><b>📈 القابلية للتوسع</b></div>
+        <div class="en"><i><b>Scalability</b></i></div>
+      </td>
+      <td>
+        <div class="ar">اعتماد على أفراد محددين يهدد الاستمرارية التشغيلية</div>
+        <div class="en"><i>Dependence on key individuals risking operational continuity</i></div>
+      </td>
+      <td>
+        <div class="ar">عمليات موثقة قابلة للتكرار مع توزيع أدوار واضح</div>
+        <div class="en"><i>Documented repeatable processes with clear role distribution</i></div>
+      </td>
     </tr>
   </tbody>
 </table>
+
 ---
 
 ## 4. 💡 الرؤية والقيمة | Vision & Value
@@ -366,37 +470,83 @@ flowchart LR
 
 ## 7. 📊 مؤشرات النجاح (KPIs) | Success Metrics (KPIs)
 
-<table>
+<table class="styled-table">
   <thead>
     <tr>
-      <th>📌 المؤشر<br>KPI</th>
-      <th>📍 خط الأساس<br>Baseline</th>
-      <th>🎯 الهدف<br>Target</th>
+      <th>
+        <span class="ar">📌 المؤشر</span><br>
+        <span class="en"><i>KPI</i></span>
+      </th>
+      <th>
+        <span class="ar">📍 خط الأساس</span><br>
+        <span class="en"><i>Baseline</i></span>
+      </th>
+      <th>
+        <span class="ar">🎯 الهدف</span><br>
+        <span class="en"><i>Target</i></span>
+      </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><b>⏱️ زمن استلام الطلب<br>Order Intake Time</b></td>
-      <td>180 ثانية<br><i>180 seconds</i></td>
-      <td>≤ 60 ثانية (المئين ‎90‎)<br><i>≤ 60 seconds (P90)</i></td>
-    </tr>
-    <tr style="background-color:#f9fafb;">
-      <td><b>🚚 حداثة حالة الشحن<br>Shipment Status Freshness</b></td>
-      <td>تحديث كل 8 ساعات<br><i>Updates every 8 hours</i></td>
-      <td>تحديث كل ساعة<br><i>Hourly updates</i></td>
+      <td class="center">
+        <div class="ar"><b>⏱️ زمن استلام الطلب</b></div>
+        <div class="en"><i><b>Order Intake Time</b></i></div>
+      </td>
+      <td>
+        <div class="ar">180 ثانية</div>
+        <div class="en"><i>180 seconds</i></div>
+      </td>
+      <td>
+        <div class="ar">≤ 60 ثانية (المئين ‎90‎)</div>
+        <div class="en"><i>≤ 60 seconds (P90)</i></div>
+      </td>
     </tr>
     <tr>
-      <td><b>💰 دقة التسوية المالية<br>Financial Reconciliation Accuracy</b></td>
-      <td>‎92٪‎<br><i>92%</i></td>
-      <td>≥ ‎99٪‎<br><i>≥ 99%</i></td>
+      <td class="center">
+        <div class="ar"><b>🚚 حداثة حالة الشحن</b></div>
+        <div class="en"><i><b>Shipment Status Freshness</b></i></div>
+      </td>
+      <td>
+        <div class="ar">تحديث كل 8 ساعات</div>
+        <div class="en"><i>Updates every 8 hours</i></div>
+      </td>
+      <td>
+        <div class="ar">تحديث كل ساعة</div>
+        <div class="en"><i>Hourly updates</i></div>
+      </td>
     </tr>
-    <tr style="background-color:#f9fafb;">
-      <td><b>📑 زمن إعداد التقارير<br>Report Preparation Time</b></td>
-      <td>يوم عمل واحد<br><i>1 business day</i></td>
-      <td>≤ 5 دقائق<br><i>≤ 5 minutes</i></td>
+    <tr>
+      <td class="center">
+        <div class="ar"><b>💰 دقة التسوية المالية</b></div>
+        <div class="en"><i><b>Financial Reconciliation Accuracy</b></i></div>
+      </td>
+      <td>
+        <div class="ar">‎92٪‎</div>
+        <div class="en"><i>92%</i></div>
+      </td>
+      <td>
+        <div class="ar">≥ ‎99٪‎</div>
+        <div class="en"><i>≥ 99%</i></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="center">
+        <div class="ar"><b>📑 زمن إعداد التقارير</b></div>
+        <div class="en"><i><b>Report Preparation Time</b></i></div>
+      </td>
+      <td>
+        <div class="ar">يوم عمل واحد</div>
+        <div class="en"><i>1 business day</i></div>
+      </td>
+      <td>
+        <div class="ar">≤ 5 دقائق</div>
+        <div class="en"><i>≤ 5 minutes</i></div>
+      </td>
     </tr>
   </tbody>
 </table>
+
 ---
 
 ## 8. 🗺️ خارطة الإصدارات | Release Roadmap
@@ -413,34 +563,79 @@ timeline
 
 ## 9. ⚠️ المخاطر وخطط التخفيف | Risks & Mitigations
 
-<table>
+<table class="styled-table">
   <thead>
     <tr>
-      <th>📌 الخطر<br>Risk</th>
-      <th>💥 التأثير<br>Impact</th>
-      <th>🛡️ خطة التخفيف<br>Mitigation</th>
+      <th>
+        <span class="ar">📌 الخطر</span><br>
+        <span class="en"><i>Risk</i></span>
+      </th>
+      <th>
+        <span class="ar">💥 التأثير</span><br>
+        <span class="en"><i>Impact</i></span>
+      </th>
+      <th>
+        <span class="ar">🛡️ خطة التخفيف</span><br>
+        <span class="en"><i>Mitigation</i></span>
+      </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><b>🔄 تعارض البيانات أثناء المزامنة<br><i>Data conflicts during sync</i></b></td>
-      <td>أرصدة غير صحيحة وتعطل التقارير التحليلية<br><i>Incorrect balances and disrupted analytics reports</i></td>
-      <td>تطبيق تنافس متفائل مع سجل تدقيق مركزي يوفر استرجاعًا دقيقًا للإصدارات<br><i>Apply optimistic concurrency with a central audit log to recover accurate versions</i></td>
-    </tr>
-    <tr style="background-color:#f9fafb;">
-      <td><b>📊 حدود فهارس Firestore<br><i>Firestore index limits</i></b></td>
-      <td>استعلامات بطيئة تؤثر على أداء المنصة<br><i>Slow queries impacting platform performance</i></td>
-      <td>تصميم فهارس مركبة مسبقًا وتقسيم البيانات مبكرًا لتوزيع الحمل<br><i>Pre-design composite indexes and shard data early to distribute load</i></td>
+      <td class="center">
+        <div class="ar"><b>🔄 تعارض البيانات أثناء المزامنة</b></div>
+        <div class="en"><i><b>Data conflicts during sync</b></i></div>
+      </td>
+      <td>
+        <div class="ar">أرصدة غير صحيحة وتعطل التقارير التحليلية</div>
+        <div class="en"><i>Incorrect balances and disrupted analytics reports</i></div>
+      </td>
+      <td>
+        <div class="ar">تطبيق تنافس متفائل مع سجل تدقيق مركزي يوفر استرجاعًا دقيقًا للإصدارات</div>
+        <div class="en"><i>Apply optimistic concurrency with a central audit log to recover accurate versions</i></div>
+      </td>
     </tr>
     <tr>
-      <td><b>🔐 أدوار غير مضبوطة<br><i>Misconfigured roles</i></b></td>
-      <td>كشف بيانات حساسة أو تنفيذ عمليات غير مصرح بها<br><i>Sensitive data exposure or unauthorized operations</i></td>
-      <td>إنشاء مصفوفة صلاحيات مدققة مع اختبارات قواعد مستمرة وآلية تنبيه فوري<br><i>Create an audited RBAC matrix with continuous rule tests and instant alerting</i></td>
+      <td class="center">
+        <div class="ar"><b>📊 حدود فهارس Firestore</b></div>
+        <div class="en"><i><b>Firestore index limits</b></i></div>
+      </td>
+      <td>
+        <div class="ar">استعلامات بطيئة تؤثر على أداء المنصة</div>
+        <div class="en"><i>Slow queries impacting platform performance</i></div>
+      </td>
+      <td>
+        <div class="ar">تصميم فهارس مركبة مسبقًا وتقسيم البيانات مبكرًا لتوزيع الحمل</div>
+        <div class="en"><i>Pre-design composite indexes and shard data early to distribute load</i></div>
+      </td>
     </tr>
-    <tr style="background-color:#f9fafb;">
-      <td><b>👥 الاعتماد على أفراد محددين<br><i>Dependency on key staff</i></b></td>
-      <td>توقف العمليات عند الغياب أو تبدل الأدوار الحرجة<br><i>Operational halt when critical roles are absent or swapped</i></td>
-      <td>توثيق الإجراءات، تعيين بدلاء، وتدوير المهام وفق جدول واضح<br><i>Document procedures, assign backups, and rotate duties on a defined schedule</i></td>
+    <tr>
+      <td class="center">
+        <div class="ar"><b>🔐 أدوار غير مضبوطة</b></div>
+        <div class="en"><i><b>Misconfigured roles</b></i></div>
+      </td>
+      <td>
+        <div class="ar">كشف بيانات حساسة أو تنفيذ عمليات غير مصرح بها</div>
+        <div class="en"><i>Sensitive data exposure or unauthorized operations</i></div>
+      </td>
+      <td>
+        <div class="ar">إنشاء مصفوفة صلاحيات مدققة مع اختبارات قواعد مستمرة وآلية تنبيه فوري</div>
+        <div class="en"><i>Create an audited RBAC matrix with continuous rule tests and instant alerting</i></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="center">
+        <div class="ar"><b>👥 الاعتماد على أفراد محددين</b></div>
+        <div class="en"><i><b>Dependency on key staff</b></i></div>
+      </td>
+      <td>
+        <div class="ar">توقف العمليات عند الغياب أو تبدل الأدوار الحرجة</div>
+        <div class="en"><i>Operational halt when critical roles are absent or swapped</i></div>
+      </td>
+      <td>
+        <div class="ar">توثيق الإجراءات، تعيين بدلاء، وتدوير المهام وفق جدول واضح</div>
+        <div class="en"><i>Document procedures, assign backups, and rotate duties on a defined schedule</i></div>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -449,34 +644,75 @@ timeline
 
 ## 10. 🧾 مسرد المصطلحات | Glossary
 
-<table>
+<table class="styled-table">
   <thead>
     <tr>
-      <th>📌 المصطلح<br>Term</th>
-      <th>📖 التعريف بالعربية<br>Definition (AR)</th>
-      <th>📖 التعريف بالإنجليزية<br>Definition (EN)</th>
+      <th>
+        <span class="ar">📌 المصطلح</span><br>
+        <span class="en"><i>Term</i></span>
+      </th>
+      <th>
+        <span class="ar">📖 التعريف بالعربية</span><br>
+        <span class="en"><i>Definition (AR)</i></span>
+      </th>
+      <th>
+        <span class="ar">📖 التعريف بالإنجليزية</span><br>
+        <span class="en"><i>Definition (EN)</i></span>
+      </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><b>🔢 رقم الطلب<br><i>Order Number</i></b></td>
-      <td>معرف فريد يربط جميع معاملات الطلب داخل النظام لضمان تتبع موحد<br><i>A unique identifier linking every order transaction in the system for unified tracking</i></td>
-      <td>Unique identifier linking each order transaction in the system to keep tracking consistent</td>
-    </tr>
-    <tr style="background-color:#f9fafb;">
-      <td><b>📦 توحيد الشحنات<br><i>Shipment Consolidation</i></b></td>
-      <td>دمج عدة طلبات في شحنة واحدة لخفض التكلفة وتسريع المعالجة التشغيلية<br><i>Combining multiple orders into one shipment to reduce cost and speed operations</i></td>
-      <td>Merging multiple orders into a single shipment to reduce cost and accelerate processing</td>
+      <td class="center">
+        <div class="ar"><b>🔢 رقم الطلب</b></div>
+        <div class="en"><i><b>Order Number</b></i></div>
+      </td>
+      <td>
+        <div class="ar">معرف فريد يربط جميع معاملات الطلب داخل النظام لضمان تتبع موحد</div>
+        <div class="en"><i>A unique identifier linking every order transaction in the system for unified tracking</i></div>
+      </td>
+      <td>
+        <div class="en"><i>Unique identifier linking each order transaction in the system to keep tracking consistent</i></div>
+      </td>
     </tr>
     <tr>
-      <td><b>⚖️ محرك التسوية<br><i>Reconciliation Engine</i></b></td>
-      <td>طبقة منطقية تقارن المدفوعات بالطلبات والمخزون لاكتشاف الفروقات الرسمية<br><i>A logic layer comparing payments to orders and inventory to detect official variances</i></td>
-      <td>Logic layer comparing payments to orders and inventory to detect discrepancies</td>
+      <td class="center">
+        <div class="ar"><b>📦 توحيد الشحنات</b></div>
+        <div class="en"><i><b>Shipment Consolidation</b></i></div>
+      </td>
+      <td>
+        <div class="ar">دمج عدة طلبات في شحنة واحدة لخفض التكلفة وتسريع المعالجة التشغيلية</div>
+        <div class="en"><i>Combining multiple orders into one shipment to reduce cost and speed operations</i></div>
+      </td>
+      <td>
+        <div class="en"><i>Merging multiple orders into a single shipment to reduce cost and accelerate processing</i></div>
+      </td>
     </tr>
-    <tr style="background-color:#f9fafb;">
-      <td><b>✅ المطابقة المزدوجة<br><i>Dual Matching</i></b></td>
-      <td>خطوة تحقق مشتركة بين مركزي السعودية واليمن قبل التسليم النهائي لضمان التوافق الكامل<br><i>A joint verification step between the KSA and Yemen hubs before final delivery to ensure full alignment</i></td>
-      <td>Verification step between the KSA and Yemen hubs before final delivery to guarantee alignment</td>
+    <tr>
+      <td class="center">
+        <div class="ar"><b>⚖️ محرك التسوية</b></div>
+        <div class="en"><i><b>Reconciliation Engine</b></i></div>
+      </td>
+      <td>
+        <div class="ar">طبقة منطقية تقارن المدفوعات بالطلبات والمخزون لاكتشاف الفروقات الرسمية</div>
+        <div class="en"><i>A logic layer comparing payments to orders and inventory to detect official variances</i></div>
+      </td>
+      <td>
+        <div class="en"><i>Logic layer comparing payments to orders and inventory to detect discrepancies</i></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="center">
+        <div class="ar"><b>✅ المطابقة المزدوجة</b></div>
+        <div class="en"><i><b>Dual Matching</b></i></div>
+      </td>
+      <td>
+        <div class="ar">خطوة تحقق مشتركة بين مركزي السعودية واليمن قبل التسليم النهائي لضمان التوافق الكامل</div>
+        <div class="en"><i>A joint verification step between the KSA and Yemen hubs before final delivery to ensure full alignment</i></div>
+      </td>
+      <td>
+        <div class="en"><i>Verification step between the KSA and Yemen hubs before final delivery to guarantee alignment</i></div>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -490,37 +726,97 @@ timeline
 **Description:**
 The table shows how strategic objectives translate into value for each group to keep investment decisions aligned.
 
-<table>
+<table class="styled-table">
   <thead>
     <tr>
-      <th>🎯 الهدف الاستراتيجي<br><i>Strategic Objective</i></th>
-      <th>👥 قيمة العملاء<br><i>Customer Value</i></th>
-      <th>👨‍💻 قيمة الفريق<br><i>Team Value</i></th>
-      <th>🏢 قيمة الأعمال<br><i>Business Value</i></th>
-      <th>🤝 قيمة الشركاء<br><i>Partner Value</i></th>
+      <th>
+        <span class="ar">🎯 الهدف الاستراتيجي</span><br>
+        <span class="en"><i>Strategic Objective</i></span>
+      </th>
+      <th>
+        <span class="ar">👥 قيمة العملاء</span><br>
+        <span class="en"><i>Customer Value</i></span>
+      </th>
+      <th>
+        <span class="ar">👨‍💻 قيمة الفريق</span><br>
+        <span class="en"><i>Team Value</i></span>
+      </th>
+      <th>
+        <span class="ar">🏢 قيمة الأعمال</span><br>
+        <span class="en"><i>Business Value</i></span>
+      </th>
+      <th>
+        <span class="ar">🤝 قيمة الشركاء</span><br>
+        <span class="en"><i>Partner Value</i></span>
+      </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><b>💰 توسيع الإيرادات<br><i>Revenue Expansion</i></b></td>
-      <td>عروض مجمعة وخيارات دفع مرنة تزيد الولاء وتكرار الشراء<br><i>Bundle offers and flexible payments that grow loyalty and repeat purchases</i></td>
-      <td>أدوات تحصيل مبسطة تربط الطلب بالمخزون وتقلل الأخطاء المحاسبية<br><i>Simplified collection tools linking orders to inventory that reduce accounting errors</i></td>
-      <td>نمو الربحية عبر سلال أعلى ومبيعات متكررة مع رؤية أوضح للهوامش<br><i>Profit growth through higher baskets and repeat sales with clearer margin visibility</i></td>
-      <td>عمولات واضحة وتقارير مشتركة تعزز ثقة الوسطاء وتسرّع التسويات<br><i>Transparent commissions and shared reports that strengthen partner trust and speed settlements</i></td>
-    </tr>
-    <tr style="background-color:#f9fafb;">
-      <td><b>⚡ التميز التشغيلي<br><i>Operational Excellence</i></b></td>
-      <td>خدمة أسرع مع تحديثات حالة فورية تقلل قلق العملاء وتعزز رضاهم<br><i>Faster service with real-time updates reducing customer anxiety and boosting satisfaction</i></td>
-      <td>مسار عمل موحد يقلل الجهد المكرر ويعجّل دمج الموظفين الجدد<br><i>Unified workflow removing duplicate effort and accelerating onboarding</i></td>
-      <td>خفض التكاليف عبر أتمتة المهام الروتينية وتحسين الإنتاجية اليومية<br><i>Cost reduction by automating routine tasks and improving daily productivity</i></td>
-      <td>تكامل أسهل وخفض الحاجة إلى المتابعة اليدوية المكلفة في المشاريع المشتركة<br><i>Streamlined integrations with less costly manual follow-up in joint projects</i></td>
+      <td class="center">
+        <div class="ar"><b>💰 توسيع الإيرادات</b></div>
+        <div class="en"><i><b>Revenue Expansion</b></i></div>
+      </td>
+      <td>
+        <div class="ar">عروض مجمعة ومدفوعات مرنة تزيد الولاء وتكرار الشراء</div>
+        <div class="en"><i>Bundle offers and flexible payments that grow loyalty and repeat purchases</i></div>
+      </td>
+      <td>
+        <div class="ar">أدوات تحصيل مبسطة تربط الطلبات بالمخزون لتقليل أخطاء المحاسبة</div>
+        <div class="en"><i>Simplified collection tools linking orders to inventory that reduce accounting errors</i></div>
+      </td>
+      <td>
+        <div class="ar">نمو الأرباح عبر سلال أعلى ومبيعات متكررة مع وضوح أفضل للهوامش</div>
+        <div class="en"><i>Profit growth through higher baskets and repeat sales with clearer margin visibility</i></div>
+      </td>
+      <td>
+        <div class="ar">عمولات شفافة وتقارير مشتركة تعزز ثقة الشركاء وتسّرع التسويات</div>
+        <div class="en"><i>Transparent commissions and shared reports that strengthen partner trust and speed settlements</i></div>
+      </td>
     </tr>
     <tr>
-      <td><b>🛡️ الحوكمة والامتثال<br><i>Governance & Compliance</i></b></td>
-      <td>شفافية كاملة في حقوق العميل وإشعاراته مما يعزز الثقة والاحتفاظ<br><i>Full transparency on customer rights and notifications that improve trust and retention</i></td>
-      <td>سياسات دقيقة تقلل الأخطاء البشرية وتوضح مسؤوليات كل فريق<br><i>Precise policies reducing human error and clarifying each team’s responsibilities</i></td>
-      <td>حماية قانونية وتقارير تدقيق جاهزة تدعم القرارات السريعة والاستثمارات الجديدة<br><i>Legal protection and audit-ready reports supporting rapid decisions and new investments</i></td>
-      <td>ثقة أعلى لدى الشركاء والجهات المنظمة بفضل الالتزام الموثق والرقابة المستمرة<br><i>Greater trust from partners and regulators through documented compliance and continuous oversight</i></td>
+      <td class="center">
+        <div class="ar"><b>⚙️ التميز التشغيلي</b></div>
+        <div class="en"><i><b>Operational Excellence</b></i></div>
+      </td>
+      <td>
+        <div class="ar">خدمة أسرع مع تحديثات لحظية تخفف قلق العملاء وتعزز رضاهم</div>
+        <div class="en"><i>Faster service with real-time updates reducing customer anxiety and boosting satisfaction</i></div>
+      </td>
+      <td>
+        <div class="ar">مسار عمل موحد يزيل الجهد المكرر ويسرّع دمج الأعضاء الجدد</div>
+        <div class="en"><i>Unified workflow removing duplicate effort and accelerating onboarding</i></div>
+      </td>
+      <td>
+        <div class="ar">خفض التكاليف عبر أتمتة المهام الروتينية وتحسين الإنتاجية اليومية</div>
+        <div class="en"><i>Cost reduction by automating routine tasks and improving daily productivity</i></div>
+      </td>
+      <td>
+        <div class="ar">تكاملات أكثر سلاسة مع متابعة يدوية أقل كلفة في المشاريع المشتركة</div>
+        <div class="en"><i>Streamlined integrations with less costly manual follow-up in joint projects</i></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="center">
+        <div class="ar"><b>🛡️ الحوكمة والامتثال</b></div>
+        <div class="en"><i><b>Governance & Compliance</b></i></div>
+      </td>
+      <td>
+        <div class="ar">شفافية كاملة في حقوق العميل وإشعارات تحسّن الثقة والاحتفاظ</div>
+        <div class="en"><i>Full transparency on customer rights and notifications that improve trust and retention</i></div>
+      </td>
+      <td>
+        <div class="ar">سياسات دقيقة تقلل الأخطاء البشرية وتوضح مسؤوليات كل فريق</div>
+        <div class="en"><i>Precise policies reducing human error and clarifying each team’s responsibilities</i></div>
+      </td>
+      <td>
+        <div class="ar">حماية قانونية وتقارير جاهزة للتدقيق تدعم القرارات السريعة والاستثمارات الجديدة</div>
+        <div class="en"><i>Legal protection and audit-ready reports supporting rapid decisions and new investments</i></div>
+      </td>
+      <td>
+        <div class="ar">ثقة أعلى من الشركاء والمنظمين بفضل التزام موثق ورقابة مستمرة</div>
+        <div class="en"><i>Greater trust from partners and regulators through documented compliance and continuous oversight</i></div>
+      </td>
     </tr>
   </tbody>
 </table>

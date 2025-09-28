@@ -1,0 +1,56 @@
+/* ====== Bilingual Tables for GitHub Pages ====== */
+
+/* Base */
+table.doc-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 14px;
+  color: #111827; /* dark gray text */
+}
+
+/* Header (distinct) */
+table.doc-table thead tr {
+  background-color: #1e3a8a; /* blue header (good on GitHub light/dark) */
+  color: #ffffff;
+  text-align: center;
+}
+table.doc-table th {
+  padding: 12px;
+  border: 1px solid #d1d5db;
+}
+
+/* Body + zebra rows */
+table.doc-table td {
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  vertical-align: top;
+}
+table.doc-table tbody tr:nth-child(odd)  { background-color: #ffffff; }
+table.doc-table tbody tr:nth-child(even) { background-color: #f9fafb; }
+
+/* First column (short labels centered) */
+table.doc-table td:first-child,
+table.doc-table th:first-child {
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Bilingual alignment helpers */
+.doc-ar { text-align: right;  font-weight: 700; }   /* Arabic: bold + right */
+.doc-en { text-align: left;   font-style: italic; } /* English: italic + left */
+
+/* Optional: emoji size a hair smaller inside headers/cells */
+table.doc-table th i,
+table.doc-table td i { font-style: italic; }
+
+/* Dark mode tuning */
+@media (prefers-color-scheme: dark) {
+  table.doc-table { color: #e5e7eb; }
+  table.doc-table thead tr { background-color: #1f2a69; }
+  table.doc-table th,
+  table.doc-table td { border-color: #374151; }
+  table.doc-table tbody tr:nth-child(odd)  { background-color: #0b1220; }
+  table.doc-table tbody tr:nth-child(even) { background-color: #111827; }
+}
+/* ====== End of Bilingual Tables for GitHub Pages ====== */

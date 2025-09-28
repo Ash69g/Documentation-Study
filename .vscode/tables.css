@@ -1,0 +1,148 @@
+﻿/* .vscode/tables.css */
+/* -------------------------------------------------------
+   Bilingual, GitHub-friendly table styling for Markdown.
+   - Works in VS Code Markdown Preview (via markdown.styles)
+   - Safe for GitHub (neutral colors, high contrast)
+   - Light/Dark via prefers-color-scheme
+   - Zebra rows, centered first column, AR/EN alignment
+------------------------------------------------------- */
+
+:root {
+  --tbl-font: Tahoma, Arial, "Segoe UI", "Noto Sans Arabic", sans-serif;
+
+  /* Light defaults (GitHub-ish) */
+  --tbl-header-bg: #e5e7eb;    /* subtle light header */
+  --tbl-header-fg: #111827;    /* near-black */
+  --tbl-border:    #d1d5db;    /* soft gray border */
+  --tbl-row:       #ffffff;    /* white row */
+  --tbl-row-alt:   #f9fafb;    /* zebra row */
+  --tbl-link:      inherit;    /* keep link color consistent */
+  --tbl-hover:     #eef2ff;    /* gentle hover */
+  --tbl-shadow:    0 8px 24px -16px rgba(15, 23, 42, 0.45);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tbl-header-bg: #374151;  /* dark header */
+    --tbl-header-fg: #f9fafb;  /* light text */
+    --tbl-border:    #4b5563;  /* darker border */
+    --tbl-row:       #0b1220;  /* dark body row */
+    --tbl-row-alt:   #111827;  /* zebra dark */
+    --tbl-hover:     #1f2937;  /* hover in dark */
+    --tbl-shadow:    0 10px 32px -18px rgba(15, 23, 42, 0.85);
+  }
+}
+
+/* Scope with :where to keep specificity low and avoid collisions */
+:where(table.styled-table) {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: var(--tbl-font);
+  font-size: 14px;
+  line-height: 1.6;
+  border: 1px solid var(--tbl-border);
+  border-radius: 6px;
+  overflow: hidden; /* rounded header corners in preview */
+  background-color: var(--tbl-row);
+  box-shadow: var(--tbl-shadow);
+  transition: box-shadow 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+:where(table.styled-table):hover {
+  transform: translateY(-1px);
+}
+
+/* Header */
+:where(table.styled-table) thead tr {
+  background-color: var(--tbl-header-bg);
+  color: var(--tbl-header-fg);
+  text-align: center;
+  border-bottom: 2px solid var(--tbl-border);
+}
+
+:where(table.styled-table) thead th {
+  padding: 12px;
+  border-right: 1px solid var(--tbl-border);
+  font-weight: 700;
+  vertical-align: middle;
+  letter-spacing: 0.015em;
+}
+
+/* Body */
+:where(table.styled-table) tbody td {
+  padding: 10px;
+  border-top: 1px solid var(--tbl-border);
+  border-right: 1px solid var(--tbl-border);
+  vertical-align: top;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  background-clip: padding-box;
+}
+
+/* Zebra rows */
+:where(table.styled-table) tbody tr { background-color: var(--tbl-row); }
+:where(table.styled-table) tbody tr.alt-row { background-color: var(--tbl-row-alt); }
+
+/* Row hover / focus */
+:where(table.styled-table) tbody tr:hover td,
+:where(table.styled-table) tbody tr:focus-within td {
+  background-color: var(--tbl-hover);
+}
+
+/* First/last cell borders tidy */
+:where(table.styled-table) th:last-child,
+:where(table.styled-table) td:last-child { border-right: none; }
+
+/* Bilingual alignment helpers */
+:where(.ar) { text-align: right; font-weight: 600; }
+:where(.en) { text-align: left;  font-style: italic; }
+
+/* Center helper (for short label columns) */
+:where(.center) { text-align: center; }
+
+/* Center first column by default; override with .ar/.en if needed */
+:where(table.styled-table) thead th:first-child,
+:where(table.styled-table) tbody td:first-child { text-align: center; }
+
+/* Links inherit color; underline for clarity */
+:where(table.styled-table) a { color: var(--tbl-link); text-decoration: underline; }
+
+/* Caption styling */
+:where(table.styled-table) caption {
+  caption-side: top;
+  padding: 0.75rem 0.5rem;
+  font-weight: 700;
+  text-align: left;
+  color: var(--tbl-header-fg);
+  background: linear-gradient(90deg, rgba(59,130,246,.15), rgba(59,130,246,0));
+}
+
+/* Inline code & badges */
+:where(table.styled-table) code {
+  font-family: "Fira Code", "Cascadia Code", monospace;
+  font-size: 0.85em;
+  background-color: rgba(15, 23, 42, 0.08);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+
+@media (prefers-color-scheme: dark) {
+  :where(table.styled-table) code {
+    background-color: rgba(148, 163, 184, 0.18);
+  }
+}
+
+/* Optional compact variant (add class="styled-table compact") */
+:where(table.styled-table.compact) { font-size: 13px; }
+:where(table.styled-table.compact) thead th { padding: 10px; }
+:where(table.styled-table.compact) tbody td { padding: 8px; }
+
+/* Small screens – improve readability */
+@media (max-width: 640px) {
+  :where(table.styled-table) { font-size: 13px; }
+  :where(table.styled-table) thead th,
+  :where(table.styled-table) tbody td { padding: 8px; }
+  :where(table.styled-table) caption {
+    padding: 0.6rem 0.4rem;
+  }
+}
