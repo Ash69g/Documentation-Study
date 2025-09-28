@@ -1,18 +1,13 @@
-<!doctype html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    {%- seo -%}
-    <title>{{ page.title | default: site.title }}</title>
-    <!-- Theme CSS (from Pages theme) -->
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <!-- Our custom CSS -->
-    {% include head.html %}
-  </head>
-  <body>
-    <main class="page-content" aria-label="Content" style="max-width: 980px; margin: 0 auto; padding: 24px;">
-      {{ content }}
-    </main>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }}</title>
+  {% include head.html %}
+</head>
+<body>
+  <main class="page-content" aria-label="Content">
+    {{ content }}
+  </main>
+</body>
 </html>
