@@ -79,8 +79,8 @@
         <div class="en"><i>Shoppers, operations teams, finance, partners, executive leadership</i></div>
       </td>
     </tr>
-  </tbody>
-
+  </tbod
+  
 </table>
 
 ---
