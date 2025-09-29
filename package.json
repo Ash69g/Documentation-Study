@@ -1,0 +1,23 @@
+{
+  "name": "documentation-study",
+  "version": "1.0.0",
+  "description": "CA Admin DmG Documentation",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ash69g/Documentation-Study.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ash69g/Documentation-Study/issues"
+  },
+  "homepage": "https://github.com/Ash69g/Documentation-Study#readme"
+}

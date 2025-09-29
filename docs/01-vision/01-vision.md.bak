@@ -1,29 +1,34 @@
-﻿# 📝 وثيقة الرؤية | Vision Document
+# 📝 وثيقة الرؤية
+
+Vision Document
 
 ---
 
 > **🗂️ المشروع | Project**
+> منصة الوساطة الشرائية **CA Admin**
 > CA Admin Shopping Mediation Platform
-> منصة الوساطة الشرائية CA Admin
 >
 > **🧰 المكدس التقني | Tech Stack**
 > 🔹 Flutter | فلاتر
-> 🔹 Firebase (Firestore, Auth, Storage, Functions) | فايربيس (Firestore, Auth, Storage, Functions)
+> 🔹 Firebase | فايربيس (Firestore, Auth, Storage, Functions)
 >
 > **🏷️ الإصدار | Version**
-> 0.1 (Vision) – Owner: Abdullah Alshaif – Last Updated: 2025-09-29
-> 0.1 (رؤية) – المالك: عبدالله الشايف – آخر تحديث: 2025-09-29
+> 0.1 (Vision) – Owner: **Abdullah Alshaif** – Last Updated: **2025-09-20**
 
 ---
 
-## 1. 👀 النظرة العامة | Overview
+## 👀 النظرة العامة
 
-- <div class="ar">🔹 تقدم الوثيقة رؤية شاملة للمنصة، أهدافها، وأساسها التقني لضمان وضوح القيمة لجميع الأطراف.</div>
-  <div class="en"><i>🔹 The document provides a comprehensive view of the platform, its goals, and technology foundation to clarify value for every stakeholder.</i></div>
+Overview
+
+- 🔹 تقدم الوثيقة رؤية شاملة للمنصة، أهدافها، وأساسها التقني لضمان وضوح القيمة لجميع الأطراف.
+  🔹 The document provides a comprehensive view of the platform, its goals, and technology foundation to clarify value for every stakeholder.
 
 ---
 
-## 2. 📌 العناصر الرئيسية | Key Elements
+## 📊 العناصر الرئيسية
+
+Key Elements
 
 <table class="doc-table">
   <thead>
@@ -85,14 +90,18 @@
 
 ---
 
-## 3. ℹ️ مقدمة | Introduction
+## 1. ℹ️ مقدمة
 
-### 3.1. 👁️ نظرة بصرية عامة | Visual Overview
+Introduction
 
-<div class="ar">**الوصف:**</div>
-<div class="en"><i>يوضح المخطط رحلة الطلب من إنشاء العميل حتى تسليم الشحنة مع إبراز نقاط التفاعل المالية والتحليلية.</i></div>
-<div class="ar">**Description:**</div>
-<div class="en"><i>The diagram shows the order journey from customer initiation to delivery while flagging finance and analytics touchpoints.</i></div>
+### 1.1 👁️ نظرة بصرية عامة
+
+Visual Overview
+
+**الوصف:**
+يوضح المخطط رحلة الطلب من إنشاء العميل حتى تسليم الشحنة مع إبراز نقاط التفاعل المالية والتحليلية.
+**Description:**
+The diagram shows the order journey from customer initiation to delivery while flagging finance and analytics touchpoints.
 
 ```mermaid
 flowchart TD
@@ -120,19 +129,19 @@ flowchart TD
   end
 
   %% ========== Flows ==========
-  C -->|🆕 طلب جديد\nNew Order| IN
-  IN -->|🛒 شراء عالمي\nGlobal Procurement| GP
-  GP -->|🛳️ شحن إلى المملكة\nShip to KSA| KSA
-  KSA -->|📦 تحويل إلى اليمن\nForward to Yemen| YEM
-  YEM -->|🚚 التسليم الأخير\nLast Mile| LMD
-  LMD -->|✅ تأكيد الاستلام\nDelivery Confirmation| DC
-  DC -->|🔔 إشعار للعميل\nNotify| C
+  C -->|"🆕 طلب جديد\nNew Order"| IN
+  IN -->|"🛒 شراء عالمي\nGlobal Procurement"| GP
+  GP -->|"🛳️ شحن إلى المملكة\nShip to KSA"| KSA
+  KSA -->|"📦 تحويل إلى اليمن\nForward to Yemen"| YEM
+  YEM -->|"🚚 التسليم الأخير\nLast Mile"| LMD
+  LMD -->|"✅ تأكيد الاستلام\nDelivery Confirmation"| DC
+  DC -->|"🔔 إشعار للعميل\nNotify"| C
 
-  IN -. 💳 إدخال مالي\nFinance Entry .-> FIN
-  FIN -. 📈 مشاركة الرؤى\nShare Insights .-> ANA
-  ANA -. 📝 تقارير\nReports .-> SR
-  SR -. 🗳️ قرار وتنفيذ\nDecision .-> LDR
-  FIN -. ⚠️ تصعيد الحالات\nCase Escalation .-> SUP
+  IN -. "💳 إدخال مالي\nFinance Entry" .-> FIN
+  FIN -. "📈 مشاركة الرؤى\nShare Insights" .-> ANA
+  ANA -. "📝 تقارير\nReports" .-> SR
+  SR -. "🗳️ قرار وتنفيذ\nDecision" .-> LDR
+  FIN -. "⚠️ تصعيد الحالات\nCase Escalation" .-> SUP
 
   %% ========== Styles ==========
   classDef start fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e,rx:16,ry:16;
@@ -162,12 +171,14 @@ flowchart TD
   %% note right of SR: الخط المنقط = مسار معلوماتي (تحليلات/قرارات)\nDotted links indicate informational flows
 ```
 
-### 3.2. 🧭 رحلة القيمة المبسطة | Simplified Value Journey
+### 1.2 🧭 رحلة القيمة المبسطة
 
-<div class="ar">**الوصف:**</div>
-<div class="en"><i>يبيّن المخطط دور كل طرف في كل مرحلة لضمان وضوح المسؤوليات وسرعة التسليم.</i></div>
-<div class="ar">**Description:**</div>
-<div class="en"><i>The chart clarifies how each party contributes at every stage to keep responsibilities clear and delivery timely.</i></div>
+Simplified Value Journey
+
+**الوصف:**
+يبيّن المخطط دور كل طرف في كل مرحلة لضمان وضوح المسؤوليات وسرعة التسليم.
+**Description:**
+The chart clarifies how each party contributes at every stage to keep responsibilities clear and delivery timely.
 
 ```mermaid
 %%{init: {
@@ -209,46 +220,52 @@ journey
     📑 نشر التقارير\nPublish Reports: 3: 💼 المالية\nFinance
 ```
 
-### 3.3. 🏁 سياق المنصة | Platform Context
+### 1.3 🏁 سياق المنصة
 
-<div class="ar">**الوصف:**</div>
-<div class="en"><i>يلخص هذا الجزء رسالة المنصة، الشرائح المستفيدة، والمبادئ التصميمية لضمان الاتساق.</i></div>
-<div class="ar">**Description:**</div>
-<div class="en"><i>This section outlines the platform mission, beneficiary segments, and design principles to keep the experience consistent.</i></div>
+Platform Context
 
-- <div class="ar">🔹 🎯 **المهمة الأساسية:** تقديم مركز عمليات موحد لإدارة الطلبات، الشحن، والمدفوعات عبر الحدود بسهولة وشفافية.</div>
-  <div class="en"><i>🔹 🎯 **Core Mission:** Deliver a unified operations hub that manages cross-border orders, shipping, and payments with ease and transparency.</i></div>
-- <div class="ar">🔹 🧭 **وصف المنصة:** حل متكامل يربط إنشاء الطلب بوثائق الشحن والسجلات المالية دون ازدواجية بيانات.</div>
-  <div class="en"><i>🔹 🧭 **Platform Definition:** An integrated solution linking order creation with shipping documents and financial records without data duplication.</i></div>
-- <div class="ar">🔹 🛠️ **الوظيفة الرئيسية:** تنسيق تدفق العمل من الاستلام حتى الإغلاق مع أدوات رقابة وتقارير وأتمتة للمهام الحرجة.</div>
-  <div class="en"><i>🔹 🛠️ **Primary Function:** Orchestrate workflow from intake to closure with controls, reporting, and automation for critical tasks.</i></div>
-- <div class="ar">🔹 🏆 **المنفعة المتوقعة:** خفض العمل اليدوي ورفع رضا العملاء عبر مصدر موحد للحقيقة وإشعارات فورية.</div>
-  <div class="en"><i>🔹 🏆 **Expected Benefit:** Reduce manual effort and raise customer satisfaction through a single source of truth and instant notifications.</i></div>
-- <div class="ar">🔹 👥 **شرائح الخدمة:** المتسوقون، خدمة العملاء، مشغلو العمليات، فرق المالية، القيادة التنفيذية.</div>
-  <div class="en"><i>🔹 👥 **Target Segments:** Shoppers, customer service teams, operations operators, finance teams, executive leadership.</i></div>
-- <div class="ar">🔹 ✨ **مبدأ التجربة:** كل رحلة يجب أن تكون قابلة للتتبع، ثنائية اللغة، وقادرة على العمل دون اتصال لضمان التبني.</div>
-  <div class="en"><i>🔹 ✨ **Experience Principle:** Every journey must be traceable, bilingual, and offline-ready to ensure adoption.</i></div>
+**الوصف:**
+يلخص هذا الجزء رسالة المنصة، الشرائح المستفيدة، والمبادئ التصميمية لضمان الاتساق.
+**Description:**
+This section outlines the platform mission, beneficiary segments, and design principles to keep the experience consistent.
 
----
-
-## 4. 🚀 لماذا الآن | Why Now
-
-- <div class="ar">🔹 📈 **تسارع التجارة العابرة للحدود:** تنمو احتياجات الشراء الدولي في اليمن بنسبة ‎35٪‎ سنويًا رغم تحديات البنية التحتية.</div>
-  <div class="en"><i>🔹 📈 **Cross-border Commerce Acceleration:** International shopping needs in Yemen grow by 35% annually despite infrastructure hurdles.</i></div>
-  - <div class="ar">🔹 🧩 **الفائدة:** يبرر الاستثمار الفوري في منصة قابلة للتوسع تستوعب النمو وتقدم تجربة موحدة.</div>
-    <div class="en"><i>🔹 🧩 **Benefit:** Justifies immediate investment in a scalable platform that absorbs growth and keeps the experience unified.</i></div>
-- <div class="ar">🔹 🗂️ **تشتت العمليات اليدوية:** تتكرر الطلبات في جداول ومحادثات متفرقة مما يهدر الوقت ويصعّب التدقيق.</div>
-  <div class="en"><i>🔹 🗂️ **Manual Fragmentation:** Orders repeat across scattered sheets and chats, wasting time and complicating audits.</i></div>
-  - <div class="ar">🔹 🧩 **الفائدة:** يؤكد ضرورة الأتمتة المركزية لتقليل الأخطاء وتسريع المتابعة التشغيلية.</div>
-    <div class="en"><i>🔹 🧩 **Benefit:** Underlines the need for centralized automation to cut errors and speed operational follow-up.</i></div>
-- <div class="ar">🔹 🛡️ **توقعات الثقة والامتثال:** يتطلب العملاء والشركاء إيصالات رقمية متوافقة مع اللوائح السعودية واليمنية منذ البداية.</div>
-  <div class="en"><i>🔹 🛡️ **Trust & Compliance Expectations:** Customers and partners demand digital receipts aligned with Saudi and Yemeni regulations from day one.</i></div>
-  - <div class="ar">🔹 🧩 **الفائدة:** يدفع لتجهيز ضوابط الحوكمة المبكرة لضمان الامتثال وتقوية سمعة العلامة.</div>
-    <div class="en"><i>🔹 🧩 **Benefit:** Drives early governance controls to ensure compliance and reinforce brand reputation.</i></div>
+- 🔹 🎯 **المهمة الأساسية:** تقديم مركز عمليات موحد لإدارة الطلبات، الشحن، والمدفوعات عبر الحدود بسهولة وشفافية.
+  🔹 🎯 **Core Mission:** Deliver a unified operations hub that manages cross-border orders, shipping, and payments with ease and transparency.
+- 🔹 🧭 **وصف المنصة:** حل متكامل يربط إنشاء الطلب بوثائق الشحن والسجلات المالية دون ازدواجية بيانات.
+  🔹 🧭 **Platform Definition:** An integrated solution linking order creation with shipping documents and financial records without data duplication.
+- 🔹 🛠️ **الوظيفة الرئيسية:** تنسيق تدفق العمل من الاستلام حتى الإغلاق مع أدوات رقابة وتقارير وأتمتة للمهام الحرجة.
+  🔹 🛠️ **Primary Function:** Orchestrate workflow from intake to closure with controls, reporting, and automation for critical tasks.
+- 🔹 🏆 **المنفعة المتوقعة:** خفض العمل اليدوي ورفع رضا العملاء عبر مصدر موحد للحقيقة وإشعارات فورية.
+  🔹 🏆 **Expected Benefit:** Reduce manual effort and raise customer satisfaction through a single source of truth and instant notifications.
+- 🔹 👥 **شرائح الخدمة:** المتسوقون، خدمة العملاء، مشغلو العمليات، فرق المالية، القيادة التنفيذية.
+  🔹 👥 **Target Segments:** Shoppers, customer service teams, operations operators, finance teams, executive leadership.
+- 🔹 ✨ **مبدأ التجربة:** كل رحلة يجب أن تكون قابلة للتتبع، ثنائية اللغة، وقادرة على العمل دون اتصال لضمان التبني.
+  🔹 ✨ **Experience Principle:** Every journey must be traceable, bilingual, and offline-ready to ensure adoption.
 
 ---
 
-## 5. ⚠️ التحديات المحورية | Core Challenges
+## 2. 🚀 لماذا الآن
+
+Why Now
+
+- 🔹 📈 **تسارع التجارة العابرة للحدود:** تنمو احتياجات الشراء الدولي في اليمن بنسبة ‎35٪‎ سنويًا رغم تحديات البنية التحتية.
+  🔹 📈 **Cross-border Commerce Acceleration:** International shopping needs in Yemen grow by 35% annually despite infrastructure hurdles.
+  - 🔹 🧩 **الفائدة:** يبرر الاستثمار الفوري في منصة قابلة للتوسع تستوعب النمو وتقدم تجربة موحدة.
+    🔹 🧩 **Benefit:** Justifies immediate investment in a scalable platform that absorbs growth and keeps the experience unified.
+- 🔹 🗂️ **تشتت العمليات اليدوية:** تتكرر الطلبات في جداول ومحادثات متفرقة مما يهدر الوقت ويصعّب التدقيق.
+  🔹 🗂️ **Manual Fragmentation:** Orders repeat across scattered sheets and chats, wasting time and complicating audits.
+  - 🔹 🧩 **الفائدة:** يؤكد ضرورة الأتمتة المركزية لتقليل الأخطاء وتسريع المتابعة التشغيلية.
+    🔹 🧩 **Benefit:** Underlines the need for centralized automation to cut errors and speed operational follow-up.
+- 🔹 🛡️ **توقعات الثقة والامتثال:** يتطلب العملاء والشركاء إيصالات رقمية متوافقة مع اللوائح السعودية واليمنية منذ البداية.
+  🔹 🛡️ **Trust & Compliance Expectations:** Customers and partners demand digital receipts aligned with Saudi and Yemeni regulations from day one.
+  - 🔹 🧩 **الفائدة:** يدفع لتجهيز ضوابط الحوكمة المبكرة لضمان الامتثال وتقوية سمعة العلامة.
+    🔹 🧩 **Benefit:** Drives early governance controls to ensure compliance and reinforce brand reputation.
+
+---
+
+## 3. 🧩 التحديات المحورية
+
+Core Challenges
 
 ```mermaid
 %%{init: {
@@ -278,20 +295,22 @@ flowchart LR
   classDef impact fill:#dcfce7,stroke:#16a34a,stroke-width:1.5px,color:#065f46;
 ```
 
-- <div class="ar">🔹 🔍 **عمى تشغيلي:** لا يمكن ربط حالة الشحنة بالطلب أو العميل من خلال مصدر واحد مما يؤخر القرارات.</div>
-  <div class="en"><i>🔹 🔍 **Operational Blind Spots:** Shipment status cannot be tied to an order or customer within a single source, delaying decisions.</i></div>
-  - <div class="ar">🔹 🧩 **الفائدة:** يحفز بناء لوحة متابعة موحدة ودمج الحالة عبر الأنظمة.</div>
-    <div class="en"><i>🔹 🧩 **Benefit:** Encourages building a unified monitoring dashboard and integrating status across systems.</i></div>
-- <div class="ar">🔹 💸 **اختلال السجلات المالية:** التسويات اليدوية وتعدد العملات تؤدي إلى فروقات في الأرصدة وتقارير متعارضة.</div>
-  <div class="en"><i>🔹 💸 **Financial Record Confusion:** Manual reconciliations and currency switches create balance gaps and conflicting reports.</i></div>
-  - <div class="ar">🔹 🧩 **الفائدة:** يبرز ضرورة وجود محرك تسوية خفيف يحافظ على التوافق بين الطلبات والمدفوعات.</div>
-    <div class="en"><i>🔹 🧩 **Benefit:** Highlights the need for a lightweight reconciliation engine that keeps orders and payments aligned.</i></div>
-- <div class="ar">🔹 🧠 **فجوات المعرفة والإجراءات:** غياب أدلة موحدة يعرقل الإحلال ويخلق تفاوتًا في جودة الخدمة بين المناطق.</div>
-  <div class="en"><i>🔹 🧠 **Knowledge & Process Gaps:** Missing playbooks hinder handovers and create uneven service quality across regions.</i></div>
-  - <div class="ar">🔹 🧩 **الفائدة:** يدعم إنشاء أدلة رقمية مدمجة وتدريب متسق داخل النظام.</div>
-    <div class="en"><i>🔹 🧩 **Benefit:** Supports building embedded digital playbooks and consistent in-app training.</i></div>
+- 🔹 🔍 **عمى تشغيلي:** لا يمكن ربط حالة الشحنة بالطلب أو العميل من خلال مصدر واحد مما يؤخر القرارات.
+  🔹 🔍 **Operational Blind Spots:** Shipment status cannot be tied to an order or customer within a single source, delaying decisions.
+  - 🔹 🧩 **الفائدة:** يحفز بناء لوحة متابعة موحدة ودمج الحالة عبر الأنظمة.
+    🔹 🧩 **Benefit:** Encourages building a unified monitoring dashboard and integrating status across systems.
+- 🔹 💸 **اختلال السجلات المالية:** التسويات اليدوية وتعدد العملات تؤدي إلى فروقات في الأرصدة وتقارير متعارضة.
+  🔹 💸 **Financial Record Confusion:** Manual reconciliations and currency switches create balance gaps and conflicting reports.
+  - 🔹 🧩 **الفائدة:** يبرز ضرورة وجود محرك تسوية خفيف يحافظ على التوافق بين الطلبات والمدفوعات.
+    🔹 🧩 **Benefit:** Highlights the need for a lightweight reconciliation engine that keeps orders and payments aligned.
+- 🔹 🧠 **فجوات المعرفة والإجراءات:** غياب أدلة موحدة يعرقل الإحلال ويخلق تفاوتًا في جودة الخدمة بين المناطق.
+  🔹 🧠 **Knowledge & Process Gaps:** Missing playbooks hinder handovers and create uneven service quality across regions.
+  - 🔹 🧩 **الفائدة:** يدعم إنشاء أدلة رقمية مدمجة وتدريب متسق داخل النظام.
+    🔹 🧩 **Benefit:** Supports building embedded digital playbooks and consistent in-app training.
 
-### 5.1. 🎯 الحالة الحالية والمستهدفة | Current vs Target State
+### 3.1 🎯 الحالة الحالية والمستهدفة
+
+Current vs Target State
 
 <table class="doc-table">
   <thead>
@@ -386,7 +405,9 @@ flowchart LR
 
 ---
 
-## 6. 💡 الرؤية والقيمة | Vision & Value
+## 4. 💡 الرؤية والقيمة
+
+Vision & Value
 
 ```mermaid
 flowchart LR
@@ -422,52 +443,58 @@ flowchart LR
   class PART,T7,T8 part;
 ```
 
-- <div class="ar">🔹 👥 **قيمة العملاء:** ضمان مسار واضح من الاستفسار إلى التسليم مع تحديثات لحظية تعزز الثقة والولاء.</div>
-  <div class="en"><i>🔹 👥 **Customer Value:** Provide a visible journey from inquiry to delivery with real-time updates that boost trust and loyalty.</i></div>
-- <div class="ar">🔹 🧑‍💼 **قيمة فريق العمليات:** مسار عمل موحد يقلل الجهد المكرر ويجعل تدوير الأفراد أكثر سلاسة.</div>
-  <div class="en"><i>🔹 🧑‍💼 **Operations Team Value:** A unified workflow that removes duplicated effort and smooths staff rotations.</i></div>
-- <div class="ar">🔹 💼 **قيمة الأعمال:** تحويل البيانات التشغيلية إلى لوحات قرار موثوقة تمكّن الإدارة من التوسع بثقة.</div>
-  <div class="en"><i>🔹 💼 **Business Value:** Turn operational data into trustworthy decision dashboards enabling confident expansion.</i></div>
-- <div class="ar">🔹 🤝 **قيمة الشركاء:** عمولات واضحة وتكاملات سريعة تعزز الشفافية وتخفض المخاطر المشتركة.</div>
-  <div class="en"><i>🔹 🤝 **Partner Value:** Transparent commissions and rapid integrations that enhance transparency and reduce shared risk.</i></div>
+- 🔹 👥 **قيمة العملاء:** ضمان مسار واضح من الاستفسار إلى التسليم مع تحديثات لحظية تعزز الثقة والولاء.
+  🔹 👥 **Customer Value:** Provide a visible journey from inquiry to delivery with real-time updates that boost trust and loyalty.
+- 🔹 🧑‍💼 **قيمة فريق العمليات:** مسار عمل موحد يقلل الجهد المكرر ويجعل تدوير الأفراد أكثر سلاسة.
+  🔹 🧑‍💼 **Operations Team Value:** A unified workflow that removes duplicated effort and smooths staff rotations.
+- 🔹 💼 **قيمة الأعمال:** تحويل البيانات التشغيلية إلى لوحات قرار موثوقة تمكّن الإدارة من التوسع بثقة.
+  🔹 💼 **Business Value:** Turn operational data into trustworthy decision dashboards enabling confident expansion.
+- 🔹 🤝 **قيمة الشركاء:** عمولات واضحة وتكاملات سريعة تعزز الشفافية وتخفض المخاطر المشتركة.
+  🔹 🤝 **Partner Value:** Transparent commissions and rapid integrations that enhance transparency and reduce shared risk.
 
 ---
 
-## 7. 🎯 الأهداف الاستراتيجية | Strategic Objectives
+## 5. 🎯 الأهداف الاستراتيجية
 
-- <div class="ar">🔹 💰 **توسيع الإيرادات:** رفع متوسط قيمة الطلب بنسبة ‎20٪‎ عبر الباقات والاشتراكات لدعم الاستثمار المستمر.</div>
-  <div class="en"><i>🔹 💰 **Revenue Expansion:** Increase average order value by 20% through bundles and subscriptions to sustain ongoing investment.</i></div>
-  - <div class="ar">🔹 🧩 **الفائدة:** يتيح إطلاق خدمات ملحقة ويعزز هوامش الربح المستهدفة.</div>
-    <div class="en"><i>🔹 🧩 **Benefit:** Enables ancillary services and strengthens target profit margins.</i></div>
-- <div class="ar">🔹 ⚙️ **التميز التشغيلي:** خفض زمن معالجة الطلب إلى أقل من 60 ثانية عند الاستلام بفضل الأتمتة والتدريب المركز.</div>
-  <div class="en"><i>🔹 ⚙️ **Operational Excellence:** Cut order processing time below 60 seconds at intake via automation and focused training.</i></div>
-  - <div class="ar">🔹 🧩 **الفائدة:** يحسّن تجربة العميل ويخفض تكاليف التشغيل اليومية.</div>
-    <div class="en"><i>🔹 🧩 **Benefit:** Improves customer experience and lowers daily operating costs.</i></div>
-- <div class="ar">🔹 🛡️ **الحوكمة والامتثال:** فرض سياسات أدوار دقيقة وسجل تدقيق لكل معاملة مالية لحماية المنصة.</div>
-  <div class="en"><i>🔹 🛡️ **Governance & Compliance:** Enforce precise role policies and audit trails for each financial transaction to protect the platform.</i></div>
-  - <div class="ar">🔹 🧩 **الفائدة:** يقلل التعرض القانوني ويرفع ثقة المنظمين والشركاء.</div>
-    <div class="en"><i>🔹 🧩 **Benefit:** Reduces legal exposure and increases regulator and partner confidence.</i></div>
+Strategic Objectives
 
----
-
-## 8. 🛠️ نطاق الإصدار الأولي | MVP Scope
-
-- <div class="ar">🔹 📝 **وحدة الطلبات:** إنشاء، تقسيم، وربط الطلبات بمكتبة العملاء والمرفقات لضمان اكتمال البيانات وتاريخها.</div>
-  <div class="en"><i>🔹 📝 **Orders Module:** Create, split, and link orders with the customer library and attachments to ensure complete data and history.</i></div>
-  - <div class="ar">🔹 🧩 **الفائدة:** يوفر سجلًا موحدًا يسهل الرجوع إليه ويقلل فقدان المعلومات.</div>
-    <div class="en"><i>🔹 🧩 **Benefit:** Provides a unified record that is easy to reference and prevents information loss.</i></div>
-- <div class="ar">🔹 🚚 **متابعة الشحن:** تتبع متعدد المراحل من الشراء حتى التسليم مع طوابع زمنية وأدلة مرفقة للمراجعة.</div>
-  <div class="en"><i>🔹 🚚 **Shipment Tracking:** Multi-stage tracking from purchase to delivery with timestamps and evidence attachments for review.</i></div>
-  - <div class="ar">🔹 🧩 **الفائدة:** يقلل الاتصالات المتكررة ويضبط توقعات العملاء.</div>
-    <div class="en"><i>🔹 🧩 **Benefit:** Reduces repeated inquiries and aligns customer expectations.</i></div>
-- <div class="ar">🔹 💳 **إدارة المالية:** أرصدة، مدفوعات، تحويلات، وبطاقات هدايا مع سجل تدقيق شامل عبر المواقع.</div>
-  <div class="en"><i>🔹 💳 **Finance Management:** Balances, payments, transfers, and gift cards with a comprehensive cross-site audit log.</i></div>
-  - <div class="ar">🔹 🧩 **الفائدة:** يضمن تطابق الأرقام بين المتاجر والبنوك والمستخدمين بشكل فوري.</div>
-    <div class="en"><i>🔹 🧩 **Benefit:** Ensures numbers match instantly across stores, banks, and users.</i></div>
+- 🔹 💰 **توسيع الإيرادات:** رفع متوسط قيمة الطلب بنسبة ‎20٪‎ عبر الباقات والاشتراكات لدعم الاستثمار المستمر.
+  🔹 💰 **Revenue Expansion:** Increase average order value by 20% through bundles and subscriptions to sustain ongoing investment.
+  - 🔹 🧩 **الفائدة:** يتيح إطلاق خدمات ملحقة ويعزز هوامش الربح المستهدفة.
+    🔹 🧩 **Benefit:** Enables ancillary services and strengthens target profit margins.
+- 🔹 ⚙️ **التميز التشغيلي:** خفض زمن معالجة الطلب إلى أقل من 60 ثانية عند الاستلام بفضل الأتمتة والتدريب المركز.
+  🔹 ⚙️ **Operational Excellence:** Cut order processing time below 60 seconds at intake via automation and focused training.
+  - 🔹 🧩 **الفائدة:** يحسّن تجربة العميل ويخفض تكاليف التشغيل اليومية.
+    🔹 🧩 **Benefit:** Improves customer experience and lowers daily operating costs.
+- 🔹 🛡️ **الحوكمة والامتثال:** فرض سياسات أدوار دقيقة وسجل تدقيق لكل معاملة مالية لحماية المنصة.
+  🔹 🛡️ **Governance & Compliance:** Enforce precise role policies and audit trails for each financial transaction to protect the platform.
+  - 🔹 🧩 **الفائدة:** يقلل التعرض القانوني ويرفع ثقة المنظمين والشركاء.
+    🔹 🧩 **Benefit:** Reduces legal exposure and increases regulator and partner confidence.
 
 ---
 
-## 9. 📊 مؤشرات النجاح (KPIs) | Success Metrics (KPIs)
+## 6. 🛠️ نطاق الإصدار الأولي
+
+MVP Scope
+
+- 🔹 📝 **وحدة الطلبات:** إنشاء، تقسيم، وربط الطلبات بمكتبة العملاء والمرفقات لضمان اكتمال البيانات وتاريخها.
+  🔹 📝 **Orders Module:** Create, split, and link orders with the customer library and attachments to ensure complete data and history.
+  - 🔹 🧩 **الفائدة:** يوفر سجلًا موحدًا يسهل الرجوع إليه ويقلل فقدان المعلومات.
+    🔹 🧩 **Benefit:** Provides a unified record that is easy to reference and prevents information loss.
+- 🔹 🚚 **متابعة الشحن:** تتبع متعدد المراحل من الشراء حتى التسليم مع طوابع زمنية وأدلة مرفقة للمراجعة.
+  🔹 🚚 **Shipment Tracking:** Multi-stage tracking from purchase to delivery with timestamps and evidence attachments for review.
+  - 🔹 🧩 **الفائدة:** يقلل الاتصالات المتكررة ويضبط توقعات العملاء.
+    🔹 🧩 **Benefit:** Reduces repeated inquiries and aligns customer expectations.
+- 🔹 💳 **إدارة المالية:** أرصدة، مدفوعات، تحويلات، وبطاقات هدايا مع سجل تدقيق شامل عبر المواقع.
+  🔹 💳 **Finance Management:** Balances, payments, transfers, and gift cards with a comprehensive cross-site audit log.
+  - 🔹 🧩 **الفائدة:** يضمن تطابق الأرقام بين المتاجر والبنوك والمستخدمين بشكل فوري.
+    🔹 🧩 **Benefit:** Ensures numbers match instantly across stores, banks, and users.
+
+---
+
+## 7. 📊 مؤشرات النجاح (KPIs)
+
+Success Metrics (KPIs)
 
 <table class="doc-table">
   <thead>
@@ -548,7 +575,9 @@ flowchart LR
 
 ---
 
-## 10. 🗺️ خارطة الإصدارات | Release Roadmap
+## 8. 🗺️ خارطة الإصدارات
+
+Release Roadmap
 
 ```mermaid
 timeline
@@ -560,7 +589,9 @@ timeline
 
 ---
 
-## 11. ⚠️ المخاطر وخطط التخفيف | Risks & Mitigations
+## 9. ⚠️ المخاطر وخطط التخفيف
+
+Risks & Mitigations
 
 <table class="doc-table">
   <thead>
@@ -641,7 +672,9 @@ timeline
 
 ---
 
-## 12. 🧾 مسرد المصطلحات | Glossary
+## 10. 🧾 مسرد المصطلحات
+
+Glossary
 
 <table class="doc-table">
   <thead>
@@ -718,12 +751,14 @@ timeline
 
 ---
 
-## 13. 🔗 جدول المواءمة بين الأهداف والقيمة | Objectives vs Value Table
+## 11. 🔗 جدول المواءمة بين الأهداف والقيمة
 
-<div class="ar">**الوصف:**</div>
-<div class="en"><i>يوضح الجدول كيفية ارتباط الأهداف الاستراتيجية بالقيمة المتحققة لكل فئة لضمان اتساق القرارات الاستثمارية.</i></div>
-<div class="ar">**Description:**</div>
-<div class="en"><i>The table shows how strategic objectives translate into value for each group to keep investment decisions aligned.</i></div>
+Objectives vs Value Table
+
+**الوصف:**
+يوضح الجدول كيفية ارتباط الأهداف الاستراتيجية بالقيمة المتحققة لكل فئة لضمان اتساق القرارات الاستثمارية.
+**Description:**
+The table shows how strategic objectives translate into value for each group to keep investment decisions aligned.
 
 <table class="doc-table">
   <thead>
