@@ -1,375 +1,218 @@
-﻿# 🤝 تحليل أصحاب المصلحة | Stakeholder Analysis
+﻿# 🧭 تحليل أصحاب المصلحة
 
-> **🗂️ المشروع | Project**
->
-> <div dir="rtl">منصة الوساطة الشرائية <b>CA Admin</b></div>
-> <div dir="ltr"><em>CA Admin Shopping Mediation Platform</em></div>
->
-> **🧰 المكدس التقني | Tech Stack**
-> 🔹 Flutter | <span dir="rtl">فلاتر</span><br>
-> 🔹 Firebase (Firestore, Auth, Storage, Functions) | <span dir="rtl">فايربيس (Firestore, Auth, Storage, Functions)</span>
->
-> **🏷️ الإصدار | Version**
->
-> <div dir="ltr"><b>0.1 (Vision)</b> — Owner: <b>Abdullah Alshaif</b> — Last Updated: <b>2025-09-29</b></div>
+🧭 Stakeholders Analysis
 
 ---
 
-## 🎯 نظرة مركّزة | Focused Insight
+> 🗂️ **المشروع:** منصة الوساطة الشرائية CA Admin
+> 🗂️ **Project:** CA Admin Shopping Mediation Platform
+> 🧰 **المكدس التقني:** Flutter، Firebase (Firestore، Auth، Storage، Functions)
+> 🧰 **Tech Stack:** Flutter, Firebase (Firestore, Auth, Storage, Functions)
+> 🏷️ **الإصدار:** 0.1 (رؤية) – المالك: عبدالله الشائف – آخر تحديث: 2025-09-20
+> 🏷️ **Version:** 0.1 (Vision) – Owner: Abdullah Alshaif – Last Updated: 2025-09-20
 
-- يقدم الملف تصورًا موحدًا لتوقعات أصحاب المصلحة ويوجه القرارات اليومية نحو أولوياتهم.  
-  The document delivers a unified view of stakeholder expectations and steers day-to-day decisions toward their priorities.
-
-## 🧭 قيمة تطبيقية | Applied Value
-
-- يوضح المسار التشغيلي لتحديث بيانات الأطراف ويسهّل إعداد موجزات الإدارة والحوكمة.  
-  It clarifies the operational path for updating stakeholder data and streamlines the preparation of management and governance briefs.
-
----
-
-## 1. 🔍 نظرة عامة على التحليل | Analysis Overview
-
-> 📖 **المنهجية | Methodology**
->
-> <p dir="rtl">يشرح القسم منهجية تحديد الأطراف المؤثرة استنادًا إلى قوتهم واهتمامهم، وكيفية دمج النتائج في خارطة الطريق.</p>
-> <p dir="ltr"><em>It explains the methodology for mapping influential parties by power and interest, and shows how findings feed the roadmap.</em></p>
+**الرؤية المختصرة:**
+يوضح هذا المستند جميع الأطراف ذات التأثير على نجاح المنصة، مع إبراز توقعاتهم، وأدوارهم، وقنوات التفاعل المناسبة.
+**Condensed View:**
+This document outlines every party impacting platform success, highlighting their expectations, roles, and fit communication channels.
 
 ---
 
-> 🔄 **التحديث المستمر | Continuous Refresh**
->
-> <p dir="rtl">يركز التحليل على التحديث المستمر باستخدام جلسات مراجعة ربع سنوية مع قادة الأعمال والفرق التقنية.</p>
-> <p dir="ltr"><em>The analysis relies on continuous refresh through quarterly review sessions with business leaders and technical squads.</em></p>
+## 1. ✨ مقدمة التحليل
 
----
+1. ✨ Analysis Introduction
 
-## 1.1 🔗 مشهد التفاعل | Interaction Landscape
+## 1.1 🛰️ المشهد العام للتفاعل
 
-**📌 الهدف | Purpose**
+1.1 🛰️ Interaction Landscape
 
-<p dir="rtl">يرسم المخطط تتابع التفاعل بين الفرق الرئيسية ويوضح نقاط التسليم الحرجة لكل مسار.</p>
-<p dir="ltr"><em>Purpose: The diagram traces interactions among key teams and exposes critical hand-off points for each stream.</em></p>
+**الوصف:**
+يبين الرسم تدفق التفاعل بين الفئات الرئيسة وكيف يدعم كل مسار تحقيق أهداف المنصة.
+**Description:**
+The diagram visualizes interaction flows between major groups and how each stream supports platform objectives.
 
 ```mermaid
 flowchart LR
-
-  %% ========= Nodes & Lanes =========
-  subgraph L1[🟦 العملاء والدعم\\nCustomers & Support]
-    CUST["👥 العملاء\\nCustomers"]:::actor
-    CS["🎧 دعم العملاء\\nCustomer Service"]:::stage
-  end
-
-  subgraph L2[🟨 العمليات واللوجستيات\\nOperations & Logistics]
-    OPS["🏭 العمليات\\nOperations"]:::stage
-    LOG["🚚 اللوجستيات\\nLogistics"]:::stage
-    TECH["🛠️ الدعم التقني\\nTech Support"]:::stage
-  end
-
-  subgraph L3[🟩 المالية والقيادة\\nFinance & Leadership]
-    FIN["💰 المالية\\nFinance"]:::stage
-    LEAD["🏆 القيادة\\nLeadership"]:::stake
-  end
-
-  subgraph L4[🟪 الشركاء التجاريون\\nCommercial Partners]
-    PART["🤝 الشركاء التجاريون\\nCommercial Partners"]:::stage
-  end
-
-  %% ========= Flows =========
-  CUST -->|🆕 طلب جديد\\nPlace Order| CS
-  CS -->|🧾 تسجيل الطلب\\nRecord Order| OPS
-
-  OPS -->|📦 تحديث الشحنة\\nUpdate Shipment| LOG
-  OPS -->|💳 مراجعة مالية\\nFinance Review| FIN
-  OPS -. 🧰 بلاغ تقني\\nTech Ticket .-> TECH
-
-  FIN -. 📈 تقارير الأداء\\nPerformance Reports .-> LEAD
-  LEAD -. 🧭 توجيهات تجارية\\nCommercial Directives .-> PART
-  PART -->|🎯 عروض محدّثة\\nUpdate Offers| OPS
-
-  %% ========= Styles =========
-  classDef actor fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e,rx:14,ry:14;
-  classDef stage fill:#f8fafc,stroke:#94a3b8,stroke-width:1.5px,color:#0f172a,rx:12,ry:12;
-  classDef stake fill:#ede9fe,stroke:#7c3aed,stroke-width:1.5px,color:#3b0764,rx:14,ry:14;
-
-  style L1 fill:#eff6ff,stroke:#3b82f6,stroke-width:1px,color:#1e3a8a
-  style L2 fill:#fffbeb,stroke:#f59e0b,stroke-width:1px,color:#7c2d12
-  style L3 fill:#ecfdf5,stroke:#10b981,stroke-width:1px,color:#064e3b
-  style L4 fill:#f5f3ff,stroke:#8b5cf6,stroke-width:1px,color:#5b21b6
-
-  %% خطوط المعلومات منقّطة ومميّزة
-  linkStyle default stroke:#64748b,stroke-width:1.5px
-  linkStyle 5,6,7 stroke:#7c3aed,stroke-dasharray:4 2,stroke-width:1.6px
+  Customers["العملاء\nCustomers"] -->|"تقديم طلب\nPlace Order"| CS["خدمة العملاء\nCustomer Service"]
+  CS -->|"سجل الطلب\nRecord Order"| Ops["العمليات\nOperations"]
+  Ops -->|"تحديث حالة الشحن\nUpdate Shipment"| Logistics["اللوجستيات\nLogistics"]
+  Ops -->|"طلب اعتماد مالي\nFinance Check"| Finance["المالية\nFinance"]
+  Finance -->|"تقارير الأداء\nPerformance Reports"| Leadership["القيادة\nLeadership"]
+  Ops -->|"تذكرة دعم تقنية\nTech Ticket"| Tech["الدعم التقني\nTech Support"]
+  Leadership -->|"توجيهات تجارية\nCommercial Directives"| Partners["الشركاء التجاريون\nCommercial Partners"]
+  Partners -->|"تحديث عروض\nUpdate Offers"| Ops
 ```
 
-- 🔄 يوضح انتقال الطلب من خدمة العملاء إلى العمليات مع تمييز العتبات الزمنية لكل خطوة.
-  It clarifies how orders move from customer service to operations while flagging timing thresholds for every step.
-- 🧮 يبرز دور المالية في ضبط المدخلات وتحويلها إلى مؤشرات تنفيذية للقيادة العليا.
-  It highlights finance's role in converting inputs into executive indicators for leadership.
-- 🛡️ يضمن وجود مسار تصعيد تقني لتقليل الأعطال وإغلاق البلاغات خلال مستوى الخدمة المتفق عليه.
-  It ensures a technical escalation lane that reduces outages and closes tickets within the agreed SLA.
-- 🤝 يربط الشركاء التجاريين بخط التدفقات لضمان تزامن العروض وتسعير المنتجات مع حالة العمليات.
-  It connects commercial partners to the flow so promotions and pricing stay synchronized with operational status.
+- 🔑 توضح أهمية التحليل كيف يؤثر كل طرف على نجاح المنصة وإطلاقها السلس.
+  🔑 The importance insight clarifies how each party influences a smooth launch and sustained success.
+- 🧭 يحدد إطار التأثير والاهتمام طريقة تصنيف الأطراف لضمان تركيز الموارد.
+  🧭 The influence-interest frame defines how parties are classified to focus resources effectively.
+- 🛠️ يوجه هذا المخطط قرارات التصميم والحوكمة وقنوات الاتصال المناسبة لكل فئة.
+  🛠️ The flow guides design, governance, and communication decisions tailored to each group.
+- 🛡️ يقلل وضوح المسارات مخاطر التعارض مبكرًا ويضمن مواءمة التوقعات.
+  🛡️ Clear pathways lower conflict risks early and align expectations consistently.
 
-## 1.2 🧭 تصنيف أصحاب المصلحة | Stakeholder Classification
+## 1.2 🧠 تصنيف أصحاب المصلحة
 
-**📌 الهدف | Purpose**
+1.2 🧠 Stakeholder Classification
 
-<p dir="rtl">يجمع التصنيف أصحاب المصلحة في مجموعات واضحة تساعد على مواءمة قنوات الاتصال ومسارات الاعتماد.</p>
-<p dir="ltr"><em>Purpose: The classification groups stakeholders clearly, enabling aligned communication channels and approval paths.</em></p>
+**الوصف:**
+يصنف المخطط الذهني الأطراف إلى داخلية، خارجية، ورقابية مع إبراز أمثلة لكل فئة.
+**Description:**
+The mindmap groups stakeholders into internal, external, and oversight clusters with representative examples.
 
 ```mermaid
-%%{init: { "theme":"base", "themeVariables":{
-  "fontFamily":"Tahoma, Arial, 'Noto Sans Arabic', sans-serif",
-  "fontSize":"15px"
-}}}%%
 mindmap
-  root((🤝 أصحاب المصلحة\\nStakeholders))
-
-    🏠 داخليون\\nInternal
-      🎧 دعم العملاء\\nCustomer Service
-      🏭 العمليات\\nOperations
-      💰 المالية\\nFinance
-      🛠️ الدعم التقني\\nTech Support
-
-    🌐 خارجيون\\nExternal
-      🤝 الشركاء التجاريون\\nCommercial Partners
-      🚚 مقدمو الخدمات اللوجستية\\nLogistics Providers
-      🛒 العملاء الأفراد\\nRetail Customers
-
-    🛡️ رقابيّون\\nOversight
-      🏆 القيادة التنفيذية\\nExecutive Leadership
-      📋 المدققون الخارجيون\\nExternal Auditors
-      💼 المستثمرون\\nInvestors
+  root(("أصحاب المصلحة\nStakeholders"))
+    "داخلية\nInternal"
+      "خدمة العملاء\nCustomer Service"
+      "العمليات\nOperations"
+      "المالية\nFinance"
+      "الدعم التقني\nTech Support"
+    "خارجية\nExternal"
+      "الشركاء التجاريون\nCommercial Partners"
+      "مزودو اللوجستيات\nLogistics Providers"
+      "العملاء الأفراد\nRetail Customers"
+    "رقابية\nOversight"
+      "القيادة التنفيذية\nExecutive Leadership"
+      "المدققون الخارجيون\nExternal Auditors"
+      "المستثمرون\nInvestors"
 ```
 
-- 📌 يسهل المخطط تحديد المسؤوليات المشتركة وتوزيع الموارد بما يتناسب مع قوة كل فئة.
-  The map streamlines how shared responsibilities are identified and resources are allocated to match each group's influence.
-- 🧱 يوفر نظرة بصرية تساعد الفرق الجديدة على فهم البيئة التنظيمية خلال جلسات الإعداد الأولى.
-  It offers a visual snapshot that assists new teams in grasping the organizational landscape during onboarding.
-- 📈 يدعم قرارات التوسع عبر ربط المستويات الرقابية بالشرائح التشغيلية لضمان الحوكمة المستمرة.
-  It supports expansion decisions by linking oversight bodies to operational tiers, securing ongoing governance.
+- 🧩 يضمن التصنيف الشامل عدم إغفال أي طرف له تأثير أو مصلحة.
+  🧩 The comprehensive classification ensures no influential or interested party is overlooked.
+- 🔄 يساعد الربط بين الفئات على تصميم رحلات متكاملة من الواجهة الأمامية وحتى غرف العمليات.
+  🔄 Linking categories supports designing end-to-end journeys from front office to back office.
+- 📌 يوفر المخطط نظرة مرئية سريعة تسهل تقديم العرض على المدراء والفِرق الجديدة.
+  📌 The visual provides a quick reference that simplifies briefings for leaders and onboarding teams.
 
 ---
 
-## 2. 📚 سجل أصحاب المصلحة | Stakeholder Catalogue
+## 2. 📇 دليل أصحاب المصلحة
 
-**📌 الهدف | Purpose**
+📇 Stakeholder Catalogue
 
-<p dir="rtl">يقدم الجدول توصيفًا موجزًا للأدوار والتوقعات لضمان توحيد الرسائل والنتائج المطلوبة.</p>
-<p dir="ltr"><em>Purpose: The table delivers concise role and expectation definitions to unify messaging and desired outcomes.</em></p>
+**الوصف:**
+يوضح الجدول الفئات الرئيسة مع أدوارها المتوقعة وقيمة المنصة بالنسبة لها.
+**Description:**
+The table details key stakeholder groups, their roles, and the value the platform must deliver.
 
-<table class="doc-table">
-  <thead>
-    <tr>
-      <th><span dir="rtl">📌 الفئة</span><br><span dir="ltr"><i>Category</i></span></th>
-      <th><span dir="rtl">🎭 الدور الرئيسي</span><br><span dir="ltr"><i>Primary Role</i></span></th>
-      <th><span dir="rtl">🎯 التوقع المحوري</span><br><span dir="ltr"><i>Key Expectation</i></span></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><div dir="rtl"><strong>👥 العملاء</strong></div><div dir="ltr"><em>Customers</em></div></td>
-      <td><div dir="rtl">تقديم الطلبات ومتابعة حالتها عبر القنوات الرقمية والهاتفية</div><div dir="ltr"><em>Submit orders and track their status through digital and phone channels</em></div></td>
-      <td><div dir="rtl">رحلة واضحة ثنائية اللغة مع تسعير شفاف وإشعارات آنية بكل تغيير</div><div dir="ltr"><em>A clear bilingual journey with transparent pricing and real-time change alerts</em></div></td>
-    </tr>
-    <tr>
-      <td><div dir="rtl"><strong>🎧 فريق خدمة العملاء</strong></div><div dir="ltr"><em>Customer Service Team</em></div></td>
-      <td><div dir="rtl">التحقق من بيانات الطلبات والرد على الاستفسارات وإدارة شكاوى المستخدمين</div><div dir="ltr"><em>Validate order data, handle questions, and manage customer complaints</em></div></td>
-      <td><div dir="rtl">واجهة موحدة وسجلات تفاعل قابلة للبحث مع قوالب رد جاهزة</div><div dir="ltr"><em>A unified interface and searchable interaction history with ready-to-use response templates</em></div></td>
-    </tr>
-    <tr>
-      <td><div dir="rtl"><strong>🏭 فريق العمليات</strong></div><div dir="ltr"><em>Operations Team</em></div></td>
-      <td><div dir="rtl">تنسيق المشتريات وإدارة المخزون والمتابعة مع الشحن والموردين</div><div dir="ltr"><em>Coordinate procurement, manage inventory, and liaise with shipping and suppliers</em></div></td>
-      <td><div dir="rtl">لوحة تحكم تنبؤية تقلل العمل اليدوي وتنبه مبكرًا لأي تأخير أو نقص</div><div dir="ltr"><em>A predictive dashboard that reduces manual steps and raises early alerts for delays or shortages</em></div></td>
-    </tr>
-    <tr>
-      <td><div dir="rtl"><strong>💰 فريق المالية</strong></div><div dir="ltr"><em>Finance Team</em></div></td>
-      <td><div dir="rtl">مطابقة المدفوعات، إدارة الأرصدة، وإصدار التقارير الدورية</div><div dir="ltr"><em>Reconcile payments, manage balances, and produce periodic governance reports</em></div></td>
-      <td><div dir="rtl">بيانات دقيقة متعددة العملات وجاهزية فورية للتدقيق</div><div dir="ltr"><em>Accurate multi-currency data with instant audit readiness</em></div></td>
-    </tr>
-    <tr>
-      <td><div dir="rtl"><strong>🏆 القيادة التنفيذية</strong></div><div dir="ltr"><em>Executive Leadership</em></div></td>
-      <td><div dir="rtl">وضع الأولويات، اعتماد الميزانيات، ومراقبة الأداء الاستراتيجي</div><div dir="ltr"><em>Set priorities, approve budgets, and monitor strategic performance</em></div></td>
-      <td><div dir="rtl">مؤشرات أداء موجزة ونماذج مخاطر شفافة لدعم قرارات النمو</div><div dir="ltr"><em>Concise KPIs and transparent risk models to back growth decisions</em></div></td>
-    </tr>
-    <tr>
-      <td><div dir="rtl"><strong>🛠️ الدعم التقني</strong></div><div dir="ltr"><em>Tech Support</em></div></td>
-      <td><div dir="rtl">إدارة الصلاحيات، مراقبة سلامة النظام، ومعالجة الأعطال</div><div dir="ltr"><em>Manage permissions, monitor system health, and resolve technical incidents</em></div></td>
-      <td><div dir="rtl">سجلات أخطاء دقيقة وأدوات مراقبة لحظية مع اختبارات أمن متكررة</div><div dir="ltr"><em>Precise error logs, real-time monitoring tools, and recurring security tests</em></div></td>
-    </tr>
-    <tr>
-      <td><div dir="rtl"><strong>🤝 الشركاء التجاريون</strong></div><div dir="ltr"><em>Commercial Partners</em></div></td>
-      <td><div dir="rtl">تحديث الأسعار وتوفير التوافر وتنسيق الحملات المشتركة</div><div dir="ltr"><em>Update pricing, secure availability, and coordinate joint campaigns</em></div></td>
-      <td><div dir="rtl">تكاملات API مستقرة وتقارير عمولات موثوقة مع رؤية زمنية للطلبات</div><div dir="ltr"><em>Stable API integrations, reliable commission reports, and timely order visibility</em></div></td>
-    </tr>
-    <tr>
-      <td><div dir="rtl"><strong>🚚 مقدمو الخدمات اللوجستية</strong></div><div dir="ltr"><em>Logistics Providers</em></div></td>
-      <td><div dir="rtl">استلام الشحنات ونقلها وتوثيق التسليم ضمن الإطارات الزمنية</div><div dir="ltr"><em>Receive, transport, and confirm deliveries within agreed timeframes</em></div></td>
-      <td><div dir="rtl">جداول دقيقة، إثباتات تسليم رقمية، ونظام لإدارة الاستثناءات</div><div dir="ltr"><em>Accurate schedules, digital proof of delivery, and easy exception management</em></div></td>
-    </tr>
-    <tr>
-      <td><div dir="rtl"><strong>📋 المدققون الخارجيون</strong></div><div dir="ltr"><em>External Auditors</em></div></td>
-      <td><div dir="rtl">التحقق من الامتثال المالي والتشغيلي باستخدام سجلات موثوقة</div><div dir="ltr"><em>Validate financial and operational compliance through authoritative records</em></div></td>
-      <td><div dir="rtl">وصول مضبوط للبيانات وسجلات كاملة لكل معاملة وتقارير مراجعة معتمدة</div><div dir="ltr"><em>Controlled data access, full per-transaction logs, and certified audit reports</em></div></td>
-    </tr>
-    <tr>
-      <td><div dir="rtl"><strong>💼 المستثمرون</strong></div><div dir="ltr"><em>Investors</em></div></td>
-      <td><div dir="rtl">متابعة العوائد، فهم خارطة الطريق، ومراقبة مستويات المخاطر</div><div dir="ltr"><em>Track returns, understand the roadmap, and observe risk levels</em></div></td>
-      <td><div dir="rtl">تقارير مختصرة وتوقعات نمو مدعومة ببيانات موثوقة</div><div dir="ltr"><em>Concise governance reports and growth forecasts backed by trustworthy data</em></div></td>
-    </tr>
-  </tbody>
-</table>
+| الفئة<br>Category                             | الدور الرئيسي<br>Primary Role                                                                                                           | التوقع المحوري<br>Key Expectation                                                                                                                        |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 👥 العملاء<br>Customers                       | تنفيذ الطلبات ومتابعة حالتها عبر قنوات متعددة<br>Place orders and monitor status across channels                                        | رحلة ثنائية اللغة شفافة بأسعار واضحة وإشعارات في الوقت الحقيقي<br>Transparent bilingual journey with clear pricing and real-time notifications           |
+| 💬 فريق خدمة العملاء<br>Customer Service Team | استلام الطلبات وتأكيد بيانات العملاء وإدارة الاستفسارات<br>Capture orders, verify customer data, and handle inquiries                   | واجهة سريعة بقوالب استجابة وسجل تفاعل موحد لكل عميل<br>Fast UI with response templates and unified interaction history                                   |
+| ⚙️ فريق العمليات<br>Operations Team           | إدارة المشتريات والتنسيق مع الموردين وتتبع المراحل التشغيلية<br>Manage procurement, vendor coordination, and stage tracking             | لوحة موحدة وتنبيهات استباقية تقلل العمل اليدوي وتمنع الأعطال<br>Unified dashboard with proactive alerts that cut manual work and prevent breakdowns      |
+| 💵 فريق المالية<br>Finance Team               | تسوية المدفوعات وإدارة الأرصدة وإصدار التقارير الدورية<br>Reconcile payments, manage balances, and publish periodic reports             | دقة بيانات ودعم متعدد العملات مع جاهزية تدقيق مستمرة<br>Accurate data, multi-currency support, and continuous audit readiness                            |
+| 🧭 القيادة التنفيذية<br>Executive Leadership  | تحديد الأولويات واعتماد الميزانيات ومراقبة الأداء الاستراتيجي<br>Set priorities, approve budgets, and track strategic performance       | مؤشرات قياس إستراتيجية وقراءات نمو وبدائل مخاطر واضحة<br>Strategic KPIs, growth insights, and transparent risk scenarios                                 |
+| 🛠️ الدعم التقني<br>Tech Support               | إدارة الصلاحيات ومراقبة الأداء وحل المشكلات التقنية<br>Manage roles, monitor performance, and resolve technical issues                  | سجلات أخطاء واضحة، أدوات مراقبة فورية، واختبارات أمن منتظمة<br>Clear error logs, real-time monitoring tools, and recurring security testing              |
+| 🤝 الشركاء التجاريون<br>Commercial Partners   | توفير المنتجات وتحديث الأسعار والمساهمة في عمليات الشحن<br>Provide inventory, update pricing, and support shipping operations           | تكاملات API مستقرة، تقارير عمولات دقيقة، ورؤية آنية للطلبات<br>Stable API integrations, precise commission reports, and live order visibility            |
+| 🚚 مزودو اللوجستيات<br>Logistics Providers    | استلام الشحنات ونقلها وتسليمها وفق الجداول المتفق عليها<br>Receive, transport, and deliver shipments on agreed schedules                | جداول دقيقة، إثباتات تسليم رقمية، وقناة دعم لعمليات الاستثناءات<br>Accurate schedules, digital proof of delivery, and support for exception handling     |
+| 📋 المدققون الخارجيون<br>External Auditors    | التحقق من الالتزام المالي والتشغيلي استنادًا إلى السجلات الرسمية<brValidate financial and operational compliance using official records | وصول مضبوط للبيانات، سجلات كاملة لكل عملية، وتقارير معتمدة للتدقيق<br>Controlled data access, complete per-transaction logs, and certified audit reports |
 
 ---
 
-## 3. 💡 الاحتياجات الجوهرية | Core Needs
+## 3. 🎯 الاحتياجات الجوهرية
 
-**📌 الهدف | Purpose**
+🎯 Core Needs
 
-<p dir="rtl">تحدد النقاط التالية المتطلبات الأساسية التي تحافظ على نجاح المنصة لجميع الأطراف.</p>
-<p dir="ltr"><em>Purpose: The following points capture the essential requirements that keep the platform successful for every group.</em></p>
+**الوصف:**
+تلخص النقاط التالية المتطلبات الأساسية التي تضمن نجاح المنصة لجميع الأطراف.
+**Description:**
+The following highlights the foundational needs that keep the platform successful for every party.
 
-- 🧭 وضوح رحلة العميل من الطلب إلى التسليم يقلل التصعيدات ويعزز الثقة.
-  Customer journey clarity from order to delivery lowers escalations and boosts trust.
-- ⚙️ كفاءة العمليات الداخلية تعتمد على أدوار وصلاحيات متسقة تمنع الازدواجية.
-  Internal efficiency depends on consistent roles and permissions that prevent duplication.
-- 🧾 صرامة السجلات المالية توحد مصادر البيانات وتوفر تتبعًا كاملاً لكل معاملة.
-  Financial record rigor unifies data sources and provides complete traceability for each transaction.
-- 📊 رؤى قيادية استراتيجية توفر مؤشرات أداء وتنبؤات توسّع موثوقة.
-  Strategic leadership insight supplies dependable KPIs and expansion forecasts.
-
----
-
-## 4. 🤝 استراتيجيات التفاعل | Engagement Strategies
-
-**📌 الهدف | Purpose**
-
-<p dir="rtl">توفر النقاط أدناه أساليب ثابتة للتواصل والمتابعة تحفظ الشراكة الفعالة.</p>
-<p dir="ltr"><em>Purpose: The items below outline consistent communication and follow-up practices that secure effective partnerships.</em></p>
-
-- 📡 اختيار القناة المناسبة لكل فئة بين لوحات البيانات والبريد والاجتماعات المشتركة.
-  Assign the optimal channel to each group, balancing dashboards, email, and joint workshops.
-- 🗓️ نشر تقارير تشغيل أسبوعية ومراجعات استراتيجية شهرية دون انقطاع.
-  Publish weekly operational reports and monthly strategic reviews without interruption.
-- ⏱️ تحديد حدود زمنية واضحة للردود الداخلية والخارجية مع مسار تصعيد موثق.
-  Define explicit turnaround thresholds for internal and external responses with a documented escalation route.
-- 🧑‍🤝‍🧑 عقد جلسات تطوير ربع سنوية مع الشركاء والموردين لبناء الثقة واكتشاف فرص التحسين.
-  Hold quarterly improvement sessions with partners and providers to build trust and surface enhancement opportunities.
+- 🧾 وضوح رحلة العميل يضمن تقديم معلومات شفافة من الطلب حتى التسليم وتقليل التصعيدات.
+  🧾 Customer journey clarity guarantees transparent information from order to delivery and minimizes escalations.
+- ⚙️ الكفاءة الداخلية تمكّن الفرق من إنجاز المهام دون ازدواجية عبر سياسات أدوار وأذونات متناسقة.
+  ⚙️ Internal efficiency enables teams to finish tasks without duplication through consistent role and permission policies.
+- 💼 صرامة مالية قابلة للتدقيق توحد مصادر البيانات وتتيح تتبعًا كاملًا لكل معامل.
+  💼 Auditable financial rigor unifies data sources and provides complete traceability for every transaction.
+- 📊 بصيرة قيادية استراتيجية تمنح الإدارة مؤشرات أداء وتنبؤات تدعم قرارات التوسع.
+  📊 Strategic leadership insight equips executives with KPIs and forecasts that back expansion decisions.
 
 ---
 
-## 5. 🔄 دورة التغذية الراجعة | Feedback Cycle
+## 4. 📣 استراتيجيات التفاعل
 
-**📌 الهدف | Purpose**
+📣 Engagement Strategies
 
-<p dir="rtl">يبين المخطط كيفية جمع الملاحظات وتحويلها إلى تحسينات مستمرة قابلة للقياس.</p>
-<p dir="ltr"><em>Purpose: The diagram shows how feedback is captured and turned into measurable continuous improvements.</em></p>
+**الوصف:**
+توضح النقاط آليات التواصل والمتابعة لكل فئة لضمان مشاركة فعّالة ومستدامة.
+**Description:**
+The items detail communication and follow-up practices that secure sustained, effective engagement.
+
+- 📬 قنوات تواصل موجهة تحدد لكل شريحة القناة الأنسب مثل اللوحات أو البريد أو مجموعات العمل.
+  📬 Tailored communication channels assign the right medium—dashboards, email, or working groups—to each segment.
+- 📅 جدول تحديثات منتظم يضمن نشر التقارير التشغيلية أسبوعيًا والاستراتيجية شهريًا دون تأخير.
+  📅 Scheduled updates ensure weekly operational reports and monthly strategic reviews are published without delay.
+- ⏱️ حدود زمنية واضحة للاستجابة تعرف الأطر القصوى للرد على الطلبات والاستفسارات الداخلية والخارجية.
+  ⏱️ Clear response thresholds define maximum turnaround times for internal and external requests.
+- 🤝 مشاركة تعاونية عبر جلسات مشتركة تعزز الثقة مع الشركاء ومزودي الخدمات وتكشف فرص التحسين.
+  🤝 Collaborative sessions with partners and providers strengthen trust and uncover improvement opportunities.
+
+---
+
+## 5. 🔁 دورة التغذية الراجعة
+
+🔁 Feedback Cycle
+
+**الوصف:**
+يعرض الرسم خطوات جمع الملاحظات ومعالجتها لتغذية التحسين المستمر.
+**Description:**
+The diagram depicts how feedback is captured and processed to fuel continuous improvement.
 
 ```mermaid
 flowchart TD
-  %% ====== Nodes ======
-  TRG["🎯 حدث العميل\\nCustomer Event"]:::start
-  CAP["📝 التقاط الرأي\\nCapture Feedback"]:::stage
-  TRI["🧮 فرز الأولويات\\nTriage"]:::stage
-  ACT["🛠️ خطة الإجراء\\nAction Plan"]:::action
-  NTF["📣 إبلاغ أصحاب المصلحة\\nCommunicate"]:::stage
-  MES["📊 قياس الأثر\\nMeasure Impact"]:::stage
-  ARC["📚 الأرشفة والتعلم\\nArchive & Learn"]:::terminal
-  LEAD["🏆 تقارير القيادة\\nLeadership Reports"]:::stake
-
-  %% ====== Flows ======
-  TRG --> CAP --> TRI --> ACT --> NTF --> MES --> ARC --> TRG
-  MES -.-> LEAD
-
-  %% ====== Styles ======
-  classDef start fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#0c4a6e,rx:14,ry:14;
-  classDef stage fill:#f8fafc,stroke:#94a3b8,stroke-width:1.5px,color:#0f172a,rx:12,ry:12;
-  classDef action fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#064e3b,rx:12,ry:12;
-  classDef terminal fill:#fef9c3,stroke:#eab308,stroke-width:1.5px,color:#713f12,rx:12,ry:12;
-  classDef stake fill:#ede9fe,stroke:#7c3aed,stroke-width:1.5px,color:#3b0764,rx:12,ry:12;
-
-  linkStyle default stroke:#64748b,stroke-width:1.5px
-  %% مثال لتلوين روابط معيّنة (اختياري): linkStyle 7 stroke:#7c3aed,stroke-dasharray:4 2,stroke-width:1.5px
+  Trigger["حدث العميل\nCustomer Event"] --> Capture["التقاط الملاحظة\nCapture Feedback"]
+  Capture --> Triage["تصنيف الأولوية\nTriage"]
+  Triage --> Action["خطة الإجراء\nAction Plan"]
+  Action --> Notify["إبلاغ الأطراف\nCommunicate"]
+  Notify --> Measure["قياس الأثر\nMeasure Impact"]
+  Measure --> Archive["أرشفة وتعلم\nArchive & Learn"]
+  Archive --> Trigger
+  Measure --> Leadership["تقارير القيادة\nLeadership Reports"]
 ```
 
-- 🧾 تحويل كل ملاحظة إلى تذكرة محددة المسؤول والموعد النهائي يحافظ على المساءلة.
-  Converting every comment into a ticket with an owner and due date preserves accountability.
-- 📞 ربط القنوات الأمامية بفريق الدعم يمنع فقدان الرسائل ويضمن المتابعة الكاملة.
-  Linking front-line channels to the support team prevents message loss and ensures full follow-through.
-- 🧠 أرشفة النتائج بشكل دوري توسع قاعدة المعرفة وتدعم التدريب المتكرر.
-  Periodic archiving expands the knowledge base and supports recurring enablement.
+- 🗂️ منهجية حل منهجية تحول كل ملاحظة إلى تذكرة بمالك وتاريخ استحقاق معروف.
+  🗂️ Structured resolution turns every feedback item into a ticket with a defined owner and due date.
+- 🔄 الربط التشغيلي بين القنوات الأمامية وفِرق الدعم يمنع ضياع الرسائل ويضمن المتابعة.
+  🔄 Operational linkage between front channels and support teams prevents message loss and secures follow-through.
+- 📚 الأرشفة المتكررة تبني قاعدة معرفة تزيد ثقة العملاء وتدعم التدريب الداخلي.
+  📚 Regular archiving grows the knowledge base, boosting customer trust and supporting internal training.
 
 ---
 
-## 6. 🗂️ مصفوفة المسؤوليات (RACI) | Responsibility Matrix (RACI)
+## 6. 🧮 مصفوفة المسؤوليات (RACI)
 
-**📌 الهدف | Purpose**
+🧮 Responsibility Matrix (RACI)
 
-<p dir="rtl">يوزع الجدول أدوار RACI للأنشطة المحورية حتى تبقى الخطوط الوظيفية واضحة وفعّالة.</p>
-<p dir="ltr"><em>Purpose: The table assigns RACI roles to critical activities, keeping functional boundaries clear and effective.</em></p>
+**الوصف:**
+يوضح الجدول توزيع الأدوار لكل نشاط رئيسي باستخدام نموذج RACI.
+**Description:**
+The matrix allocates roles for each key activity following the RACI model.
 
-<table class="doc-table">
-  <thead>
-    <tr>
-      <th><span dir="rtl">📌 النشاط</span><br><span dir="ltr"><i>Activity</i></span></th>
-      <th><span dir="rtl">👷 المسؤول</span><br><span dir="ltr"><i>Responsible (R)</i></span></th>
-      <th><span dir="rtl">🧑‍💼 المُحاسَب</span><br><span dir="ltr"><i>Accountable (A)</i></span></th>
-      <th><span dir="rtl">👥 المستشارون</span><br><span dir="ltr"><i>Consulted (C)</i></span></th>
-      <th><span dir="rtl">📢 الجهات المُخطَرة</span><br><span dir="ltr"><i>Informed (I)</i></span></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><div dir="rtl"><strong>📨 استقبال الطلبات الجديدة</strong></div><div dir="ltr"><em>New Order Intake</em></div></td>
-      <td><div dir="rtl">🎧 دعم العملاء</div><div dir="ltr"><em>Customer Service</em></div></td>
-      <td><div dir="rtl">🏭 العمليات</div><div dir="ltr"><em>Operations</em></div></td>
-      <td><div dir="rtl">🛠️ الدعم التقني، 💰 المالية</div><div dir="ltr"><em>Tech Support, Finance</em></div></td>
-      <td><div dir="rtl">🏆 القيادة</div><div dir="ltr"><em>Leadership</em></div></td>
-    </tr>
-    <tr>
-      <td><div dir="rtl"><strong>🚚 تحديث حالة الشحن</strong></div><div dir="ltr"><em>Update Shipment Status</em></div></td>
-      <td><div dir="rtl">🏭 العمليات</div><div dir="ltr"><em>Operations</em></div></td>
-      <td><div dir="rtl">💰 المالية</div><div dir="ltr"><em>Finance</em></div></td>
-      <td><div dir="rtl">🚚 مقدمو الخدمات اللوجستية</div><div dir="ltr"><em>Logistics Providers</em></div></td>
-      <td><div dir="rtl">🎧 دعم العملاء</div><div dir="ltr"><em>Customer Service</em></div></td>
-    </tr>
-    <tr>
-      <td><div dir="rtl"><strong>💳 مطابقة الدفعات</strong></div><div dir="ltr"><em>Payment Reconciliation</em></div></td>
-      <td><div dir="rtl">💰 المالية</div><div dir="ltr"><em>Finance</em></div></td>
-      <td><div dir="rtl">🏆 القيادة</div><div dir="ltr"><em>Leadership</em></div></td>
-      <td><div dir="rtl">🏭 العمليات</div><div dir="ltr"><em>Operations</em></div></td>
-      <td><div dir="rtl">🤝 الشركاء، 📋 المدققون</div><div dir="ltr"><em>Partners, Auditors</em></div></td>
-    </tr>
-    <tr>
-      <td><div dir="rtl"><strong>🚀 إطلاق ميزة جديدة</strong></div><div dir="ltr"><em>Launch New Feature</em></div></td>
-      <td><div dir="rtl">🛠️ الدعم التقني</div><div dir="ltr"><em>Tech Support</em></div></td>
-      <td><div dir="rtl">🏆 القيادة</div><div dir="ltr"><em>Leadership</em></div></td>
-      <td><div dir="rtl">🎧 خدمة العملاء، 💰 المالية</div><div dir="ltr"><em>Customer Service, Finance</em></div></td>
-      <td><div dir="rtl">📢 جميع أصحاب المصلحة المتأثرين</div><div dir="ltr"><em>All impacted stakeholders</em></div></td>
-    </tr>
-  </tbody>
-</table>
+| النشاط<br>Activity                         | المسؤول<br>Responsible           | المعتمد<br>Accountable | المستشارون<br>Consulted                            | المطلعون<br>Informed                                      |
+| ------------------------------------------ | -------------------------------- | ---------------------- | -------------------------------------------------- | --------------------------------------------------------- |
+| استقبال الطلب الجديد<br>New order intake   | خدمة العملاء<br>Customer Service | العمليات<br>Operations | التقنية، المالية<br>Tech, Finance                  | القيادة<br>Leadership                                     |
+| تحديث حالة الشحن<br>Update shipment status | العمليات<br>Operations           | المالية<br>Finance     | مزودو اللوجستيات<br>Logistics Providers            | خدمة العملاء<br>Customer Service                          |
+| تسوية المدفوعات<br>Payment reconciliation  | المالية<br>Finance               | القيادة<br>Leadership  | العمليات<br>Operations                             | الشركاء والمدققون<br>Partners, Auditors                   |
+| إطلاق ميزة جديدة<br>Launch new feature     | الدعم التقني<br>Tech Support     | القيادة<br>Leadership  | خدمة العملاء، المالية<br>Customer Service, Finance | جميع أصحاب المصلحة المتأثرين<br>All impacted stakeholders |
 
 ---
 
-## 7. 📈 مؤشرات المتابعة | Monitoring Indicators
+## 7. 📈 مؤشرات المتابعة
 
-**📌 الهدف | Purpose**
+📈 Monitoring Indicators
 
-<p dir="rtl">تساعد المؤشرات على قياس تأثير إدارة أصحاب المصلحة وتوجيه التحسين المستمر.</p>
-<p dir="ltr"><em>The indicators measure the impact of stakeholder management and guide continuous improvement.</em></p>
+**الوصف:**
+تعرض المؤشرات المقترحة آلية قياس الأداء النوعي والرقمي للأطراف المختلفة.
+**Description:**
+The indicators provide quantitative and qualitative measurements for stakeholder-focused performance.
 
-**⏱️ معدل الاستجابة للشكاوى | Complaint Response Rate**
+- ⏳ معدل الاستجابة للشكاوى يقيس نسبة الردود ضمن اتفاقيات مستوى الخدمة ويكشف الاختناقات مبكرًا.
+  ⏳ Complaint response rate measures replies within SLA targets and surfaces bottlenecks early.
+- 💰 زمن إغلاق الدورة المالية يتتبع المدة بين المعاملة والتسوية النهائية لدعم قرارات الاستثمار والتدقيق.
+  💰 Financial cycle closure time tracks the span from transaction to reconciliation, aiding investment and audit decisions.
+- 🤝 مؤشر رضا الشركاء يجمع تقييمات جودة التكامل والدعم للحفاظ على الحصة السوقية وتوسيع شبكة الموردين.
+  🤝 Partner satisfaction index captures integration and support ratings to protect market share and expand supplier networks.
 
-- يختبر الالتزام بمستويات الخدمة ويسلط الضوء على الاختناقات.  
-  _Tests SLA compliance and exposes emerging bottlenecks._
-
-**💸 زمن إغلاق الدورة المالية | Financial Cycle Closure Time**
-
-- يتتبع المدة من المعاملة حتى التسوية لتوجيه قرارات الاستثمار والتدقيق.  
-  _Tracks the span from transaction to reconciliation to guide investment and audit decisions._
-
-**🤝 مؤشر رضا الشركاء | Partner Satisfaction Index**
-
-- يقيس جودة التكامل والدعم ويحمي الحصة السوقية مع توسيع شبكة الموردين.  
-  _Gauges integration quality and support, protecting market share while expanding the supplier network._
+---
