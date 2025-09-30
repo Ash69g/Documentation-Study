@@ -57,5 +57,8 @@
   },
 
   // السماح بالكلمات المركّبة
-  "cSpell.allowCompoundWords": true
+  "cSpell.allowCompoundWords": true,
+  "cSpell.words": [
+    "الشايف"
+  ]
 }
